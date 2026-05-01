@@ -1,0 +1,11 @@
+{
+  "timestamp": "2026-05-01T16:16:30.414Z",
+  "publicUrl": "",
+  "microfrontends": {
+    "@linm/root-config": {
+      "url": "/linm-root-config.js",
+      "filename": "linm-root-config.js",
+      "chunks": 0
+    }
+  }
+}

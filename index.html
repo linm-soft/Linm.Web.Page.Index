@@ -1,0 +1,49 @@
+<!doctype html><html lang="vi"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/><meta http-equiv="X-UA-Compatible" content="ie=edge"/><meta name="robots" content="noindex,nofollow"/><title>QLCV & Sự Cố Y Khoa</title><link rel="icon" type="image/png" href="/icons/logo.png"/><meta name="theme-color" content="#2563eb"/><meta name="mobile-web-app-capable" content="yes"/><meta name="apple-mobile-web-app-capable" content="yes"/><meta name="apple-mobile-web-app-status-bar-style" content="default"/><meta name="apple-mobile-web-app-title" content="QLCV & SC Y Khoa"/><link rel="apple-touch-icon" href="/icons/icon-192.png"/><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous"/><meta name="importmap-type" content="systemjs-importmap"/><meta http-equiv="Cache-control" content="no-cache, no-store, must-revalidate"/><meta http-equiv="Pragma" content="no-cache"/><link rel="preload" href="/system.min.js" as="script" crossorigin="anonymous"/><link rel="preload" href="/single-spa.min.js" as="script" crossorigin="anonymous"/><link rel="preload" href="/named-register.js" as="script" crossorigin="anonymous"/><link rel="preload" href="/react.18.2.0.production.min.js" as="script" crossorigin="anonymous"/><link rel="preload" href="/react-dom.18.2.0.production.min.js" as="script" crossorigin="anonymous"/><script type="systemjs-importmap">{
+    "imports": {
+      "single-spa":  "/single-spa.min.js",
+      "react":       "/react.18.2.0.production.min.js",
+      "react-dom":   "/react-dom.18.2.0.production.min.js"
+    }
+  }</script><script type="systemjs-importmap" id="base-importmap">{
+    "imports": {
+      "@linm/root-config":        "/linm-root-config.js"
+    }
+  }</script><script src="/system.min.js"></script><script src="/named-register.js"></script><script src="/import-map-overrides.js"></script><script>(async function() {
+      try {
+        const manifestUrl = '/_manifest.json';
+        console.log('[Manifest Loader] Fetching:', manifestUrl);
+        
+        const response = await fetch(manifestUrl, {
+          cache: 'no-store',
+          headers: { 'Pragma': 'no-cache' }
+        });
+        
+        if (!response.ok) {
+          console.warn('[Manifest Loader] Failed to fetch manifest:', response.status);
+          return;
+        }
+        
+        const manifest = await response.json();
+        console.log('[Manifest Loader] Loaded manifest:', manifest);
+        
+        // Wait for System to be available
+        if (typeof System === 'undefined') {
+          console.warn('[Manifest Loader] SystemJS not yet loaded, retrying...');
+          await new Promise(resolve => setTimeout(resolve, 100));
+          return;
+        }
+        
+        // Register all microfrontends into the SystemJS import map
+        if (manifest.microfrontends) {
+          const imports = {};
+          Object.entries(manifest.microfrontends).forEach(([name, info]) => {
+            console.log(`  ✓ ${name} → ${info.url}`);
+            imports[name] = info.url;
+          });
+          System.addImportMap({ imports });
+          console.log('[Manifest Loader] Import map updated:', Object.keys(imports).length, 'entries');
+        }
+      } catch (err) {
+        console.error('[Manifest Loader] Error:', err);
+      }
+    })();</script></head><body><div class="root-loader"><div class="root-loader__spinner"></div></div><script>System.import('@linm/root-config');</script><import-map-overrides-full show-when-local-storage="overrides-ui"></import-map-overrides-full></body></html>

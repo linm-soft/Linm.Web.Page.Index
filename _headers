@@ -1,0 +1,14 @@
+/index.html
+  Cache-Control: no-cache, no-store, must-revalidate
+
+/*.js
+  Cache-Control: no-cache, must-revalidate
+
+/*.js.map
+  Cache-Control: no-cache, must-revalidate
+
+/*.[a-f0-9]*.js
+  Cache-Control: public, max-age=31536000, immutable
+
+/*.[a-f0-9]*.js.map
+  Cache-Control: public, max-age=31536000, immutable
