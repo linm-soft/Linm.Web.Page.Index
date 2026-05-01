@@ -26,33 +26,27 @@
         const manifest = await response.json();
         console.log('[Manifest Loader] Loaded manifest:', manifest);
         
-        // Merge microfrontends into SystemJS import map
-        if (manifest.microfrontends && typeof System !== 'undefined' && System.set) {
-          const mfImports = {};
+        // Wait for System to be available
+        if (typeof System === 'undefined') {
+          console.warn('[Manifest Loader] SystemJS not yet loaded, retrying...');
+          await new Promise(resolve => setTimeout(resolve, 100));
+          return;
+        }
+        
+        // Register all microfrontends with SystemJS
+        if (manifest.microfrontends) {
           Object.entries(manifest.microfrontends).forEach(([name, info]) => {
-            mfImports[name] = info.url;
-            console.log(`  ✓ ${name} → ${info.url}`);
+            System.resolve(name).then(() => {
+              // Already registered
+              console.log(`  ✓ ${name} already registered`);
+            }).catch(() => {
+              // Not registered, add it
+              console.log(`  ✓ ${name} → ${info.url}`);
+              System.set(name, System.newModule({
+                default: () => System.import(info.url)
+              }));
+            });
           });
-          
-          System.set('__linm_imports__', System.newModule(mfImports));
-          
-          // Update the importmap dynamically
-          const baseMap = document.getElementById('base-importmap');
-          if (baseMap) {
-            const currentMap = JSON.parse(baseMap.textContent);
-            const mergedMap = {
-              imports: {
-                ...currentMap.imports,
-                ...mfImports
-              }
-            };
-            System.set('@system-env', System.newModule({}));
-            
-            // Re-register the import map
-            for (const [key, value] of Object.entries(mfImports)) {
-              System.set(key, System.newModule({}));
-            }
-          }
         }
       } catch (err) {
         console.error('[Manifest Loader] Error:', err);
