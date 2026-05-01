@@ -33,20 +33,15 @@
           return;
         }
         
-        // Register all microfrontends with SystemJS
+        // Register all microfrontends into the SystemJS import map
         if (manifest.microfrontends) {
+          const imports = {};
           Object.entries(manifest.microfrontends).forEach(([name, info]) => {
-            System.resolve(name).then(() => {
-              // Already registered
-              console.log(`  ✓ ${name} already registered`);
-            }).catch(() => {
-              // Not registered, add it
-              console.log(`  ✓ ${name} → ${info.url}`);
-              System.set(name, System.newModule({
-                default: () => System.import(info.url)
-              }));
-            });
+            console.log(`  ✓ ${name} → ${info.url}`);
+            imports[name] = info.url;
           });
+          System.addImportMap({ imports });
+          console.log('[Manifest Loader] Import map updated:', Object.keys(imports).length, 'entries');
         }
       } catch (err) {
         console.error('[Manifest Loader] Error:', err);
