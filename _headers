@@ -1,3 +1,6 @@
+/_manifest.json
+  Cache-Control: no-cache, no-store, must-revalidate
+
 /index.html
   Cache-Control: no-cache, no-store, must-revalidate
 
@@ -7,8 +10,8 @@
 /*.js.map
   Cache-Control: no-cache, must-revalidate
 
-/*.[a-f0-9]*.js
+/*.*.js
   Cache-Control: public, max-age=31536000, immutable
 
-/*.[a-f0-9]*.js.map
+/*.*.js.map
   Cache-Control: public, max-age=31536000, immutable
