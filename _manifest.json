@@ -1,33 +1,11 @@
 {
-  "timestamp": "2026-05-07T17:14:46.588Z",
+  "timestamp": "2026-05-07T17:20:58.693Z",
+  "publicUrl": "",
   "microfrontends": {
-    "@linm/web-home": {
-      "url": "./137.50f847b8.linm-web-home.js",
-      "filename": "137.50f847b8.linm-web-home.js"
-    },
-    "@linm/admin": {
-      "url": "./137.5ad0019e.linm-admin.js",
-      "filename": "137.5ad0019e.linm-admin.js"
-    },
-    "@linm/medical-incidents": {
-      "url": "./137.6ea289bc.linm-medical-incidents.js",
-      "filename": "137.6ea289bc.linm-medical-incidents.js"
-    },
-    "@linm/notification": {
-      "url": "./linm-notification.js",
-      "filename": "linm-notification.js"
-    },
-    "@linm/task": {
-      "url": "./137.e0b730b3.linm-task.js",
-      "filename": "137.e0b730b3.linm-task.js"
-    },
-    "@linm/nav": {
-      "url": "./137.e8766c1d.linm-nav.js",
-      "filename": "137.e8766c1d.linm-nav.js"
-    },
     "@linm/root-config": {
-      "url": "./linm-root-config.js",
-      "filename": "linm-root-config.js"
+      "url": "/linm-root-config.js",
+      "filename": "linm-root-config.js",
+      "chunks": 0
     }
   }
 }
