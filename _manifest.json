@@ -1,11 +1,11 @@
 {
-  "timestamp": "2026-05-07T15:45:53.745Z",
+  "timestamp": "2026-05-07T15:56:04.423Z",
   "microfrontends": {
     "@linm/web-home": {
-      "url": "./linm-web-home.c1175177.js",
-      "filename": "linm-web-home.c1175177.js",
-      "version": "1.0.30",
-      "timebuild": "2026-05-07T15:17:56.890Z"
+      "url": "./linm-web-home.52244f91.js",
+      "filename": "linm-web-home.52244f91.js",
+      "version": "1.0.31",
+      "timebuild": "2026-05-07T15:56:02.462Z"
     },
     "@linm/admin": {
       "url": "./linm-admin.669b1f77.js",
