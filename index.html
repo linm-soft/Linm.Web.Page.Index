@@ -45,5 +45,8 @@
         }
       } catch (err) {
         console.error('[Manifest Loader] Error:', err);
+      } finally {
+        // Boot root-config only after import map is fully registered (or on failure)
+        System.import('@linm/root-config');
       }
-    })();</script></head><body><div class="root-loader"><div class="root-loader__spinner"></div></div><script>System.import('@linm/root-config');</script><import-map-overrides-full show-when-local-storage="overrides-ui"></import-map-overrides-full></body></html>
+    })();</script></head><body><div class="root-loader"><div class="root-loader__spinner"></div></div><import-map-overrides-full show-when-local-storage="overrides-ui"></import-map-overrides-full></body></html>
