@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-05-08T03:55:42.819Z",
+  "timestamp": "2026-05-08T04:39:15.926Z",
   "microfrontends": {
     "@linm/web-home": {
       "url": "./linm-web-home.79dd0af3.js",
@@ -14,16 +14,16 @@
       "timebuild": "2026-05-08T03:53:38.935Z"
     },
     "@linm/medical-incidents": {
-      "url": "./linm-medical-incidents.80daae46.js",
-      "filename": "linm-medical-incidents.80daae46.js",
-      "version": "1.0.11",
-      "timebuild": "2026-05-08T03:52:29.280Z"
+      "url": "./linm-medical-incidents.d0f03451.js",
+      "filename": "linm-medical-incidents.d0f03451.js",
+      "version": "1.0.12",
+      "timebuild": "2026-05-08T04:39:13.379Z"
     },
     "@linm/notification": {
       "url": "./linm-notification.js",
       "filename": "linm-notification.js",
       "version": "unknown",
-      "timebuild": "2026-05-08T03:55:42.819Z"
+      "timebuild": "2026-05-08T04:39:15.926Z"
     },
     "@linm/task": {
       "url": "./linm-task.2f1648aa.js",
