@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-05-26T16:58:28.231Z",
+  "timestamp": "2026-05-26T17:14:13.113Z",
   "microfrontends": {
     "@linm/web-home": {
       "url": "/linm-web-home.79dd0af3.js",
@@ -11,7 +11,7 @@
       "url": "/linm-notification.js",
       "filename": "linm-notification.js",
       "version": "unknown",
-      "timebuild": "2026-05-26T16:58:28.231Z"
+      "timebuild": "2026-05-26T17:14:13.113Z"
     },
     "@linm/task": {
       "url": "/linm-task.2f1648aa.js",
@@ -32,10 +32,10 @@
       "timebuild": "2026-05-08T13:49:23.812Z"
     },
     "@linm/nav": {
-      "url": "/linm-nav.c11a7221.js",
-      "filename": "linm-nav.c11a7221.js",
-      "version": "1.0.15",
-      "timebuild": "2026-05-26T16:58:28.208Z"
+      "url": "/linm-nav.b9b1cd9b.js",
+      "filename": "linm-nav.b9b1cd9b.js",
+      "version": "1.0.16",
+      "timebuild": "2026-05-26T17:14:13.092Z"
     },
     "@linm/root-config": {
       "url": "/linm-root-config.js",
