@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-06-01T11:19:05.090Z",
+  "timestamp": "2026-06-01T11:19:42.145Z",
   "microfrontends": {
     "@linm/notification": {
       "url": "/linm-notification.js",
@@ -37,8 +37,8 @@
     "@linm/nav": {
       "url": "/linm-nav.c724d9e9.js",
       "filename": "linm-nav.c724d9e9.js",
-      "version": "1.0.20",
-      "timebuild": "2026-06-01T11:19:05.092Z"
+      "version": "1.0.21",
+      "timebuild": "2026-06-01T11:19:42.147Z"
     },
     "@linm/root-config": {
       "url": "/linm-root-config.js",
