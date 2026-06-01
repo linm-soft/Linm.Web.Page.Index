@@ -1,4 +1,7 @@
 {
-  "version": "1.0.20",
-  "timebuild": "2026-05-26T18:08:32.251Z"
+  "version": "1.0.21",
+  "timebuild": "2026-06-01T06:59:34.696Z",
+  "routes": [
+    "admin"
+  ]
 }
