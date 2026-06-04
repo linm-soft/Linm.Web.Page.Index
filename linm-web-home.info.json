@@ -1,6 +1,6 @@
 {
-  "version": "1.0.43",
-  "timebuild": "2026-06-03T05:02:14.124Z",
+  "version": "1.0.44",
+  "timebuild": "2026-06-04T14:53:28.420Z",
   "routes": [
     "login",
     "settings",
