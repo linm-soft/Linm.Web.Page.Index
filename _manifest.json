@@ -1,11 +1,11 @@
 {
-  "timestamp": "2026-06-05T20:35:25.670Z",
+  "timestamp": "2026-06-05T20:35:50.619Z",
   "microfrontends": {
     "@linm/notification": {
       "url": "/linm-notification.js",
       "filename": "linm-notification.js",
-      "version": "1.0.12",
-      "timebuild": "2026-06-05T19:55:42.307Z"
+      "version": "1.0.13",
+      "timebuild": "2026-06-05T20:35:50.621Z"
     },
     "@linm/task": {
       "url": "/linm-task.2f1648aa.js",
@@ -32,7 +32,7 @@
       "url": "/linm-message.js",
       "filename": "linm-message.js",
       "version": "1.0.8",
-      "timebuild": "2026-06-05T20:35:25.672Z"
+      "timebuild": "2026-06-05T20:35:25.670Z"
     },
     "@linm/nav": {
       "url": "/linm-nav.ae6e3cfd.js",
