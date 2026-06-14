@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-06-14T02:46:07.599Z",
+  "timestamp": "2026-06-14T03:21:47.439Z",
   "microfrontends": {
     "@linm/notification": {
       "url": "/linm-notification.js",
@@ -20,10 +20,10 @@
       "timebuild": "2026-05-26T17:56:54.331Z"
     },
     "@linm/admin": {
-      "url": "/linm-admin.40b831cd.js",
-      "filename": "linm-admin.40b831cd.js",
-      "version": "1.0.82",
-      "timebuild": "2026-06-14T02:46:07.601Z",
+      "url": "/linm-admin.7f6a9185.js",
+      "filename": "linm-admin.7f6a9185.js",
+      "version": "1.0.83",
+      "timebuild": "2026-06-14T03:21:47.441Z",
       "routes": [
         "admin"
       ]
