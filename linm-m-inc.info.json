@@ -1,7 +1,7 @@
 {
-  "version": "1.0.26",
-  "timebuild": "2026-06-02T13:16:31.349Z",
+  "version": "1.0.35",
+  "timebuild": "2026-06-16T18:52:18.207Z",
   "routes": [
-    "m-inc"
+    "scyk"
   ]
 }
