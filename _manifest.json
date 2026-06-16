@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-06-16T17:27:27.493Z",
+  "timestamp": "2026-06-16T18:08:34.132Z",
   "microfrontends": {
     "@linm/notification": {
       "url": "/linm-notification.js",
@@ -38,7 +38,7 @@
       "url": "/linm-nav.3231e4ba.js",
       "filename": "linm-nav.3231e4ba.js",
       "version": "1.0.25",
-      "timebuild": "2026-06-16T17:27:27.495Z"
+      "timebuild": "2026-06-16T17:27:27.493Z"
     },
     "@linm/root-config": {
       "url": "/linm-root-config.js",
@@ -47,15 +47,16 @@
       "timebuild": "2026-06-09T18:33:28.909Z"
     },
     "@linm/web-home": {
-      "url": "/linm-web-home.ee74083e.js",
-      "filename": "linm-web-home.ee74083e.js",
-      "version": "1.0.54",
-      "timebuild": "2026-06-07T10:12:41.957Z",
+      "url": "/linm-web-home.47a851b9.js",
+      "filename": "linm-web-home.47a851b9.js",
+      "version": "1.0.55",
+      "timebuild": "2026-06-16T18:08:34.134Z",
       "routes": [
         "login",
         "settings",
         "notifications",
         "messages",
+        "tra-cuu-tk",
         "help",
         "faq",
         "contact",

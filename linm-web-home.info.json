@@ -1,11 +1,12 @@
 {
-  "version": "1.0.54",
-  "timebuild": "2026-06-07T10:12:41.957Z",
+  "version": "1.0.55",
+  "timebuild": "2026-06-16T18:08:34.132Z",
   "routes": [
     "login",
     "settings",
     "notifications",
     "messages",
+    "tra-cuu-tk",
     "help",
     "faq",
     "contact",
