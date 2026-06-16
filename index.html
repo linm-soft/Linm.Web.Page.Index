@@ -49,6 +49,31 @@
         
         const manifest = await response.json();
         console.log('[Manifest Loader] Loaded manifest:', manifest);
+
+        const LEGACY_MF_ALIASES = {&quot;@linm/inc&quot;:&quot;@linm/m-inc&quot;,&quot;@linm/medical-incidents&quot;:&quot;@linm/m-inc&quot;};
+        const resolveMfeName = (name) => LEGACY_MF_ALIASES[name] || name;
+
+        // Merge legacy manifest keys (e.g. @linm/inc) into canonical (@linm/m-inc).
+        if (manifest.microfrontends) {
+          for (const [legacyName, canonicalName] of Object.entries(LEGACY_MF_ALIASES)) {
+            const legacyEntry = manifest.microfrontends[legacyName];
+            if (!legacyEntry) continue;
+            const canonicalEntry = manifest.microfrontends[canonicalName] || {};
+            manifest.microfrontends[canonicalName] = {
+              ...legacyEntry,
+              ...canonicalEntry,
+              url: canonicalEntry.url || legacyEntry.url,
+              filename: canonicalEntry.filename || legacyEntry.filename,
+              routes: Array.from(new Set([
+                ...(legacyEntry.routes || []),
+                ...(canonicalEntry.routes || []),
+              ])),
+            };
+            delete manifest.microfrontends[legacyName];
+            console.log(`[Manifest Loader] Merged legacy ${legacyName} → ${canonicalName}`);
+          }
+        }
+
         window.__LINM_MF_MANIFEST__ = manifest;
         
         // Wait for System to be available
@@ -62,8 +87,15 @@
         if (manifest.microfrontends) {
           const imports = {};
           Object.entries(manifest.microfrontends).forEach(([name, info]) => {
-            imports[name] = info.url;
+            imports[resolveMfeName(name)] = info.url;
           });
+
+          // Legacy import-map names → same bundle URL as canonical entry.
+          for (const [legacyName, canonicalName] of Object.entries(LEGACY_MF_ALIASES)) {
+            if (imports[canonicalName]) {
+              imports[legacyName] = imports[canonicalName];
+            }
+          }
 
           // import-map-overrides localStorage — merge AFTER manifest (addImportMap ghi đè DOM overrides)
           if (window.importMapOverrides) {
