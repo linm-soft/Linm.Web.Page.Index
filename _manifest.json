@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-06-16T14:33:43.189Z",
+  "timestamp": "2026-06-16T14:44:36.348Z",
   "microfrontends": {
     "@linm/notification": {
       "url": "/linm-notification.js",
@@ -14,10 +14,10 @@
       "timebuild": "2026-05-08T03:55:40.784Z"
     },
     "@linm/medical-incidents": {
-      "url": "/linm-medical-incidents.4f9dc153.js",
-      "filename": "linm-medical-incidents.4f9dc153.js",
-      "version": "1.0.22",
-      "timebuild": "2026-06-16T14:33:43.191Z"
+      "url": "/linm-medical-incidents.51acc3a7.js",
+      "filename": "linm-medical-incidents.51acc3a7.js",
+      "version": "1.0.23",
+      "timebuild": "2026-06-16T14:44:36.350Z"
     },
     "@linm/admin": {
       "url": "/linm-admin.07073a52.js",
