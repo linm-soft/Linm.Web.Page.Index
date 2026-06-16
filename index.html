@@ -50,7 +50,7 @@
         const manifest = await response.json();
         console.log('[Manifest Loader] Loaded manifest:', manifest);
 
-        const LEGACY_MF_ALIASES = {&quot;@linm/inc&quot;:&quot;@linm/m-inc&quot;,&quot;@linm/medical-incidents&quot;:&quot;@linm/m-inc&quot;};
+        const LEGACY_MF_ALIASES = {"@linm/inc":"@linm/m-inc","@linm/medical-incidents":"@linm/m-inc"};
         const resolveMfeName = (name) => LEGACY_MF_ALIASES[name] || name;
 
         // Merge legacy manifest keys (e.g. @linm/inc) into canonical (@linm/m-inc).
