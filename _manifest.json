@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-06-19T19:09:23.281Z",
+  "timestamp": "2026-06-24T05:14:43.075Z",
   "microfrontends": {
     "@linm/notification": {
       "url": "/linm-notification.js",
@@ -60,10 +60,10 @@
       "default": true
     },
     "@linm/m-inc": {
-      "url": "/linm-m-inc.d56f881a.js",
-      "filename": "linm-m-inc.d56f881a.js",
-      "version": "1.0.47",
-      "timebuild": "2026-06-19T19:09:23.283Z",
+      "url": "/linm-m-inc.e82d4861.js",
+      "filename": "linm-m-inc.e82d4861.js",
+      "version": "1.0.48",
+      "timebuild": "2026-06-24T05:14:43.077Z",
       "routes": [
         "scyk"
       ]
