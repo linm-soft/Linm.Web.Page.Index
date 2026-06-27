@@ -1,8 +1,9 @@
 {
-  "version": "1.0.65",
-  "timebuild": "2026-06-27T06:06:12.684Z",
+  "version": "1.0.66",
+  "timebuild": "2026-06-27T06:20:11.972Z",
   "routes": [
     "login",
+    "logout",
     "settings",
     "notifications",
     "messages",

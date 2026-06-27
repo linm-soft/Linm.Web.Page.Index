@@ -1,6 +1,7 @@
 {
   "routes": [
     "login",
+    "logout",
     "settings",
     "notifications",
     "messages",
