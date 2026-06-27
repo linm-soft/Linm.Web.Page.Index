@@ -1,6 +1,6 @@
 {
-  "version": "1.0.61",
-  "timebuild": "2026-06-16T20:36:58.612Z",
+  "version": "1.0.62",
+  "timebuild": "2026-06-27T02:26:49.839Z",
   "routes": [
     "login",
     "settings",
@@ -11,7 +11,9 @@
     "faq",
     "contact",
     "install-guide",
-    "notification-guide"
+    "notification-guide",
+    "unauthorized",
+    "session-expired"
   ],
   "default": true
 }

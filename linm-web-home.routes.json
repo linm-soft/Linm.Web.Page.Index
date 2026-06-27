@@ -9,7 +9,9 @@
     "faq",
     "contact",
     "install-guide",
-    "notification-guide"
+    "notification-guide",
+    "unauthorized",
+    "session-expired"
   ],
   "default": true
 }
