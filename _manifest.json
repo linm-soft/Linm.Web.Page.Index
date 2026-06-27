@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-06-27T06:48:22.527Z",
+  "timestamp": "2026-06-27T06:48:25.428Z",
   "microfrontends": {
     "@linm/notification": {
       "url": "/linm-notification.js",
@@ -17,7 +17,7 @@
       "url": "/linm-admin.8d5a0643.js",
       "filename": "linm-admin.8d5a0643.js",
       "version": "1.0.100",
-      "timebuild": "2026-06-27T06:48:22.529Z",
+      "timebuild": "2026-06-27T06:48:22.527Z",
       "routes": [
         "admin"
       ]
@@ -29,10 +29,10 @@
       "timebuild": "2026-06-07T10:12:51.895Z"
     },
     "@linm/nav": {
-      "url": "/linm-nav.4ea1f069.js",
-      "filename": "linm-nav.4ea1f069.js",
-      "version": "1.0.34",
-      "timebuild": "2026-06-19T19:07:11.063Z"
+      "url": "/linm-nav.f56f288a.js",
+      "filename": "linm-nav.f56f288a.js",
+      "version": "1.0.35",
+      "timebuild": "2026-06-27T06:48:25.429Z"
     },
     "@linm/root-config": {
       "url": "/linm-root-config.js",
