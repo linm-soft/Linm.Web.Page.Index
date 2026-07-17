@@ -124,59 +124,63 @@
         try { await System.import('react-dom'); } catch(e) { console.error('[Manifest Loader] react-dom preload failed:', e); }
         System.import('@linm/root-config');
       }
-    })();</script></head><body><div id="navigation"></div><div class="root-loader"><div class="root-loader__spinner"></div></div><import-map-overrides-full show-when-local-storage="overrides-ui"></import-map-overrides-full><script>if ('serviceWorker' in navigator) {
-      window.addEventListener('load', function() {
-        var RELOAD_KEY = '_mf_deploy_reload';
-        var MAX_RELOADS = 2;
+    })();</script></head><body><div id="navigation"></div><div class="root-loader"><div class="root-loader__spinner"></div></div><import-map-overrides-full show-when-local-storage="overrides-ui"></import-map-overrides-full><script>(function() {
+      if (!('serviceWorker' in navigator)) return;
 
-        function scheduleDeployReload(reason, delayMs) {
-          delayMs = delayMs || 1500;
-          var reloads = Number(sessionStorage.getItem(RELOAD_KEY) || 0);
-          if (reloads >= MAX_RELOADS) return false;
-          sessionStorage.setItem(RELOAD_KEY, String(reloads + 1));
-          console.warn('[DeployRecovery] ' + reason + ' — reloading in ' + delayMs + 'ms');
-          setTimeout(function() { window.location.reload(); }, delayMs);
-          return true;
+      var RELOAD_KEY = '_mf_deploy_reload_ts';
+      var RELOAD_WINDOW_MS = 30 * 60 * 1000;  // 30 minutes
+      var MAX_RELOADS = 3;
+
+      function scheduleDeployReload(reason, delayMs) {
+        delayMs = delayMs || 1500;
+        var now = Date.now();
+        try {
+          var raw = sessionStorage.getItem(RELOAD_KEY);
+          var timestamps = raw ? JSON.parse(raw) : [];
+          var recent = timestamps.filter(function(t) { return now - t < RELOAD_WINDOW_MS; });
+          if (recent.length >= MAX_RELOADS) return false;
+          recent.push(now);
+          sessionStorage.setItem(RELOAD_KEY, JSON.stringify(recent));
+        } catch(e) {
+          if (Number(sessionStorage.getItem('_mf_deploy_reload') || 0) >= 2) return false;
         }
+        console.warn('[DeployRecovery] ' + reason + ' — reloading in ' + delayMs + 'ms');
+        setTimeout(function() { window.location.reload(); }, delayMs);
+        return true;
+      }
 
-        var swUrl = '/sw.js';
-        var reloadOnController = false;
+      var swUrl = '/sw.js';
 
-        navigator.serviceWorker.register(swUrl, { updateViaCache: 'none' }).then(function(reg) {
-          reg.addEventListener('updatefound', function() {
-            var worker = reg.installing;
-            if (!worker) return;
-            worker.addEventListener('statechange', function() {
-              if (worker.state === 'activated' && navigator.serviceWorker.controller) {
-                reloadOnController = true;
-              }
-            });
-          });
-          setInterval(function() { reg.update(); }, 60 * 60 * 1000);
-        }).catch(function(err) {
-          console.warn('[PWA] Service worker registration failed:', err);
+      navigator.serviceWorker.register(swUrl, { updateViaCache: 'none' }).then(function(reg) {
+        // Hourly update check — catches deploy when user is tabbed away for hours
+        setInterval(function() { reg.update(); }, 60 * 60 * 1000);
+
+        // Listen for SW_ACTIVATED message from the new service worker.
+        // When detected, the page has been controlling a stale cache.
+        // Reload to pick up fresh _manifest.json and bundles.
+        navigator.serviceWorker.addEventListener('message', function(event) {
+          if (event.data && event.data.type === 'SW_ACTIVATED') {
+            console.log('[PWA] New SW version activated — will reload if MFEs are stale');
+            scheduleDeployReload('service worker activated');
+          }
         });
-
-        navigator.serviceWorker.addEventListener('controllerchange', function() {
-          if (!reloadOnController) return;
-          reloadOnController = false;
-          scheduleDeployReload('service worker updated');
-        });
-
-        // Long-lived tab: refetch manifest when user returns — reload if a new deploy landed.
-        document.addEventListener('visibilitychange', function() {
-          if (document.visibilityState !== 'visible') return;
-          var base = '/_manifest.json';
-          fetch(base + '?_=' + Date.now(), { cache: 'no-store', headers: { Pragma: 'no-cache' } })
-            .then(function(r) { return r.ok ? r.json() : null; })
-            .then(function(m) {
-              if (!m || !m.timestamp) return;
-              var prev = window.__LINM_MANIFEST_TS__;
-              if (prev && m.timestamp !== prev) {
-                scheduleDeployReload('manifest timestamp changed');
-              }
-            })
-            .catch(function() {});
-        });
+      }).catch(function(err) {
+        console.warn('[PWA] Service worker registration failed:', err);
       });
-    }</script></body></html>
+
+      // Long-lived tab: refetch manifest when user returns — reload if a new deploy landed.
+      document.addEventListener('visibilitychange', function() {
+        if (document.visibilityState !== 'visible') return;
+        var base = '/_manifest.json';
+        fetch(base + '?_=' + Date.now(), { cache: 'no-store', headers: { Pragma: 'no-cache' } })
+          .then(function(r) { return r.ok ? r.json() : null; })
+          .then(function(m) {
+            if (!m || !m.timestamp) return;
+            var prev = window.__LINM_MANIFEST_TS__;
+            if (prev && m.timestamp !== prev) {
+              scheduleDeployReload('manifest timestamp changed');
+            }
+          })
+          .catch(function() {});
+      });
+    })();</script></body></html>
