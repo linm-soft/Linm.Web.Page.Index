@@ -11,8 +11,9 @@
     "contact",
     "install-guide",
     "notification-guide",
-    "unauthorized",
-    "session-expired"
+    "forbidden",
+    "session-expired",
+    "not-found"
   ],
   "default": true
 }
