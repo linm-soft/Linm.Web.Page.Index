@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-07-24T19:09:36.083Z",
+  "timestamp": "2026-07-25T05:36:10.473Z",
   "microfrontends": {
     "@linm/notification": {
       "url": "/linm-notification.js",
@@ -14,10 +14,10 @@
       "timebuild": "2026-05-08T03:55:40.784Z"
     },
     "@linm/admin": {
-      "url": "/linm-admin.9948da54.js",
-      "filename": "linm-admin.9948da54.js",
-      "version": "1.3.0",
-      "timebuild": "2026-07-19T14:06:13.495Z",
+      "url": "/linm-admin.45788c1f.js",
+      "filename": "linm-admin.45788c1f.js",
+      "version": "1.4.0",
+      "timebuild": "2026-07-25T05:36:10.695Z",
       "routes": [
         "admin"
       ]
@@ -67,7 +67,7 @@
       "url": "/linm-m-inc.cf565b8d.js",
       "filename": "linm-m-inc.cf565b8d.js",
       "version": "1.4.0",
-      "timebuild": "2026-07-24T19:09:36.102Z",
+      "timebuild": "2026-07-24T19:09:36.083Z",
       "routes": [
         "scyk"
       ]
@@ -90,6 +90,18 @@
         "shell-url",
         "shell"
       ]
+    },
+    "@linm/inc": {
+      "url": "/137.820e408a.linm-inc.js",
+      "filename": "137.820e408a.linm-inc.js",
+      "version": "unknown",
+      "timebuild": "2026-07-25T05:36:10.473Z"
+    },
+    "@linm/medical-incidents": {
+      "url": "/462.078101ad.linm-medical-incidents.js",
+      "filename": "462.078101ad.linm-medical-incidents.js",
+      "version": "unknown",
+      "timebuild": "2026-07-25T05:36:10.473Z"
     }
   },
   "publicUrl": ""
