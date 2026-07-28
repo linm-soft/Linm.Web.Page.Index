@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-07-27T16:08:01.039Z",
+  "timestamp": "2026-07-28T10:33:22.363Z",
   "microfrontends": {
     "@linm/notification": {
       "url": "/linm-notification.js",
@@ -14,10 +14,10 @@
       "timebuild": "2026-05-08T03:55:40.784Z"
     },
     "@linm/admin": {
-      "url": "/linm-admin.f7ca6828.js",
-      "filename": "linm-admin.f7ca6828.js",
+      "url": "/linm-admin.ff7d7f0f.js",
+      "filename": "linm-admin.ff7d7f0f.js",
       "version": "1.7.0",
-      "timebuild": "2026-07-27T16:08:02.118Z",
+      "timebuild": "2026-07-27T16:08:01.039Z",
       "routes": [
         "admin"
       ]
@@ -29,8 +29,8 @@
       "timebuild": "2026-06-07T10:12:51.895Z"
     },
     "@linm/nav": {
-      "url": "/linm-nav.dd02f385.js",
-      "filename": "linm-nav.dd02f385.js",
+      "url": "/linm-nav.fb45672d.js",
+      "filename": "linm-nav.fb45672d.js",
       "version": "1.6.0",
       "timebuild": "2026-07-25T05:39:08.015Z"
     },
@@ -41,10 +41,10 @@
       "timebuild": "2026-07-24T16:59:26.134Z"
     },
     "@linm/web-home": {
-      "url": "/linm-web-home.59a1e3dd.js",
-      "filename": "linm-web-home.59a1e3dd.js",
-      "version": "1.5.0",
-      "timebuild": "2026-07-26T15:04:20.034Z",
+      "url": "/linm-web-home.f7b1d928.js",
+      "filename": "linm-web-home.f7b1d928.js",
+      "version": "1.7.0",
+      "timebuild": "2026-07-28T10:33:22.437Z",
       "routes": [
         "login",
         "logout",
@@ -64,8 +64,8 @@
       "default": true
     },
     "@linm/m-inc": {
-      "url": "/linm-m-inc.cf565b8d.js",
-      "filename": "linm-m-inc.cf565b8d.js",
+      "url": "/linm-m-inc.f96d69cc.js",
+      "filename": "linm-m-inc.f96d69cc.js",
       "version": "1.4.0",
       "timebuild": "2026-07-24T19:09:36.083Z",
       "routes": [
@@ -73,8 +73,8 @@
       ]
     },
     "@linm/dashboard": {
-      "url": "/linm-dashboard.11068a62.js",
-      "filename": "linm-dashboard.11068a62.js",
+      "url": "/linm-dashboard.f30d104a.js",
+      "filename": "linm-dashboard.f30d104a.js",
       "version": "1.0.14",
       "timebuild": "2026-06-07T10:12:18.167Z",
       "routes": [
@@ -82,8 +82,8 @@
       ]
     },
     "@linm/shell-url": {
-      "url": "/linm-shell-url.398ca7d7.js",
-      "filename": "linm-shell-url.398ca7d7.js",
+      "url": "/linm-shell-url.de0c53c0.js",
+      "filename": "linm-shell-url.de0c53c0.js",
       "version": "1.5.0",
       "timebuild": "2026-07-25T05:49:02.641Z",
       "routes": [
