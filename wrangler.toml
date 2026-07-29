@@ -1,8 +1,0 @@
-name = "linm-soft"
-compatibility_date = "2025-01-01"
-
-[assets]
-directory = "."
-# SPA: extensionless deep links (/kt/pt). Missing *.js may get index.html —
-# never prune old hashed bundles; Root installDeployChunkRecovery hard-reloads.
-not_found_handling = "single-page-application"
