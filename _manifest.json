@@ -1,12 +1,35 @@
 {
-  "timestamp": "2026-07-29T18:00:28.889Z",
+  "timestamp": "2026-07-29T18:02:21.784Z",
   "publicUrl": "",
   "microfrontends": {
     "@linm/root-config": {
       "url": "/root-config/1.9.0/linm-root-config.js",
       "filename": "linm-root-config.js",
       "version": "1.9.0",
-      "timebuild": "2026-07-29T18:00:28.898Z"
+      "timebuild": "2026-07-29T18:00:28.889Z"
+    },
+    "@linm/web-home": {
+      "url": "/web-home/1.11.0/linm-web-home.0bc1003c.js",
+      "filename": "linm-web-home.0bc1003c.js",
+      "version": "1.11.0",
+      "timebuild": "2026-07-29T18:02:21.799Z",
+      "routes": [
+        "login",
+        "logout",
+        "settings",
+        "notifications",
+        "messages",
+        "tra-cuu-tk",
+        "help",
+        "faq",
+        "contact",
+        "install-guide",
+        "notification-guide",
+        "forbidden",
+        "session-expired",
+        "not-found"
+      ],
+      "default": true
     }
   }
 }

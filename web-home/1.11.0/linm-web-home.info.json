@@ -1,0 +1,21 @@
+{
+  "version": "1.11.0",
+  "timebuild": "2026-07-29T18:02:21.784Z",
+  "routes": [
+    "login",
+    "logout",
+    "settings",
+    "notifications",
+    "messages",
+    "tra-cuu-tk",
+    "help",
+    "faq",
+    "contact",
+    "install-guide",
+    "notification-guide",
+    "forbidden",
+    "session-expired",
+    "not-found"
+  ],
+  "default": true
+}
