@@ -1,0 +1,223 @@
+<!doctype html><html lang="vi"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/><meta http-equiv="X-UA-Compatible" content="ie=edge"/><meta name="robots" content="noindex,nofollow"/><title>BỆNH VIỆN UNG BƯỚU NGHỆ AN</title><meta name="description" content="Quản lý sự cố y khoa"/><link rel="icon" type="image/png" href="/icons/ubna/logo-128.png"/><link rel="apple-touch-icon" href="/icons/ubna/logo-128.png"/><link rel="manifest" href="/manifest.webmanifest"/><meta name="theme-color" content="#4facfe"/><meta name="mobile-web-app-capable" content="yes"/><meta name="apple-mobile-web-app-capable" content="yes"/><meta name="apple-mobile-web-app-status-bar-style" content="default"/><meta name="apple-mobile-web-app-title" content="UB Nghệ An"/><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous"/><meta name="importmap-type" content="systemjs-importmap"/><meta http-equiv="Cache-control" content="no-cache, no-store, must-revalidate"/><meta http-equiv="Pragma" content="no-cache"/><script>(function () {
+    var base = "https://bff.linm-soft.com/web-bff/api/v1";
+    Object.defineProperty(window, '__LINM_AUTH_BFF_BASE__', {
+      value: base,
+      writable: false,
+      configurable: false,
+      enumerable: true,
+    });
+  })();</script><script>(function () {
+    Object.defineProperty(window, '__LINM_SHELL_BRANDING__', {
+      value: {
+        title: "BỆNH VIỆN UNG BƯỚU NGHỆ AN",
+        subTitle: "Quản lý sự cố y khoa",
+        icon: "/icons/ubna/logo-128.png",
+        iconFolder: "ubna",
+        navMain: "UB Nghệ An",
+      },
+      writable: false,
+      configurable: false,
+      enumerable: true,
+    });
+  })();</script><link rel="preload" href="/system.min.js" as="script" crossorigin="anonymous"/><link rel="preload" href="/single-spa.min.js" as="script" crossorigin="anonymous"/><link rel="preload" href="/named-register.js" as="script" crossorigin="anonymous"/><link rel="preload" href="/react.18.2.0.production.min.js" as="script" crossorigin="anonymous"/><link rel="preload" href="/react-dom.18.2.0.production.min.js" as="script" crossorigin="anonymous"/><script type="systemjs-importmap">{
+    "imports": {
+      "single-spa":  "/single-spa.min.js",
+      "react":       "/react.18.2.0.production.min.js",
+      "react-dom":   "/react-dom.18.2.0.production.min.js"
+    }
+  }</script><script type="systemjs-importmap" id="base-importmap">{
+    "imports": {
+      "@linm/root-config":        "/linm-root-config.js"
+    }
+  }</script><script src="/system.min.js"></script><script src="/named-register.js"></script><script src="/import-map-overrides.js"></script><script>// import-map-overrides-full chỉ hiện khi localStorage[key] === 'true' (không phải 'show')
+    if (localStorage.getItem('overrides-ui') === 'show') {
+      localStorage.setItem('overrides-ui', 'true');
+    }</script><script>(async function() {
+      try {
+        const manifestUrl = '/_manifest.json?_=' + Date.now();
+        console.log('[Manifest Loader] Fetching:', manifestUrl);
+        
+        const response = await fetch(manifestUrl, {
+          cache: 'no-store',
+          headers: { 'Pragma': 'no-cache' }
+        });
+        
+        if (!response.ok) {
+          console.warn('[Manifest Loader] Failed to fetch manifest:', response.status);
+          return;
+        }
+        
+        const manifest = await response.json();
+        console.log('[Manifest Loader] Loaded manifest:', manifest);
+
+        const LEGACY_MF_ALIASES = {"@linm/inc":"@linm/m-inc","@linm/medical-incidents":"@linm/m-inc"};
+        const resolveMfeName = (name) => LEGACY_MF_ALIASES[name] || name;
+
+        // Merge legacy manifest keys (e.g. @linm/inc) into canonical (@linm/m-inc).
+        if (manifest.microfrontends) {
+          for (const [legacyName, canonicalName] of Object.entries(LEGACY_MF_ALIASES)) {
+            const legacyEntry = manifest.microfrontends[legacyName];
+            if (!legacyEntry) continue;
+            const canonicalEntry = manifest.microfrontends[canonicalName] || {};
+            manifest.microfrontends[canonicalName] = {
+              ...legacyEntry,
+              ...canonicalEntry,
+              url: canonicalEntry.url || legacyEntry.url,
+              filename: canonicalEntry.filename || legacyEntry.filename,
+              routes: Array.from(new Set([
+                ...(legacyEntry.routes || []),
+                ...(canonicalEntry.routes || []),
+              ])),
+            };
+            delete manifest.microfrontends[legacyName];
+            console.log(`[Manifest Loader] Merged legacy ${legacyName} → ${canonicalName}`);
+          }
+        }
+
+        window.__LINM_MF_MANIFEST__ = manifest;
+        window.__LINM_MANIFEST_TS__ = manifest.timestamp || '';
+        
+        // Wait for System to be available
+        if (typeof System === 'undefined') {
+          console.warn('[Manifest Loader] SystemJS not yet loaded, retrying...');
+          await new Promise(resolve => setTimeout(resolve, 100));
+          return;
+        }
+        
+        // Register all microfrontends into the SystemJS import map
+        if (manifest.microfrontends) {
+          const imports = {};
+          Object.entries(manifest.microfrontends).forEach(([name, info]) => {
+            imports[resolveMfeName(name)] = info.url;
+          });
+
+          // Legacy import-map names → same bundle URL as canonical entry.
+          for (const [legacyName, canonicalName] of Object.entries(LEGACY_MF_ALIASES)) {
+            if (imports[canonicalName]) {
+              imports[legacyName] = imports[canonicalName];
+            }
+          }
+
+          // import-map-overrides localStorage — merge AFTER manifest (addImportMap ghi đè DOM overrides)
+          if (window.importMapOverrides) {
+            const overrideMap = window.importMapOverrides.getOverrideMap();
+            Object.entries(overrideMap.imports || {}).forEach(([name, url]) => {
+              console.log(`[Manifest Loader] Override ${name} → ${url}`);
+              imports[name] = url;
+            });
+          }
+
+          Object.entries(imports).forEach(([name, url]) => {
+            console.log(`  ✓ ${name} → ${url}`);
+          });
+          System.addImportMap({ imports });
+          console.log('[Manifest Loader] Import map updated:', Object.keys(imports).length, 'entries');
+        }
+      } catch (err) {
+        console.error('[Manifest Loader] Error:', err);
+      } finally {
+        // Pre-load shared deps sequentially so react-dom always finds window.React.
+        // SystemJS core has no AMD support, so both files fall through to UMD global
+        // mode. Without sequential loading, concurrent network fetches (e.g. DevTools
+        // "Disable cache") can execute react-dom before react sets window.React.
+        try { await System.import('react'); } catch(e) { console.error('[Manifest Loader] react preload failed:', e); }
+        try { await System.import('react-dom'); } catch(e) { console.error('[Manifest Loader] react-dom preload failed:', e); }
+        System.import('@linm/root-config');
+      }
+    })();</script></head><body><div id="navigation"></div><div class="root-loader"><div class="root-loader__spinner"></div></div><import-map-overrides-full show-when-local-storage="overrides-ui"></import-map-overrides-full><script>(function() {
+      if (!('serviceWorker' in navigator)) return;
+
+      var RELOAD_KEY = '_mf_deploy_reload_ts';
+      var RELOAD_WINDOW_MS = 30 * 60 * 1000;  // 30 minutes
+      var MAX_RELOADS = 3;
+
+      function scheduleDeployReload(reason, delayMs) {
+        delayMs = delayMs || 1500;
+        if (window.__LINM_DEPLOY_RELOAD_PENDING__) return true;
+        var now = Date.now();
+        try {
+          var raw = sessionStorage.getItem(RELOAD_KEY);
+          var timestamps = raw ? JSON.parse(raw) : [];
+          var recent = timestamps.filter(function(t) { return now - t < RELOAD_WINDOW_MS; });
+          if (recent.length >= MAX_RELOADS) return false;
+          window.__LINM_DEPLOY_RELOAD_PENDING__ = true;
+          recent.push(now);
+          sessionStorage.setItem(RELOAD_KEY, JSON.stringify(recent));
+        } catch(e) {
+          if (Number(sessionStorage.getItem('_mf_deploy_reload') || 0) >= 2) return false;
+          window.__LINM_DEPLOY_RELOAD_PENDING__ = true;
+        }
+        console.warn('[DeployRecovery] ' + reason + ' — reloading in ' + delayMs + 'ms');
+        setTimeout(function() { window.location.reload(); }, delayMs);
+        return true;
+      }
+
+      function isDeployRelatedLoadError(error) {
+        var errStr = String(error && error.message ? (error.name + ' ' + error.message) : error);
+        return (
+          /ChunkLoadError/i.test(errStr) ||
+          /Loading chunk [\w.-]+ failed/i.test(errStr) ||
+          /MIME type ['"]?text\/html/i.test(errStr) ||
+          (/Refused to execute script/i.test(errStr) && /\.js/i.test(errStr)) ||
+          /Unexpected token\s*['"]?</i.test(errStr) ||
+          errStr.indexOf('Failed to fetch') !== -1 ||
+          errStr.indexOf('NetworkError') !== -1 ||
+          (/404/.test(errStr) && /\.js/i.test(errStr))
+        );
+      }
+
+      // Early boot: catch webpack ChunkLoadError before/without root-config handlers.
+      if (!window.__LINM_DEPLOY_CHUNK_RECOVERY_EJS__) {
+        window.__LINM_DEPLOY_CHUNK_RECOVERY_EJS__ = true;
+        window.addEventListener('unhandledrejection', function(event) {
+          if (isDeployRelatedLoadError(event.reason)) {
+            scheduleDeployReload('ejs unhandledrejection chunk/deploy');
+          }
+        });
+        window.addEventListener('error', function(event) {
+          var t = event.target;
+          if (t && t.tagName === 'SCRIPT' && t.src && /\.js(\?|$)/i.test(t.src)) {
+            scheduleDeployReload('ejs script error: ' + t.src);
+            return;
+          }
+          if (isDeployRelatedLoadError(event.error || event.message)) {
+            scheduleDeployReload('ejs window error chunk/deploy');
+          }
+        }, true);
+      }
+
+      var swUrl = '/sw.js';
+
+      navigator.serviceWorker.register(swUrl, { updateViaCache: 'none' }).then(function(reg) {
+        // Hourly update check — catches deploy when user is tabbed away for hours
+        setInterval(function() { reg.update(); }, 60 * 60 * 1000);
+
+        // Listen for SW_ACTIVATED message from the new service worker.
+        // When detected, the page has been controlling a stale cache.
+        // Reload to pick up fresh _manifest.json and bundles.
+        navigator.serviceWorker.addEventListener('message', function(event) {
+          if (event.data && event.data.type === 'SW_ACTIVATED') {
+            console.log('[PWA] New SW version activated — will reload if MFEs are stale');
+            scheduleDeployReload('service worker activated');
+          }
+        });
+      }).catch(function(err) {
+        console.warn('[PWA] Service worker registration failed:', err);
+      });
+
+      // Long-lived tab: refetch manifest when user returns — reload if a new deploy landed.
+      document.addEventListener('visibilitychange', function() {
+        if (document.visibilityState !== 'visible') return;
+        var base = '/_manifest.json';
+        fetch(base + '?_=' + Date.now(), { cache: 'no-store', headers: { Pragma: 'no-cache' } })
+          .then(function(r) { return r.ok ? r.json() : null; })
+          .then(function(m) {
+            if (!m || !m.timestamp) return;
+            var prev = window.__LINM_MANIFEST_TS__;
+            if (prev && m.timestamp !== prev) {
+              scheduleDeployReload('manifest timestamp changed');
+            }
+          })
+          .catch(function() {});
+      });
+    })();</script></body></html>
