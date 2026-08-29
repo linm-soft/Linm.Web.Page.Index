@@ -1,12 +1,12 @@
 {
-  "timestamp": "2026-08-29T17:00:59.022Z",
+  "timestamp": "2026-08-29T17:59:25.029Z",
   "publicUrl": "",
   "microfrontends": {
     "@linm/root-config": {
-      "url": "/root-config/1.0.30-dev.91/linm-root-config.js",
+      "url": "/root-config/1.12.0/linm-root-config.js",
       "filename": "linm-root-config.js",
-      "version": "1.0.30-dev.91",
-      "timebuild": "2026-08-29T17:00:59.064Z"
+      "version": "1.12.0",
+      "timebuild": "2026-07-29T18:27:26.220Z"
     },
     "@linm/web-home": {
       "url": "/web-home/1.11.0/linm-web-home.0bc1003c.js",
@@ -38,10 +38,10 @@
       "timebuild": "2026-07-29T18:09:43.429Z"
     },
     "@linm/m-inc": {
-      "url": "/m-inc/1.16.0/linm-m-inc.b8c48a1f.js",
-      "filename": "linm-m-inc.b8c48a1f.js",
-      "version": "1.16.0",
-      "timebuild": "2026-08-29T16:56:46.420Z",
+      "url": "/m-inc/1.17.0/linm-m-inc.327ec695.js",
+      "filename": "linm-m-inc.327ec695.js",
+      "version": "1.17.0",
+      "timebuild": "2026-08-29T17:59:25.100Z",
       "routes": [
         "scyk"
       ]
@@ -56,10 +56,10 @@
       ]
     },
     "@linm/mf-verify": {
-      "url": "/root-config/1.0.30-dev.89/linm-mf-verify.js",
+      "url": "/root-config/1.0.30-dev.91/linm-mf-verify.js",
       "filename": "linm-mf-verify.js",
-      "version": "1.0.30-dev.89",
-      "timebuild": "2026-08-29T16:53:10.811Z"
+      "version": "1.0.30-dev.91",
+      "timebuild": "2026-08-29T17:00:59.022Z"
     }
   }
 }
