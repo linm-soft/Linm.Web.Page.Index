@@ -1,12 +1,12 @@
 {
-  "timestamp": "2026-08-22T09:35:41.575Z",
+  "timestamp": "2026-08-29T16:53:10.811Z",
   "publicUrl": "",
   "microfrontends": {
     "@linm/root-config": {
-      "url": "/root-config/1.12.0/linm-root-config.js",
+      "url": "/root-config/1.0.30-dev.89/linm-root-config.js",
       "filename": "linm-root-config.js",
-      "version": "1.12.0",
-      "timebuild": "2026-07-29T18:27:26.220Z"
+      "version": "1.0.30-dev.89",
+      "timebuild": "2026-08-29T16:53:10.850Z"
     },
     "@linm/web-home": {
       "url": "/web-home/1.11.0/linm-web-home.0bc1003c.js",
@@ -41,7 +41,7 @@
       "url": "/m-inc/1.15.0/linm-m-inc.9cc547f7.js",
       "filename": "linm-m-inc.9cc547f7.js",
       "version": "1.15.0",
-      "timebuild": "2026-08-22T09:35:41.607Z",
+      "timebuild": "2026-08-22T09:35:41.575Z",
       "routes": [
         "scyk"
       ]
@@ -54,6 +54,12 @@
       "routes": [
         "admin"
       ]
+    },
+    "@linm/mf-verify": {
+      "url": "/root-config/1.0.30-dev.89/linm-mf-verify.js",
+      "filename": "linm-mf-verify.js",
+      "version": "1.0.30-dev.89",
+      "timebuild": "2026-08-29T16:53:10.811Z"
     }
   }
 }
