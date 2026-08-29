@@ -1,0 +1,17 @@
+# SPA fallback — LiteSpeed / Apache.
+# Reload /login, /gis, … must serve index.html (not a real file).
+# MFE asset folders (admin/, dashboard/, …) exist as real directories.
+# `!-d` + DirectoryIndex 404s /admin/ when that folder has no index.html.
+DirectoryIndex disabled
+
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteBase /
+
+  # Existing files (hashed MFE JS under /admin/<ver>/…) — serve as-is
+  RewriteCond %{REQUEST_FILENAME} -f
+  RewriteRule ^ - [L]
+
+  # Everything else, including colliding MFE folders — SPA
+  RewriteRule ^ index.html [L]
+</IfModule>

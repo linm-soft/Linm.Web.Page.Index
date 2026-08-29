@@ -106,17 +106,51 @@
   <script src="/linm-mf-verify.js"></script>
 
   
-  <!-- Load and merge _manifest.json into SystemJS import map -->
+  <!-- Load _manifest.json (local/default) or _manifest.deploy.json (?manifest=deploy) -->
   <script>
     (async function() {
-      try {
-        const manifestUrl = '/_manifest.json?_=' + Date.now();
-        console.log('[Manifest Loader] Fetching:', manifestUrl);
-        
-        const response = await fetch(manifestUrl, {
+      function resolveLinmManifestPath(publicUrl) {
+        var q = new URLSearchParams(location.search);
+        var override = String(q.get('linm_manifest') || q.get('manifest') || '').toLowerCase();
+        var stored = '';
+        try { stored = String(sessionStorage.getItem('linm_manifest') || '').toLowerCase(); } catch (e) {}
+        var mode = override || stored || '';
+        if (override) {
+          try { sessionStorage.setItem('linm_manifest', override); } catch (e) {}
+          mode = override;
+        }
+        var file = (mode === 'deploy' || mode === 'prod' || mode === 'remote')
+          ? '/_manifest.deploy.json'
+          : '/_manifest.json';
+        return (publicUrl || '') + file;
+      }
+
+      async function fetchLinmManifest(publicUrl) {
+        var primary = resolveLinmManifestPath(publicUrl);
+        var fallback = (publicUrl || '') + '/_manifest.json';
+        var url = primary + '?_=' + Date.now();
+        var response = await fetch(url, {
           cache: 'no-store',
           headers: { 'Pragma': 'no-cache' }
         });
+        if (!response.ok && primary !== fallback) {
+          console.warn('[Manifest Loader]', primary, 'failed (' + response.status + ') — fallback _manifest.json');
+          url = fallback + '?_=' + Date.now();
+          response = await fetch(url, {
+            cache: 'no-store',
+            headers: { 'Pragma': 'no-cache' }
+          });
+          primary = fallback;
+        }
+        window.__LINM_MANIFEST_FILE__ = primary;
+        return { response: response, url: url };
+      }
+
+      try {
+        const loaded = await fetchLinmManifest('');
+        const response = loaded.response;
+        const manifestUrl = loaded.url;
+        console.log('[Manifest Loader] Fetching:', manifestUrl);
         
         if (!response.ok) {
           console.warn('[Manifest Loader] Failed to fetch manifest:', response.status);
@@ -375,7 +409,7 @@
       // Long-lived tab: refetch manifest when user returns — reload if a new deploy landed.
       document.addEventListener('visibilitychange', function() {
         if (document.visibilityState !== 'visible') return;
-        var base = '/_manifest.json';
+        var base = window.__LINM_MANIFEST_FILE__ || '/_manifest.json';
         fetch(base + '?_=' + Date.now(), { cache: 'no-store', headers: { Pragma: 'no-cache' } })
           .then(function(r) { return r.ok ? r.json() : null; })
           .then(function(m) {
