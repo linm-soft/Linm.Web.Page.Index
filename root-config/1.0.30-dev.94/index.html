@@ -52,8 +52,8 @@
         icon: "/icons/ubna/logo-128.png",
         iconFolder: "ubna",
         navMain: "UB Nghệ An",
-        allowChangeLinmLoading: false,
-        loadingIcon: "",
+        allowChangeLinmLoading: true,
+        loadingIcon: "/icons/ubna/loading.png",
         sidebarLogoSize: 32,
         sidebarIconOnly: false,
       },
@@ -106,22 +106,25 @@
   <script src="/linm-mf-verify.js"></script>
 
   
-  <!-- Load _manifest.json (local/default) or _manifest.deploy.json (?manifest=deploy) -->
+  <!-- Prod: _manifest.json · local host: _manifest.local.json -->
   <script>
     (async function() {
       function resolveLinmManifestPath(publicUrl) {
         var q = new URLSearchParams(location.search);
         var override = String(q.get('linm_manifest') || q.get('manifest') || '').toLowerCase();
-        var stored = '';
-        try { stored = String(sessionStorage.getItem('linm_manifest') || '').toLowerCase(); } catch (e) {}
-        var mode = override || stored || '';
         if (override) {
           try { sessionStorage.setItem('linm_manifest', override); } catch (e) {}
-          mode = override;
         }
-        var file = (mode === 'deploy' || mode === 'prod' || mode === 'remote')
-          ? '/_manifest.deploy.json'
-          : '/_manifest.json';
+        var host = location.hostname;
+        var isLocalHost = host === 'localhost' || host === '127.0.0.1' || host === '[::1]';
+        var file;
+        if (override === 'local' || override === 'dev') {
+          file = '/_manifest.local.json';
+        } else if (override === 'deploy' || override === 'prod' || override === 'remote') {
+          file = '/_manifest.json';
+        } else {
+          file = isLocalHost ? '/_manifest.local.json' : '/_manifest.json';
+        }
         return (publicUrl || '') + file;
       }
 
@@ -133,7 +136,8 @@
           cache: 'no-store',
           headers: { 'Pragma': 'no-cache' }
         });
-        if (!response.ok && primary !== fallback) {
+        var isLocalFile = /_manifest\.local\.json/.test(primary);
+        if (!response.ok && isLocalFile && primary !== fallback) {
           console.warn('[Manifest Loader]', primary, 'failed (' + response.status + ') — fallback _manifest.json');
           url = fallback + '?_=' + Date.now();
           response = await fetch(url, {
