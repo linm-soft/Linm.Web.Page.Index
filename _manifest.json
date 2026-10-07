@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-10-07T08:26:19.675Z",
+  "timestamp": "2026-10-07T08:28:21.552Z",
   "publicUrl": "",
   "microfrontends": {
     "@linm/root-config": {
@@ -32,16 +32,16 @@
       "default": true
     },
     "@linm/nav": {
-      "url": "/nav/1.11.0/linm-nav.44dd6ab0.js",
-      "filename": "linm-nav.44dd6ab0.js",
-      "version": "1.11.0",
-      "timebuild": "2026-10-07T08:26:19.691Z"
+      "url": "/nav/1.9.0/linm-nav.ff7698f6.js",
+      "filename": "linm-nav.ff7698f6.js",
+      "version": "1.9.0",
+      "timebuild": "2026-07-29T18:09:43.429Z"
     },
     "@linm/m-inc": {
-      "url": "/m-inc/1.19.0/linm-m-inc.204fa133.js",
-      "filename": "linm-m-inc.204fa133.js",
-      "version": "1.19.0",
-      "timebuild": "2026-09-03T04:03:49.487Z",
+      "url": "/m-inc/1.20.0/linm-m-inc.aa6a4f42.js",
+      "filename": "linm-m-inc.aa6a4f42.js",
+      "version": "1.20.0",
+      "timebuild": "2026-10-07T08:28:21.562Z",
       "routes": [
         "scyk"
       ]
