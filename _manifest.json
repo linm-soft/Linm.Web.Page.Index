@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-10-07T11:41:04.979Z",
+  "timestamp": "2026-10-07T13:36:36.750Z",
   "publicUrl": "",
   "env": {},
   "microfrontends": {
@@ -41,10 +41,10 @@
       "timebuild": "2026-10-07T10:27:39.107Z"
     },
     "@linm/m-inc": {
-      "url": "/m-inc/1.25.0/linm-m-inc.13d01732.js",
-      "filename": "linm-m-inc.13d01732.js",
-      "version": "1.25.0",
-      "timebuild": "2026-10-07T11:41:04.985Z",
+      "url": "/m-inc/1.26.0/linm-m-inc.e288b87c.js",
+      "filename": "linm-m-inc.e288b87c.js",
+      "version": "1.26.0",
+      "timebuild": "2026-10-07T13:36:36.756Z",
       "routes": [
         "scyk"
       ]
