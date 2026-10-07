@@ -1,0 +1,23 @@
+{
+  "version": "1.12.0",
+  "timebuild": "2026-10-07T10:50:54.057Z",
+  "routes": [
+    "login",
+    "logout",
+    "settings",
+    "notifications",
+    "messages",
+    "tra-cuu-tk",
+    "phong-ban",
+    "nhan-vien",
+    "help",
+    "faq",
+    "contact",
+    "install-guide",
+    "notification-guide",
+    "forbidden",
+    "session-expired",
+    "not-found"
+  ],
+  "default": true
+}
