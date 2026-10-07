@@ -1,21 +1,19 @@
 {
-  "timestamp": "2026-10-07T09:05:25.634Z",
+  "timestamp": "2026-10-07T09:08:59.224Z",
   "publicUrl": "",
   "env": {},
   "microfrontends": {
     "@linm/root-config": {
-      "url": "/linm-root-config.js",
+      "url": "/root-config/1.12.0/linm-root-config.js",
       "filename": "linm-root-config.js",
-      "version": "1.13.0",
-      "timebuild": "2026-10-07T09:05:25.646Z",
-      "env": {}
+      "version": "1.12.0",
+      "timebuild": "2026-07-29T18:27:26.220Z"
     },
     "@linm/web-home": {
       "url": "/web-home/1.11.0/linm-web-home.0bc1003c.js",
       "filename": "linm-web-home.0bc1003c.js",
       "version": "1.11.0",
       "timebuild": "2026-07-29T18:02:21.784Z",
-      "env": {},
       "routes": [
         "login",
         "logout",
@@ -35,18 +33,16 @@
       "default": true
     },
     "@linm/nav": {
-      "url": "/nav/1.9.0/linm-nav.ff7698f6.js",
-      "filename": "linm-nav.ff7698f6.js",
-      "version": "1.9.0",
-      "timebuild": "2026-07-29T18:09:43.429Z",
-      "env": {}
+      "url": "/nav/1.12.0/linm-nav.fecb47ca.js",
+      "filename": "linm-nav.fecb47ca.js",
+      "version": "1.12.0",
+      "timebuild": "2026-10-07T09:08:59.295Z"
     },
     "@linm/m-inc": {
       "url": "/m-inc/1.20.0/linm-m-inc.aa6a4f42.js",
       "filename": "linm-m-inc.aa6a4f42.js",
       "version": "1.20.0",
       "timebuild": "2026-10-07T08:28:21.552Z",
-      "env": {},
       "routes": [
         "scyk"
       ]
@@ -56,7 +52,6 @@
       "filename": "linm-admin.e0fac520.js",
       "version": "1.9.0",
       "timebuild": "2026-08-02T16:33:32.379Z",
-      "env": {},
       "routes": [
         "admin"
       ]
@@ -65,8 +60,7 @@
       "url": "/root-config/1.0.30-dev.94/linm-mf-verify.js",
       "filename": "linm-mf-verify.js",
       "version": "1.0.30-dev.94",
-      "timebuild": "2026-09-01T00:02:40.813Z",
-      "env": {}
+      "timebuild": "2026-09-01T00:02:40.813Z"
     }
   }
 }
