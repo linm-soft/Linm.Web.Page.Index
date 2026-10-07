@@ -1,0 +1,57 @@
+# SPA fallback — LiteSpeed / Apache.
+# Reload /login, /gis, … must serve index.html (not a real file).
+# MFE asset folders (admin/, dashboard/, …) exist as real directories.
+# `!-d` + DirectoryIndex 404s /admin/ when that folder has no index.html.
+DirectoryIndex disabled
+
+<IfModule mod_mime.c>
+  AddType application/manifest+json .webmanifest
+</IfModule>
+
+<IfModule mod_headers.c>
+  <FilesMatch "\.(html|json|webmanifest)$">
+    Header set Cache-Control "no-cache, no-store, must-revalidate"
+    Header set Pragma "no-cache"
+  </FilesMatch>
+  <Files "sw.js">
+    Header set Cache-Control "no-cache, no-store, must-revalidate"
+  </Files>
+  <Files "linm-root-config.js">
+    Header set Cache-Control "no-cache, must-revalidate"
+  </Files>
+  <FilesMatch "\.(png|svg|ico|jpg|jpeg|webp)$">
+    Header set Cache-Control "no-cache, must-revalidate"
+  </FilesMatch>
+</IfModule>
+
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteBase /
+
+  # HTTP → HTTPS before SPA fallback. Skip local dev and TLS already terminated upstream.
+  RewriteCond %{HTTPS} !=on
+  RewriteCond %{HTTP:X-Forwarded-Proto} !https [NC]
+  RewriteCond %{HTTP_HOST} !^localhost(:[0-9]+)?$ [NC]
+  RewriteCond %{HTTP_HOST} !^127\.0\.0\.1(:[0-9]+)?$ [NC]
+  RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+  # Domain privacy/support landing (webpack copies public/privacy/{domain} → /privacy)
+  RewriteRule ^privacy/?$ privacy/index.html [L]
+  RewriteRule ^hdsd$ /hdsd/ [R=301,L]
+  RewriteRule ^hdsd/$ hdsd/index.html [L]
+  RewriteRule ^hdsd/nguoi-dung$ /hdsd/nguoi-dung/ [R=301,L]
+  RewriteRule ^hdsd/nguoi-dung/$ hdsd/nguoi-dung/index.html [L]
+  RewriteRule ^hdsd/tuan-duong$ /hdsd/tuan-duong/ [R=301,L]
+  RewriteRule ^hdsd/tuan-duong/$ hdsd/tuan-duong/index.html [L]
+  RewriteRule ^hdsd/tuan-kiem$ /hdsd/tuan-kiem/ [R=301,L]
+  RewriteRule ^hdsd/tuan-kiem/$ hdsd/tuan-kiem/index.html [L]
+  RewriteRule ^hdsd/nghiem-thu$ /hdsd/nghiem-thu/ [R=301,L]
+  RewriteRule ^hdsd/nghiem-thu/$ hdsd/nghiem-thu/index.html [L]
+
+  # Existing files (hashed MFE JS under /admin/<ver>/…) — serve as-is
+  RewriteCond %{REQUEST_FILENAME} -f
+  RewriteRule ^ - [L]
+
+  # Everything else, including colliding MFE folders — SPA
+  RewriteRule ^ index.html [L]
+</IfModule>

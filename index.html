@@ -1,46 +1,293 @@
-<!doctype html><html lang="vi"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/><meta http-equiv="X-UA-Compatible" content="ie=edge"/><meta name="robots" content="noindex,nofollow"/><title>BỆNH VIỆN UNG BƯỚU NGHỆ AN</title><meta name="description" content="Quản lý sự cố y khoa"/><link rel="icon" type="image/png" href="/icons/ubna/logo-128.png"/><link rel="apple-touch-icon" href="/icons/ubna/logo-128.png"/><link rel="manifest" href="/manifest.webmanifest"/><meta name="theme-color" content="#4facfe"/><meta name="mobile-web-app-capable" content="yes"/><meta name="apple-mobile-web-app-capable" content="yes"/><meta name="apple-mobile-web-app-status-bar-style" content="default"/><meta name="apple-mobile-web-app-title" content="UB Nghệ An"/><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous"/><meta name="importmap-type" content="systemjs-importmap"/><meta http-equiv="Cache-control" content="no-cache, no-store, must-revalidate"/><meta http-equiv="Pragma" content="no-cache"/><script>(function () {
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  
+  <script>
+  (function () {
+    if (location.protocol === 'https:') return;
+    var host = location.hostname;
+    if (host === 'localhost' || host === '127.0.0.1') return;
+    location.replace('https://' + location.host + location.pathname + location.search + location.hash);
+  })();
+  </script>
+  
+  
+  
+  <script>
+  (function () {
+    var BUILD = "1.13.0";
+    var KEY = 'linm:root-build';
+    var GUARD = 'linm:root-build-reload';
+    try {
+      var prev = localStorage.getItem(KEY);
+      if (prev && prev !== BUILD) {
+        if (sessionStorage.getItem(GUARD) === BUILD) {
+          localStorage.setItem(KEY, BUILD);
+          return;
+        }
+        sessionStorage.setItem(GUARD, BUILD);
+        localStorage.setItem(KEY, BUILD);
+        var reload = function () { location.reload(); };
+        var pending = 1;
+        var done = function () { pending -= 1; if (pending <= 0) reload(); };
+        if (window.caches && caches.keys) {
+          pending += 1;
+          caches.keys().then(function (keys) {
+            return Promise.all(keys.map(function (k) { return caches.delete(k); }));
+          }).then(done).catch(done);
+        }
+        if (navigator.serviceWorker && navigator.serviceWorker.getRegistrations) {
+          pending += 1;
+          navigator.serviceWorker.getRegistrations().then(function (regs) {
+            return Promise.all(regs.map(function (r) { return r.unregister(); }));
+          }).then(done).catch(done);
+        }
+        setTimeout(reload, 400);
+        return;
+      }
+      localStorage.setItem(KEY, BUILD);
+    } catch (e) { /* private mode */ }
+  })();
+  </script>
+  
+  
+  <meta name="robots" content="noindex,nofollow" />
+  <title>BỆNH VIỆN UNG BƯỚU NGHỆ AN</title>
+  <meta name="description" content="Quản lý sự cố y khoa" />
+  
+
+  <!-- Favicon & PWA — allowChange overlays domain files onto /icons/* (same names) -->
+  
+  <link rel="icon" type="image/svg+xml" href="/icons/logo.svg?v=1.13.0" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/icons/logo.png?v=1.13.0" />
+  <link rel="icon" type="image/png" sizes="128x128" href="/icons/logo-128.png?v=1.13.0" />
+  <link rel="apple-touch-icon" sizes="192x192" href="/icons/icon-192.png?v=1.13.0" />
+  <link rel="apple-touch-icon" sizes="512x512" href="/icons/icon-512.png?v=1.13.0" />
+  
+
+  <!-- PWA. Phone paths must emit /m.webmanifest on first parse — swapping later makes Chrome reject install. -->
+  <meta name="theme-color" content="#4facfe" />
+  <script>
+  (function () {
+    var desktop = "/manifest.webmanifest?v=1.13.0";
+    var phoneManifest = "/m.webmanifest?v=1.13.0";
+    var path = location.pathname || '/';
+    var phone = path === '/m' || path.indexOf('/m/') === 0;
+    document.write('<link rel="manifest" href="' + (phone ? phoneManifest : desktop) + '" />');
+    if (phone && !window.__RMMS_CANVAS_PREV__) {
+      window.__RMMS_CANVAS_PREV__ = { theme: null, manifest: desktop };
+    }
+  })();
+  </script>
+  <style>
+    :root {
+      --linm-bg-color-1: #4facfe;
+      --linm-bg-color-2: #00f2fe;
+    }
+    /* Android dark mode paints an unset document black before app CSS. */
+    html.rmms-phone,
+    html.rmms-phone body {
+      background: #fff;
+      color-scheme: light;
+      width: 100%;
+      max-width: 100%;
+      margin: 0;
+      overflow-x: hidden;
+    }
+  </style>
+  <script>
+  (function () {
+    var path = location.pathname || '/';
+    var phone = path === '/m' || path.indexOf('/m/') === 0;
+    if (!phone) return;
+    var installTouch = "/icons/icon-install-512.png?v=1.13.0";
+    var touches = document.querySelectorAll('link[rel="apple-touch-icon"]');
+    for (var i = 0; i < touches.length; i++) {
+      touches[i].setAttribute('href', installTouch);
+      touches[i].setAttribute('sizes', '512x512');
+    }
+    /* Exact /m is outside manifest scope /m/. Land on /m/ so install stays in the phone app. */
+    if (path === '/m') {
+      location.replace('/m/' + location.search + location.hash);
+      return;
+    }
+    document.documentElement.classList.add('rmms-phone');
+    var theme = document.querySelector('meta[name="theme-color"]');
+    var link = document.querySelector('link[rel="manifest"]');
+    if (!window.__RMMS_CANVAS_PREV__) {
+      window.__RMMS_CANVAS_PREV__ = {
+        theme: theme ? theme.getAttribute('content') : null,
+        manifest: link ? link.getAttribute('href') : null
+      };
+    } else if (theme && !window.__RMMS_CANVAS_PREV__.theme) {
+      window.__RMMS_CANVAS_PREV__.theme = theme.getAttribute('content');
+    }
+    if (theme) theme.setAttribute('content', '#ffffff');
+  })();
+  </script>
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+  <meta name="apple-mobile-web-app-title" content="UB Nghệ An" />
+  <script>
+  (function () {
+    var path = location.pathname || '/';
+    var phone = path === '/m' || path.indexOf('/m/') === 0;
+    if (!phone) return;
+    var apple = document.querySelector('meta[name="apple-mobile-web-app-title"]');
+    if (!apple) return;
+    var prev = window.__RMMS_CANVAS_PREV__ || (window.__RMMS_CANVAS_PREV__ = { theme: null, manifest: null });
+    if (prev.appleTitle == null) prev.appleTitle = apple.getAttribute('content');
+    apple.setAttribute('content', "UB Nghệ An(m)");
+  })();
+  </script>
+
+  <!-- Icons (Font Awesome) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" crossorigin="anonymous" />
+
+  <meta name="importmap-type" content="systemjs-importmap" />
+  <meta http-equiv="Cache-control" content="no-cache, no-store, must-revalidate" />
+  <meta http-equiv="Pragma" content="no-cache" />
+
+  
+  <script>
+  (function () {
     var base = "https://bff.linm-soft.com/web-bff/api/v1";
-    Object.defineProperty(window, '__LINM_AUTH_BFF_BASE__', {
-      value: base,
-      writable: false,
-      configurable: false,
-      enumerable: true,
-    });
-  })();</script><script>(function () {
+    window.__LINM_AUTH_BFF_BUILD__ = base;
+    // Fallback until `_manifest.json` env.VITE_API_URL is applied (writable — user can change without rebuild).
+    if (!window.__LINM_AUTH_BFF_BASE__) window.__LINM_AUTH_BFF_BASE__ = base;
+  })();
+  </script>
+  
+
+  <script>
+  (function () {
     Object.defineProperty(window, '__LINM_SHELL_BRANDING__', {
       value: {
         title: "BỆNH VIỆN UNG BƯỚU NGHỆ AN",
         subTitle: "Quản lý sự cố y khoa",
-        icon: "/icons/ubna/logo-128.png",
+        icon: "/icons/logo-128.png",
         iconFolder: "ubna",
+        assetQuery: "?v=1.13.0",
         navMain: "UB Nghệ An",
+        homeScreenTitle: "UB Nghệ An",
+        phoneHomeScreenTitle: "UB Nghệ An(m)",
+        allowChangeLinmLoading: true,
+        loadingIcon: "/icons/loading.png",
+        sidebarLogoSize: 32,
+        sidebarIconOnly: false,
+        bgColor: "",
+        bgColor1: "",
+        bgColor2: "",
       },
       writable: false,
       configurable: false,
       enumerable: true,
     });
-  })();</script><link rel="preload" href="/system.min.js" as="script" crossorigin="anonymous"/><link rel="preload" href="/single-spa.min.js" as="script" crossorigin="anonymous"/><link rel="preload" href="/named-register.js" as="script" crossorigin="anonymous"/><link rel="preload" href="/react.18.2.0.production.min.js" as="script" crossorigin="anonymous"/><link rel="preload" href="/react-dom.18.2.0.production.min.js" as="script" crossorigin="anonymous"/><script type="systemjs-importmap">{
+    var branding = window.__LINM_SHELL_BRANDING__ || {};
+    var c1 = (branding.bgColor1 || '').trim();
+    var c2 = (branding.bgColor2 || '').trim();
+    if (c1) {
+      document.documentElement.style.setProperty('--linm-bg-color-1', c1);
+      document.documentElement.style.setProperty('--linm-bg-color-2', c2 || c1);
+    }
+  })();
+  </script>
+
+  <link rel="preload" href="/system.min.js"       as="script" crossorigin="anonymous" />
+  <link rel="preload" href="/single-spa.min.js"   as="script" crossorigin="anonymous" />
+  <link rel="preload" href="/named-register.js"   as="script" crossorigin="anonymous" />
+  <link rel="preload" href="/react.18.2.0.production.min.js"     as="script" crossorigin="anonymous" />
+  <link rel="preload" href="/react-dom.18.2.0.production.min.js" as="script" crossorigin="anonymous" />
+
+  <script type="systemjs-importmap">
+  {
     "imports": {
       "single-spa":  "/single-spa.min.js",
       "react":       "/react.18.2.0.production.min.js",
       "react-dom":   "/react-dom.18.2.0.production.min.js"
     }
-  }</script><script type="systemjs-importmap" id="base-importmap">{
+  }
+  </script>
+
+  
+  <!-- Manifest will be loaded and merged dynamically via JavaScript below -->
+  <script type="systemjs-importmap" id="base-importmap">
+  {
     "imports": {
       "@linm/root-config":        "/linm-root-config.js"
     }
-  }</script><script src="/system.min.js"></script><script src="/named-register.js"></script><script src="/import-map-overrides.js"></script><script>// import-map-overrides-full chỉ hiện khi localStorage[key] === 'true' (không phải 'show')
+  }
+  </script>
+  
+
+  <script src="/system.min.js"></script>
+  <script src="/named-register.js"></script>
+  <script src="/import-map-overrides.js"></script>
+  <script>
+    window.__LINM_MF_TRUST_PEM__ = decodeURIComponent('');
+    window.__MFE_SIGNED_KEY_ENABLE__ = false;
+    window.__LINM_ALLOW_MF_OVERRIDES__ = false;
+    // import-map-overrides-full chỉ hiện khi localStorage[key] === 'true' (không phải 'show')
     if (localStorage.getItem('overrides-ui') === 'show') {
       localStorage.setItem('overrides-ui', 'true');
-    }</script><script>(async function() {
-      try {
-        const manifestUrl = '/_manifest.json?_=' + Date.now();
-        console.log('[Manifest Loader] Fetching:', manifestUrl);
-        
-        const response = await fetch(manifestUrl, {
+    }
+  </script>
+  <script src="/linm-mf-verify.js"></script>
+
+  
+  <!-- Prod: _manifest.json · local host: _manifest.local.json -->
+  <script>
+    (async function() {
+      function resolveLinmManifestPath(publicUrl) {
+        var q = new URLSearchParams(location.search);
+        var override = String(q.get('linm_manifest') || q.get('manifest') || '').toLowerCase();
+        if (override) {
+          try { sessionStorage.setItem('linm_manifest', override); } catch (e) {}
+        }
+        var host = location.hostname;
+        var isLocalHost = host === 'localhost' || host === '127.0.0.1' || host === '[::1]';
+        var file;
+        if (override === 'local' || override === 'dev') {
+          file = '/_manifest.local.json';
+        } else if (override === 'deploy' || override === 'prod' || override === 'remote') {
+          file = '/_manifest.json';
+        } else {
+          file = isLocalHost ? '/_manifest.local.json' : '/_manifest.json';
+        }
+        return (publicUrl || '') + file;
+      }
+
+      async function fetchLinmManifest(publicUrl) {
+        var primary = resolveLinmManifestPath(publicUrl);
+        var fallback = (publicUrl || '') + '/_manifest.json';
+        var url = primary + '?_=' + Date.now();
+        var response = await fetch(url, {
           cache: 'no-store',
           headers: { 'Pragma': 'no-cache' }
         });
+        var isLocalFile = /_manifest\.local\.json/.test(primary);
+        if (!response.ok && isLocalFile && primary !== fallback) {
+          console.warn('[Manifest Loader]', primary, 'failed (' + response.status + ') — fallback _manifest.json');
+          url = fallback + '?_=' + Date.now();
+          response = await fetch(url, {
+            cache: 'no-store',
+            headers: { 'Pragma': 'no-cache' }
+          });
+          primary = fallback;
+        }
+        window.__LINM_MANIFEST_FILE__ = primary;
+        return { response: response, url: url };
+      }
+
+      try {
+        const loaded = await fetchLinmManifest('');
+        const response = loaded.response;
+        const manifestUrl = loaded.url;
+        console.log('[Manifest Loader] Fetching:', manifestUrl);
         
         if (!response.ok) {
           console.warn('[Manifest Loader] Failed to fetch manifest:', response.status);
@@ -76,6 +323,43 @@
 
         window.__LINM_MF_MANIFEST__ = manifest;
         window.__LINM_MANIFEST_TS__ = manifest.timestamp || '';
+
+        (function applyLinmRuntimeEnv(m) {
+          function isForceBffOn(v) {
+            return v === true || v === 'true' || v === 1 || v === '1';
+          }
+          var mf = (m && m.microfrontends) || {};
+          var rootEnv = (mf['@linm/root-config'] && mf['@linm/root-config'].env) || {};
+          var siteEnv = (m && m.env) || {};
+          var forceOn = isForceBffOn(siteEnv.FORCE_BFF_DOMAIN) || isForceBffOn(rootEnv.FORCE_BFF_DOMAIN);
+          var api = String(rootEnv.VITE_API_URL || siteEnv.VITE_API_URL || window.__LINM_AUTH_BFF_BUILD__ || '')
+            .trim()
+            .replace(/\/$/, '');
+
+          if (forceOn) {
+            if (!api) {
+              console.error('[Manifest Loader] FORCE_BFF_DOMAIN=true but @linm/root-config env.VITE_API_URL is empty');
+            } else {
+              if (!m.env) m.env = {};
+              m.env.FORCE_BFF_DOMAIN = true;
+              Object.keys(mf).forEach(function (name) {
+                if (!mf[name].env) mf[name].env = {};
+                mf[name].env.VITE_API_URL = api;
+                mf[name].env.FORCE_BFF_DOMAIN = true;
+              });
+              window.__LINM_FORCE_BFF_DOMAIN__ = true;
+              console.log('[Manifest Loader] FORCE_BFF_DOMAIN=true → all MFE VITE_API_URL', api);
+            }
+          }
+
+          window.__LINM_RUNTIME_ENV__ = Object.assign({}, rootEnv, {
+            FORCE_BFF_DOMAIN: forceOn,
+            VITE_API_URL: api || rootEnv.VITE_API_URL,
+          });
+          if (!api) return;
+          window.__LINM_AUTH_BFF_BASE__ = api;
+          if (!forceOn) console.log('[Manifest Loader] @linm/root-config env.VITE_API_URL →', api);
+        })(manifest);
         
         // Wait for System to be available
         if (typeof System === 'undefined') {
@@ -84,34 +368,71 @@
           return;
         }
         
-        // Register all microfrontends into the SystemJS import map
+        // v1/v2 + local: MFE_SIGNED_KEY_ENABLE=false → unsigned import map.
+        // v3 (mfe-deploy.yml): true → Ed25519 fail-closed.
         if (manifest.microfrontends) {
           const imports = {};
-          Object.entries(manifest.microfrontends).forEach(([name, info]) => {
-            imports[resolveMfeName(name)] = info.url;
-          });
+          const signedOn = window.__MFE_SIGNED_KEY_ENABLE__ === true;
 
-          // Legacy import-map names → same bundle URL as canonical entry.
-          for (const [legacyName, canonicalName] of Object.entries(LEGACY_MF_ALIASES)) {
-            if (imports[canonicalName]) {
-              imports[legacyName] = imports[canonicalName];
+          const applyAliasesAndOverrides = () => {
+            for (const [legacyName, canonicalName] of Object.entries(LEGACY_MF_ALIASES)) {
+              if (imports[canonicalName]) {
+                imports[legacyName] = imports[canonicalName];
+              }
+            }
+            if (window.__LINM_ALLOW_MF_OVERRIDES__ && window.importMapOverrides) {
+              const overrideMap = window.importMapOverrides.getOverrideMap();
+              Object.entries(overrideMap.imports || {}).forEach(([name, url]) => {
+                console.log(`[Manifest Loader] Override ${name} → ${url}`);
+                imports[name] = url;
+              });
+            }
+            Object.entries(imports).forEach(([name, url]) => {
+              console.log(`  ✓ ${name} → ${url}`);
+            });
+            System.addImportMap({ imports });
+          };
+
+          if (!signedOn) {
+            console.warn('[Manifest Loader] MFE_SIGNED_KEY_ENABLE=false — unsigned import map (v1/v2 / local)');
+            for (const [name, info] of Object.entries(manifest.microfrontends)) {
+              if (info && info.url) imports[resolveMfeName(name)] = info.url;
+            }
+            applyAliasesAndOverrides();
+            console.log('[Manifest Loader] Import map updated:', Object.keys(imports).length, 'unsigned entries');
+          } else {
+            const verify = window.LinmMfVerify;
+            const trustPem = window.__LINM_MF_TRUST_PEM__ || '';
+            let keyring = null;
+            try {
+              const keyringUrl = '/_mfe-keys.json?_=' + Date.now();
+              const keyringRes = await fetch(keyringUrl, { cache: 'no-store', headers: { 'Pragma': 'no-cache' } });
+              if (keyringRes.ok) keyring = await keyringRes.json();
+            } catch (keyringErr) {
+              console.error('[Manifest Loader] _mfe-keys.json fetch failed:', keyringErr);
+            }
+
+            const verifyKeyring = verify && (verify.verifyKeyring || verify.verifyKeyring);
+            const verifyEntry = verify && (verify.verifyEntry || verify.verifyEntry);
+            const ringOk = verifyKeyring && trustPem && keyring
+              ? await verifyKeyring(keyring, trustPem)
+              : false;
+            if (!ringOk) {
+              console.error('[Manifest Loader] keyring/trust invalid — no MFE import map entries');
+            } else {
+              for (const [name, info] of Object.entries(manifest.microfrontends)) {
+                const pub = keyring.keys && keyring.keys[name] && keyring.keys[name].publicKeyPem;
+                const ok = verifyEntry ? await verifyEntry(name, info, pub) : false;
+                if (!ok) {
+                  console.error('[Manifest Loader] skip unsigned/invalid MFE', name);
+                  continue;
+                }
+                imports[resolveMfeName(name)] = info.url;
+              }
+              applyAliasesAndOverrides();
+              console.log('[Manifest Loader] Import map updated:', Object.keys(imports).length, 'signed entries');
             }
           }
-
-          // import-map-overrides localStorage — merge AFTER manifest (addImportMap ghi đè DOM overrides)
-          if (window.importMapOverrides) {
-            const overrideMap = window.importMapOverrides.getOverrideMap();
-            Object.entries(overrideMap.imports || {}).forEach(([name, url]) => {
-              console.log(`[Manifest Loader] Override ${name} → ${url}`);
-              imports[name] = url;
-            });
-          }
-
-          Object.entries(imports).forEach(([name, url]) => {
-            console.log(`  ✓ ${name} → ${url}`);
-          });
-          System.addImportMap({ imports });
-          console.log('[Manifest Loader] Import map updated:', Object.keys(imports).length, 'entries');
         }
       } catch (err) {
         console.error('[Manifest Loader] Error:', err);
@@ -124,7 +445,24 @@
         try { await System.import('react-dom'); } catch(e) { console.error('[Manifest Loader] react-dom preload failed:', e); }
         System.import('@linm/root-config');
       }
-    })();</script></head><body><div id="navigation"></div><div class="root-loader"><div class="root-loader__spinner"></div></div><import-map-overrides-full show-when-local-storage="overrides-ui"></import-map-overrides-full><script>(function() {
+    })();
+  </script>
+  
+</head>
+<body>
+  <div id="navigation"></div>
+
+  <div class="root-loader">
+    <div class="root-loader__spinner"></div>
+  </div>
+
+  
+
+  <import-map-overrides-full show-when-local-storage="overrides-ui"></import-map-overrides-full>
+
+  
+  <script>
+    (function() {
       if (!('serviceWorker' in navigator)) return;
 
       var RELOAD_KEY = '_mf_deploy_reload_ts';
@@ -186,19 +524,23 @@
         }, true);
       }
 
-      var swUrl = '/sw.js';
+      var swUrl = '/sw.js?v=1.13.0';
 
       navigator.serviceWorker.register(swUrl, { updateViaCache: 'none' }).then(function(reg) {
         // Hourly update check — catches deploy when user is tabbed away for hours
         setInterval(function() { reg.update(); }, 60 * 60 * 1000);
 
-        // Listen for SW_ACTIVATED message from the new service worker.
-        // When detected, the page has been controlling a stale cache.
-        // Reload to pick up fresh _manifest.json and bundles.
         navigator.serviceWorker.addEventListener('message', function(event) {
           if (event.data && event.data.type === 'SW_ACTIVATED') {
-            console.log('[PWA] New SW version activated — will reload if MFEs are stale');
-            scheduleDeployReload('service worker activated');
+            console.log('[PWA] New SW version activated — clearing caches then reload');
+            var go = function () { scheduleDeployReload('service worker activated', 400); };
+            if (window.caches && caches.keys) {
+              caches.keys().then(function (keys) {
+                return Promise.all(keys.map(function (k) { return caches.delete(k); }));
+              }).then(go).catch(go);
+            } else {
+              go();
+            }
           }
         });
       }).catch(function(err) {
@@ -208,7 +550,7 @@
       // Long-lived tab: refetch manifest when user returns — reload if a new deploy landed.
       document.addEventListener('visibilitychange', function() {
         if (document.visibilityState !== 'visible') return;
-        var base = '/_manifest.json';
+        var base = window.__LINM_MANIFEST_FILE__ || '/_manifest.json';
         fetch(base + '?_=' + Date.now(), { cache: 'no-store', headers: { Pragma: 'no-cache' } })
           .then(function(r) { return r.ok ? r.json() : null; })
           .then(function(m) {
@@ -220,4 +562,8 @@
           })
           .catch(function() {});
       });
-    })();</script></body></html>
+    })();
+  </script>
+  
+</body>
+</html>
