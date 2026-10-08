@@ -6692,6 +6692,19 @@ function initializeCrossTabTokenSync() {
     // BroadcastChannel unavailable
   }
 }
+;// ./src/libs/auth/browserDeviceId.ts
+/** Per browser profile. Not cleared on logout. Same key in Home and common. */
+var DEVICE_ID_KEY = 'linm.device.id';
+function getOrCreateBrowserDeviceId() {
+  if (typeof localStorage === 'undefined') return '';
+  var existing = localStorage.getItem(DEVICE_ID_KEY);
+  if (existing && /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i.test(existing)) {
+    return existing;
+  }
+  var created = crypto.randomUUID();
+  localStorage.setItem(DEVICE_ID_KEY, created);
+  return created;
+}
 ;// ./src/libs/auth/authTokenRefresh.ts
 
 
@@ -6705,6 +6718,7 @@ function authTokenRefresh_arrayLikeToArray(r, a) { (null == a || a > r.length) &
  * SSOT: @linm-soft-org/linm-web-common-components/src/services/authTokenRefresh.ts
  * Root bundles this copy — keep in sync on common-components publish.
  */
+
 
 
 
@@ -6848,9 +6862,9 @@ function tryRefreshToken() {
           _context.next = 3;
           return getFetch()(resolveAuthRefreshUrl(), {
             method: 'POST',
-            headers: _defineProperty({
+            headers: _defineProperty(_defineProperty({
               'Content-Type': 'application/json'
-            }, AUTH_FETCH_SKIP_REFRESH_HEADER, '1'),
+            }, AUTH_FETCH_SKIP_REFRESH_HEADER, '1'), 'X-Device-Id', getOrCreateBrowserDeviceId()),
             body: JSON.stringify({
               refreshToken: rt
             })
@@ -6983,6 +6997,7 @@ function authFetchInterceptor_objectSpread(e) { for (var r = 1; r < arguments.le
 
 
 
+
 function resolveRequestUrl(input) {
   if (typeof input === 'string') return input;
   if (input instanceof URL) return input.href;
@@ -6996,8 +7011,8 @@ function installAuthFetchInterceptor() {
   window.__LINM_AUTH_FETCH_PATCHED__ = true;
   window.fetch = /*#__PURE__*/function () {
     var _ref = _asyncToGenerator(/*#__PURE__*/regenerator_default().mark(function _callee(input, init) {
-      var _init$headers;
-      var rawUrl, url, skipHeaders, response, refreshed, newToken, retryResponse, headers, activeCompanyCode;
+      var _init$headers, _init, _init$headers2, _init2;
+      var rawUrl, url, deviceHeaders, deviceId, skipHeaders, response, refreshed, newToken, retryResponse, _init3, headers, activeCompanyCode;
       return regenerator_default().wrap(function (_context) {
         while (1) switch (_context.prev = _context.next) {
           case 0:
@@ -7010,7 +7025,18 @@ function installAuthFetchInterceptor() {
                 input = url;
               }
             }
-            skipHeaders = new Headers((_init$headers = init === null || init === void 0 ? void 0 : init.headers) !== null && _init$headers !== void 0 ? _init$headers : input instanceof Request ? input.headers : undefined);
+            deviceHeaders = new Headers((_init$headers = (_init = init) === null || _init === void 0 ? void 0 : _init.headers) !== null && _init$headers !== void 0 ? _init$headers : input instanceof Request ? input.headers : undefined);
+            deviceId = getOrCreateBrowserDeviceId();
+            if (deviceId) deviceHeaders.set('X-Device-Id', deviceId);
+            if (input instanceof Request) {
+              input = new Request(input, {
+                headers: deviceHeaders
+              });
+            }
+            init = authFetchInterceptor_objectSpread(authFetchInterceptor_objectSpread({}, init), {}, {
+              headers: deviceHeaders
+            });
+            skipHeaders = new Headers((_init$headers2 = (_init2 = init) === null || _init2 === void 0 ? void 0 : _init2.headers) !== null && _init$headers2 !== void 0 ? _init$headers2 : input instanceof Request ? input.headers : undefined);
             if (!(skipHeaders.get(AUTH_FETCH_SKIP_REFRESH_HEADER) === '1')) {
               _context.next = 1;
               break;
@@ -7066,7 +7092,7 @@ function installAuthFetchInterceptor() {
               break;
             }
             headers = new Headers(input.headers);
-            if (init !== null && init !== void 0 && init.headers) {
+            if ((_init3 = init) !== null && _init3 !== void 0 && _init3.headers) {
               new Headers(init.headers).forEach(function (value, key) {
                 return headers.set(key, value);
               });

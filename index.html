@@ -18,7 +18,7 @@
   
   <script>
   (function () {
-    var BUILD = "1.13.0";
+    var BUILD = "1.14.0";
     var KEY = 'linm:root-build';
     var GUARD = 'linm:root-build-reload';
     try {
@@ -61,19 +61,19 @@
 
   <!-- Favicon & PWA — allowChange overlays domain files onto /icons/* (same names) -->
   
-  <link rel="icon" type="image/svg+xml" href="/icons/logo.svg?v=1.13.0" />
-  <link rel="icon" type="image/png" sizes="32x32" href="/icons/logo.png?v=1.13.0" />
-  <link rel="icon" type="image/png" sizes="128x128" href="/icons/logo-128.png?v=1.13.0" />
-  <link rel="apple-touch-icon" sizes="192x192" href="/icons/icon-192.png?v=1.13.0" />
-  <link rel="apple-touch-icon" sizes="512x512" href="/icons/icon-512.png?v=1.13.0" />
+  <link rel="icon" type="image/svg+xml" href="/icons/logo.svg?v=1.14.0" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/icons/logo.png?v=1.14.0" />
+  <link rel="icon" type="image/png" sizes="128x128" href="/icons/logo-128.png?v=1.14.0" />
+  <link rel="apple-touch-icon" sizes="192x192" href="/icons/icon-192.png?v=1.14.0" />
+  <link rel="apple-touch-icon" sizes="512x512" href="/icons/icon-512.png?v=1.14.0" />
   
 
   <!-- PWA. Phone paths must emit /m.webmanifest on first parse — swapping later makes Chrome reject install. -->
   <meta name="theme-color" content="#4facfe" />
   <script>
   (function () {
-    var desktop = "/manifest.webmanifest?v=1.13.0";
-    var phoneManifest = "/m.webmanifest?v=1.13.0";
+    var desktop = "/manifest.webmanifest?v=1.14.0";
+    var phoneManifest = "/m.webmanifest?v=1.14.0";
     var path = location.pathname || '/';
     var phone = path === '/m' || path.indexOf('/m/') === 0;
     document.write('<link rel="manifest" href="' + (phone ? phoneManifest : desktop) + '" />');
@@ -103,7 +103,7 @@
     var path = location.pathname || '/';
     var phone = path === '/m' || path.indexOf('/m/') === 0;
     if (!phone) return;
-    var installTouch = "/icons/icon-install-512.png?v=1.13.0";
+    var installTouch = "/icons/icon-install-512.png?v=1.14.0";
     var touches = document.querySelectorAll('link[rel="apple-touch-icon"]');
     for (var i = 0; i < touches.length; i++) {
       touches[i].setAttribute('href', installTouch);
@@ -171,7 +171,7 @@
         subTitle: "Quản lý sự cố y khoa",
         icon: "/icons/logo-128.png",
         iconFolder: "ubna",
-        assetQuery: "?v=1.13.0",
+        assetQuery: "?v=1.14.0",
         navMain: "UB Nghệ An",
         homeScreenTitle: "UB Nghệ An",
         phoneHomeScreenTitle: "UB Nghệ An(m)",
@@ -524,7 +524,7 @@
         }, true);
       }
 
-      var swUrl = '/sw.js?v=1.13.0';
+      var swUrl = '/sw.js?v=1.14.0';
 
       navigator.serviceWorker.register(swUrl, { updateViaCache: 'none' }).then(function(reg) {
         // Hourly update check — catches deploy when user is tabbed away for hours

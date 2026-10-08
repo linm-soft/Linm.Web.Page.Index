@@ -3,7 +3,7 @@
  * version deploy when hashed bundles briefly 404 or CDN propagates.
  *
  * v3: Notifies all clients on activate so the shell can reload stale windows. */
-const SW_VERSION = '1.13.0';
+const SW_VERSION = '1.14.0';
 
 self.addEventListener('install', (event) => {
   event.waitUntil(self.skipWaiting());
