@@ -2602,7 +2602,7 @@ iframe {
     margin-top: var(--spacing-xs, 0.25rem);
   }
 }
-`, "",{"version":3,"sources":["webpack://./src/styles/global.css"],"names":[],"mappings":"AAAA,kBAAkB;;AAKlB;EACE,oDAAoD;AACtD;;AAEA,oBAAoB;AACpB;EACE,WAAW;EACX,iBAAiB;EACjB,cAAc;EACd,eAAe;AACjB;;AAEA;EACE,aAAa;AACf;;AAEA;EACE,sBAAsB;AACxB;;AAEA;EACE,mBAAmB;AACrB;;AAEA;EACE,8BAA8B;AAChC;;AAEA;EACE,QAAQ;AACV;;AAEA;EACE,SAAS;AACX;;AAEA;EACE,SAAS;AACX;;AAEA;EACE,eAAe;AACjB;;AAEA;EACE,gBAAgB;AAClB;;AAEA;EACE,gBAAgB;AAClB;;AAEA;EACE,kBAAkB;AACpB;;AAEA;EACE,mBAAmB;AACrB;;AAEA;EACE,mBAAmB;AACrB;;AAEA;EACE,YAAY;AACd;;AAEA;EACE,aAAa;AACf;;AAEA;EACE,aAAa;AACf;;AAEA;EACE,kBAAkB;AACpB;;AAEA;EACE,kBAAkB;AACpB;;AAEA;EACE,kBAAkB;AACpB;;AAEA;EACE,4DAA4D;AAC9D;;AAEA;EACE,kEAAkE;AACpE;;AAEA;EACE,oEAAoE;AACtE;;AAEA,qCAAqC;AACrC;EACE,eAAe;AACjB;;AAEA;;;EAGE,eAAe;EACf,YAAY;AACd;;AAEA,gCAAgC;AAChC;EACE;IACE,eAAe;EACjB;;EAEA,0CAA0C;EAC1C;;;IAGE,gBAAgB;IAChB,kBAAkB;EACpB;AACF;;AAEA;EACE;IACE,cAAc;EAChB;;EAEA,wCAAwC;EACxC;IACE,cAAc;IACd,sCAAsC;EACxC;AACF","sourcesContent":["/* Global Styles */\r\n@import './variables.css';\r\n@import './reset.css';\r\n@import './typography.css';\r\n\r\nbody {\r\n  background-color: var(--ds-color-bg-subtle, #F6F6F6);\r\n}\r\n\r\n/* Utility Classes */\r\n.container {\r\n  width: 100%;\r\n  max-width: 1280px;\r\n  margin: 0 auto;\r\n  padding: 0 24px;\r\n}\r\n\r\n.flex {\r\n  display: flex;\r\n}\r\n\r\n.flex-col {\r\n  flex-direction: column;\r\n}\r\n\r\n.items-center {\r\n  align-items: center;\r\n}\r\n\r\n.justify-between {\r\n  justify-content: space-between;\r\n}\r\n\r\n.gap-sm {\r\n  gap: 8px;\r\n}\r\n\r\n.gap-md {\r\n  gap: 16px;\r\n}\r\n\r\n.gap-lg {\r\n  gap: 24px;\r\n}\r\n\r\n.mt-sm {\r\n  margin-top: 8px;\r\n}\r\n\r\n.mt-md {\r\n  margin-top: 16px;\r\n}\r\n\r\n.mt-lg {\r\n  margin-top: 24px;\r\n}\r\n\r\n.mb-sm {\r\n  margin-bottom: 8px;\r\n}\r\n\r\n.mb-md {\r\n  margin-bottom: 16px;\r\n}\r\n\r\n.mb-lg {\r\n  margin-bottom: 24px;\r\n}\r\n\r\n.p-sm {\r\n  padding: 8px;\r\n}\r\n\r\n.p-md {\r\n  padding: 16px;\r\n}\r\n\r\n.p-lg {\r\n  padding: 24px;\r\n}\r\n\r\n.rounded-sm {\r\n  border-radius: 4px;\r\n}\r\n\r\n.rounded-md {\r\n  border-radius: 8px;\r\n}\r\n\r\n.rounded-lg {\r\n  border-radius: 8px;\r\n}\r\n\r\n.shadow {\r\n  box-shadow: var(--ds-shadow, 0 1px 3px 0 rgba(0, 0, 0, 0.1));\r\n}\r\n\r\n.shadow-md {\r\n  box-shadow: var(--ds-shadow-md, 0 4px 6px -1px rgba(0, 0, 0, 0.1));\r\n}\r\n\r\n.shadow-lg {\r\n  box-shadow: var(--ds-shadow-lg, 0 10px 15px -3px rgba(0, 0, 0, 0.1));\r\n}\r\n\r\n/* Responsive & Overflow Prevention */\r\n* {\r\n  max-width: 100%;\r\n}\r\n\r\nimg,\r\nvideo,\r\niframe {\r\n  max-width: 100%;\r\n  height: auto;\r\n}\r\n\r\n/* Mobile Responsive Utilities */\r\n@media (max-width: 768px) {\r\n  .container {\r\n    padding: 0 16px;\r\n  }\r\n\r\n  /* Prevent horizontal overflow on mobile */\r\n  body,\r\n  #root,\r\n  .layout {\r\n    max-width: 100vw;\r\n    overflow-x: hidden;\r\n  }\r\n}\r\n\r\n@media (max-width: 480px) {\r\n  .container {\r\n    padding: 0 8px;\r\n  }\r\n\r\n  /* Stack buttons on very small screens */\r\n  button + button {\r\n    margin-left: 0;\r\n    margin-top: var(--spacing-xs, 0.25rem);\r\n  }\r\n}\r\n"],"sourceRoot":""}]);
+`, "",{"version":3,"sources":["webpack://./src/styles/global.css"],"names":[],"mappings":"AAAA,kBAAkB;;AAKlB;EACE,oDAAoD;AACtD;;AAEA,oBAAoB;AACpB;EACE,WAAW;EACX,iBAAiB;EACjB,cAAc;EACd,eAAe;AACjB;;AAEA;EACE,aAAa;AACf;;AAEA;EACE,sBAAsB;AACxB;;AAEA;EACE,mBAAmB;AACrB;;AAEA;EACE,8BAA8B;AAChC;;AAEA;EACE,QAAQ;AACV;;AAEA;EACE,SAAS;AACX;;AAEA;EACE,SAAS;AACX;;AAEA;EACE,eAAe;AACjB;;AAEA;EACE,gBAAgB;AAClB;;AAEA;EACE,gBAAgB;AAClB;;AAEA;EACE,kBAAkB;AACpB;;AAEA;EACE,mBAAmB;AACrB;;AAEA;EACE,mBAAmB;AACrB;;AAEA;EACE,YAAY;AACd;;AAEA;EACE,aAAa;AACf;;AAEA;EACE,aAAa;AACf;;AAEA;EACE,kBAAkB;AACpB;;AAEA;EACE,kBAAkB;AACpB;;AAEA;EACE,kBAAkB;AACpB;;AAEA;EACE,4DAA4D;AAC9D;;AAEA;EACE,kEAAkE;AACpE;;AAEA;EACE,oEAAoE;AACtE;;AAEA,qCAAqC;AACrC;EACE,eAAe;AACjB;;AAEA;;;EAGE,eAAe;EACf,YAAY;AACd;;AAEA,gCAAgC;AAChC;EACE;IACE,eAAe;EACjB;;EAEA,0CAA0C;EAC1C;;;IAGE,gBAAgB;IAChB,kBAAkB;EACpB;AACF;;AAEA;EACE;IACE,cAAc;EAChB;;EAEA,wCAAwC;EACxC;IACE,cAAc;IACd,sCAAsC;EACxC;AACF","sourcesContent":["/* Global Styles */\n@import './variables.css';\n@import './reset.css';\n@import './typography.css';\n\nbody {\n  background-color: var(--ds-color-bg-subtle, #F6F6F6);\n}\n\n/* Utility Classes */\n.container {\n  width: 100%;\n  max-width: 1280px;\n  margin: 0 auto;\n  padding: 0 24px;\n}\n\n.flex {\n  display: flex;\n}\n\n.flex-col {\n  flex-direction: column;\n}\n\n.items-center {\n  align-items: center;\n}\n\n.justify-between {\n  justify-content: space-between;\n}\n\n.gap-sm {\n  gap: 8px;\n}\n\n.gap-md {\n  gap: 16px;\n}\n\n.gap-lg {\n  gap: 24px;\n}\n\n.mt-sm {\n  margin-top: 8px;\n}\n\n.mt-md {\n  margin-top: 16px;\n}\n\n.mt-lg {\n  margin-top: 24px;\n}\n\n.mb-sm {\n  margin-bottom: 8px;\n}\n\n.mb-md {\n  margin-bottom: 16px;\n}\n\n.mb-lg {\n  margin-bottom: 24px;\n}\n\n.p-sm {\n  padding: 8px;\n}\n\n.p-md {\n  padding: 16px;\n}\n\n.p-lg {\n  padding: 24px;\n}\n\n.rounded-sm {\n  border-radius: 4px;\n}\n\n.rounded-md {\n  border-radius: 8px;\n}\n\n.rounded-lg {\n  border-radius: 8px;\n}\n\n.shadow {\n  box-shadow: var(--ds-shadow, 0 1px 3px 0 rgba(0, 0, 0, 0.1));\n}\n\n.shadow-md {\n  box-shadow: var(--ds-shadow-md, 0 4px 6px -1px rgba(0, 0, 0, 0.1));\n}\n\n.shadow-lg {\n  box-shadow: var(--ds-shadow-lg, 0 10px 15px -3px rgba(0, 0, 0, 0.1));\n}\n\n/* Responsive & Overflow Prevention */\n* {\n  max-width: 100%;\n}\n\nimg,\nvideo,\niframe {\n  max-width: 100%;\n  height: auto;\n}\n\n/* Mobile Responsive Utilities */\n@media (max-width: 768px) {\n  .container {\n    padding: 0 16px;\n  }\n\n  /* Prevent horizontal overflow on mobile */\n  body,\n  #root,\n  .layout {\n    max-width: 100vw;\n    overflow-x: hidden;\n  }\n}\n\n@media (max-width: 480px) {\n  .container {\n    padding: 0 8px;\n  }\n\n  /* Stack buttons on very small screens */\n  button + button {\n    margin-left: 0;\n    margin-top: var(--spacing-xs, 0.25rem);\n  }\n}\n"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -2780,7 +2780,7 @@ a:hover {
 .text-xl {
   font-size: var(--ds-font-size-subheading, 20px);
 }
-`, "",{"version":3,"sources":["webpack://./src/styles/typography.css"],"names":[],"mappings":"AAAA,sBAAsB;;AAEtB;EACE,+BAA+B;EAC/B,kDAAkD;EAClD,sBAAsB;AACxB;;AAEA;;;;;;EAME,gBAAgB;EAChB,gBAAgB;EAChB,sBAAsB;AACxB;;AAEA;EACE,+BAA+B;AACjC;;AAEA;EACE,eAAe;AACjB;;AAEA;EACE,4CAA4C;AAC9C;;AAEA;EACE,+CAA+C;AACjD;;AAEA;EACE,iDAAiD;AACnD;;AAEA;EACE,kDAAkD;AACpD;;AAEA;EACE,gBAAgB;AAClB;;AAEA;EACE,2BAA2B;EAC3B,qBAAqB;EACrB,2BAA2B;AAC7B;;AAEA;EACE,0BAA0B;AAC5B;;AAEA;EACE,0CAA0C;AAC5C;;AAEA;EACE,kDAAkD;AACpD;;AAEA;EACE,kDAAkD;AACpD;;AAEA;EACE,iDAAiD;AACnD;;AAEA;EACE,+CAA+C;AACjD","sourcesContent":["/* Typography Styles */\r\n\r\nbody {\r\n  font-family: var(--font-family);\r\n  font-size: var(--ds-font-size-label-desktop, 16px);\r\n  color: var(--gray-800);\r\n}\r\n\r\nh1,\r\nh2,\r\nh3,\r\nh4,\r\nh5,\r\nh6 {\r\n  font-weight: 600;\r\n  line-height: 1.2;\r\n  color: var(--gray-900);\r\n}\r\n\r\nh1 {\r\n  font-size: var(--font-size-4xl);\r\n}\r\n\r\nh2 {\r\n  font-size: 30px;\r\n}\r\n\r\nh3 {\r\n  font-size: var(--ds-font-size-heading, 22px);\r\n}\r\n\r\nh4 {\r\n  font-size: var(--ds-font-size-subheading, 20px);\r\n}\r\n\r\nh5 {\r\n  font-size: var(--ds-font-size-label-mobile, 18px);\r\n}\r\n\r\nh6 {\r\n  font-size: var(--ds-font-size-label-desktop, 16px);\r\n}\r\n\r\np {\r\n  line-height: 1.6;\r\n}\r\n\r\na {\r\n  color: var(--primary-color);\r\n  text-decoration: none;\r\n  transition: color 0.2s ease;\r\n}\r\n\r\na:hover {\r\n  color: var(--primary-dark);\r\n}\r\n\r\n.text-xs {\r\n  font-size: var(--ds-font-size-small, 12px);\r\n}\r\n\r\n.text-sm {\r\n  font-size: var(--ds-font-size-input-desktop, 14px);\r\n}\r\n\r\n.text-base {\r\n  font-size: var(--ds-font-size-label-desktop, 16px);\r\n}\r\n\r\n.text-lg {\r\n  font-size: var(--ds-font-size-label-mobile, 18px);\r\n}\r\n\r\n.text-xl {\r\n  font-size: var(--ds-font-size-subheading, 20px);\r\n}\r\n"],"sourceRoot":""}]);
+`, "",{"version":3,"sources":["webpack://./src/styles/typography.css"],"names":[],"mappings":"AAAA,sBAAsB;;AAEtB;EACE,+BAA+B;EAC/B,kDAAkD;EAClD,sBAAsB;AACxB;;AAEA;;;;;;EAME,gBAAgB;EAChB,gBAAgB;EAChB,sBAAsB;AACxB;;AAEA;EACE,+BAA+B;AACjC;;AAEA;EACE,eAAe;AACjB;;AAEA;EACE,4CAA4C;AAC9C;;AAEA;EACE,+CAA+C;AACjD;;AAEA;EACE,iDAAiD;AACnD;;AAEA;EACE,kDAAkD;AACpD;;AAEA;EACE,gBAAgB;AAClB;;AAEA;EACE,2BAA2B;EAC3B,qBAAqB;EACrB,2BAA2B;AAC7B;;AAEA;EACE,0BAA0B;AAC5B;;AAEA;EACE,0CAA0C;AAC5C;;AAEA;EACE,kDAAkD;AACpD;;AAEA;EACE,kDAAkD;AACpD;;AAEA;EACE,iDAAiD;AACnD;;AAEA;EACE,+CAA+C;AACjD","sourcesContent":["/* Typography Styles */\n\nbody {\n  font-family: var(--font-family);\n  font-size: var(--ds-font-size-label-desktop, 16px);\n  color: var(--gray-800);\n}\n\nh1,\nh2,\nh3,\nh4,\nh5,\nh6 {\n  font-weight: 600;\n  line-height: 1.2;\n  color: var(--gray-900);\n}\n\nh1 {\n  font-size: var(--font-size-4xl);\n}\n\nh2 {\n  font-size: 30px;\n}\n\nh3 {\n  font-size: var(--ds-font-size-heading, 22px);\n}\n\nh4 {\n  font-size: var(--ds-font-size-subheading, 20px);\n}\n\nh5 {\n  font-size: var(--ds-font-size-label-mobile, 18px);\n}\n\nh6 {\n  font-size: var(--ds-font-size-label-desktop, 16px);\n}\n\np {\n  line-height: 1.6;\n}\n\na {\n  color: var(--primary-color);\n  text-decoration: none;\n  transition: color 0.2s ease;\n}\n\na:hover {\n  color: var(--primary-dark);\n}\n\n.text-xs {\n  font-size: var(--ds-font-size-small, 12px);\n}\n\n.text-sm {\n  font-size: var(--ds-font-size-input-desktop, 14px);\n}\n\n.text-base {\n  font-size: var(--ds-font-size-label-desktop, 16px);\n}\n\n.text-lg {\n  font-size: var(--ds-font-size-label-mobile, 18px);\n}\n\n.text-xl {\n  font-size: var(--ds-font-size-subheading, 20px);\n}\n"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -20630,7 +20630,7 @@ ___CSS_LOADER_EXPORT___.push([module.id, `.topbarHost___acuKy {
     background: var(--ds-color-border-subtle, #e8e8e8);
   }
 }
-`, "",{"version":3,"sources":["webpack://./src/NavRoot.module.css"],"names":[],"mappings":"AAAA;EACE,eAAe;EACf,MAAM;EACN,QAAQ;EACR,uBAAuB;EACvB,qGAAqG;EACrG,0BAA0B;AAC5B;;AAEA;EACE,wFAAwF;EACxF,oBAAoB;AACtB;;AAEA;EACE;IACE,0BAA0B;EAC5B;;EAEA;IACE,4BAA4B;EAC9B;AACF;;AAEA;EACE,kBAAkB;AACpB;;AAEA;EACE,eAAe;EACf,MAAM;EACN,OAAO;EACP,kCAAkC;EAClC,aAAa;EACb,aAAa;EACb,sBAAsB;EACtB,mBAAmB;EACnB,uBAAuB;EACvB,SAAS;EACT,qCAAqC;EACrC,6CAA6C;EAC7C,eAAe;EACf,iCAAiC;EACjC,oBAAoB;AACtB;;AAEA;EACE,eAAe;EACf,uCAAuC;AACzC;;AAEA,8EAA8E;AAC9E;EACE,eAAe;EACf,+BAA+B;EAC/B,iCAAiC;EACjC,QAAQ;EACR,SAAS;EACT,iCAAiC;EACjC,8CAA8C;EAC9C,aAAa;EACb,oBAAoB;EACpB,aAAa;EACb,sBAAsB;EACtB,SAAS;AACX;;AAEA;EACE,YAAY;EACZ,kBAAkB;EAClB;;;;;GAKC;EACD,0BAA0B;EAC1B,sEAA8D;AAChE;;AAEA,sCAA8B,UAAU,EAAE,gBAAgB,EAAE;AAC5D,qCAA6B,UAAU,EAAE,gBAAgB,EAAE;AAC3D,sCAA8B,WAAW,EAAE;;AAE3C;EACE,aAAa;EACb,4DAA4D;EAC5D,SAAS;EACT,eAAe;AACjB;;AAEA;EACE,YAAY;EACZ,kBAAkB;EAClB;;;;;GAKC;EACD,0BAA0B;EAC1B,sEAA8D;AAChE;;AAEA;EACE,KAAK,2BAA2B,EAAE;EAClC,OAAO,4BAA4B,EAAE;AACvC;;AAEA;EACE;;IAEE,eAAe;IACf,kDAAkD;EACpD;AACF","sourcesContent":[".topbarHost {\r\n  position: fixed;\r\n  top: 0;\r\n  right: 0;\r\n  z-index: var(--z-fixed);\r\n  /* Layout offset is --topbar-height on host MFEs; bar slides visually (instant — no transform lag). */\r\n  transition: left 0.3s ease;\r\n}\r\n\r\n.topbarHostHidden {\r\n  transform: translateY(calc(-1 * var(--topbar-slide-height, var(--topbar-height, 72px))));\r\n  pointer-events: none;\r\n}\r\n\r\n@media (prefers-reduced-motion: reduce) {\r\n  .topbarHost {\r\n    transition: left 0.3s ease;\r\n  }\r\n\r\n  .topbarHostHidden {\r\n    transform: translateY(-100%);\r\n  }\r\n}\r\n\r\n.sidebarHost {\r\n  position: relative;\r\n}\r\n\r\n.menuLoadingOverlay {\r\n  position: fixed;\r\n  top: 0;\r\n  left: 0;\r\n  width: var(--sidebar-width, 280px);\r\n  height: 100vh;\r\n  display: flex;\r\n  flex-direction: column;\r\n  align-items: center;\r\n  justify-content: center;\r\n  gap: 12px;\r\n  background: rgba(255, 255, 255, 0.92);\r\n  color: var(--ds-color-text-tertiary, #6d6d6d);\r\n  font-size: 13px;\r\n  z-index: calc(var(--z-fixed) + 1);\r\n  pointer-events: none;\r\n}\r\n\r\n.menuLoadingOverlay i {\r\n  font-size: 18px;\r\n  color: var(--ds-color-primary, #2563eb);\r\n}\r\n\r\n/* Main content skeleton — route permission refresh when menu already loaded */\r\n.mainContentSkeleton {\r\n  position: fixed;\r\n  top: var(--topbar-height, 72px);\r\n  left: var(--sidebar-width, 280px);\r\n  right: 0;\r\n  bottom: 0;\r\n  z-index: calc(var(--z-fixed) - 1);\r\n  background: var(--ds-color-bg-subtle, #f6f6f6);\r\n  padding: 24px;\r\n  pointer-events: none;\r\n  display: flex;\r\n  flex-direction: column;\r\n  gap: 16px;\r\n}\r\n\r\n.mainContentSkeletonBar {\r\n  height: 14px;\r\n  border-radius: 6px;\r\n  background: linear-gradient(\r\n    90deg,\r\n    var(--ds-color-border-subtle, #e8e8e8) 25%,\r\n    var(--ds-color-bg, #fff) 50%,\r\n    var(--ds-color-border-subtle, #e8e8e8) 75%\r\n  );\r\n  background-size: 200% 100%;\r\n  animation: nav-main-skeleton-shimmer 1.2s ease-in-out infinite;\r\n}\r\n\r\n.mainContentSkeletonBarWide { width: 72%; max-width: 520px; }\r\n.mainContentSkeletonBarMid { width: 48%; max-width: 360px; }\r\n.mainContentSkeletonBarFull { width: 100%; }\r\n\r\n.mainContentSkeletonGrid {\r\n  display: grid;\r\n  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));\r\n  gap: 12px;\r\n  margin-top: 8px;\r\n}\r\n\r\n.mainContentSkeletonCard {\r\n  height: 88px;\r\n  border-radius: 8px;\r\n  background: linear-gradient(\r\n    90deg,\r\n    var(--ds-color-border-subtle, #e8e8e8) 25%,\r\n    var(--ds-color-bg, #fff) 50%,\r\n    var(--ds-color-border-subtle, #e8e8e8) 75%\r\n  );\r\n  background-size: 200% 100%;\r\n  animation: nav-main-skeleton-shimmer 1.2s ease-in-out infinite;\r\n}\r\n\r\n@keyframes nav-main-skeleton-shimmer {\r\n  0% { background-position: 200% 0; }\r\n  100% { background-position: -200% 0; }\r\n}\r\n\r\n@media (prefers-reduced-motion: reduce) {\r\n  .mainContentSkeletonBar,\r\n  .mainContentSkeletonCard {\r\n    animation: none;\r\n    background: var(--ds-color-border-subtle, #e8e8e8);\r\n  }\r\n}\r\n"],"sourceRoot":""}]);
+`, "",{"version":3,"sources":["webpack://./src/NavRoot.module.css"],"names":[],"mappings":"AAAA;EACE,eAAe;EACf,MAAM;EACN,QAAQ;EACR,uBAAuB;EACvB,qGAAqG;EACrG,0BAA0B;AAC5B;;AAEA;EACE,wFAAwF;EACxF,oBAAoB;AACtB;;AAEA;EACE;IACE,0BAA0B;EAC5B;;EAEA;IACE,4BAA4B;EAC9B;AACF;;AAEA;EACE,kBAAkB;AACpB;;AAEA;EACE,eAAe;EACf,MAAM;EACN,OAAO;EACP,kCAAkC;EAClC,aAAa;EACb,aAAa;EACb,sBAAsB;EACtB,mBAAmB;EACnB,uBAAuB;EACvB,SAAS;EACT,qCAAqC;EACrC,6CAA6C;EAC7C,eAAe;EACf,iCAAiC;EACjC,oBAAoB;AACtB;;AAEA;EACE,eAAe;EACf,uCAAuC;AACzC;;AAEA,8EAA8E;AAC9E;EACE,eAAe;EACf,+BAA+B;EAC/B,iCAAiC;EACjC,QAAQ;EACR,SAAS;EACT,iCAAiC;EACjC,8CAA8C;EAC9C,aAAa;EACb,oBAAoB;EACpB,aAAa;EACb,sBAAsB;EACtB,SAAS;AACX;;AAEA;EACE,YAAY;EACZ,kBAAkB;EAClB;;;;;GAKC;EACD,0BAA0B;EAC1B,sEAA8D;AAChE;;AAEA,sCAA8B,UAAU,EAAE,gBAAgB,EAAE;AAC5D,qCAA6B,UAAU,EAAE,gBAAgB,EAAE;AAC3D,sCAA8B,WAAW,EAAE;;AAE3C;EACE,aAAa;EACb,4DAA4D;EAC5D,SAAS;EACT,eAAe;AACjB;;AAEA;EACE,YAAY;EACZ,kBAAkB;EAClB;;;;;GAKC;EACD,0BAA0B;EAC1B,sEAA8D;AAChE;;AAEA;EACE,KAAK,2BAA2B,EAAE;EAClC,OAAO,4BAA4B,EAAE;AACvC;;AAEA;EACE;;IAEE,eAAe;IACf,kDAAkD;EACpD;AACF","sourcesContent":[".topbarHost {\n  position: fixed;\n  top: 0;\n  right: 0;\n  z-index: var(--z-fixed);\n  /* Layout offset is --topbar-height on host MFEs; bar slides visually (instant — no transform lag). */\n  transition: left 0.3s ease;\n}\n\n.topbarHostHidden {\n  transform: translateY(calc(-1 * var(--topbar-slide-height, var(--topbar-height, 72px))));\n  pointer-events: none;\n}\n\n@media (prefers-reduced-motion: reduce) {\n  .topbarHost {\n    transition: left 0.3s ease;\n  }\n\n  .topbarHostHidden {\n    transform: translateY(-100%);\n  }\n}\n\n.sidebarHost {\n  position: relative;\n}\n\n.menuLoadingOverlay {\n  position: fixed;\n  top: 0;\n  left: 0;\n  width: var(--sidebar-width, 280px);\n  height: 100vh;\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  justify-content: center;\n  gap: 12px;\n  background: rgba(255, 255, 255, 0.92);\n  color: var(--ds-color-text-tertiary, #6d6d6d);\n  font-size: 13px;\n  z-index: calc(var(--z-fixed) + 1);\n  pointer-events: none;\n}\n\n.menuLoadingOverlay i {\n  font-size: 18px;\n  color: var(--ds-color-primary, #2563eb);\n}\n\n/* Main content skeleton — route permission refresh when menu already loaded */\n.mainContentSkeleton {\n  position: fixed;\n  top: var(--topbar-height, 72px);\n  left: var(--sidebar-width, 280px);\n  right: 0;\n  bottom: 0;\n  z-index: calc(var(--z-fixed) - 1);\n  background: var(--ds-color-bg-subtle, #f6f6f6);\n  padding: 24px;\n  pointer-events: none;\n  display: flex;\n  flex-direction: column;\n  gap: 16px;\n}\n\n.mainContentSkeletonBar {\n  height: 14px;\n  border-radius: 6px;\n  background: linear-gradient(\n    90deg,\n    var(--ds-color-border-subtle, #e8e8e8) 25%,\n    var(--ds-color-bg, #fff) 50%,\n    var(--ds-color-border-subtle, #e8e8e8) 75%\n  );\n  background-size: 200% 100%;\n  animation: nav-main-skeleton-shimmer 1.2s ease-in-out infinite;\n}\n\n.mainContentSkeletonBarWide { width: 72%; max-width: 520px; }\n.mainContentSkeletonBarMid { width: 48%; max-width: 360px; }\n.mainContentSkeletonBarFull { width: 100%; }\n\n.mainContentSkeletonGrid {\n  display: grid;\n  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));\n  gap: 12px;\n  margin-top: 8px;\n}\n\n.mainContentSkeletonCard {\n  height: 88px;\n  border-radius: 8px;\n  background: linear-gradient(\n    90deg,\n    var(--ds-color-border-subtle, #e8e8e8) 25%,\n    var(--ds-color-bg, #fff) 50%,\n    var(--ds-color-border-subtle, #e8e8e8) 75%\n  );\n  background-size: 200% 100%;\n  animation: nav-main-skeleton-shimmer 1.2s ease-in-out infinite;\n}\n\n@keyframes nav-main-skeleton-shimmer {\n  0% { background-position: 200% 0; }\n  100% { background-position: -200% 0; }\n}\n\n@media (prefers-reduced-motion: reduce) {\n  .mainContentSkeletonBar,\n  .mainContentSkeletonCard {\n    animation: none;\n    background: var(--ds-color-border-subtle, #e8e8e8);\n  }\n}\n"],"sourceRoot":""}]);
 // Exports
 ___CSS_LOADER_EXPORT___.locals = {
 	"topbarHost": `topbarHost___acuKy`,
@@ -20691,7 +20691,7 @@ ___CSS_LOADER_EXPORT___.push([module.id, `.switchCompanyBtn___4_iKP {
 .switchCompanyLabel___qNWlR {
   font-size: 13px;
 }
-`, "",{"version":3,"sources":["webpack://./src/components/NavTopbarActions.module.css"],"names":[],"mappings":"AAAA;EACE,oBAAoB;EACpB,mBAAmB;EACnB,QAAQ;EACR,iBAAiB;EACjB,oDAAoD;EACpD,kBAAkB;EAClB,uBAAuB;EACvB,uCAAuC;EACvC,eAAe;EACf,gBAAgB;EAChB,eAAe;EACf,yCAAyC;EACzC,mBAAmB;AACrB;;AAEA;EACE,4CAA4C;EAC5C,YAAY;AACd;;AAEA;EACE,eAAe;AACjB","sourcesContent":[".switchCompanyBtn {\r\n  display: inline-flex;\r\n  align-items: center;\r\n  gap: 6px;\r\n  padding: 6px 12px;\r\n  border: 1.5px solid var(--ds-color-primary, #2563EB);\r\n  border-radius: 6px;\r\n  background: transparent;\r\n  color: var(--ds-color-primary, #2563EB);\r\n  font-size: 13px;\r\n  font-weight: 500;\r\n  cursor: pointer;\r\n  transition: background 0.15s, color 0.15s;\r\n  white-space: nowrap;\r\n}\r\n\r\n.switchCompanyBtn:hover {\r\n  background: var(--ds-color-primary, #2563EB);\r\n  color: white;\r\n}\r\n\r\n.switchCompanyLabel {\r\n  font-size: 13px;\r\n}\r\n"],"sourceRoot":""}]);
+`, "",{"version":3,"sources":["webpack://./src/components/NavTopbarActions.module.css"],"names":[],"mappings":"AAAA;EACE,oBAAoB;EACpB,mBAAmB;EACnB,QAAQ;EACR,iBAAiB;EACjB,oDAAoD;EACpD,kBAAkB;EAClB,uBAAuB;EACvB,uCAAuC;EACvC,eAAe;EACf,gBAAgB;EAChB,eAAe;EACf,yCAAyC;EACzC,mBAAmB;AACrB;;AAEA;EACE,4CAA4C;EAC5C,YAAY;AACd;;AAEA;EACE,eAAe;AACjB","sourcesContent":[".switchCompanyBtn {\n  display: inline-flex;\n  align-items: center;\n  gap: 6px;\n  padding: 6px 12px;\n  border: 1.5px solid var(--ds-color-primary, #2563EB);\n  border-radius: 6px;\n  background: transparent;\n  color: var(--ds-color-primary, #2563EB);\n  font-size: 13px;\n  font-weight: 500;\n  cursor: pointer;\n  transition: background 0.15s, color 0.15s;\n  white-space: nowrap;\n}\n\n.switchCompanyBtn:hover {\n  background: var(--ds-color-primary, #2563EB);\n  color: white;\n}\n\n.switchCompanyLabel {\n  font-size: 13px;\n}\n"],"sourceRoot":""}]);
 // Exports
 ___CSS_LOADER_EXPORT___.locals = {
 	"switchCompanyBtn": `switchCompanyBtn___4_iKP`,
@@ -20744,7 +20744,7 @@ ___CSS_LOADER_EXPORT___.push([module.id, `.host___VtXzu {
     display: none;
   }
 }
-`, "",{"version":3,"sources":["webpack://./src/workspace/ShellWorkspaceTabBar.module.css"],"names":[],"mappings":"AAAA;EACE,eAAe;EACf,+BAA+B;EAC/B,QAAQ;EACR,uCAAuC;EACvC,yCAAyC;EACzC,qDAAqD;EACrD,0EAA0E;EAC1E,sBAAsB;EACtB,iDAAiD;AACnD;;AAEA;;;EAGE;AACF;EACE,2BAA2B;EAC3B,8BAA8B;AAChC;;AAEA;EACE;IACE,aAAa;EACf;AACF","sourcesContent":[".host {\r\n  position: fixed;\r\n  top: var(--topbar-height, 72px);\r\n  right: 0;\r\n  z-index: calc(var(--z-fixed, 1000) - 2);\r\n  background: var(--color-bg-surface, #fff);\r\n  border-bottom: 1px solid var(--color-border, #dee2e6);\r\n  /* Content offset uses measured --workspace-tab-height (ResizeObserver). */\r\n  box-sizing: border-box;\r\n  min-height: var(--workspace-tab-min-height, 40px);\r\n}\r\n\r\n/*\r\n * Compact workspace chrome — until Nav packs Tabs density=\"compact\".\r\n * Targets underline tab buttons without relying on CSS-module hashes.\r\n */\r\n.host button {\r\n  padding-top: 8px !important;\r\n  padding-bottom: 8px !important;\r\n}\r\n\r\n@media print {\r\n  .host {\r\n    display: none;\r\n  }\r\n}\r\n"],"sourceRoot":""}]);
+`, "",{"version":3,"sources":["webpack://./src/workspace/ShellWorkspaceTabBar.module.css"],"names":[],"mappings":"AAAA;EACE,eAAe;EACf,+BAA+B;EAC/B,QAAQ;EACR,uCAAuC;EACvC,yCAAyC;EACzC,qDAAqD;EACrD,0EAA0E;EAC1E,sBAAsB;EACtB,iDAAiD;AACnD;;AAEA;;;EAGE;AACF;EACE,2BAA2B;EAC3B,8BAA8B;AAChC;;AAEA;EACE;IACE,aAAa;EACf;AACF","sourcesContent":[".host {\n  position: fixed;\n  top: var(--topbar-height, 72px);\n  right: 0;\n  z-index: calc(var(--z-fixed, 1000) - 2);\n  background: var(--color-bg-surface, #fff);\n  border-bottom: 1px solid var(--color-border, #dee2e6);\n  /* Content offset uses measured --workspace-tab-height (ResizeObserver). */\n  box-sizing: border-box;\n  min-height: var(--workspace-tab-min-height, 40px);\n}\n\n/*\n * Compact workspace chrome — until Nav packs Tabs density=\"compact\".\n * Targets underline tab buttons without relying on CSS-module hashes.\n */\n.host button {\n  padding-top: 8px !important;\n  padding-bottom: 8px !important;\n}\n\n@media print {\n  .host {\n    display: none;\n  }\n}\n"],"sourceRoot":""}]);
 // Exports
 ___CSS_LOADER_EXPORT___.locals = {
 	"host": `host___VtXzu`
@@ -62649,6 +62649,19 @@ function _defineProperty(e, r, t) {
 // EXTERNAL MODULE: ./node_modules/@babel/runtime/regenerator/index.js
 var regenerator = __webpack_require__(4756);
 var regenerator_default = /*#__PURE__*/__webpack_require__.n(regenerator);
+;// ./src/utils/browserDeviceId.ts
+/** Per browser profile. Not cleared on logout. Same key in Root, Home, and common. */
+var DEVICE_ID_KEY = 'linm.device.id';
+function getOrCreateBrowserDeviceId() {
+  if (typeof localStorage === 'undefined') return '';
+  var existing = localStorage.getItem(DEVICE_ID_KEY);
+  if (existing && /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i.test(existing)) {
+    return existing;
+  }
+  var created = crypto.randomUUID();
+  localStorage.setItem(DEVICE_ID_KEY, created);
+  return created;
+}
 ;// ./src/utils/mergeNavItems.ts
 
 function _createForOfIteratorHelper(r, e) { var t = "undefined" != typeof Symbol && r[Symbol.iterator] || r["@@iterator"]; if (!t) { if (Array.isArray(r) || (t = mergeNavItems_unsupportedIterableToArray(r)) || e && r && "number" == typeof r.length) { t && (r = t); var _n = 0, F = function F() {}; return { s: F, n: function n() { return _n >= r.length ? { done: !0 } : { done: !1, value: r[_n++] }; }, e: function e(r) { throw r; }, f: F }; } throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); } var o, a = !0, u = !1; return { s: function s() { t = t.call(r); }, n: function n() { var r = t.next(); return a = r.done, r; }, e: function e(r) { u = !0, o = r; }, f: function f() { try { a || null == t.return || t.return(); } finally { if (u) throw o; } } }; }
@@ -62711,8 +62724,18 @@ function useUserPermissions_arrayLikeToArray(r, a) { (null == a || a > r.length)
 
 
 
+
 var AUTH_READY_MAX_MS = 8000;
 var AUTH_READY_POLL_MS = 50;
+function endSessionAfterPasswordChange() {
+  clearAuthTokens();
+  clearAuthUser();
+  clearActiveCompanyCode();
+  clearPermissionsCache();
+  window.dispatchEvent(new CustomEvent('linm:auth:changed'));
+  window.dispatchEvent(new CustomEvent('linm:logout:complete'));
+  redirectToLoginAfterAuthFailure();
+}
 
 /** Wait until Root/Home persisted access token is readable (avoids early 401/403 on cold load). */
 function waitForAuthReady() {
@@ -62775,7 +62798,7 @@ function applySectionMetaToLoadedSet(meta, target) {
 
 // ─── Cache helpers ─────────────────────────────────────────────────────────────
 
-var BUILD_HASH =  true ? "1.13.0" : 0;
+var BUILD_HASH =  true ? "1.15.0" : 0;
 var CACHE_ENABLED = "false" === 'true';
 function getTtlMs() {
   var ttl = window.__LINM_PERM_TTL_MIN__;
@@ -63202,23 +63225,29 @@ function useUserPermissions(currentPath) {
   }, [currentPath]);
   (0,external_react_.useEffect)(function () {
     var _import$meta$env$VITE;
-    if (true) return;
-    // removed by dead control flow
- var token; 
-    // removed by dead control flow
-
-    // removed by dead control flow
- var hubUrl; 
-    // removed by dead control flow
- var connection; 
-    // removed by dead control flow
-
-    // removed by dead control flow
-
-    // removed by dead control flow
-
-    // removed by dead control flow
-
+    var token = getAuthToken();
+    if (!token) return;
+    var hubUrl = ((_import$meta$env$VITE = "http://localhost:5001") !== null && _import$meta$env$VITE !== void 0 ? _import$meta$env$VITE : 'http://localhost:5001') + '/hubs/permission';
+    var connection = new HubConnectionBuilder().withUrl(hubUrl, {
+      accessTokenFactory: function accessTokenFactory() {
+        var _getAuthToken;
+        return (_getAuthToken = getAuthToken()) !== null && _getAuthToken !== void 0 ? _getAuthToken : '';
+      }
+    }).withAutomaticReconnect().configureLogging(LogLevel.Warning).build();
+    connection.on('SessionRevoked', function (payload) {
+      var target = payload === null || payload === void 0 ? void 0 : payload.deviceId;
+      if (target && target !== getOrCreateBrowserDeviceId()) return;
+      void connection.stop();
+      endSessionAfterPasswordChange();
+    });
+    if (false) // removed by dead control flow
+{}
+    connection.start().catch(function () {/* hub unavailable */});
+    hubRef.current = connection;
+    return function () {
+      connection.stop();
+      hubRef.current = null;
+    };
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   return {
@@ -64162,7 +64191,7 @@ function readRootShellBranding() {
 var shellBranding = {
   title: shellBranding_trim("") || 'LINM ERP',
   subTitle: shellBranding_trim("") || 'Hệ Thống Quản Trị Doanh Nghiệp',
-  iconFolder: shellBranding_normalizeIconFolder(""),
+  iconFolder: shellBranding_normalizeIconFolder("ubna"),
   navMain: shellBranding_trim("Linm") || 'Linm'
 };
 function withShellAssetQuery(src) {
@@ -64442,9 +64471,13 @@ function isMobileLoginPath(pathname) {
   var path = pathname.split('?')[0].split('#')[0];
   return NavRoot_normalizePath(path) === MOBILE_LOGIN_PATH;
 }
-function isRegisterCanvas(pathname) {
+
+/** Hide shell chrome (topbar/sidebar) — guest QR form + register canvas. */
+function isGuestShellHiddenPath(pathname) {
   var n = NavRoot_normalizePath(pathname);
-  return n === '/integration/users/register' || n.startsWith('/integration/users/register/');
+  return PUBLIC_PATH_PREFIXES.some(function (p) {
+    return n === p || n.startsWith("".concat(p, "/"));
+  });
 }
 function isPublicPath(pathname) {
   var n = NavRoot_normalizePath(pathname);
@@ -64620,7 +64653,7 @@ var NavInner = function NavInner() {
   }, []);
   (0,external_react_.useEffect)(function () {
     var isLogin = location.pathname === '/login';
-    var guestCanvas = isLogin || isRegisterCanvas(location.pathname);
+    var guestCanvas = isLogin || isGuestShellHiddenPath(pathname);
     var phone = isMobilePhonePath(pathname);
     var shellEmbed = isShellEmbedPath(pathname);
     var sidebarWidth = guestCanvas || phone || shellEmbed ? '0px' : isMobile ? isMobileSidebarOpen ? '280px' : '0px' : desktopIconRail ? '64px' : '280px';
@@ -64742,7 +64775,7 @@ var NavInner = function NavInner() {
   var parts = fullName.trim().split(' ');
   var userInitials = parts.length >= 2 ? (parts[parts.length - 2].charAt(0) + parts[parts.length - 1].charAt(0)).toUpperCase() : fullName.charAt(0).toUpperCase();
   var roleLabel = (user === null || user === void 0 ? void 0 : user.role) === 'admin' ? 'Quản trị viên' : (user === null || user === void 0 ? void 0 : user.role) === 'manager' ? 'Quản lý' : (user === null || user === void 0 ? void 0 : user.role) === 'staff' ? 'Nhân viên' : 'Người dùng';
-  if (pathname === '/login' || pathname === '/logout' || isRegisterCanvas(pathname)) return null;
+  if (pathname === '/login' || pathname === '/logout' || isGuestShellHiddenPath(pathname)) return null;
   if (isMobilePhonePath(pathname)) return null;
   if (isShellEmbedPath(pathname)) return null;
   var menuReady = ((_permissions$navItems3 = permissions === null || permissions === void 0 || (_permissions$navItems4 = permissions.navItems) === null || _permissions$navItems4 === void 0 ? void 0 : _permissions$navItems4.length) !== null && _permissions$navItems3 !== void 0 ? _permissions$navItems3 : 0) > 0;
@@ -64917,4 +64950,4 @@ var bootstrap = lifecycles.bootstrap,
 		}
 	};
 });
-//# sourceMappingURL=linm-nav.1288c495.js.map
+//# sourceMappingURL=linm-nav.130bd229.js.map
