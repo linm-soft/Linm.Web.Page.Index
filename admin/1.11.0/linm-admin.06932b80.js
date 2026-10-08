@@ -17422,9 +17422,9 @@ const appSettings = {
      */
     build: {
         /** Semantic version from package.json, auto-bumped on each merge to main. e.g. "1.0.42" */
-        version: "1.10.0" || 0,
+        version: "1.11.0" || 0,
         /** GitHub Actions run number — monotonically increasing. e.g. "137" */
-        number: "118" || 0,
+        number: "119" || 0,
         /** Short git commit SHA. e.g. "a1b2c3d" */
         sha: undefined || 'dev',
         /** ISO 8601 build timestamp. e.g. "2026-04-12T08:00:00Z" */
@@ -32469,6 +32469,12 @@ var ADMIN_HOME_NAV = [{
   description: 'Danh sách tài khoản, gói, reset mật khẩu',
   devBadge: 'GET'
 }, {
+  label: 'Đăng nhập nền tảng',
+  path: '/admin/login-activity',
+  permissionCode: _adminPermissions__WEBPACK_IMPORTED_MODULE_0__/* .AdminPerm */ .IE.accountsRead,
+  description: 'Thiết bị đang đăng nhập và lịch sử đăng nhập',
+  devBadge: 'GET'
+}, {
   label: 'Đơn vị / Chi nhánh',
   path: '/admin/companies',
   permissionCode: _adminPermissions__WEBPACK_IMPORTED_MODULE_0__/* .AdminPerm */ .IE.companiesRead,
@@ -32812,6 +32818,9 @@ var ADMIN_PATH_PERMISSIONS = [{
   permissionCode: AdminPerm.jobsHub
 }, {
   path: '/admin/accounts',
+  permissionCode: AdminPerm.accountsRead
+}, {
+  path: '/admin/login-activity',
   permissionCode: AdminPerm.accountsRead
 }, {
   path: '/admin/companies',
@@ -71988,7 +71997,7 @@ function _fetchPayload() {
   }));
   return _fetchPayload.apply(this, arguments);
 }
-var STANDALONE_ADMIN_PATHS = ['/admin', '/admin/accounts', '/admin/companies', '/admin/departments', '/admin/employees', '/admin/permissions', '/admin/api-keys', '/admin/data-cleanup', '/admin/report-seed', '/admin/jobs', '/admin/jobs/server-config', '/admin/jobs/schedule', '/admin/jobs/dashboard', '/admin/jobs/inbound', '/admin/jobs/external-sync', '/admin/jobs/external-runs', '/admin/jobs/missing-ledger-runs', '/admin/jobs/legacy-cash-runs', '/admin/jobs/legacy-invoice-runs', '/admin/jobs/vat-refill-runs', '/admin/jobs/pos-bill-ops', '/admin/jobs/pos-inbound-runs', '/admin/jobs/voucher-renumber', '/admin/jobs/outbound', '/admin/jobs/internal', '/admin/jobs/events'];
+var STANDALONE_ADMIN_PATHS = ['/admin', '/admin/accounts', '/admin/login-activity', '/admin/companies', '/admin/departments', '/admin/employees', '/admin/permissions', '/admin/api-keys', '/admin/data-cleanup', '/admin/report-seed', '/admin/jobs', '/admin/jobs/server-config', '/admin/jobs/schedule', '/admin/jobs/dashboard', '/admin/jobs/inbound', '/admin/jobs/external-sync', '/admin/jobs/external-runs', '/admin/jobs/missing-ledger-runs', '/admin/jobs/legacy-cash-runs', '/admin/jobs/legacy-invoice-runs', '/admin/jobs/vat-refill-runs', '/admin/jobs/pos-bill-ops', '/admin/jobs/pos-inbound-runs', '/admin/jobs/voucher-renumber', '/admin/jobs/outbound', '/admin/jobs/internal', '/admin/jobs/events'];
 
 /** Standalone / local bypass — all admin page permissions (parity with ADMIN seed). */
 var STANDALONE_PERMISSION_CODES = ['admin:accounts:read', 'admin:accounts:write', 'admin:companies:read', 'admin:companies:write', 'admin:departments:read', 'admin:departments:write', 'admin:employees:read', 'admin:employees:write', 'admin:packages:read', 'admin:packages:write', 'admin:permissions:read', 'admin:permissions:write', 'admin:apikeys:read', 'admin:apikeys:write', 'admin:data-cleanup:read', 'admin:data-cleanup:write', 'admin:report-seed:read', 'admin:report-seed:write', 'admin:jobs:hub:read', 'admin:jobs:server-config:read', 'admin:jobs:server-config:write', 'admin:jobs:schedule:read', 'admin:jobs:schedule:write', 'admin:jobs:dashboard:read', 'admin:jobs:events:read', 'admin:jobs:external-sync:read', 'admin:jobs:external-sync:write', 'admin:jobs:external-runs:read', 'admin:jobs:missing-ledger:read', 'admin:jobs:missing-ledger:write', 'admin:jobs:legacy-cash:read', 'admin:jobs:legacy-cash:write', 'admin:jobs:legacy-invoice:read', 'admin:jobs:legacy-invoice:write', 'admin:jobs:vat-refill:read', 'admin:jobs:vat-refill:write', 'admin:jobs:pos-bill-ops:read', 'admin:jobs:pos-bill-ops:write', 'admin:jobs:voucher-renumber:read', 'admin:jobs:voucher-renumber:write', 'admin:jobs:inbound:read', 'admin:jobs:pos-inbound-runs:read', 'admin:jobs:outbound:read', 'admin:jobs:internal:read',
@@ -79012,6 +79021,432 @@ var AccountsManagementPage = function AccountsManagementPage() {
 /* harmony default export */ const AccountsManagementPage_AccountsManagementPage = (AccountsManagementPage);
 ;// ./src/pages/AccountsManagementPage/index.tsx
 
+;// ./src/utils/dateTime.ts
+/**
+ * DateTime conversion utilities — system-wide
+ *
+ * ════════════════════════════════════════════════════════════════════════════
+ * SYSTEM ARCHITECTURE: DATETIME HANDLING CONTRACT
+ * ════════════════════════════════════════════════════════════════════════════
+ *
+ * 1. DB STORAGE          → UTC (no offset).
+ * 2. GET RESPONSES       → UTC ISO-8601  e.g. "2026-04-14T03:30:00.000Z"
+ * 3. UI DISPLAY/INPUT    → LOCAL time (browser timezone, no conversion needed
+ *                          because JS Date automatically uses local tz).
+ * 4. POST/PUT PAYLOADS   → ISO 8601 with local offset
+ *                          e.g. "2026-04-14T10:30:00+07:00"
+ *                          Backend parses via DateTimeOffset.TryParse
+ *                          (DateTimeStyles.RoundtripKind) → converts to UTC.
+ * 5. IDCODE DATE PART    → Must use CLIENT's local date, not server UTC date.
+ *                          Every API request carries:
+ *                            X-Timezone: <IANA zone>  e.g. "Asia/Ho_Chi_Minh"
+ *                          Backend IClientTimezoneAccessor reads this header
+ *                          and provides GetClientDate() → DateOnly in local tz.
+ *                          IdCodeService uses clientDate for both the counter
+ *                          key AND the yyyyMMdd in the code string.
+ *
+ * Conversion flow:
+ *   GET  (UTC "…Z")  ──► utcToLocalInputValue()    ──► <input type="datetime-local">
+ *   <input type="datetime-local"> ──► localInputToISOWithOffset() ──► POST/PUT body
+ *   api.ts request() ──► X-Timezone: getClientTimezone() ──► every request header
+ * ════════════════════════════════════════════════════════════════════════════
+ */
+
+// ─── UTC  →  datetime-local value ────────────────────────────────────────────
+
+/**
+ * Convert a UTC ISO string to the value required by an
+ * `<input type="datetime-local">` (format: `YYYY-MM-DDTHH:mm`) expressed in
+ * the browser's local timezone.
+ */
+function utcToLocalInputValue(utcIso) {
+  if (!utcIso) return '';
+  var d = new Date(utcIso);
+  if (isNaN(d.getTime())) return '';
+  var y = d.getFullYear();
+  var mo = String(d.getMonth() + 1).padStart(2, '0');
+  var day = String(d.getDate()).padStart(2, '0');
+  var h = String(d.getHours()).padStart(2, '0');
+  var m = String(d.getMinutes()).padStart(2, '0');
+  return "".concat(y, "-").concat(mo, "-").concat(day, "T").concat(h, ":").concat(m);
+}
+
+// ─── datetime-local value  →  ISO with offset ─────────────────────────────────
+
+/**
+ * Convert a `datetime-local` input value (`YYYY-MM-DDTHH:mm`) to an ISO 8601
+ * string that carries the browser's local timezone offset
+ * (e.g. `"2026-04-14T10:30:00+07:00"`).
+ *
+ * The backend must parse this with offset-awareness then call `.ToUniversalTime()`.
+ */
+function localInputToISOWithOffset(localValue) {
+  if (!localValue) return '';
+  var d = new Date(localValue); // parsed as local time
+  if (isNaN(d.getTime())) return '';
+  var offsetMin = -d.getTimezoneOffset(); // negative getTimezoneOffset = ahead of UTC
+  var sign = offsetMin >= 0 ? '+' : '-';
+  var absMin = Math.abs(offsetMin);
+  var offH = String(Math.floor(absMin / 60)).padStart(2, '0');
+  var offM = String(absMin % 60).padStart(2, '0');
+  var y = d.getFullYear();
+  var mo = String(d.getMonth() + 1).padStart(2, '0');
+  var day = String(d.getDate()).padStart(2, '0');
+  var h = String(d.getHours()).padStart(2, '0');
+  var m = String(d.getMinutes()).padStart(2, '0');
+  var s = String(d.getSeconds()).padStart(2, '0');
+  return "".concat(y, "-").concat(mo, "-").concat(day, "T").concat(h, ":").concat(m, ":").concat(s).concat(sign).concat(offH, ":").concat(offM);
+}
+
+// ─── "now" helpers ────────────────────────────────────────────────────────────
+
+/** Current local time as a `datetime-local` input value (`YYYY-MM-DDTHH:mm`). */
+function nowAsLocalInputValue() {
+  return utcToLocalInputValue(new Date().toISOString());
+}
+
+/**
+ * Current time as ISO 8601 with the browser's local offset.
+ * Use this when initialising form fields that will be sent to the backend.
+ */
+function nowAsISOWithOffset() {
+  return localInputToISOWithOffset(nowAsLocalInputValue());
+}
+
+// ─── Display formatters ────────────────────────────────────────────────────────
+
+/**
+ * Format a UTC ISO string for read-only display in local time.
+ * Returns "DD/MM/YYYY HH:mm" by default, or "DD/MM/YYYY" when `includeTime` is false.
+ */
+function formatUTCToLocalDisplay(utcIso) {
+  var includeTime = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : true;
+  if (!utcIso) return '—';
+  var d = new Date(utcIso);
+  if (isNaN(d.getTime())) return '—';
+  var day = String(d.getDate()).padStart(2, '0');
+  var mo = String(d.getMonth() + 1).padStart(2, '0');
+  var y = d.getFullYear();
+  if (!includeTime) return "".concat(day, "/").concat(mo, "/").concat(y);
+  var h = String(d.getHours()).padStart(2, '0');
+  var m = String(d.getMinutes()).padStart(2, '0');
+  return "".concat(day, "/").concat(mo, "/").concat(y, " ").concat(h, ":").concat(m);
+}
+
+// ─── Timezone helpers ─────────────────────────────────────────────────────────
+
+/**
+ * Returns the browser's IANA timezone identifier
+ * (e.g. `"Asia/Ho_Chi_Minh"`, `"America/New_York"`).
+ *
+ * Used by `api.ts` to inject `X-Timezone` into every request so the BFF can
+ * resolve the client's local date for IdCode generation (§5 of the contract above).
+ */
+function getClientTimezone() {
+  return Intl.DateTimeFormat().resolvedOptions().timeZone;
+}
+// EXTERNAL MODULE: ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[5].use[1]!./src/pages/orgCatalog/orgCatalog.module.css
+var orgCatalog_module = __webpack_require__(6606);
+;// ./src/pages/orgCatalog/orgCatalog.module.css
+
+      
+      
+      
+      
+      
+      
+      
+      
+      
+
+var orgCatalog_module_options = {};
+
+orgCatalog_module_options.styleTagTransform = (styleTagTransform_default());
+orgCatalog_module_options.setAttributes = (setAttributesWithoutAttributes_default());
+orgCatalog_module_options.insert = insertBySelector_default().bind(null, "head");
+orgCatalog_module_options.domAPI = (styleDomAPI_default());
+orgCatalog_module_options.insertStyleElement = (insertStyleElement_default());
+
+var orgCatalog_module_update = injectStylesIntoStyleTag_default()(orgCatalog_module/* default */.A, orgCatalog_module_options);
+
+
+
+
+       /* harmony default export */ const orgCatalog_orgCatalog_module = (orgCatalog_module/* default */.A && orgCatalog_module/* default */.A.locals ? orgCatalog_module/* default */.A.locals : undefined);
+
+;// ./src/pages/LoginActivityPage/loginActivity.ts
+
+
+
+
+function loginActivity_text(row, key) {
+  var _row$key;
+  var value = (_row$key = row[key]) !== null && _row$key !== void 0 ? _row$key : row[key.charAt(0).toUpperCase() + key.slice(1)];
+  return typeof value === 'string' ? value : '';
+}
+function asRows(body) {
+  if (Array.isArray(body)) return body.filter(function (row) {
+    return row && _typeof(row) === 'object';
+  });
+  if (body && _typeof(body) === 'object') {
+    var data = body.data;
+    if (Array.isArray(data)) return data.filter(function (row) {
+      return row && _typeof(row) === 'object';
+    });
+  }
+  return [];
+}
+function listPlatformDevices(_x) {
+  return _listPlatformDevices.apply(this, arguments);
+}
+function _listPlatformDevices() {
+  _listPlatformDevices = _asyncToGenerator(/*#__PURE__*/regenerator_default().mark(function _callee(search) {
+    var query, body;
+    return regenerator_default().wrap(function (_context) {
+      while (1) switch (_context.prev = _context.next) {
+        case 0:
+          query = search.trim() ? "?search=".concat(encodeURIComponent(search.trim())) : '';
+          _context.next = 1;
+          return dist/* apiClient */.uE4.get("/admin/login-devices".concat(query));
+        case 1:
+          body = _context.sent;
+          return _context.abrupt("return", asRows(body).map(function (row) {
+            return {
+              userId: loginActivity_text(row, 'userId'),
+              accountName: loginActivity_text(row, 'accountName'),
+              fullName: loginActivity_text(row, 'fullName'),
+              employeeId: loginActivity_text(row, 'employeeId'),
+              deviceId: loginActivity_text(row, 'deviceId'),
+              label: loginActivity_text(row, 'label'),
+              signedInAt: loginActivity_text(row, 'signedInAt'),
+              lastSeenAt: loginActivity_text(row, 'lastSeenAt'),
+              ipAddress: loginActivity_text(row, 'ipAddress')
+            };
+          }));
+        case 2:
+        case "end":
+          return _context.stop();
+      }
+    }, _callee);
+  }));
+  return _listPlatformDevices.apply(this, arguments);
+}
+function listLoginHistory(_x2) {
+  return _listLoginHistory.apply(this, arguments);
+}
+function _listLoginHistory() {
+  _listLoginHistory = _asyncToGenerator(/*#__PURE__*/regenerator_default().mark(function _callee2(search) {
+    var query, body;
+    return regenerator_default().wrap(function (_context2) {
+      while (1) switch (_context2.prev = _context2.next) {
+        case 0:
+          query = search.trim() ? "?search=".concat(encodeURIComponent(search.trim())) : '';
+          _context2.next = 1;
+          return dist/* apiClient */.uE4.get("/admin/login-history".concat(query));
+        case 1:
+          body = _context2.sent;
+          return _context2.abrupt("return", asRows(body).map(function (row) {
+            return {
+              id: loginActivity_text(row, 'id'),
+              userId: loginActivity_text(row, 'userId'),
+              accountName: loginActivity_text(row, 'accountName'),
+              fullName: loginActivity_text(row, 'fullName'),
+              employeeId: loginActivity_text(row, 'employeeId'),
+              deviceId: loginActivity_text(row, 'deviceId'),
+              deviceLabel: loginActivity_text(row, 'deviceLabel'),
+              ipAddress: loginActivity_text(row, 'ipAddress'),
+              loggedInAt: loginActivity_text(row, 'loggedInAt')
+            };
+          }));
+        case 2:
+        case "end":
+          return _context2.stop();
+      }
+    }, _callee2);
+  }));
+  return _listLoginHistory.apply(this, arguments);
+}
+;// ./src/pages/LoginActivityPage/lookupStatic.ts
+var LOGIN_ACTIVITY_LOOKUP = [{
+  value: 'title',
+  label: 'Đăng nhập nền tảng'
+}, {
+  value: 'hint',
+  label: 'Thiết bị đang đăng nhập và lịch sử đăng nhập thành công. Tìm theo tài khoản, họ tên, mã nhân viên hoặc trình duyệt.'
+}, {
+  value: 'search',
+  label: 'Tìm tài khoản, họ tên, mã nhân viên, trình duyệt'
+}, {
+  value: 'refresh',
+  label: 'Làm mới'
+}, {
+  value: 'loading',
+  label: 'Đang tải…'
+}, {
+  value: 'devices',
+  label: 'Thiết bị đang đăng nhập'
+}, {
+  value: 'history',
+  label: 'Lịch sử đăng nhập'
+}, {
+  value: 'devicesEmpty',
+  label: 'Chưa có thiết bị đang đăng nhập.'
+}, {
+  value: 'historyEmpty',
+  label: 'Chưa có lần đăng nhập.'
+}, {
+  value: 'loadFail',
+  label: 'Không tải được dữ liệu đăng nhập.'
+}, {
+  value: 'account',
+  label: 'Tài khoản'
+}, {
+  value: 'name',
+  label: 'Họ tên'
+}, {
+  value: 'employee',
+  label: 'Mã nhân viên'
+}, {
+  value: 'device',
+  label: 'Thiết bị'
+}, {
+  value: 'signedIn',
+  label: 'Đăng nhập'
+}, {
+  value: 'lastSeen',
+  label: 'Dùng gần nhất'
+}, {
+  value: 'ip',
+  label: 'IP'
+}, {
+  value: 'unknownDevice',
+  label: 'Trình duyệt'
+}];
+function labelOf(options, value, fallback) {
+  var _options$find$label, _options$find;
+  return (_options$find$label = (_options$find = options.find(function (row) {
+    return row.value === value;
+  })) === null || _options$find === void 0 ? void 0 : _options$find.label) !== null && _options$find$label !== void 0 ? _options$find$label : fallback;
+}
+;// ./src/pages/LoginActivityPage/LoginActivityPage.tsx
+
+
+
+
+
+
+
+
+var L = LOGIN_ACTIVITY_LOOKUP;
+function accountCell(name, account) {
+  return name && account && name !== account ? "".concat(name, " \xB7 ").concat(account) : name || account || '—';
+}
+var LoginActivityPage = function LoginActivityPage() {
+  (0,dist/* useNavTitle */.pSS)(labelOf(L, 'title', 'Đăng nhập nền tảng'));
+  (0,dist/* useFormOptions */.OAx)('admin-login-activity');
+  var _useState = (0,external_react_.useState)(''),
+    _useState2 = _slicedToArray(_useState, 2),
+    search = _useState2[0],
+    setSearch = _useState2[1];
+  var _useState3 = (0,external_react_.useState)(''),
+    _useState4 = _slicedToArray(_useState3, 2),
+    appliedSearch = _useState4[0],
+    setAppliedSearch = _useState4[1];
+  var _useState5 = (0,external_react_.useState)([]),
+    _useState6 = _slicedToArray(_useState5, 2),
+    devices = _useState6[0],
+    setDevices = _useState6[1];
+  var _useState7 = (0,external_react_.useState)([]),
+    _useState8 = _slicedToArray(_useState7, 2),
+    history = _useState8[0],
+    setHistory = _useState8[1];
+  var _useState9 = (0,external_react_.useState)(true),
+    _useState0 = _slicedToArray(_useState9, 2),
+    loading = _useState0[0],
+    setLoading = _useState0[1];
+  var _useState1 = (0,external_react_.useState)(''),
+    _useState10 = _slicedToArray(_useState1, 2),
+    error = _useState10[0],
+    setError = _useState10[1];
+  (0,external_react_.useEffect)(function () {
+    var timer = window.setTimeout(function () {
+      setLoading(true);
+      void Promise.all([listPlatformDevices(appliedSearch), listLoginHistory(appliedSearch)]).then(function (_ref) {
+        var _ref2 = _slicedToArray(_ref, 2),
+          deviceRows = _ref2[0],
+          historyRows = _ref2[1];
+        setDevices(deviceRows);
+        setHistory(historyRows);
+        setError('');
+      }).catch(function () {
+        return setError(labelOf(L, 'loadFail', 'Không tải được dữ liệu đăng nhập.'));
+      }).finally(function () {
+        return setLoading(false);
+      });
+    }, 0);
+    return function () {
+      return window.clearTimeout(timer);
+    };
+  }, [appliedSearch]);
+  var applySearch = function applySearch() {
+    return setAppliedSearch(search.trim());
+  };
+  return /*#__PURE__*/external_react_["default"].createElement("div", {
+    className: orgCatalog_orgCatalog_module.page,
+    "data-testid": "admin-login-activity"
+  }, /*#__PURE__*/external_react_["default"].createElement("div", {
+    className: orgCatalog_orgCatalog_module.header
+  }, /*#__PURE__*/external_react_["default"].createElement("div", null, /*#__PURE__*/external_react_["default"].createElement("h1", {
+    className: orgCatalog_orgCatalog_module.title
+  }, labelOf(L, 'title', 'Đăng nhập nền tảng')), /*#__PURE__*/external_react_["default"].createElement("p", {
+    className: orgCatalog_orgCatalog_module.hint
+  }, labelOf(L, 'hint', 'Thiết bị đang đăng nhập và lịch sử đăng nhập thành công. Tìm theo tài khoản, họ tên, mã nhân viên hoặc trình duyệt.'))), /*#__PURE__*/external_react_["default"].createElement("div", {
+    className: orgCatalog_orgCatalog_module.headerActions
+  }, /*#__PURE__*/external_react_["default"].createElement(dist/* SearchTextInput */.UAT, {
+    value: search,
+    onChange: setSearch,
+    onSearch: applySearch,
+    placeholder: labelOf(L, 'search', 'Tìm tài khoản, họ tên, mã nhân viên, trình duyệt'),
+    testId: "admin-login-search"
+  }), /*#__PURE__*/external_react_["default"].createElement(dist/* Button */.$nd, {
+    variant: "secondary",
+    onClick: applySearch,
+    disabled: loading
+  }, labelOf(L, 'refresh', 'Làm mới')))), error ? /*#__PURE__*/external_react_["default"].createElement("p", {
+    className: orgCatalog_orgCatalog_module.hint
+  }, error) : null, /*#__PURE__*/external_react_["default"].createElement("h2", {
+    className: orgCatalog_orgCatalog_module.title
+  }, labelOf(L, 'devices', 'Thiết bị đang đăng nhập')), loading ? /*#__PURE__*/external_react_["default"].createElement(dist/* TableCard */.Lje, null, /*#__PURE__*/external_react_["default"].createElement("div", {
+    className: orgCatalog_orgCatalog_module.emptyState
+  }, labelOf(L, 'loading', 'Đang tải…'))) : devices.length === 0 ? /*#__PURE__*/external_react_["default"].createElement(dist/* TableCard */.Lje, null, /*#__PURE__*/external_react_["default"].createElement("div", {
+    className: orgCatalog_orgCatalog_module.emptyState
+  }, labelOf(L, 'devicesEmpty', 'Chưa có thiết bị đang đăng nhập.'))) : /*#__PURE__*/external_react_["default"].createElement(dist/* TableCard */.Lje, null, /*#__PURE__*/external_react_["default"].createElement("div", {
+    className: orgCatalog_orgCatalog_module.tableWrapper
+  }, /*#__PURE__*/external_react_["default"].createElement("table", {
+    className: orgCatalog_orgCatalog_module.table
+  }, /*#__PURE__*/external_react_["default"].createElement("thead", null, /*#__PURE__*/external_react_["default"].createElement("tr", null, /*#__PURE__*/external_react_["default"].createElement("th", null, labelOf(L, 'account', 'Tài khoản')), /*#__PURE__*/external_react_["default"].createElement("th", null, labelOf(L, 'employee', 'Mã nhân viên')), /*#__PURE__*/external_react_["default"].createElement("th", null, labelOf(L, 'device', 'Thiết bị')), /*#__PURE__*/external_react_["default"].createElement("th", null, labelOf(L, 'signedIn', 'Đăng nhập')), /*#__PURE__*/external_react_["default"].createElement("th", null, labelOf(L, 'lastSeen', 'Dùng gần nhất')), /*#__PURE__*/external_react_["default"].createElement("th", null, labelOf(L, 'ip', 'IP')))), /*#__PURE__*/external_react_["default"].createElement("tbody", null, devices.map(function (row) {
+    return /*#__PURE__*/external_react_["default"].createElement("tr", {
+      key: "".concat(row.userId, "-").concat(row.deviceId)
+    }, /*#__PURE__*/external_react_["default"].createElement("td", null, accountCell(row.fullName, row.accountName)), /*#__PURE__*/external_react_["default"].createElement("td", null, row.employeeId || '—'), /*#__PURE__*/external_react_["default"].createElement("td", null, row.label || labelOf(L, 'unknownDevice', 'Trình duyệt')), /*#__PURE__*/external_react_["default"].createElement("td", null, formatUTCToLocalDisplay(row.signedInAt)), /*#__PURE__*/external_react_["default"].createElement("td", null, formatUTCToLocalDisplay(row.lastSeenAt)), /*#__PURE__*/external_react_["default"].createElement("td", null, row.ipAddress || '—'));
+  }))))), /*#__PURE__*/external_react_["default"].createElement("h2", {
+    className: orgCatalog_orgCatalog_module.title
+  }, labelOf(L, 'history', 'Lịch sử đăng nhập')), loading ? /*#__PURE__*/external_react_["default"].createElement(dist/* TableCard */.Lje, null, /*#__PURE__*/external_react_["default"].createElement("div", {
+    className: orgCatalog_orgCatalog_module.emptyState
+  }, labelOf(L, 'loading', 'Đang tải…'))) : history.length === 0 ? /*#__PURE__*/external_react_["default"].createElement(dist/* TableCard */.Lje, null, /*#__PURE__*/external_react_["default"].createElement("div", {
+    className: orgCatalog_orgCatalog_module.emptyState
+  }, labelOf(L, 'historyEmpty', 'Chưa có lần đăng nhập.'))) : /*#__PURE__*/external_react_["default"].createElement(dist/* TableCard */.Lje, null, /*#__PURE__*/external_react_["default"].createElement("div", {
+    className: orgCatalog_orgCatalog_module.tableWrapper
+  }, /*#__PURE__*/external_react_["default"].createElement("table", {
+    className: orgCatalog_orgCatalog_module.table
+  }, /*#__PURE__*/external_react_["default"].createElement("thead", null, /*#__PURE__*/external_react_["default"].createElement("tr", null, /*#__PURE__*/external_react_["default"].createElement("th", null, labelOf(L, 'account', 'Tài khoản')), /*#__PURE__*/external_react_["default"].createElement("th", null, labelOf(L, 'employee', 'Mã nhân viên')), /*#__PURE__*/external_react_["default"].createElement("th", null, labelOf(L, 'device', 'Thiết bị')), /*#__PURE__*/external_react_["default"].createElement("th", null, labelOf(L, 'signedIn', 'Đăng nhập')), /*#__PURE__*/external_react_["default"].createElement("th", null, labelOf(L, 'ip', 'IP')))), /*#__PURE__*/external_react_["default"].createElement("tbody", null, history.map(function (row) {
+    return /*#__PURE__*/external_react_["default"].createElement("tr", {
+      key: row.id
+    }, /*#__PURE__*/external_react_["default"].createElement("td", null, accountCell(row.fullName, row.accountName)), /*#__PURE__*/external_react_["default"].createElement("td", null, row.employeeId || '—'), /*#__PURE__*/external_react_["default"].createElement("td", null, row.deviceLabel || labelOf(L, 'unknownDevice', 'Trình duyệt')), /*#__PURE__*/external_react_["default"].createElement("td", null, formatUTCToLocalDisplay(row.loggedInAt)), /*#__PURE__*/external_react_["default"].createElement("td", null, row.ipAddress || '—'));
+  }))))));
+};
+/* harmony default export */ const LoginActivityPage_LoginActivityPage = (LoginActivityPage);
+;// ./src/pages/LoginActivityPage/index.tsx
+
 ;// ./src/hooks/useAdminFormOptions.ts
 
 
@@ -79246,7 +79681,8 @@ var emptyAppRegistryForm = {
   apiServiceName: '',
   description: '',
   orderIndex: '',
-  isActive: true
+  isActive: true,
+  hideOnWeb: false
 };
 var emptyNotifConfigForm = {
   entityType: '',
@@ -81522,7 +81958,8 @@ var PermissionsManagementPage = function PermissionsManagementPage() {
       apiServiceName: (_app$apiServiceName = app.apiServiceName) !== null && _app$apiServiceName !== void 0 ? _app$apiServiceName : '',
       description: (_app$description = app.description) !== null && _app$description !== void 0 ? _app$description : '',
       orderIndex: String(app.orderIndex),
-      isActive: app.isActive
+      isActive: app.isActive,
+      hideOnWeb: app.hideOnWeb
     });
     setAppFormError('');
     setAppFormOpen(true);
@@ -81553,7 +81990,8 @@ var PermissionsManagementPage = function PermissionsManagementPage() {
               apiServiceName: appForm.apiServiceName || null,
               description: appForm.description || null,
               orderIndex: appForm.orderIndex ? Number(appForm.orderIndex) : editingApp.orderIndex,
-              isActive: appForm.isActive
+              isActive: appForm.isActive,
+              hideOnWeb: appForm.hideOnWeb
             });
           case 3:
             updated = _context23.sent;
@@ -81573,7 +82011,8 @@ var PermissionsManagementPage = function PermissionsManagementPage() {
               uiBaseUrl: appForm.uiBaseUrl || null,
               apiServiceName: appForm.apiServiceName || null,
               description: appForm.description || null,
-              orderIndex: appForm.orderIndex ? Number(appForm.orderIndex) : apps.length + 1
+              orderIndex: appForm.orderIndex ? Number(appForm.orderIndex) : apps.length + 1,
+              hideOnWeb: appForm.hideOnWeb
             });
           case 5:
             created = _context23.sent;
@@ -83975,7 +84414,9 @@ var PermissionsManagementPage = function PermissionsManagementPage() {
       className: PermissionsManagementPage_PermissionsManagementPage_module.pkgFooter
     }, !app.isActive && /*#__PURE__*/external_react_["default"].createElement("span", {
       className: PermissionsManagementPage_PermissionsManagementPage_module.inactiveBadge
-    }, "Kh\xF4ng k\xEDch ho\u1EA1t"), /*#__PURE__*/external_react_["default"].createElement("span", {
+    }, "Kh\xF4ng k\xEDch ho\u1EA1t"), app.hideOnWeb && /*#__PURE__*/external_react_["default"].createElement("span", {
+      className: PermissionsManagementPage_PermissionsManagementPage_module.inactiveBadge
+    }, "HideOnWeb"), /*#__PURE__*/external_react_["default"].createElement("span", {
       className: PermissionsManagementPage_PermissionsManagementPage_module.pkgOrder
     }, /*#__PURE__*/external_react_["default"].createElement("i", {
       className: "fas fa-sort-numeric-up"
@@ -84125,7 +84566,23 @@ var PermissionsManagementPage = function PermissionsManagementPage() {
       });
     },
     placeholder: "M\xF4 t\u1EA3 ng\u1EAFn v\u1EC1 \u1EE9ng d\u1EE5ng..."
-  })), editingApp && /*#__PURE__*/external_react_["default"].createElement("div", {
+  })), /*#__PURE__*/external_react_["default"].createElement("div", {
+    className: PermissionsManagementPage_PermissionsManagementPage_module.formGroup
+  }, /*#__PURE__*/external_react_["default"].createElement("label", {
+    className: PermissionsManagementPage_PermissionsManagementPage_module.checkboxRow
+  }, /*#__PURE__*/external_react_["default"].createElement("input", {
+    type: "checkbox",
+    checked: appForm.hideOnWeb,
+    onChange: function onChange(e) {
+      return setAppForm(function (f) {
+        return PermissionsManagementPage_objectSpread(PermissionsManagementPage_objectSpread({}, f), {}, {
+          hideOnWeb: e.target.checked
+        });
+      });
+    }
+  }), /*#__PURE__*/external_react_["default"].createElement("span", null, "HideOnWeb")), /*#__PURE__*/external_react_["default"].createElement("span", {
+    className: PermissionsManagementPage_PermissionsManagementPage_module.hint
+  }, "\u1EA8n menu c\u1EE7a \u1EE9ng d\u1EE5ng n\xE0y tr\xEAn sidebar web")), editingApp && /*#__PURE__*/external_react_["default"].createElement("div", {
     className: PermissionsManagementPage_PermissionsManagementPage_module.formGroup
   }, /*#__PURE__*/external_react_["default"].createElement("label", {
     className: PermissionsManagementPage_PermissionsManagementPage_module.checkboxRow
@@ -84350,159 +84807,6 @@ var apiKeysService = {
   revoke: apiKeysEndpoint.revoke,
   remove: apiKeysEndpoint.remove
 };
-;// ./src/utils/dateTime.ts
-/**
- * DateTime conversion utilities — system-wide
- *
- * ════════════════════════════════════════════════════════════════════════════
- * SYSTEM ARCHITECTURE: DATETIME HANDLING CONTRACT
- * ════════════════════════════════════════════════════════════════════════════
- *
- * 1. DB STORAGE          → UTC (no offset).
- * 2. GET RESPONSES       → UTC ISO-8601  e.g. "2026-04-14T03:30:00.000Z"
- * 3. UI DISPLAY/INPUT    → LOCAL time (browser timezone, no conversion needed
- *                          because JS Date automatically uses local tz).
- * 4. POST/PUT PAYLOADS   → ISO 8601 with local offset
- *                          e.g. "2026-04-14T10:30:00+07:00"
- *                          Backend parses via DateTimeOffset.TryParse
- *                          (DateTimeStyles.RoundtripKind) → converts to UTC.
- * 5. IDCODE DATE PART    → Must use CLIENT's local date, not server UTC date.
- *                          Every API request carries:
- *                            X-Timezone: <IANA zone>  e.g. "Asia/Ho_Chi_Minh"
- *                          Backend IClientTimezoneAccessor reads this header
- *                          and provides GetClientDate() → DateOnly in local tz.
- *                          IdCodeService uses clientDate for both the counter
- *                          key AND the yyyyMMdd in the code string.
- *
- * Conversion flow:
- *   GET  (UTC "…Z")  ──► utcToLocalInputValue()    ──► <input type="datetime-local">
- *   <input type="datetime-local"> ──► localInputToISOWithOffset() ──► POST/PUT body
- *   api.ts request() ──► X-Timezone: getClientTimezone() ──► every request header
- * ════════════════════════════════════════════════════════════════════════════
- */
-
-// ─── UTC  →  datetime-local value ────────────────────────────────────────────
-
-/**
- * Convert a UTC ISO string to the value required by an
- * `<input type="datetime-local">` (format: `YYYY-MM-DDTHH:mm`) expressed in
- * the browser's local timezone.
- */
-function utcToLocalInputValue(utcIso) {
-  if (!utcIso) return '';
-  var d = new Date(utcIso);
-  if (isNaN(d.getTime())) return '';
-  var y = d.getFullYear();
-  var mo = String(d.getMonth() + 1).padStart(2, '0');
-  var day = String(d.getDate()).padStart(2, '0');
-  var h = String(d.getHours()).padStart(2, '0');
-  var m = String(d.getMinutes()).padStart(2, '0');
-  return "".concat(y, "-").concat(mo, "-").concat(day, "T").concat(h, ":").concat(m);
-}
-
-// ─── datetime-local value  →  ISO with offset ─────────────────────────────────
-
-/**
- * Convert a `datetime-local` input value (`YYYY-MM-DDTHH:mm`) to an ISO 8601
- * string that carries the browser's local timezone offset
- * (e.g. `"2026-04-14T10:30:00+07:00"`).
- *
- * The backend must parse this with offset-awareness then call `.ToUniversalTime()`.
- */
-function localInputToISOWithOffset(localValue) {
-  if (!localValue) return '';
-  var d = new Date(localValue); // parsed as local time
-  if (isNaN(d.getTime())) return '';
-  var offsetMin = -d.getTimezoneOffset(); // negative getTimezoneOffset = ahead of UTC
-  var sign = offsetMin >= 0 ? '+' : '-';
-  var absMin = Math.abs(offsetMin);
-  var offH = String(Math.floor(absMin / 60)).padStart(2, '0');
-  var offM = String(absMin % 60).padStart(2, '0');
-  var y = d.getFullYear();
-  var mo = String(d.getMonth() + 1).padStart(2, '0');
-  var day = String(d.getDate()).padStart(2, '0');
-  var h = String(d.getHours()).padStart(2, '0');
-  var m = String(d.getMinutes()).padStart(2, '0');
-  var s = String(d.getSeconds()).padStart(2, '0');
-  return "".concat(y, "-").concat(mo, "-").concat(day, "T").concat(h, ":").concat(m, ":").concat(s).concat(sign).concat(offH, ":").concat(offM);
-}
-
-// ─── "now" helpers ────────────────────────────────────────────────────────────
-
-/** Current local time as a `datetime-local` input value (`YYYY-MM-DDTHH:mm`). */
-function nowAsLocalInputValue() {
-  return utcToLocalInputValue(new Date().toISOString());
-}
-
-/**
- * Current time as ISO 8601 with the browser's local offset.
- * Use this when initialising form fields that will be sent to the backend.
- */
-function nowAsISOWithOffset() {
-  return localInputToISOWithOffset(nowAsLocalInputValue());
-}
-
-// ─── Display formatters ────────────────────────────────────────────────────────
-
-/**
- * Format a UTC ISO string for read-only display in local time.
- * Returns "DD/MM/YYYY HH:mm" by default, or "DD/MM/YYYY" when `includeTime` is false.
- */
-function formatUTCToLocalDisplay(utcIso) {
-  var includeTime = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : true;
-  if (!utcIso) return '—';
-  var d = new Date(utcIso);
-  if (isNaN(d.getTime())) return '—';
-  var day = String(d.getDate()).padStart(2, '0');
-  var mo = String(d.getMonth() + 1).padStart(2, '0');
-  var y = d.getFullYear();
-  if (!includeTime) return "".concat(day, "/").concat(mo, "/").concat(y);
-  var h = String(d.getHours()).padStart(2, '0');
-  var m = String(d.getMinutes()).padStart(2, '0');
-  return "".concat(day, "/").concat(mo, "/").concat(y, " ").concat(h, ":").concat(m);
-}
-
-// ─── Timezone helpers ─────────────────────────────────────────────────────────
-
-/**
- * Returns the browser's IANA timezone identifier
- * (e.g. `"Asia/Ho_Chi_Minh"`, `"America/New_York"`).
- *
- * Used by `api.ts` to inject `X-Timezone` into every request so the BFF can
- * resolve the client's local date for IdCode generation (§5 of the contract above).
- */
-function getClientTimezone() {
-  return Intl.DateTimeFormat().resolvedOptions().timeZone;
-}
-// EXTERNAL MODULE: ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[5].use[1]!./src/pages/orgCatalog/orgCatalog.module.css
-var orgCatalog_module = __webpack_require__(6606);
-;// ./src/pages/orgCatalog/orgCatalog.module.css
-
-      
-      
-      
-      
-      
-      
-      
-      
-      
-
-var orgCatalog_module_options = {};
-
-orgCatalog_module_options.styleTagTransform = (styleTagTransform_default());
-orgCatalog_module_options.setAttributes = (setAttributesWithoutAttributes_default());
-orgCatalog_module_options.insert = insertBySelector_default().bind(null, "head");
-orgCatalog_module_options.domAPI = (styleDomAPI_default());
-orgCatalog_module_options.insertStyleElement = (insertStyleElement_default());
-
-var orgCatalog_module_update = injectStylesIntoStyleTag_default()(orgCatalog_module/* default */.A, orgCatalog_module_options);
-
-
-
-
-       /* harmony default export */ const orgCatalog_orgCatalog_module = (orgCatalog_module/* default */.A && orgCatalog_module/* default */.A.locals ? orgCatalog_module/* default */.A.locals : undefined);
-
 // EXTERNAL MODULE: ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[5].use[1]!./src/pages/ApiKeysManagementPage/ApiKeysManagementPage.module.css
 var ApiKeysManagementPage_module = __webpack_require__(1662);
 ;// ./src/pages/ApiKeysManagementPage/ApiKeysManagementPage.module.css
@@ -92242,9 +92546,9 @@ var appSettings = {
    */
   build: {
     /** Semantic version from package.json, auto-bumped on each merge to main. e.g. "1.0.42" */
-    version: "1.10.0" || 0,
+    version: "1.11.0" || 0,
     /** GitHub Actions run number — monotonically increasing. e.g. "137" */
-    number: "118" || 0,
+    number: "119" || 0,
     /** Short git commit SHA. e.g. "a1b2c3d" */
     sha: undefined || 'dev',
     /** ISO 8601 build timestamp. e.g. "2026-04-12T08:00:00Z" */
@@ -109317,6 +109621,7 @@ var ExternalSyncMonthSplitChainHost = function ExternalSyncMonthSplitChainHost()
 
 
 
+
 var DevPage = /*#__PURE__*/external_react_["default"].lazy(function () {
   return __webpack_require__.e(/* import() */ 168).then(__webpack_require__.bind(__webpack_require__, 7168));
 });
@@ -109332,6 +109637,9 @@ var adminNestedRoutes = /*#__PURE__*/external_react_["default"].createElement(ex
 }), /*#__PURE__*/external_react_["default"].createElement(react_router_dist/* Route */.qh, {
   path: "accounts",
   element: /*#__PURE__*/external_react_["default"].createElement(AccountsManagementPage_AccountsManagementPage, null)
+}), /*#__PURE__*/external_react_["default"].createElement(react_router_dist/* Route */.qh, {
+  path: "login-activity",
+  element: /*#__PURE__*/external_react_["default"].createElement(LoginActivityPage_LoginActivityPage, null)
 }), /*#__PURE__*/external_react_["default"].createElement(react_router_dist/* Route */.qh, {
   path: "companies",
   element: /*#__PURE__*/external_react_["default"].createElement(CompaniesManagementPage_CompaniesManagementPage, null)
@@ -109595,4 +109903,4 @@ var bootstrap = lifecycles.bootstrap,
 		}
 	};
 });
-//# sourceMappingURL=linm-admin.6c819c10.js.map
+//# sourceMappingURL=linm-admin.06932b80.js.map
