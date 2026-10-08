@@ -1,13 +1,13 @@
 {
-  "timestamp": "2026-10-08T06:41:55.490Z",
+  "timestamp": "2026-10-08T18:58:44.307Z",
   "publicUrl": "",
   "env": {},
   "microfrontends": {
     "@linm/root-config": {
       "url": "/linm-root-config.js",
       "filename": "linm-root-config.js",
-      "version": "1.14.0",
-      "timebuild": "2026-10-08T06:18:22.924Z",
+      "version": "1.15.0",
+      "timebuild": "2026-10-08T18:58:44.309Z",
       "env": {}
     },
     "@linm/web-home": {
@@ -40,7 +40,7 @@
       "url": "/nav/1.16.0/linm-nav.ebad8208.js",
       "filename": "linm-nav.ebad8208.js",
       "version": "1.16.0",
-      "timebuild": "2026-10-08T06:41:55.492Z",
+      "timebuild": "2026-10-08T06:41:55.490Z",
       "env": {}
     },
     "@linm/m-inc": {
@@ -54,10 +54,10 @@
       ]
     },
     "@linm/admin": {
-      "url": "/admin/1.9.0/linm-admin.e0fac520.js",
-      "filename": "linm-admin.e0fac520.js",
-      "version": "1.9.0",
-      "timebuild": "2026-08-02T16:33:32.379Z",
+      "url": "/admin/1.11.0/linm-admin.06932b80.js",
+      "filename": "linm-admin.06932b80.js",
+      "version": "1.11.0",
+      "timebuild": "2026-10-08T07:39:05.705Z",
       "env": {},
       "routes": [
         "admin"

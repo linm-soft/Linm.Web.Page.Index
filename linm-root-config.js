@@ -7003,6 +7003,54 @@ function resolveRequestUrl(input) {
   if (input instanceof URL) return input.href;
   return input.url;
 }
+function hostOf(raw) {
+  if (typeof raw !== 'string' || !raw.trim()) return '';
+  try {
+    return new URL(raw.trim(), window.location.href).hostname.toLowerCase();
+  } catch (_unused) {
+    return '';
+  }
+}
+
+/** Hosts from the manifest / BFF base for this deployment. No product domain list. */
+function configuredApiHosts() {
+  var _window$__LINM_RUNTIM, _window$__LINM_MF_MAN, _window$__LINM_MF_MAN2;
+  var hosts = new Set();
+  var add = function add(raw) {
+    var host = hostOf(raw);
+    if (host) hosts.add(host);
+  };
+  add(window.__LINM_AUTH_BFF_BASE__);
+  add(window.__LINM_AUTH_BFF_BUILD__);
+  add((_window$__LINM_RUNTIM = window.__LINM_RUNTIME_ENV__) === null || _window$__LINM_RUNTIM === void 0 ? void 0 : _window$__LINM_RUNTIM.VITE_API_URL);
+  add((_window$__LINM_MF_MAN = window.__LINM_MF_MANIFEST__) === null || _window$__LINM_MF_MAN === void 0 || (_window$__LINM_MF_MAN = _window$__LINM_MF_MAN.env) === null || _window$__LINM_MF_MAN === void 0 ? void 0 : _window$__LINM_MF_MAN.VITE_API_URL);
+  var apps = (_window$__LINM_MF_MAN2 = window.__LINM_MF_MANIFEST__) === null || _window$__LINM_MF_MAN2 === void 0 ? void 0 : _window$__LINM_MF_MAN2.microfrontends;
+  if (apps) {
+    for (var _i = 0, _Object$values = Object.values(apps); _i < _Object$values.length; _i++) {
+      var entry = _Object$values[_i];
+      var env = entry === null || entry === void 0 ? void 0 : entry.env;
+      add(env === null || env === void 0 ? void 0 : env.VITE_API_URL);
+      add(env === null || env === void 0 ? void 0 : env.VITE_MOBILE_API_URL);
+    }
+  }
+  return hosts;
+}
+
+/** Device id stays on this site's API. A custom header on another host forces OPTIONS. */
+function shouldAttachDeviceHeader(url) {
+  if (!url || url.startsWith('data:') || url.startsWith('blob:')) return false;
+  var parsed;
+  try {
+    parsed = new URL(url, window.location.href);
+  } catch (_unused2) {
+    return false;
+  }
+  if (parsed.protocol !== 'http:' && parsed.protocol !== 'https:') return false;
+  if (parsed.origin === window.location.origin) return true;
+  var host = parsed.hostname.toLowerCase();
+  if (host === 'localhost' || host === '127.0.0.1') return true;
+  return configuredApiHosts().has(host);
+}
 function installAuthFetchInterceptor() {
   if (typeof window === 'undefined') return;
   if (window.__LINM_AUTH_FETCH_PATCHED__) return;
@@ -7011,8 +7059,8 @@ function installAuthFetchInterceptor() {
   window.__LINM_AUTH_FETCH_PATCHED__ = true;
   window.fetch = /*#__PURE__*/function () {
     var _ref = _asyncToGenerator(/*#__PURE__*/regenerator_default().mark(function _callee(input, init) {
-      var _init$headers, _init, _init$headers2, _init2;
-      var rawUrl, url, deviceHeaders, deviceId, skipHeaders, response, refreshed, newToken, retryResponse, _init3, headers, activeCompanyCode;
+      var _init$headers2, _init2;
+      var rawUrl, url, _init$headers, _init, deviceHeaders, deviceId, skipHeaders, response, refreshed, newToken, retryResponse, _init3, headers, activeCompanyCode;
       return regenerator_default().wrap(function (_context) {
         while (1) switch (_context.prev = _context.next) {
           case 0:
@@ -7025,17 +7073,19 @@ function installAuthFetchInterceptor() {
                 input = url;
               }
             }
-            deviceHeaders = new Headers((_init$headers = (_init = init) === null || _init === void 0 ? void 0 : _init.headers) !== null && _init$headers !== void 0 ? _init$headers : input instanceof Request ? input.headers : undefined);
-            deviceId = getOrCreateBrowserDeviceId();
-            if (deviceId) deviceHeaders.set('X-Device-Id', deviceId);
-            if (input instanceof Request) {
-              input = new Request(input, {
+            if (shouldAttachDeviceHeader(url)) {
+              deviceHeaders = new Headers((_init$headers = (_init = init) === null || _init === void 0 ? void 0 : _init.headers) !== null && _init$headers !== void 0 ? _init$headers : input instanceof Request ? input.headers : undefined);
+              deviceId = getOrCreateBrowserDeviceId();
+              if (deviceId) deviceHeaders.set('X-Device-Id', deviceId);
+              if (input instanceof Request) {
+                input = new Request(input, {
+                  headers: deviceHeaders
+                });
+              }
+              init = authFetchInterceptor_objectSpread(authFetchInterceptor_objectSpread({}, init), {}, {
                 headers: deviceHeaders
               });
             }
-            init = authFetchInterceptor_objectSpread(authFetchInterceptor_objectSpread({}, init), {}, {
-              headers: deviceHeaders
-            });
             skipHeaders = new Headers((_init$headers2 = (_init2 = init) === null || _init2 === void 0 ? void 0 : _init2.headers) !== null && _init$headers2 !== void 0 ? _init$headers2 : input instanceof Request ? input.headers : undefined);
             if (!(skipHeaders.get(AUTH_FETCH_SKIP_REFRESH_HEADER) === '1')) {
               _context.next = 1;
