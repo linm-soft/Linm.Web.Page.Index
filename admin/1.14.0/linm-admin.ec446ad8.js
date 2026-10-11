@@ -27,7 +27,7 @@ System.register(["react","react-dom","single-spa"], function(__WEBPACK_DYNAMIC_E
 /******/ (() => { // webpackBootstrap
 /******/ 	var __webpack_modules__ = ({
 
-/***/ 1112
+/***/ 7662
 (__unused_webpack_module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -77,6 +77,7 @@ __webpack_require__.d(__webpack_exports__, {
   kO: () => (/* reexport */ hasValidAuthToken),
   _oF: () => (/* reexport */ isSidebarCollapsed),
   orT: () => (/* reexport */ isTopbarAutohideSuppressed),
+  zv5: () => (/* reexport */ localInputToISOWithOffset),
   R1t: () => (/* reexport */ nowMonth),
   X5u: () => (/* reexport */ nowQuarter),
   m3x: () => (/* reexport */ nowYear),
@@ -96,7 +97,7 @@ __webpack_require__.d(__webpack_exports__, {
   Nhz: () => (/* reexport */ yearOptionsFromStartYear)
 });
 
-// UNUSED EXPORTS: ACTIVE_COMPANY_STORAGE_KEY, ANCHORED_DROPDOWN_BODY_ATTR, API_CONNECTION_OPS_MESSAGES, API_CONNECTION_USER_MESSAGES, AUTH_ACCESS_TOKEN_KEY, AUTH_REFRESH_TOKEN_KEY, AUTH_USER_STORAGE_KEY, AccountSearchInput, ActivityTab, ActivityType, AnchoredDropdown, ApiConnectionError, AppLayout, AppSwitcher, AttachmentsTab, Avatar, BP_MOBILE_MAX_PX, BP_TABLET_MAX_PX, BREAKPOINT_CSS_VAR, Badge, ButtonList, CATALOG_PAGE_SIZES, CATALOG_PAGE_SIZE_OPTIONS, COMPANY_BRANDING_KEY, CONTENT_SIZE_LARGE_MIN, CONTENT_SIZE_SMALL_MAX, Card, CatalogListShell, CatalogListSummary, CatalogTableSkeleton, ChatPanel, ChatTab, Checkbox, CommentsTab, DEFAULT_ACCEPT, DEFAULT_CATALOG_LIST_TABLE_CONFIG, DEFAULT_CATALOG_PAGE_SIZE, DEFAULT_ERP_LIST_FILTER_MAX_WIDTH_PX, DEFAULT_ERP_LIST_TABLE_CONFIG, DEFAULT_ERP_REPORT_CHART_CONFIG, DEFAULT_ERP_REPORT_DISPLAY_CONFIG, DEFAULT_LIST_PRESETS, DEFAULT_MONEY_FORMAT, DEFAULT_PAGE_SIZE, DEFAULT_PARCEL_DEV_SHARED_IMPORTS, DEFAULT_QUANTITY_FORMAT, DEFAULT_REPORT_PRINT_FETCH_BATCH_SIZE, DEFAULT_RUNTIME_API_URL, DEFAULT_TOAST_DURATION_MS, DISPLAY_NAME_MAX, DOCUMENT_TYPE, DOCUMENT_TYPE_LABEL, DS_TEXT_END_CLASS, DateRangeFilter, DocumentHistoryModal, EMPTY_COLUMN_FILTER, ERP_HEADER_ROW4_MEDIUM_MAX_PX, ERP_HEADER_ROW4_SMALL_MAX_PX, ERP_LINES_TABLE_MIN_WIDTH, ERP_LIST_ROW_EDIT_HINT_DISMISS_STORAGE_KEY, ERP_LIST_ROW_MENU_HELP_DESKTOP, ERP_LIST_ROW_MENU_HELP_TOUCH, ERP_LIST_ROW_MENU_HINT_DESKTOP, ERP_LIST_ROW_MENU_HINT_TOUCH, ERP_LIST_TOOLBAR_ACTIONS, ERP_MASTER_CATALOG_WRITE_FALLBACK, ERR_SESSION_KEY, ErpListColumnHeader, ErpListHeaderFilters, ErpListRowEditHintLayer, ErpListToolbarButton, ErrorBoundary, ExportConfirmModal, FORM_ROW_COL_DEFAULT_ROWS, FieldMessage, FileUploadArea, FormActions, FormRowCol, FormRowColItem, FormSkeleton, GlobalToastHost, HubEvent, HubMethod, IconButton, IncidentLocationSearchInput, IncidentPrintModal, InfoHint, InstallButton, IntegerInput, KNOWN_SYSTEM_CODES, LINM_LAST_USERNAME_KEY, LIN_ERP_LIST_FILTER_LAYOUT, LIN_FILTER_FORM_ROW_2, LIN_FILTER_FORM_ROW_3, LIN_FILTER_FORM_ROW_4, LIN_TREE_GRID_TABLE_CARD_CLASS, LIN_TREE_INDENT_PX, LIST_PAGE_SIZES, LIST_PAGE_SIZE_OPTIONS, LOGOUT_SIGNAL_KEY, LabelMoney, LinCatalogDataGrid, LinCatalogHistoryModal, LinCatalogListPagination, LinCatalogPagerNav, LinCatalogRowActionMenu, LinCatalogUiSchemaEditorModal, LinControlCluster, LinFilterFormRow, LinImageUpload, LinImageView, LinListChartConfigRow, LinListFilterDateRangeField, LinListFilterField, LinListGridConfigRow, LinListPageLayout, LinListTableConfigModal, LinListToolbar, LinModalFormShell, LinPageHeader, LinPageLayout, LinReportPrintScopeModal, LinReportPrintSummary, LinReportTableConfigModal, LinTreeGridLayout, LinTreeNav, ListGridBusyWrap, LocaleNumberField, MEDIA_QUERY, MESSAGES_INBOX_PARCEL, MentionInput, MentionText, MessageCenter, MobileNavRailTrigger, MoneyInput, MonthYearPill, NAV_OPEN_SWITCH_COMPANY, NAV_TOGGLE_MOBILE, NOTIFICATION_SILENT_MODE_KEY, NotFoundPage, NotificationCenter, NotificationPriority, NotificationType, NumberInput, PATH_SEGMENT_TO_DOCUMENT_TYPE, PENDING_COMPANY_KEY, PERMISSIONS_CACHE_KEY, PERMISSION_LOADING, PWA_INSTALLED_KEY, ParcelComponent, ParcelCreateFooter, PermissionsBootstrapLoading, PrintableIncidentDocs, ProtectedRoute, PublicRoute, QUARTER_OPTIONS, REPORT_PRESETS, REPORT_PRINT_FETCH_BATCH_SIZE_MAX, REPORT_PRINT_FETCH_BATCH_SIZE_MIN, RadioGroup, ReactionPicker, SEARCH_INPUT_DROPDOWN_ATTR, SIDEBAR_COLLAPSED_KEY, SLABadge, SUPPRESS_403_NAV_KEY, SYSTEM_ERROR_MESSAGE, SilentModeButton, SimpleForbiddenPage, StatusBadge, SwitchCompanyModal, SystemLogo, TASK_SCOPE_FILTERS, TOAST_ADD, TOPBAR_MESSAGE_PARCEL, TOPBAR_NOTIFICATION_PARCEL, TOPBAR_VALIDATION_PAUSE_MAX_MS, TOUCH_LINES_STACK_NARROW_MAX_PX, TabSlideout, TextArea, Tooltip, TopbarParcelSlot, TwoLineTable, UserRole, UserSearchInput, VALID_STATUS_TRANSITIONS, VIEW_MOBILE_MEDIA_QUERY, WEB_APP_DESKTOP_SITE_CLASS, WorkspaceTabBar, WorkspaceTabProvider, X_COMPANY_ID_HEADER, addToast, allocateProportionalVnd, applyLinCatalogColumnFilterSort, applyLinCatalogColumnFilters, applyLinCatalogColumnSort, applyWebAppDesktopSite, authService, beginTopbarValidationPause, bindWebAppDesktopSite, broadcastTokenRefresh, buildAllowedCompanySet, buildCatalogListToolbarActions, buildCatalogRowMenuItems, buildCommentTree, buildDefaultFormFooterActions, buildLinTreeNavNodes, buildReportChartQueryParams, buildReportListToolbarActions, buildTenantRequestHeaders, buildVoucherListToolbarActions, canDirectEditMasterCatalogRow, caretAfterSignificant, catalogListTableConfigFromSchema, clampInteger, clampReportPrintFetchBatchSize, classifyApiConnectionFailure, clearAccountSearchCache, clearActiveCompanyCode, clearAuthTokens, clearAuthUser, clearCompanyBranding, clearError, clearFieldErrors, clearLastUsername, clearLogoutSignal, clearMessagesInbox, clearNotificationSilentMode, clearNotifications, clearPendingCompanyCode, clearPermissionsCache, clearPwaInstalled, clearRequirePasswordChange, clearSelectedConversation, clearSidebarCollapsed, clearToasts, clearUnreadMessages, closeAllSlideouts, closeSlideout, collectLinTreeAncestorIds, compareErpListCellValues, computeSecureStorageHash, computeSuggestedAllocationVariance, conversationEndpoint, createAccountSearchConfig, createDefaultLinImageUploadApi, createDocumentHistoryClient, createIncidentLocationSearchConfig, createLookupEligibilityConfig, createLookupWarningColumn, createParcelCreateFooterRenderer, createUserSearchConfig, defaultCatalogHistoryModalLabels, defaultDetailRoute, defaultDocumentHistoryModalLabels, defaultMonthOptions, deleteNotification, deptGroup, deriveHealthUrlFromApiBase, detectDateRangePreset, dispatchAppToast, dispatchPermissionLoading, dispatchPermissionReady, documentIdFromPath, documentTabId, endSessionAfterPasswordChange, ensureParcelDevRuntime, erpReportTableConfigFromDisplay, fetchConversations, fetchMoreConversations, fetchMoreNotifications, fetchNotifications, fetchReportPagesInBatches, fetchUnreadCount, fetchUnreadMessageCount, filterActiveCompaniesForUser, filterVisibleToolbarActions, findActiveCompanyById, flattenLinTreeNavNodes, formatAccountDisplay, formatDate, formatLinTreeNavCount, formatLocaleNumber, formatLocaleNumberWhileTyping, formatMoney, formatMoneyVnd, formatMoneyWhileTyping, formatQuantity, formatQuantityWhileTyping, formatSLATime, formatUTCToLocalDisplay, getActiveApp, getApiConnectionFailureMessage, getApiConnectionOpsMessage, getApiConnectionUserMessage, getApiErrorMessage, getApiNavigationHandler, getApiOrigin, getAuthRefreshToken, getAuthUser, getClientTimezone, getCompanyBranding, getCrossTabTokenVersion, getCurrentUser, getDeviceContentSize, getErpListRowMenuHelp, getErpListRowMenuHint, getErpListToolbarActionIcon, getErpListToolbarActionLabel, getGridItem, getHomePath, getLastDayOfMonth, getLastUsername, getLockedTopbarLayoutInset, getLogoutSignal, getLookupDisabledReason, getLookupWarningReason, getNotificationSilentMode, getOrCreateBrowserDeviceId, getPageOrigin, getPendingCompanyCode, getSLAStatus, getSecureItem, getStatusClassName, getStatusLabel, hasMasterCatalogWritePermission, hasPermissionCode, hasSharedCatalogApprovePermission, hasSharedCatalogRequestPermission, hasValidAuthUser, incrementUnreadMessages, initializeCrossTabTokenSync, installAuthFetchInterceptor, isAcceptedImage, isAdminUser, isAllowPathForAllUser, isApiConnectionError, isAuthSelfRequestUrl, isDistinctLocalDateRange, isErpListRowMenuClickTrigger, isErpListRowMenuContextMenuTrigger, isErpListRowMenuModifierHeld, isFormShellActionVisible, isGlobalToastHostActive, isGuidTenantKey, isLinToolbarActionVisible, isLinTreeNavSelectionEqual, isLinmBrandChangeAllowed, isLookupRowSelectable, isMasterCatalogRowReadOnly, isMasterCatalogSharedRow, isMasterCatalogSharedScope, isParcelRuntimeAvailable, isPathAllowed, isPermissionsReady, isPublicIconUrl, isPwaInstalled, isRowEditHintDismissed, isSecureEnvelopeRaw, isTaskScopeFilter, isTenantSwitchAllowed, isTenantSwitchAllowedForUser, isValidAuthBffBase, isValidStatusTransition, isWorkspaceReportAnchorPath, itemDisplayName, linTreeRowIndent, linmLogo128, loadErpListTableConfig, loadErpReportDisplayConfig, localInputToISOWithOffset, login, logout, mapToChat, mapToComment, markAllNotificationsRead, markConversationReadLocal, markEntityNotificationsRead, markNotificationRead, markPwaInstalled, markSuppressForbiddenNav, masterCatalogWritePermissionCode, matchesViewMobileLayout, measureContentWidth, measureLinListTableCardShellHeightPx, messageEndpoint, messageService, messagesInboxReducer, migrateLegacyActiveCompanyCode, mountParcel, navigateShellBack, navigateShellPath, nextErpListSortState, normCompanyCode, normalizeCatalogPageSize, normalizeFormRowColPattern, normalizeListPageSize, normalizeTabPath, normalizeTenantKey, normalizeUserTenantKeys, notificationEndpoint, notificationReducer, notificationService, notifyValidationScrollSettled, nowAsISOWithOffset, nowAsLocalInputValue, onSystemLogoError, openSlideout, openSwitchCompanyModal, parseCatalogColumnWidthPx, parseErpColumnWidthPx, parseIntegerString, parseLocaleNumber, parseMoneyInput, parseQuantityInput, pickFallbackTab, preloadAccountCatalogLookup, publishAppToast, pushNotification, readAuthTokenState, readCachedPermissionCodes, readShellPath, redirectToLoginAfterAuthFailure, registerApiNavigationHandler, registerGlobalToastHost, registerLeaveGuardNavigate, registerParcelDevSharedModules, registerRefreshSuccessCallback, removeGridItem, removeSecureItem, removeToast, renderToolbarAction, reportTabId, resetCreateTaskForm, resetCreateTicketForm, resetEditTaskForm, resetEditTicketForm, resolveAuthRefreshUrl, resolveCatalogRowMenuItemVisual, resolveControlPlaceholder, resolveDetailRoute, resolveDeviceContentSize, resolveErrorPageHomePath, resolveFormRowColRows, resolveInitialActiveCompanyCode, resolveLinCatalogColumnDisplayValue, resolveLinPageFooter, resolveLinPageToolbar, resolveLogoLoadingConfig, resolveMessagePrefix, resolveMoneyFormat, resolveOpenWorkspaceTab, resolveQuantityFormat, resolveReportCharts, resolveSystemLogoSrc, resolveTenantKey, resolveUserCompanyScope, runValidation, runWithLeaveGuard, sameConversationKey, sanitizeDisplayName, saveErpListTableConfig, saveErpReportDisplayConfig, scrollElementIntoView, scrollToFirstErrorSection, scrollToFirstFieldError, scrollToFirstFieldErrorByTestIdPrefix, scrollToValidationTarget, selectConversation, setAuthToken, setAuthTokens, setAuthUser, setCompanyBranding, setGridItem, setLastUsername, setLogoutSignal, setNavTitle, setNotificationSilentMode, setPendingCompanyCode, setPermissionsCacheEntry, setRowEditHintDismissed, setSecureItem, setUnreadCount, setUser, sharedCatalogApprovePermissionCode, sharedCatalogRequestPermissionCode, shouldShowLookupWarning, shouldSuppressForbiddenNav, signalRService, significantCharsBefore, subscriptionEndpoint, subscriptionService, suppressTopbarAutohide, switchActiveCompany, switchCompany, taskGroup, ticketGroup, titleFromPath, toggleMobileNav, toggleSilentMode, tryRefreshToken, unbindWebAppDesktopSite, unmountParcel, unregisterApiNavigationHandler, updateConversationFromMessage, updateConversationPreview, updateCreateTaskForm, updateCreateTicketForm, updateEditTaskForm, updateEditTicketForm, updateUserFromRefresh, useAlert, useAuthToken, useBrowserNotification, useCatalogHistoryModal, useCatalogPermissions, useCatalogTableBusy, useConversations, useDeviceContentSize, useDeviceType, useEntitySubscription, useErpListRowLongPress, useFormDepartments, useFormLeaveGuard, useInstallPrompt, useLeaveConfirm, useLinCatalogColumnFilterSort, useLinListTableCardShellHeight, useLinListTableCardShellHeightGate, useMarkConversationRead, useMasterCatalogPermissions, useMessages, useMinLoadingTime, usePermissionsReady, useServerPagedListLoading, useSignalREvent, useSystemLogoSrc, useTaskPermissions, useTasks, useTicketPermissions, useTickets, useToast, useTopbarAutoHideOnScroll, useViewMobileLayout, useWorkspaceTabs, useWorkspaceTabsOptional, userSearchConfig, utcToLocalInputValue, validateImageFile, validateIntegerString, voucherNetTotalWithVariance, writePermissionsSnapshot
+// UNUSED EXPORTS: ACTIVE_COMPANY_STORAGE_KEY, ANCHORED_DROPDOWN_BODY_ATTR, API_CONNECTION_OPS_MESSAGES, API_CONNECTION_USER_MESSAGES, AUTH_ACCESS_TOKEN_KEY, AUTH_REFRESH_TOKEN_KEY, AUTH_USER_STORAGE_KEY, AccountSearchInput, ActivityTab, ActivityType, AnchoredDropdown, ApiConnectionError, AppLayout, AppSwitcher, AttachmentsTab, Avatar, BP_MOBILE_MAX_PX, BP_TABLET_MAX_PX, BREAKPOINT_CSS_VAR, Badge, ButtonList, CATALOG_PAGE_SIZES, CATALOG_PAGE_SIZE_OPTIONS, COMPANY_BRANDING_KEY, CONTENT_SIZE_LARGE_MIN, CONTENT_SIZE_SMALL_MAX, Card, CatalogListShell, CatalogListSummary, CatalogTableSkeleton, ChatPanel, ChatTab, Checkbox, CommentsTab, DEFAULT_ACCEPT, DEFAULT_CATALOG_LIST_TABLE_CONFIG, DEFAULT_CATALOG_PAGE_SIZE, DEFAULT_ERP_LIST_FILTER_MAX_WIDTH_PX, DEFAULT_ERP_LIST_TABLE_CONFIG, DEFAULT_ERP_REPORT_CHART_CONFIG, DEFAULT_ERP_REPORT_DISPLAY_CONFIG, DEFAULT_LIST_PRESETS, DEFAULT_MONEY_FORMAT, DEFAULT_PAGE_SIZE, DEFAULT_PARCEL_DEV_SHARED_IMPORTS, DEFAULT_QUANTITY_FORMAT, DEFAULT_REPORT_PRINT_FETCH_BATCH_SIZE, DEFAULT_RUNTIME_API_URL, DEFAULT_TOAST_DURATION_MS, DISPLAY_NAME_MAX, DOCUMENT_TYPE, DOCUMENT_TYPE_LABEL, DS_TEXT_END_CLASS, DateRangeFilter, DocumentHistoryModal, EMPTY_COLUMN_FILTER, ERP_HEADER_ROW4_MEDIUM_MAX_PX, ERP_HEADER_ROW4_SMALL_MAX_PX, ERP_LINES_TABLE_MIN_WIDTH, ERP_LIST_ROW_EDIT_HINT_DISMISS_STORAGE_KEY, ERP_LIST_ROW_MENU_HELP_DESKTOP, ERP_LIST_ROW_MENU_HELP_TOUCH, ERP_LIST_ROW_MENU_HINT_DESKTOP, ERP_LIST_ROW_MENU_HINT_TOUCH, ERP_LIST_TOOLBAR_ACTIONS, ERP_MASTER_CATALOG_WRITE_FALLBACK, ERR_SESSION_KEY, ErpListColumnHeader, ErpListHeaderFilters, ErpListRowEditHintLayer, ErpListToolbarButton, ErrorBoundary, ExportConfirmModal, FORM_ROW_COL_DEFAULT_ROWS, FieldMessage, FileUploadArea, FormActions, FormRowCol, FormRowColItem, FormSkeleton, GlobalToastHost, HubEvent, HubMethod, IconButton, IncidentLocationSearchInput, IncidentPrintModal, InfoHint, InstallButton, IntegerInput, KNOWN_SYSTEM_CODES, LINM_LAST_USERNAME_KEY, LIN_ERP_LIST_FILTER_LAYOUT, LIN_FILTER_FORM_ROW_2, LIN_FILTER_FORM_ROW_3, LIN_FILTER_FORM_ROW_4, LIN_TREE_GRID_TABLE_CARD_CLASS, LIN_TREE_INDENT_PX, LIST_PAGE_SIZES, LIST_PAGE_SIZE_OPTIONS, LOGOUT_SIGNAL_KEY, LabelMoney, LinCatalogDataGrid, LinCatalogHistoryModal, LinCatalogListPagination, LinCatalogPagerNav, LinCatalogRowActionMenu, LinCatalogUiSchemaEditorModal, LinControlCluster, LinFilterFormRow, LinImageUpload, LinImageView, LinListChartConfigRow, LinListFilterDateRangeField, LinListFilterField, LinListGridConfigRow, LinListPageLayout, LinListTableConfigModal, LinListToolbar, LinModalFormShell, LinPageHeader, LinPageLayout, LinReportPrintScopeModal, LinReportPrintSummary, LinReportTableConfigModal, LinTreeGridLayout, LinTreeNav, ListGridBusyWrap, LocaleNumberField, MEDIA_QUERY, MESSAGES_INBOX_PARCEL, MentionInput, MentionText, MessageCenter, MobileNavRailTrigger, MoneyInput, MonthYearPill, NAV_OPEN_SWITCH_COMPANY, NAV_TOGGLE_MOBILE, NOTIFICATION_SILENT_MODE_KEY, NotFoundPage, NotificationCenter, NotificationPriority, NotificationType, NumberInput, PATH_SEGMENT_TO_DOCUMENT_TYPE, PENDING_COMPANY_KEY, PERMISSIONS_CACHE_KEY, PERMISSION_LOADING, PWA_INSTALLED_KEY, ParcelComponent, ParcelCreateFooter, PermissionsBootstrapLoading, PrintableIncidentDocs, ProtectedRoute, PublicRoute, QUARTER_OPTIONS, REPORT_PRESETS, REPORT_PRINT_FETCH_BATCH_SIZE_MAX, REPORT_PRINT_FETCH_BATCH_SIZE_MIN, RadioGroup, ReactionPicker, SEARCH_INPUT_DROPDOWN_ATTR, SIDEBAR_COLLAPSED_KEY, SLABadge, SUPPRESS_403_NAV_KEY, SYSTEM_ERROR_MESSAGE, SilentModeButton, SimpleForbiddenPage, StatusBadge, SwitchCompanyModal, SystemLogo, TASK_SCOPE_FILTERS, TOAST_ADD, TOPBAR_MESSAGE_PARCEL, TOPBAR_NOTIFICATION_PARCEL, TOPBAR_VALIDATION_PAUSE_MAX_MS, TOUCH_LINES_STACK_NARROW_MAX_PX, TabSlideout, TextArea, Tooltip, TopbarParcelSlot, TwoLineTable, UserRole, UserSearchInput, VALID_STATUS_TRANSITIONS, VIEW_MOBILE_MEDIA_QUERY, WEB_APP_DESKTOP_SITE_CLASS, WorkspaceTabBar, WorkspaceTabProvider, X_COMPANY_ID_HEADER, addToast, allocateProportionalVnd, applyLinCatalogColumnFilterSort, applyLinCatalogColumnFilters, applyLinCatalogColumnSort, applyWebAppDesktopSite, authService, beginTopbarValidationPause, bindWebAppDesktopSite, broadcastTokenRefresh, buildAllowedCompanySet, buildCatalogListToolbarActions, buildCatalogRowMenuItems, buildCommentTree, buildDefaultFormFooterActions, buildLinTreeNavNodes, buildReportChartQueryParams, buildReportListToolbarActions, buildTenantRequestHeaders, buildVoucherListToolbarActions, canDirectEditMasterCatalogRow, caretAfterSignificant, catalogListTableConfigFromSchema, clampInteger, clampReportPrintFetchBatchSize, classifyApiConnectionFailure, clearAccountSearchCache, clearActiveCompanyCode, clearAuthTokens, clearAuthUser, clearCompanyBranding, clearError, clearFieldErrors, clearLastUsername, clearLogoutSignal, clearMessagesInbox, clearNotificationSilentMode, clearNotifications, clearPendingCompanyCode, clearPermissionsCache, clearPwaInstalled, clearRequirePasswordChange, clearSelectedConversation, clearSidebarCollapsed, clearToasts, clearUnreadMessages, closeAllSlideouts, closeSlideout, collectLinTreeAncestorIds, compareErpListCellValues, computeSecureStorageHash, computeSuggestedAllocationVariance, conversationEndpoint, createAccountSearchConfig, createDefaultLinImageUploadApi, createDocumentHistoryClient, createIncidentLocationSearchConfig, createLookupEligibilityConfig, createLookupWarningColumn, createParcelCreateFooterRenderer, createUserSearchConfig, defaultCatalogHistoryModalLabels, defaultDetailRoute, defaultDocumentHistoryModalLabels, defaultMonthOptions, deleteNotification, deptGroup, deriveHealthUrlFromApiBase, detectDateRangePreset, dispatchAppToast, dispatchPermissionLoading, dispatchPermissionReady, documentIdFromPath, documentTabId, endSessionAfterPasswordChange, ensureParcelDevRuntime, erpReportTableConfigFromDisplay, fetchConversations, fetchMoreConversations, fetchMoreNotifications, fetchNotifications, fetchReportPagesInBatches, fetchUnreadCount, fetchUnreadMessageCount, filterActiveCompaniesForUser, filterVisibleToolbarActions, findActiveCompanyById, flattenLinTreeNavNodes, formatAccountDisplay, formatDate, formatLinTreeNavCount, formatLocaleNumber, formatLocaleNumberWhileTyping, formatMoney, formatMoneyVnd, formatMoneyWhileTyping, formatQuantity, formatQuantityWhileTyping, formatSLATime, formatUTCToLocalDisplay, getActiveApp, getApiConnectionFailureMessage, getApiConnectionOpsMessage, getApiConnectionUserMessage, getApiErrorMessage, getApiNavigationHandler, getApiOrigin, getAuthRefreshToken, getAuthUser, getClientTimezone, getCompanyBranding, getCrossTabTokenVersion, getCurrentUser, getDeviceContentSize, getErpListRowMenuHelp, getErpListRowMenuHint, getErpListToolbarActionIcon, getErpListToolbarActionLabel, getGridItem, getHomePath, getLastDayOfMonth, getLastUsername, getLockedTopbarLayoutInset, getLogoutSignal, getLookupDisabledReason, getLookupWarningReason, getNotificationSilentMode, getOrCreateBrowserDeviceId, getPageOrigin, getPendingCompanyCode, getSLAStatus, getSecureItem, getStatusClassName, getStatusLabel, hasMasterCatalogWritePermission, hasPermissionCode, hasSharedCatalogApprovePermission, hasSharedCatalogRequestPermission, hasValidAuthUser, incrementUnreadMessages, initializeCrossTabTokenSync, installAuthFetchInterceptor, isAcceptedImage, isAdminUser, isAllowPathForAllUser, isApiConnectionError, isAuthSelfRequestUrl, isDistinctLocalDateRange, isErpListRowMenuClickTrigger, isErpListRowMenuContextMenuTrigger, isErpListRowMenuModifierHeld, isFormShellActionVisible, isGlobalToastHostActive, isGuidTenantKey, isLinToolbarActionVisible, isLinTreeNavSelectionEqual, isLinmBrandChangeAllowed, isLookupRowSelectable, isMasterCatalogRowReadOnly, isMasterCatalogSharedRow, isMasterCatalogSharedScope, isParcelRuntimeAvailable, isPathAllowed, isPermissionsReady, isPublicIconUrl, isPwaInstalled, isRowEditHintDismissed, isSecureEnvelopeRaw, isTaskScopeFilter, isTenantSwitchAllowed, isTenantSwitchAllowedForUser, isValidAuthBffBase, isValidStatusTransition, isWorkspaceReportAnchorPath, itemDisplayName, linTreeRowIndent, linmLogo128, loadErpListTableConfig, loadErpReportDisplayConfig, login, logout, mapToChat, mapToComment, markAllNotificationsRead, markConversationReadLocal, markEntityNotificationsRead, markNotificationRead, markPwaInstalled, markSuppressForbiddenNav, masterCatalogWritePermissionCode, matchesViewMobileLayout, measureContentWidth, measureLinListTableCardShellHeightPx, messageEndpoint, messageService, messagesInboxReducer, migrateLegacyActiveCompanyCode, mountParcel, navigateShellBack, navigateShellPath, nextErpListSortState, normCompanyCode, normalizeCatalogPageSize, normalizeFormRowColPattern, normalizeListPageSize, normalizeTabPath, normalizeTenantKey, normalizeUserTenantKeys, notificationEndpoint, notificationReducer, notificationService, notifyValidationScrollSettled, nowAsISOWithOffset, nowAsLocalInputValue, onSystemLogoError, openSlideout, openSwitchCompanyModal, parseCatalogColumnWidthPx, parseErpColumnWidthPx, parseIntegerString, parseLocaleNumber, parseMoneyInput, parseQuantityInput, pickFallbackTab, preloadAccountCatalogLookup, publishAppToast, pushNotification, readAuthTokenState, readCachedPermissionCodes, readShellPath, redirectToLoginAfterAuthFailure, registerApiNavigationHandler, registerGlobalToastHost, registerLeaveGuardNavigate, registerParcelDevSharedModules, registerRefreshSuccessCallback, removeGridItem, removeSecureItem, removeToast, renderToolbarAction, reportTabId, resetCreateTaskForm, resetCreateTicketForm, resetEditTaskForm, resetEditTicketForm, resolveAuthRefreshUrl, resolveCatalogRowMenuItemVisual, resolveControlPlaceholder, resolveDetailRoute, resolveDeviceContentSize, resolveErrorPageHomePath, resolveFormRowColRows, resolveInitialActiveCompanyCode, resolveLinCatalogColumnDisplayValue, resolveLinPageFooter, resolveLinPageToolbar, resolveLogoLoadingConfig, resolveMessagePrefix, resolveMoneyFormat, resolveOpenWorkspaceTab, resolveQuantityFormat, resolveReportCharts, resolveSystemLogoSrc, resolveTenantKey, resolveUserCompanyScope, runValidation, runWithLeaveGuard, sameConversationKey, sanitizeDisplayName, saveErpListTableConfig, saveErpReportDisplayConfig, scrollElementIntoView, scrollToFirstErrorSection, scrollToFirstFieldError, scrollToFirstFieldErrorByTestIdPrefix, scrollToValidationTarget, selectConversation, setAuthToken, setAuthTokens, setAuthUser, setCompanyBranding, setGridItem, setLastUsername, setLogoutSignal, setNavTitle, setNotificationSilentMode, setPendingCompanyCode, setPermissionsCacheEntry, setRowEditHintDismissed, setSecureItem, setUnreadCount, setUser, sharedCatalogApprovePermissionCode, sharedCatalogRequestPermissionCode, shouldShowLookupWarning, shouldSuppressForbiddenNav, signalRService, significantCharsBefore, subscriptionEndpoint, subscriptionService, suppressTopbarAutohide, switchActiveCompany, switchCompany, taskGroup, ticketGroup, titleFromPath, toggleMobileNav, toggleSilentMode, tryRefreshToken, unbindWebAppDesktopSite, unmountParcel, unregisterApiNavigationHandler, updateConversationFromMessage, updateConversationPreview, updateCreateTaskForm, updateCreateTicketForm, updateEditTaskForm, updateEditTicketForm, updateUserFromRefresh, useAlert, useAuthToken, useBrowserNotification, useCatalogHistoryModal, useCatalogPermissions, useCatalogTableBusy, useConversations, useDeviceContentSize, useDeviceType, useEntitySubscription, useErpListRowLongPress, useFormDepartments, useFormLeaveGuard, useInstallPrompt, useLeaveConfirm, useLinCatalogColumnFilterSort, useLinListTableCardShellHeight, useLinListTableCardShellHeightGate, useMarkConversationRead, useMasterCatalogPermissions, useMessages, useMinLoadingTime, usePermissionsReady, useServerPagedListLoading, useSignalREvent, useSystemLogoSrc, useTaskPermissions, useTasks, useTicketPermissions, useTickets, useToast, useTopbarAutoHideOnScroll, useViewMobileLayout, useWorkspaceTabs, useWorkspaceTabsOptional, userSearchConfig, utcToLocalInputValue, validateImageFile, validateIntegerString, voucherNetTotalWithVariance, writePermissionsSnapshot
 
 // EXTERNAL MODULE: external "react"
 var external_react_ = __webpack_require__(4726);
@@ -19245,9 +19246,9 @@ const appSettings = {
      */
     build: {
         /** Semantic version from package.json, auto-bumped on each merge to main. e.g. "1.0.42" */
-        version: "1.12.0" || 0,
+        version: "1.14.0" || 0,
         /** GitHub Actions run number — monotonically increasing. e.g. "137" */
-        number: "120" || 0,
+        number: "122" || 0,
         /** Short git commit SHA. e.g. "a1b2c3d" */
         sha: undefined || 'dev',
         /** ISO 8601 build timestamp. e.g. "2026-04-12T08:00:00Z" */
@@ -25067,6 +25068,126 @@ function applyRuntimeApiUrl(mfName, buildFallback) {
     return url;
 }
 //# sourceMappingURL=runtimeApiUrl.js.map
+;// ./node_modules/@linm-soft-org/linm-web-common-components/dist/utils/dateTime.js
+/**
+ * DateTime conversion utilities — system-wide
+ *
+ * ════════════════════════════════════════════════════════════════════════════
+ * SYSTEM ARCHITECTURE: DATETIME HANDLING CONTRACT
+ * ════════════════════════════════════════════════════════════════════════════
+ *
+ * 1. DB STORAGE          → UTC (no offset).
+ * 2. GET RESPONSES       → UTC ISO-8601  e.g. "2026-04-14T03:30:00.000Z"
+ * 3. UI DISPLAY/INPUT    → LOCAL time (browser timezone, no conversion needed
+ *                          because JS Date automatically uses local tz).
+ * 4. POST/PUT PAYLOADS   → ISO 8601 with local offset
+ *                          e.g. "2026-04-14T10:30:00+07:00"
+ *                          Backend parses via DateTimeOffset.TryParse
+ *                          (DateTimeStyles.RoundtripKind) → converts to UTC.
+ * 5. IDCODE DATE PART    → Must use CLIENT's local date, not server UTC date.
+ *                          Every API request carries:
+ *                            X-Timezone: <IANA zone>  e.g. "Asia/Ho_Chi_Minh"
+ *                          Backend IClientTimezoneAccessor reads this header
+ *                          and provides GetClientDate() → DateOnly in local tz.
+ *                          IdCodeService uses clientDate for both the counter
+ *                          key AND the yyyyMMdd in the code string.
+ *
+ * Conversion flow:
+ *   GET  (UTC "…Z")  ──► utcToLocalInputValue()    ──► <input type="datetime-local">
+ *   <input type="datetime-local"> ──► localInputToISOWithOffset() ──► POST/PUT body
+ *   api.ts request() ──► X-Timezone: getClientTimezone() ──► every request header
+ * ════════════════════════════════════════════════════════════════════════════
+ */
+// ─── UTC  →  datetime-local value ────────────────────────────────────────────
+/**
+ * Convert a UTC ISO string to the value required by an
+ * `<input type="datetime-local">` (format: `YYYY-MM-DDTHH:mm`) expressed in
+ * the browser's local timezone.
+ */
+function utcToLocalInputValue(utcIso) {
+    if (!utcIso)
+        return '';
+    const d = new Date(utcIso);
+    if (isNaN(d.getTime()))
+        return '';
+    const y = d.getFullYear();
+    const mo = String(d.getMonth() + 1).padStart(2, '0');
+    const day = String(d.getDate()).padStart(2, '0');
+    const h = String(d.getHours()).padStart(2, '0');
+    const m = String(d.getMinutes()).padStart(2, '0');
+    return `${y}-${mo}-${day}T${h}:${m}`;
+}
+// ─── datetime-local value  →  ISO with offset ─────────────────────────────────
+/**
+ * Convert a `datetime-local` input value (`YYYY-MM-DDTHH:mm`) to an ISO 8601
+ * string that carries the browser's local timezone offset
+ * (e.g. `"2026-04-14T10:30:00+07:00"`).
+ *
+ * The backend must parse this with offset-awareness then call `.ToUniversalTime()`.
+ */
+function localInputToISOWithOffset(localValue) {
+    if (!localValue)
+        return '';
+    const d = new Date(localValue); // parsed as local time
+    if (isNaN(d.getTime()))
+        return '';
+    const offsetMin = -d.getTimezoneOffset(); // negative getTimezoneOffset = ahead of UTC
+    const sign = offsetMin >= 0 ? '+' : '-';
+    const absMin = Math.abs(offsetMin);
+    const offH = String(Math.floor(absMin / 60)).padStart(2, '0');
+    const offM = String(absMin % 60).padStart(2, '0');
+    const y = d.getFullYear();
+    const mo = String(d.getMonth() + 1).padStart(2, '0');
+    const day = String(d.getDate()).padStart(2, '0');
+    const h = String(d.getHours()).padStart(2, '0');
+    const m = String(d.getMinutes()).padStart(2, '0');
+    const s = String(d.getSeconds()).padStart(2, '0');
+    return `${y}-${mo}-${day}T${h}:${m}:${s}${sign}${offH}:${offM}`;
+}
+// ─── "now" helpers ────────────────────────────────────────────────────────────
+/** Current local time as a `datetime-local` input value (`YYYY-MM-DDTHH:mm`). */
+function nowAsLocalInputValue() {
+    return utcToLocalInputValue(new Date().toISOString());
+}
+/**
+ * Current time as ISO 8601 with the browser's local offset.
+ * Use this when initialising form fields that will be sent to the backend.
+ */
+function nowAsISOWithOffset() {
+    return localInputToISOWithOffset(nowAsLocalInputValue());
+}
+// ─── Display formatters ────────────────────────────────────────────────────────
+/**
+ * Format a UTC ISO string for read-only display in local time.
+ * Returns "DD/MM/YYYY HH:mm" by default, or "DD/MM/YYYY" when `includeTime` is false.
+ */
+function formatUTCToLocalDisplay(utcIso, includeTime = true) {
+    if (!utcIso)
+        return '—';
+    const d = new Date(utcIso);
+    if (isNaN(d.getTime()))
+        return '—';
+    const day = String(d.getDate()).padStart(2, '0');
+    const mo = String(d.getMonth() + 1).padStart(2, '0');
+    const y = d.getFullYear();
+    if (!includeTime)
+        return `${day}/${mo}/${y}`;
+    const h = String(d.getHours()).padStart(2, '0');
+    const m = String(d.getMinutes()).padStart(2, '0');
+    return `${day}/${mo}/${y} ${h}:${m}`;
+}
+// ─── Timezone helpers ─────────────────────────────────────────────────────────
+/**
+ * Returns the browser's IANA timezone identifier
+ * (e.g. `"Asia/Ho_Chi_Minh"`, `"America/New_York"`).
+ *
+ * Used by `api.ts` to inject `X-Timezone` into every request so the BFF can
+ * resolve the client's local date for IdCode generation (§5 of the contract above).
+ */
+function getClientTimezone() {
+    return Intl.DateTimeFormat().resolvedOptions().timeZone;
+}
+//# sourceMappingURL=dateTime.js.map
 ;// ./node_modules/@linm-soft-org/linm-web-common-components/dist/utils/fetchReportPagesInBatches.js
 /* unused harmony import specifier */ var fetchReportPagesInBatches_clampReportPrintFetchBatchSize;
 
@@ -59471,12 +59592,50 @@ ___CSS_LOADER_EXPORT___.push([module.id, `.page___tGKLo {
   font-size: 0.85rem;
 }
 
+.period___zvveT {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.period___zvveT label {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.period___zvveT input {
+  font-weight: 400;
+  padding: 6px 8px;
+}
+
 .toolbar___BXBqR {
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 12px;
   margin-bottom: 8px;
+}
+
+.rowMain___CQoxD {
+  display: flex;
+  flex: 1;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.code___qojso {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: ui-monospace, monospace;
+  font-size: 0.85rem;
+  white-space: nowrap;
 }
 
 .btn___CS053 {
@@ -59498,7 +59657,7 @@ ___CSS_LOADER_EXPORT___.push([module.id, `.page___tGKLo {
 }
 
 .btnGhost___QN81F {
-  background: transparent;
+  background: #edf2f7;
   color: #2d3748;
 }
 
@@ -59547,7 +59706,7 @@ ___CSS_LOADER_EXPORT___.push([module.id, `.page___tGKLo {
 .result___PFARx ul {
   margin: 8px 0 0;
 }
-`, "",{"version":3,"sources":["webpack://./src/pages/GoLiveCleanupPage/GoLiveCleanupPage.module.css"],"names":[],"mappings":"AAAA;EACE,gBAAgB;EAChB,cAAc;EACd,uBAAuB;AACzB;;AAEA;EACE,mBAAmB;AACrB;;AAEA;EACE,iBAAiB;EACjB,gBAAgB;EAChB,eAAe;AACjB;;AAEA;EACE,SAAS;EACT,2CAA2C;AAC7C;;AAEA;EACE,aAAa;EACb,sBAAsB;EACtB,SAAS;AACX;;AAEA;EACE,gBAAgB;EAChB,8CAA8C;EAC9C,kBAAkB;EAClB,aAAa;AACf;;AAEA;EACE,qBAAqB;AACvB;;AAEA;EACE,qBAAqB;AACvB;;AAEA;EACE,eAAe;EACf,kBAAkB;AACpB;;AAEA;EACE,gBAAgB;EAChB,2CAA2C;EAC3C,iBAAiB;AACnB;;AAEA;EACE,gBAAgB;EAChB,SAAS;EACT,UAAU;EACV,iBAAiB;EACjB,cAAc;EACd,6BAA6B;AAC/B;;AAEA;EACE,aAAa;EACb,uBAAuB;EACvB,SAAS;EACT,gBAAgB;EAChB,gCAAgC;AAClC;;AAEA;EACE,gBAAgB;AAClB;;AAEA;EACE,cAAc;EACd,2CAA2C;EAC3C,kBAAkB;AACpB;;AAEA;EACE,aAAa;EACb,mBAAmB;EACnB,8BAA8B;EAC9B,SAAS;EACT,kBAAkB;AACpB;;AAEA;EACE,SAAS;EACT,kBAAkB;EAClB,iBAAiB;EACjB,eAAe;EACf,gBAAgB;AAClB;;AAEA;EACE,mBAAmB;EACnB,WAAW;AACb;;AAEA;EACE,YAAY;EACZ,mBAAmB;AACrB;;AAEA;EACE,uBAAuB;EACvB,cAAc;AAChB;;AAEA;EACE,eAAe;EACf,cAAc;AAChB;;AAEA;EACE,eAAe;EACf,QAAQ;EACR,+BAA+B;EAC/B,aAAa;EACb,mBAAmB;EACnB,uBAAuB;EACvB,WAAW;AACb;;AAEA;EACE,oCAAoC;EACpC,gBAAgB;EAChB,kBAAkB;EAClB,aAAa;AACf;;AAEA;EACE,WAAW;EACX,sBAAsB;EACtB,cAAc;EACd,YAAY;AACd;;AAEA;EACE,aAAa;EACb,yBAAyB;EACzB,QAAQ;AACV;;AAEA;EACE,gBAAgB;EAChB,aAAa;EACb,mBAAmB;EACnB,kBAAkB;AACpB;;AAEA;EACE,eAAe;AACjB","sourcesContent":[".page {\n  max-width: 960px;\n  margin: 0 auto;\n  padding: 24px 16px 48px;\n}\n\n.header {\n  margin-bottom: 16px;\n}\n\n.title {\n  font-size: 1.4rem;\n  font-weight: 700;\n  margin: 0 0 6px;\n}\n\n.summary {\n  margin: 0;\n  color: var(--color-text-secondary, #4a5568);\n}\n\n.cards {\n  display: flex;\n  flex-direction: column;\n  gap: 16px;\n}\n\n.card {\n  background: #fff;\n  border: 1px solid var(--color-border, #e2e8f0);\n  border-radius: 8px;\n  padding: 16px;\n}\n\n.cardKeep {\n  border-color: #c6f6d5;\n}\n\n.cardDrop {\n  border-color: #fed7d7;\n}\n\n.cardTitle {\n  margin: 0 0 4px;\n  font-size: 1.05rem;\n}\n\n.hint {\n  margin: 0 0 12px;\n  color: var(--color-text-secondary, #4a5568);\n  font-size: 0.9rem;\n}\n\n.list {\n  list-style: none;\n  margin: 0;\n  padding: 0;\n  max-height: 320px;\n  overflow: auto;\n  border-top: 1px solid #edf2f7;\n}\n\n.row {\n  display: flex;\n  align-items: flex-start;\n  gap: 10px;\n  padding: 8px 4px;\n  border-bottom: 1px solid #edf2f7;\n}\n\n.label {\n  font-weight: 600;\n}\n\n.detail {\n  display: block;\n  color: var(--color-text-secondary, #718096);\n  font-size: 0.85rem;\n}\n\n.toolbar {\n  display: flex;\n  align-items: center;\n  justify-content: space-between;\n  gap: 12px;\n  margin-bottom: 8px;\n}\n\n.btn {\n  border: 0;\n  border-radius: 6px;\n  padding: 8px 12px;\n  cursor: pointer;\n  font-weight: 600;\n}\n\n.btnDanger {\n  background: #c53030;\n  color: #fff;\n}\n\n.btnDanger:disabled {\n  opacity: 0.5;\n  cursor: not-allowed;\n}\n\n.btnGhost {\n  background: transparent;\n  color: #2d3748;\n}\n\n.empty {\n  margin: 8px 0 0;\n  color: #718096;\n}\n\n.backdrop {\n  position: fixed;\n  inset: 0;\n  background: rgba(0, 0, 0, 0.45);\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  z-index: 20;\n}\n\n.modal {\n  width: min(420px, calc(100% - 32px));\n  background: #fff;\n  border-radius: 8px;\n  padding: 16px;\n}\n\n.modal input {\n  width: 100%;\n  box-sizing: border-box;\n  margin: 12px 0;\n  padding: 8px;\n}\n\n.modalActions {\n  display: flex;\n  justify-content: flex-end;\n  gap: 8px;\n}\n\n.result {\n  margin-top: 16px;\n  padding: 12px;\n  background: #f0fff4;\n  border-radius: 8px;\n}\n\n.result ul {\n  margin: 8px 0 0;\n}\n"],"sourceRoot":""}]);
+`, "",{"version":3,"sources":["webpack://./src/pages/GoLiveCleanupPage/GoLiveCleanupPage.module.css"],"names":[],"mappings":"AAAA;EACE,gBAAgB;EAChB,cAAc;EACd,uBAAuB;AACzB;;AAEA;EACE,mBAAmB;AACrB;;AAEA;EACE,iBAAiB;EACjB,gBAAgB;EAChB,eAAe;AACjB;;AAEA;EACE,SAAS;EACT,2CAA2C;AAC7C;;AAEA;EACE,aAAa;EACb,sBAAsB;EACtB,SAAS;AACX;;AAEA;EACE,gBAAgB;EAChB,8CAA8C;EAC9C,kBAAkB;EAClB,aAAa;AACf;;AAEA;EACE,qBAAqB;AACvB;;AAEA;EACE,qBAAqB;AACvB;;AAEA;EACE,eAAe;EACf,kBAAkB;AACpB;;AAEA;EACE,gBAAgB;EAChB,2CAA2C;EAC3C,iBAAiB;AACnB;;AAEA;EACE,gBAAgB;EAChB,SAAS;EACT,UAAU;EACV,iBAAiB;EACjB,cAAc;EACd,6BAA6B;AAC/B;;AAEA;EACE,aAAa;EACb,uBAAuB;EACvB,SAAS;EACT,gBAAgB;EAChB,gCAAgC;AAClC;;AAEA;EACE,gBAAgB;AAClB;;AAEA;EACE,cAAc;EACd,2CAA2C;EAC3C,kBAAkB;AACpB;;AAEA;EACE,aAAa;EACb,eAAe;EACf,qBAAqB;EACrB,SAAS;EACT,mBAAmB;AACrB;;AAEA;EACE,aAAa;EACb,sBAAsB;EACtB,QAAQ;EACR,kBAAkB;EAClB,gBAAgB;AAClB;;AAEA;EACE,gBAAgB;EAChB,gBAAgB;AAClB;;AAEA;EACE,aAAa;EACb,mBAAmB;EACnB,8BAA8B;EAC9B,SAAS;EACT,kBAAkB;AACpB;;AAEA;EACE,aAAa;EACb,OAAO;EACP,uBAAuB;EACvB,8BAA8B;EAC9B,SAAS;AACX;;AAEA;EACE,oBAAoB;EACpB,mBAAmB;EACnB,QAAQ;EACR,oCAAoC;EACpC,kBAAkB;EAClB,mBAAmB;AACrB;;AAEA;EACE,SAAS;EACT,kBAAkB;EAClB,iBAAiB;EACjB,eAAe;EACf,gBAAgB;AAClB;;AAEA;EACE,mBAAmB;EACnB,WAAW;AACb;;AAEA;EACE,YAAY;EACZ,mBAAmB;AACrB;;AAEA;EACE,mBAAmB;EACnB,cAAc;AAChB;;AAEA;EACE,eAAe;EACf,cAAc;AAChB;;AAEA;EACE,eAAe;EACf,QAAQ;EACR,+BAA+B;EAC/B,aAAa;EACb,mBAAmB;EACnB,uBAAuB;EACvB,WAAW;AACb;;AAEA;EACE,oCAAoC;EACpC,gBAAgB;EAChB,kBAAkB;EAClB,aAAa;AACf;;AAEA;EACE,WAAW;EACX,sBAAsB;EACtB,cAAc;EACd,YAAY;AACd;;AAEA;EACE,aAAa;EACb,yBAAyB;EACzB,QAAQ;AACV;;AAEA;EACE,gBAAgB;EAChB,aAAa;EACb,mBAAmB;EACnB,kBAAkB;AACpB;;AAEA;EACE,eAAe;AACjB","sourcesContent":[".page {\n  max-width: 960px;\n  margin: 0 auto;\n  padding: 24px 16px 48px;\n}\n\n.header {\n  margin-bottom: 16px;\n}\n\n.title {\n  font-size: 1.4rem;\n  font-weight: 700;\n  margin: 0 0 6px;\n}\n\n.summary {\n  margin: 0;\n  color: var(--color-text-secondary, #4a5568);\n}\n\n.cards {\n  display: flex;\n  flex-direction: column;\n  gap: 16px;\n}\n\n.card {\n  background: #fff;\n  border: 1px solid var(--color-border, #e2e8f0);\n  border-radius: 8px;\n  padding: 16px;\n}\n\n.cardKeep {\n  border-color: #c6f6d5;\n}\n\n.cardDrop {\n  border-color: #fed7d7;\n}\n\n.cardTitle {\n  margin: 0 0 4px;\n  font-size: 1.05rem;\n}\n\n.hint {\n  margin: 0 0 12px;\n  color: var(--color-text-secondary, #4a5568);\n  font-size: 0.9rem;\n}\n\n.list {\n  list-style: none;\n  margin: 0;\n  padding: 0;\n  max-height: 320px;\n  overflow: auto;\n  border-top: 1px solid #edf2f7;\n}\n\n.row {\n  display: flex;\n  align-items: flex-start;\n  gap: 10px;\n  padding: 8px 4px;\n  border-bottom: 1px solid #edf2f7;\n}\n\n.label {\n  font-weight: 600;\n}\n\n.detail {\n  display: block;\n  color: var(--color-text-secondary, #718096);\n  font-size: 0.85rem;\n}\n\n.period {\n  display: flex;\n  flex-wrap: wrap;\n  align-items: flex-end;\n  gap: 12px;\n  margin-bottom: 16px;\n}\n\n.period label {\n  display: flex;\n  flex-direction: column;\n  gap: 4px;\n  font-size: 0.85rem;\n  font-weight: 600;\n}\n\n.period input {\n  font-weight: 400;\n  padding: 6px 8px;\n}\n\n.toolbar {\n  display: flex;\n  align-items: center;\n  justify-content: space-between;\n  gap: 12px;\n  margin-bottom: 8px;\n}\n\n.rowMain {\n  display: flex;\n  flex: 1;\n  align-items: flex-start;\n  justify-content: space-between;\n  gap: 12px;\n}\n\n.code {\n  display: inline-flex;\n  align-items: center;\n  gap: 6px;\n  font-family: ui-monospace, monospace;\n  font-size: 0.85rem;\n  white-space: nowrap;\n}\n\n.btn {\n  border: 0;\n  border-radius: 6px;\n  padding: 8px 12px;\n  cursor: pointer;\n  font-weight: 600;\n}\n\n.btnDanger {\n  background: #c53030;\n  color: #fff;\n}\n\n.btnDanger:disabled {\n  opacity: 0.5;\n  cursor: not-allowed;\n}\n\n.btnGhost {\n  background: #edf2f7;\n  color: #2d3748;\n}\n\n.empty {\n  margin: 8px 0 0;\n  color: #718096;\n}\n\n.backdrop {\n  position: fixed;\n  inset: 0;\n  background: rgba(0, 0, 0, 0.45);\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  z-index: 20;\n}\n\n.modal {\n  width: min(420px, calc(100% - 32px));\n  background: #fff;\n  border-radius: 8px;\n  padding: 16px;\n}\n\n.modal input {\n  width: 100%;\n  box-sizing: border-box;\n  margin: 12px 0;\n  padding: 8px;\n}\n\n.modalActions {\n  display: flex;\n  justify-content: flex-end;\n  gap: 8px;\n}\n\n.result {\n  margin-top: 16px;\n  padding: 12px;\n  background: #f0fff4;\n  border-radius: 8px;\n}\n\n.result ul {\n  margin: 8px 0 0;\n}\n"],"sourceRoot":""}]);
 // Exports
 ___CSS_LOADER_EXPORT___.locals = {
 	"page": `page___tGKLo`,
@@ -59564,7 +59723,10 @@ ___CSS_LOADER_EXPORT___.locals = {
 	"row": `row___RabVF`,
 	"label": `label___nI5as`,
 	"detail": `detail___GqByX`,
+	"period": `period___zvveT`,
 	"toolbar": `toolbar___BXBqR`,
+	"rowMain": `rowMain___CQoxD`,
+	"code": `code___qojso`,
 	"btn": `btn___CS053`,
 	"btnDanger": `btnDanger___LKsLz`,
 	"btnGhost": `btnGhost___QN81F`,
@@ -72340,7 +72502,7 @@ var batch = (/* unused pure expression or super */ null && (defaultNoopBatch));
 /******/ 		// This function allow to reference async chunks
 /******/ 		__webpack_require__.u = (chunkId) => {
 /******/ 			// return url for filenames based on template
-/******/ 			return "" + chunkId + "." + "9fdedf70" + ".linm-admin.js";
+/******/ 			return "" + chunkId + "." + "0f0de804" + ".linm-admin.js";
 /******/ 		};
 /******/ 	})();
 /******/ 	
@@ -72550,8 +72712,8 @@ __webpack_require__.d(__webpack_exports__, {
   unmount: () => (/* binding */ unmount)
 });
 
-// EXTERNAL MODULE: ./node_modules/@linm-soft-org/linm-web-common-components/dist/index.js + 510 modules
-var dist = __webpack_require__(1112);
+// EXTERNAL MODULE: ./node_modules/@linm-soft-org/linm-web-common-components/dist/index.js + 511 modules
+var dist = __webpack_require__(7662);
 ;// ./src/config/runtimeApiUrl.ts
 /**
  * Bind this MFE's `@linm/{mf}` name. Logic SSOT:
@@ -89858,13 +90020,17 @@ var DataCleanupPage = function DataCleanupPage() {
 
 var goLiveCleanupEndpoint = {
   preview: function () {
-    var _preview = _asyncToGenerator(/*#__PURE__*/regenerator_default().mark(function _callee() {
-      var res;
+    var _preview = _asyncToGenerator(/*#__PURE__*/regenerator_default().mark(function _callee(period) {
+      var params, qs, res;
       return regenerator_default().wrap(function (_context) {
         while (1) switch (_context.prev = _context.next) {
           case 0:
+            params = new URLSearchParams();
+            if (period !== null && period !== void 0 && period.dateFrom) params.set('dateFrom', period.dateFrom);
+            if (period !== null && period !== void 0 && period.dateTo) params.set('dateTo', period.dateTo);
+            qs = params.toString();
             _context.next = 1;
-            return dist/* apiClient */.uE4.get('/integration/go-live-cleanup/preview');
+            return dist/* apiClient */.uE4.get("/integration/go-live-cleanup/preview".concat(qs ? "?".concat(qs) : ''));
           case 1:
             res = _context.sent;
             return _context.abrupt("return", (0,dist/* unwrap */.oAg)(res));
@@ -89874,7 +90040,7 @@ var goLiveCleanupEndpoint = {
         }
       }, _callee);
     }));
-    function preview() {
+    function preview(_x) {
       return _preview.apply(this, arguments);
     }
     return preview;
@@ -89896,7 +90062,7 @@ var goLiveCleanupEndpoint = {
         }
       }, _callee2);
     }));
-    function execute(_x) {
+    function execute(_x2) {
       return _execute.apply(this, arguments);
     }
     return execute;
@@ -89957,8 +90123,38 @@ function GoLiveCleanupPage_arrayLikeToArray(r, a) { (null == a || a > r.length) 
 
 
 
+function periodQuery(from, to) {
+  var query = {};
+  if (from) query.dateFrom = (0,dist/* localInputToISOWithOffset */.zv5)("".concat(from, "T00:00:00"));
+  var end = to || from;
+  if (end) query.dateTo = (0,dist/* localInputToISOWithOffset */.zv5)("".concat(end, "T23:59:59"));
+  return query;
+}
+function csvCell(value) {
+  var text = value !== null && value !== void 0 ? value : '';
+  if (/[",\n]/.test(text)) return "\"".concat(text.replace(/"/g, '""'), "\"");
+  return text;
+}
+function downloadCard(card) {
+  var _card$downloadHeaders, _card$downloadRows;
+  var headers = (_card$downloadHeaders = card.downloadHeaders) !== null && _card$downloadHeaders !== void 0 ? _card$downloadHeaders : [];
+  var rows = (_card$downloadRows = card.downloadRows) !== null && _card$downloadRows !== void 0 ? _card$downloadRows : [];
+  if (headers.length === 0) return;
+  var lines = [headers].concat((0,toConsumableArray/* default */.A)(rows)).map(function (cols) {
+    return cols.map(csvCell).join(',');
+  }).join('\n');
+  var blob = new Blob(["\uFEFF".concat(lines)], {
+    type: 'text/csv;charset=utf-8'
+  });
+  var url = URL.createObjectURL(blob);
+  var link = document.createElement('a');
+  link.href = url;
+  link.download = card.downloadFileName || 'keep-users.csv';
+  link.click();
+  URL.revokeObjectURL(url);
+}
 var GoLiveCleanupPage = function GoLiveCleanupPage() {
-  var _preview$title, _preview$cards, _result$items;
+  var _preview$title, _preview$cards2, _result$items, _find, _preview$cards3, _find2, _preview$cards4, _preview$cards5;
   (0,dist/* useFormOptions */.OAx)('admin-go-live-cleanup');
   var toast = (0,dist/* useAppToast */.Sf6)();
   var _useAdminPermissions = useAdminPermissions(),
@@ -89996,57 +90192,78 @@ var GoLiveCleanupPage = function GoLiveCleanupPage() {
     _useState14 = _slicedToArray(_useState13, 2),
     errorMsg = _useState14[0],
     setErrorMsg = _useState14[1];
+  var _useState15 = (0,external_react_.useState)(''),
+    _useState16 = _slicedToArray(_useState15, 2),
+    dateFrom = _useState16[0],
+    setDateFrom = _useState16[1];
+  var _useState17 = (0,external_react_.useState)(''),
+    _useState18 = _slicedToArray(_useState17, 2),
+    dateTo = _useState18[0],
+    setDateTo = _useState18[1];
+  var _useState19 = (0,external_react_.useState)({}),
+    _useState20 = _slicedToArray(_useState19, 2),
+    period = _useState20[0],
+    setPeriod = _useState20[1];
+  var _useState21 = (0,external_react_.useState)(false),
+    _useState22 = _slicedToArray(_useState21, 2),
+    ackDownload = _useState22[0],
+    setAckDownload = _useState22[1];
   (0,dist/* useNavTitle */.pSS)((_preview$title = preview === null || preview === void 0 ? void 0 : preview.title) !== null && _preview$title !== void 0 ? _preview$title : '');
-  var load = (0,external_react_.useCallback)(/*#__PURE__*/_asyncToGenerator(/*#__PURE__*/regenerator_default().mark(function _callee() {
-    var _data$cards, data, next, _iterator, _step, _card$items, card, message, _t;
-    return regenerator_default().wrap(function (_context) {
-      while (1) switch (_context.prev = _context.next) {
-        case 0:
-          setLoading(true);
-          setErrorMsg('');
-          _context.prev = 1;
-          _context.next = 2;
-          return goLiveCleanupService.preview();
-        case 2:
-          data = _context.sent;
-          next = {};
-          _iterator = GoLiveCleanupPage_createForOfIteratorHelper((_data$cards = data.cards) !== null && _data$cards !== void 0 ? _data$cards : []);
-          try {
-            for (_iterator.s(); !(_step = _iterator.n()).done;) {
-              card = _step.value;
-              next[card.key] = ((_card$items = card.items) !== null && _card$items !== void 0 ? _card$items : []).filter(function (item) {
-                return item.checked;
-              }).map(function (item) {
-                return item.key;
-              });
+  var load = (0,external_react_.useCallback)(/*#__PURE__*/function () {
+    var _ref = _asyncToGenerator(/*#__PURE__*/regenerator_default().mark(function _callee(next) {
+      var _data$cards, data, _next, _iterator, _step, _card$items, card, message, _t;
+      return regenerator_default().wrap(function (_context) {
+        while (1) switch (_context.prev = _context.next) {
+          case 0:
+            setLoading(true);
+            setErrorMsg('');
+            _context.prev = 1;
+            _context.next = 2;
+            return goLiveCleanupService.preview(_next);
+          case 2:
+            data = _context.sent;
+            _next = {};
+            _iterator = GoLiveCleanupPage_createForOfIteratorHelper((_data$cards = data.cards) !== null && _data$cards !== void 0 ? _data$cards : []);
+            try {
+              for (_iterator.s(); !(_step = _iterator.n()).done;) {
+                card = _step.value;
+                _next[card.key] = ((_card$items = card.items) !== null && _card$items !== void 0 ? _card$items : []).filter(function (item) {
+                  return item.checked;
+                }).map(function (item) {
+                  return item.key;
+                });
+              }
+            } catch (err) {
+              _iterator.e(err);
+            } finally {
+              _iterator.f();
             }
-          } catch (err) {
-            _iterator.e(err);
-          } finally {
-            _iterator.f();
-          }
-          setPreview(data);
-          setChecked(next);
-          _context.next = 4;
-          break;
-        case 3:
-          _context.prev = 3;
-          _t = _context["catch"](1);
-          message = _t instanceof Error ? _t.message : '';
-          setErrorMsg(message);
-        case 4:
-          _context.prev = 4;
-          setLoading(false);
-          return _context.finish(4);
-        case 5:
-        case "end":
-          return _context.stop();
-      }
-    }, _callee, null, [[1, 3, 4, 5]]);
-  })), []);
+            setPreview(data);
+            setChecked(_next);
+            _context.next = 4;
+            break;
+          case 3:
+            _context.prev = 3;
+            _t = _context["catch"](1);
+            message = _t instanceof Error ? _t.message : '';
+            setErrorMsg(message);
+          case 4:
+            _context.prev = 4;
+            setLoading(false);
+            return _context.finish(4);
+          case 5:
+          case "end":
+            return _context.stop();
+        }
+      }, _callee, null, [[1, 3, 4, 5]]);
+    }));
+    return function (_x) {
+      return _ref.apply(this, arguments);
+    };
+  }(), []);
   (0,external_react_.useEffect)(function () {
     var timer = window.setTimeout(function () {
-      void load();
+      void load({});
     }, 0);
     return function () {
       return window.clearTimeout(timer);
@@ -90069,8 +90286,8 @@ var GoLiveCleanupPage = function GoLiveCleanupPage() {
   };
   var runCard = /*#__PURE__*/function () {
     var _ref2 = _asyncToGenerator(/*#__PURE__*/regenerator_default().mark(function _callee2() {
-      var _checked$pendingCard;
-      var itemKeys, data, message, _t2;
+      var _preview$cards, _checked$pendingCard;
+      var card, itemKeys, data, message, _t2;
       return regenerator_default().wrap(function (_context2) {
         while (1) switch (_context2.prev = _context2.next) {
           case 0:
@@ -90087,42 +90304,55 @@ var GoLiveCleanupPage = function GoLiveCleanupPage() {
             toast.error(preview.confirmMismatch);
             return _context2.abrupt("return");
           case 2:
+            card = ((_preview$cards = preview.cards) !== null && _preview$cards !== void 0 ? _preview$cards : []).find(function (item) {
+              return item.key === pendingCard;
+            });
+            if (!(card !== null && card !== void 0 && card.requiresDownload && !ackDownload)) {
+              _context2.next = 3;
+              break;
+            }
+            toast.error(card.downloadConfirmLabel || preview.confirmMismatch);
+            return _context2.abrupt("return");
+          case 3:
             itemKeys = (_checked$pendingCard = checked[pendingCard]) !== null && _checked$pendingCard !== void 0 ? _checked$pendingCard : [];
             setBusyKey(pendingCard);
             setErrorMsg('');
-            _context2.prev = 3;
-            _context2.next = 4;
+            _context2.prev = 4;
+            _context2.next = 5;
             return goLiveCleanupService.execute({
               confirmPhrase: phrase,
               cardKey: pendingCard,
-              itemKeys: itemKeys
+              itemKeys: itemKeys,
+              dateFrom: period.dateFrom,
+              dateTo: period.dateTo,
+              listDownloaded: card !== null && card !== void 0 && card.requiresDownload ? ackDownload : false
             });
-          case 4:
+          case 5:
             data = _context2.sent;
             setResult(data);
             toast.success(data.message);
             setPendingCard('');
             setPhrase('');
-            _context2.next = 5;
-            return load();
-          case 5:
-            _context2.next = 7;
-            break;
+            _context2.next = 6;
+            return load(period);
           case 6:
-            _context2.prev = 6;
-            _t2 = _context2["catch"](3);
+            _context2.next = 8;
+            break;
+          case 7:
+            _context2.prev = 7;
+            _t2 = _context2["catch"](4);
             message = _t2 instanceof Error ? _t2.message : '';
             setErrorMsg(message);
             toast.error(message);
-          case 7:
-            _context2.prev = 7;
-            setBusyKey('');
-            return _context2.finish(7);
           case 8:
+            _context2.prev = 8;
+            setBusyKey('');
+            return _context2.finish(8);
+          case 9:
           case "end":
             return _context2.stop();
         }
-      }, _callee2, null, [[3, 6, 7, 8]]);
+      }, _callee2, null, [[4, 7, 8, 9]]);
     }));
     return function runCard() {
       return _ref2.apply(this, arguments);
@@ -90137,12 +90367,37 @@ var GoLiveCleanupPage = function GoLiveCleanupPage() {
     className: GoLiveCleanupPage_GoLiveCleanupPage_module.title
   }, preview === null || preview === void 0 ? void 0 : preview.title), preview !== null && preview !== void 0 && preview.summary ? /*#__PURE__*/external_react_["default"].createElement("p", {
     className: GoLiveCleanupPage_GoLiveCleanupPage_module.summary
-  }, preview.summary) : null), errorMsg ? /*#__PURE__*/external_react_["default"].createElement("p", {
+  }, preview.summary) : null), preview ? /*#__PURE__*/external_react_["default"].createElement("form", {
+    className: GoLiveCleanupPage_GoLiveCleanupPage_module.period,
+    onSubmit: function onSubmit(event) {
+      event.preventDefault();
+      var next = periodQuery(dateFrom, dateTo);
+      setPeriod(next);
+      void load(next);
+    }
+  }, /*#__PURE__*/external_react_["default"].createElement("label", null, preview.dateFromLabel, /*#__PURE__*/external_react_["default"].createElement("input", {
+    type: "date",
+    value: dateFrom,
+    onChange: function onChange(event) {
+      return setDateFrom(event.target.value);
+    }
+  })), /*#__PURE__*/external_react_["default"].createElement("label", null, preview.dateToLabel, /*#__PURE__*/external_react_["default"].createElement("input", {
+    type: "date",
+    value: dateTo,
+    onChange: function onChange(event) {
+      return setDateTo(event.target.value);
+    }
+  })), /*#__PURE__*/external_react_["default"].createElement("button", {
+    type: "submit",
+    className: "".concat(GoLiveCleanupPage_GoLiveCleanupPage_module.btn, " ").concat(GoLiveCleanupPage_GoLiveCleanupPage_module.btnGhost)
+  }, preview.applyLabel), preview.dateHint ? /*#__PURE__*/external_react_["default"].createElement("p", {
+    className: GoLiveCleanupPage_GoLiveCleanupPage_module.hint
+  }, preview.dateHint) : null) : null, errorMsg ? /*#__PURE__*/external_react_["default"].createElement("p", {
     className: GoLiveCleanupPage_GoLiveCleanupPage_module.empty
   }, errorMsg) : null, loading ? null : /*#__PURE__*/external_react_["default"].createElement("div", {
     className: GoLiveCleanupPage_GoLiveCleanupPage_module.cards
-  }, ((_preview$cards = preview === null || preview === void 0 ? void 0 : preview.cards) !== null && _preview$cards !== void 0 ? _preview$cards : []).map(function (card) {
-    var _checked$card$key, _card$items2, _card$items3, _card$items4, _card$items5;
+  }, ((_preview$cards2 = preview === null || preview === void 0 ? void 0 : preview.cards) !== null && _preview$cards2 !== void 0 ? _preview$cards2 : []).map(function (card) {
+    var _checked$card$key, _card$items2, _card$items3, _card$downloadHeaders2, _card$items4, _card$items5;
     var selected = (_checked$card$key = checked[card.key]) !== null && _checked$card$key !== void 0 ? _checked$card$key : [];
     var itemKeys = ((_card$items2 = card.items) !== null && _card$items2 !== void 0 ? _card$items2 : []).map(function (item) {
       return item.key;
@@ -90172,9 +90427,18 @@ var GoLiveCleanupPage = function GoLiveCleanupPage() {
       disabled: !canWrite || selected.length === 0 || busyKey === card.key,
       onClick: function onClick() {
         setPhrase('');
+        setAckDownload(false);
         setPendingCard(card.key);
       }
-    }, card.actionLabel)) : null, ((_card$items4 = card.items) !== null && _card$items4 !== void 0 ? _card$items4 : []).length === 0 ? /*#__PURE__*/external_react_["default"].createElement("p", {
+    }, card.actionLabel)) : null, ((_card$downloadHeaders2 = card.downloadHeaders) !== null && _card$downloadHeaders2 !== void 0 ? _card$downloadHeaders2 : []).length > 0 ? /*#__PURE__*/external_react_["default"].createElement("div", {
+      className: GoLiveCleanupPage_GoLiveCleanupPage_module.toolbar
+    }, /*#__PURE__*/external_react_["default"].createElement("span", null), /*#__PURE__*/external_react_["default"].createElement("button", {
+      type: "button",
+      className: "".concat(GoLiveCleanupPage_GoLiveCleanupPage_module.btn, " ").concat(GoLiveCleanupPage_GoLiveCleanupPage_module.btnGhost),
+      onClick: function onClick() {
+        return downloadCard(card);
+      }
+    }, card.downloadLabel)) : null, ((_card$items4 = card.items) !== null && _card$items4 !== void 0 ? _card$items4 : []).length === 0 ? /*#__PURE__*/external_react_["default"].createElement("p", {
       className: GoLiveCleanupPage_GoLiveCleanupPage_module.empty
     }, card.emptyLabel) : /*#__PURE__*/external_react_["default"].createElement("ul", {
       className: GoLiveCleanupPage_GoLiveCleanupPage_module.list
@@ -90189,11 +90453,23 @@ var GoLiveCleanupPage = function GoLiveCleanupPage() {
           return toggle(card.key, item.key);
         },
         "aria-label": item.label
-      }) : null, /*#__PURE__*/external_react_["default"].createElement("span", null, /*#__PURE__*/external_react_["default"].createElement("span", {
+      }) : null, /*#__PURE__*/external_react_["default"].createElement("span", {
+        className: GoLiveCleanupPage_GoLiveCleanupPage_module.rowMain
+      }, /*#__PURE__*/external_react_["default"].createElement("span", null, /*#__PURE__*/external_react_["default"].createElement("span", {
         className: GoLiveCleanupPage_GoLiveCleanupPage_module.label
       }, item.label), item.detail ? /*#__PURE__*/external_react_["default"].createElement("span", {
         className: GoLiveCleanupPage_GoLiveCleanupPage_module.detail
-      }, item.detail) : null));
+      }, item.detail) : null), item.code ? /*#__PURE__*/external_react_["default"].createElement("span", {
+        className: GoLiveCleanupPage_GoLiveCleanupPage_module.code
+      }, item.code, item.copyLabel ? /*#__PURE__*/external_react_["default"].createElement("button", {
+        type: "button",
+        className: "".concat(GoLiveCleanupPage_GoLiveCleanupPage_module.btn, " ").concat(GoLiveCleanupPage_GoLiveCleanupPage_module.btnGhost),
+        onClick: function onClick() {
+          void navigator.clipboard.writeText(item.code).then(function () {
+            if (preview !== null && preview !== void 0 && preview.copiedMessage) toast.success(preview.copiedMessage);
+          });
+        }
+      }, item.copyLabel) : null) : null));
     })));
   })), result ? /*#__PURE__*/external_react_["default"].createElement("div", {
     className: GoLiveCleanupPage_GoLiveCleanupPage_module.result
@@ -90206,7 +90482,19 @@ var GoLiveCleanupPage = function GoLiveCleanupPage() {
   }, /*#__PURE__*/external_react_["default"].createElement("div", {
     className: GoLiveCleanupPage_GoLiveCleanupPage_module.modal,
     role: "dialog"
-  }, /*#__PURE__*/external_react_["default"].createElement("h3", null, preview.confirmTitle), /*#__PURE__*/external_react_["default"].createElement("p", null, preview.confirmHint), /*#__PURE__*/external_react_["default"].createElement("p", null, /*#__PURE__*/external_react_["default"].createElement("strong", null, preview.confirmPhrase)), /*#__PURE__*/external_react_["default"].createElement("input", {
+  }, /*#__PURE__*/external_react_["default"].createElement("h3", null, preview.confirmTitle), /*#__PURE__*/external_react_["default"].createElement("p", null, preview.confirmHint), (_find = ((_preview$cards3 = preview.cards) !== null && _preview$cards3 !== void 0 ? _preview$cards3 : []).find(function (card) {
+    return card.key === pendingCard;
+  })) !== null && _find !== void 0 && _find.requiresDownload ? /*#__PURE__*/external_react_["default"].createElement("label", {
+    className: GoLiveCleanupPage_GoLiveCleanupPage_module.hint
+  }, /*#__PURE__*/external_react_["default"].createElement("input", {
+    type: "checkbox",
+    checked: ackDownload,
+    onChange: function onChange(event) {
+      return setAckDownload(event.target.checked);
+    }
+  }), ' ', (_find2 = ((_preview$cards4 = preview.cards) !== null && _preview$cards4 !== void 0 ? _preview$cards4 : []).find(function (card) {
+    return card.key === pendingCard;
+  })) === null || _find2 === void 0 ? void 0 : _find2.downloadConfirmLabel) : null, /*#__PURE__*/external_react_["default"].createElement("p", null, /*#__PURE__*/external_react_["default"].createElement("strong", null, preview.confirmPhrase)), /*#__PURE__*/external_react_["default"].createElement("input", {
     value: phrase,
     onChange: function onChange(event) {
       return setPhrase(event.target.value);
@@ -90224,7 +90512,9 @@ var GoLiveCleanupPage = function GoLiveCleanupPage() {
   }, preview.cancelLabel), /*#__PURE__*/external_react_["default"].createElement("button", {
     type: "button",
     className: "".concat(GoLiveCleanupPage_GoLiveCleanupPage_module.btn, " ").concat(GoLiveCleanupPage_GoLiveCleanupPage_module.btnDanger),
-    disabled: phrase !== preview.confirmPhrase || busyKey.length > 0,
+    disabled: phrase !== preview.confirmPhrase || busyKey.length > 0 || ((_preview$cards5 = preview.cards) !== null && _preview$cards5 !== void 0 ? _preview$cards5 : []).some(function (card) {
+      return card.key === pendingCard && card.requiresDownload;
+    }) && !ackDownload,
     onClick: function onClick() {
       void runCard();
     }
@@ -93758,9 +94048,9 @@ var appSettings = {
    */
   build: {
     /** Semantic version from package.json, auto-bumped on each merge to main. e.g. "1.0.42" */
-    version: "1.12.0" || 0,
+    version: "1.14.0" || 0,
     /** GitHub Actions run number — monotonically increasing. e.g. "137" */
-    number: "120" || 0,
+    number: "122" || 0,
     /** Short git commit SHA. e.g. "a1b2c3d" */
     sha: undefined || 'dev',
     /** ISO 8601 build timestamp. e.g. "2026-04-12T08:00:00Z" */
@@ -111119,4 +111409,4 @@ var bootstrap = lifecycles.bootstrap,
 		}
 	};
 });
-//# sourceMappingURL=linm-admin.4441f5f2.js.map
+//# sourceMappingURL=linm-admin.ec446ad8.js.map
