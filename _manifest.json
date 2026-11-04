@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-11-04T18:21:25.066Z",
+  "timestamp": "2026-11-04T18:49:33.067Z",
   "publicUrl": "",
   "env": {},
   "microfrontends": {
@@ -44,16 +44,16 @@
       "url": "/m-inc/1.34.0/linm-m-inc.316357c1.js",
       "filename": "linm-m-inc.316357c1.js",
       "version": "1.34.0",
-      "timebuild": "2026-11-04T18:21:25.071Z",
+      "timebuild": "2026-11-04T18:21:25.066Z",
       "routes": [
         "scyk"
       ]
     },
     "@linm/admin": {
-      "url": "/admin/1.14.0/linm-admin.ec446ad8.js",
-      "filename": "linm-admin.ec446ad8.js",
-      "version": "1.14.0",
-      "timebuild": "2026-10-11T07:31:16.791Z",
+      "url": "/admin/1.15.0/linm-admin.ccc4b027.js",
+      "filename": "linm-admin.ccc4b027.js",
+      "version": "1.15.0",
+      "timebuild": "2026-11-04T18:49:33.071Z",
       "routes": [
         "admin"
       ]
