@@ -63614,7 +63614,7 @@ function applySectionMetaToLoadedSet(meta, target) {
 
 // ─── Cache helpers ─────────────────────────────────────────────────────────────
 
-var BUILD_HASH =  true ? "1.18.0" : 0;
+var BUILD_HASH =  true ? "1.20.0" : 0;
 var CACHE_ENABLED = "false" === 'true';
 function getTtlMs() {
   var ttl = window.__LINM_PERM_TTL_MIN__;
@@ -65369,7 +65369,7 @@ function readPublicPathConfig() {
       return "";
     }, 'VITE_MOBILE_GUEST_PATHS')),
     publicPrefixes: parsePathList(baked(function () {
-      return "";
+      return "/scyk/bao-su-co";
     }, 'VITE_PUBLIC_PREFIXES'))
   };
 }
@@ -65987,4 +65987,4 @@ var bootstrap = lifecycles.bootstrap,
 		}
 	};
 });
-//# sourceMappingURL=linm-nav.576c5aae.js.map
+//# sourceMappingURL=linm-nav.94540aa8.js.map
