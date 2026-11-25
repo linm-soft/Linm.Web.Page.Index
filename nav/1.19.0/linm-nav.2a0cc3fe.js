@@ -63614,7 +63614,7 @@ function applySectionMetaToLoadedSet(meta, target) {
 
 // ─── Cache helpers ─────────────────────────────────────────────────────────────
 
-var BUILD_HASH =  true ? "1.17.0" : 0;
+var BUILD_HASH =  true ? "1.19.0" : 0;
 var CACHE_ENABLED = "false" === 'true';
 function getTtlMs() {
   var ttl = window.__LINM_PERM_TTL_MIN__;
@@ -65987,4 +65987,4 @@ var bootstrap = lifecycles.bootstrap,
 		}
 	};
 });
-//# sourceMappingURL=linm-nav.9c370061.js.map
+//# sourceMappingURL=linm-nav.2a0cc3fe.js.map

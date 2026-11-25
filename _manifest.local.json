@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-11-25T13:19:19.298Z",
+  "timestamp": "2026-11-25T13:23:36.286Z",
   "publicUrl": "",
   "env": {},
   "microfrontends": {
@@ -37,10 +37,10 @@
       "default": true
     },
     "@linm/nav": {
-      "url": "/nav/1.18.0/linm-nav.576c5aae.js",
-      "filename": "linm-nav.576c5aae.js",
-      "version": "1.18.0",
-      "timebuild": "2026-11-25T13:19:19.300Z",
+      "url": "/nav/1.19.0/linm-nav.2a0cc3fe.js",
+      "filename": "linm-nav.2a0cc3fe.js",
+      "version": "1.19.0",
+      "timebuild": "2026-11-25T13:23:36.289Z",
       "env": {}
     },
     "@linm/m-inc": {
