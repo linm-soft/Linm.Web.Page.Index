@@ -9107,6 +9107,257 @@ ___CSS_LOADER_EXPORT___.locals = {
 
 /***/ },
 
+/***/ 7139
+(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   A: () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var _css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(1354);
+/* harmony import */ var _css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(6314);
+/* harmony import */ var _css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1__);
+// Imports
+
+
+var ___CSS_LOADER_EXPORT___ = _css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_1___default()((_css_loader_dist_runtime_sourceMaps_js__WEBPACK_IMPORTED_MODULE_0___default()));
+// Module
+___CSS_LOADER_EXPORT___.push([module.id, `.backdrop___nT6C4,
+.backdropDesktop___U8VSt {
+  inset: 0;
+  z-index: 30;
+  background: rgba(0, 0, 0, 0.88);
+  display: flex;
+  flex-direction: column;
+}
+
+.backdrop___nT6C4 {
+  position: absolute;
+}
+
+.backdropDesktop___U8VSt {
+  position: fixed;
+  /* Above shell topbar (1020), sidebar (1030–1050) and grid menus (1300). Under toasts. */
+  z-index: 1400;
+}
+
+.stage___cB6Do {
+  position: relative;
+  z-index: 0;
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow: hidden;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 64px 16px 132px;
+  touch-action: none;
+}
+
+.frame___vz48_ {
+  position: relative;
+  max-width: 100%;
+  max-height: 100%;
+  flex-shrink: 0;
+  transform-origin: center center;
+  touch-action: none;
+}
+
+.image___Qvpip {
+  display: block;
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  max-height: 100%;
+  touch-action: none;
+  user-select: none;
+}
+
+.box___OAQDh {
+  position: absolute;
+  box-sizing: border-box;
+  border: 2px solid #f03c30;
+  background: rgba(240, 60, 48, 0.22);
+  pointer-events: none;
+}
+
+.boxLabel___DMB46 {
+  position: absolute;
+  left: 0;
+  bottom: 100%;
+  max-width: 100%;
+  padding: 1px 6px;
+  background: #f03c30;
+  color: #fff;
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 1.3;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.close___jEnZY {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  z-index: 3;
+  width: 40px;
+  height: 40px;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  border: 0;
+  border-radius: 999px;
+  background: rgba(0, 0, 0, 0.45);
+  color: #fff;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.pin___qiBsl {
+  position: absolute;
+  width: 14px;
+  height: 14px;
+  margin: -7px 0 0 -7px;
+  border-radius: 999px;
+  background: #f03c30;
+  border: 2px solid #fff;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.geo___zrqSq {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  max-width: calc(100% - 72px);
+  padding: 8px 10px;
+  border-radius: 10px;
+  background: rgba(0, 0, 0, 0.62);
+  color: #fff;
+  font-size: 13px;
+  line-height: 1.35;
+  pointer-events: none;
+}
+
+.map____j77t {
+  position: absolute;
+  left: 12px;
+  right: 12px;
+  bottom: 64px;
+  z-index: 3;
+  height: 42%;
+  min-height: 140px;
+  border-radius: 12px;
+  overflow: hidden;
+  background: #111;
+}
+
+.bar___bPE0D {
+  position: absolute;
+  left: 12px;
+  bottom: 12px;
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px;
+  border: 1px dashed rgba(255, 255, 255, 0.7);
+  border-radius: 999px;
+  background: rgba(0, 0, 0, 0.45);
+}
+
+.bar___bPE0D > button,
+.bar___bPE0D > button + button {
+  margin: 0;
+  box-sizing: border-box;
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  border: 0;
+  border-radius: 999px;
+  background: #fff;
+  color: #1c1c1e;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.bar___bPE0D > button.toolOn___PnENY,
+.bar___bPE0D > button.toolOn___PnENY + button,
+.bar___bPE0D > button + button.toolOn___PnENY {
+  background: var(--primary-color, #2563eb);
+  color: #fff;
+}
+
+.strip___bS4Lx {
+  position: absolute;
+  left: 12px;
+  right: 12px;
+  bottom: 72px;
+  z-index: 3;
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+  overflow-x: auto;
+}
+
+.strip___bS4Lx > button {
+  flex: 0 0 auto;
+  width: 56px;
+  height: 42px;
+  margin: 0;
+  padding: 0;
+  border: 2px solid transparent;
+  border-radius: 4px;
+  overflow: hidden;
+  background: #111;
+  cursor: pointer;
+}
+
+.strip___bS4Lx > button[aria-current='true'] {
+  border-color: #fff;
+}
+
+.strip___bS4Lx img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+`, "",{"version":3,"sources":["webpack://./node_modules/@linm-soft-org/linm-web-common-components/dist/components/common/LinImageView/LinImageView.module.css"],"names":[],"mappings":"AAAA;;EAEE,QAAQ;EACR,WAAW;EACX,+BAA+B;EAC/B,aAAa;EACb,sBAAsB;AACxB;;AAEA;EACE,kBAAkB;AACpB;;AAEA;EACE,eAAe;EACf,wFAAwF;EACxF,aAAa;AACf;;AAEA;EACE,kBAAkB;EAClB,UAAU;EACV,cAAc;EACd,aAAa;EACb,gBAAgB;EAChB,sBAAsB;EACtB,aAAa;EACb,mBAAmB;EACnB,uBAAuB;EACvB,wBAAwB;EACxB,kBAAkB;AACpB;;AAEA;EACE,kBAAkB;EAClB,eAAe;EACf,gBAAgB;EAChB,cAAc;EACd,+BAA+B;EAC/B,kBAAkB;AACpB;;AAEA;EACE,cAAc;EACd,WAAW;EACX,YAAY;EACZ,eAAe;EACf,gBAAgB;EAChB,kBAAkB;EAClB,iBAAiB;AACnB;;AAEA;EACE,kBAAkB;EAClB,sBAAsB;EACtB,yBAAyB;EACzB,mCAAmC;EACnC,oBAAoB;AACtB;;AAEA;EACE,kBAAkB;EAClB,OAAO;EACP,YAAY;EACZ,eAAe;EACf,gBAAgB;EAChB,mBAAmB;EACnB,WAAW;EACX,eAAe;EACf,gBAAgB;EAChB,gBAAgB;EAChB,mBAAmB;EACnB,gBAAgB;EAChB,uBAAuB;AACzB;;AAEA;EACE,kBAAkB;EAClB,SAAS;EACT,WAAW;EACX,UAAU;EACV,WAAW;EACX,YAAY;EACZ,SAAS;EACT,UAAU;EACV,sBAAsB;EACtB,SAAS;EACT,oBAAoB;EACpB,+BAA+B;EAC/B,WAAW;EACX,oBAAoB;EACpB,mBAAmB;EACnB,uBAAuB;EACvB,eAAe;AACjB;;AAEA;EACE,kBAAkB;EAClB,WAAW;EACX,YAAY;EACZ,qBAAqB;EACrB,oBAAoB;EACpB,mBAAmB;EACnB,sBAAsB;EACtB,oBAAoB;EACpB,UAAU;AACZ;;AAEA;EACE,kBAAkB;EAClB,SAAS;EACT,UAAU;EACV,UAAU;EACV,aAAa;EACb,sBAAsB;EACtB,QAAQ;EACR,4BAA4B;EAC5B,iBAAiB;EACjB,mBAAmB;EACnB,+BAA+B;EAC/B,WAAW;EACX,eAAe;EACf,iBAAiB;EACjB,oBAAoB;AACtB;;AAEA;EACE,kBAAkB;EAClB,UAAU;EACV,WAAW;EACX,YAAY;EACZ,UAAU;EACV,WAAW;EACX,iBAAiB;EACjB,mBAAmB;EACnB,gBAAgB;EAChB,gBAAgB;AAClB;;AAEA;EACE,kBAAkB;EAClB,UAAU;EACV,YAAY;EACZ,UAAU;EACV,aAAa;EACb,mBAAmB;EACnB,QAAQ;EACR,YAAY;EACZ,2CAA2C;EAC3C,oBAAoB;EACpB,+BAA+B;AACjC;;AAEA;;EAEE,SAAS;EACT,sBAAsB;EACtB,WAAW;EACX,YAAY;EACZ,UAAU;EACV,SAAS;EACT,oBAAoB;EACpB,gBAAgB;EAChB,cAAc;EACd,oBAAoB;EACpB,mBAAmB;EACnB,uBAAuB;EACvB,eAAe;AACjB;;AAEA;;;EAGE,yCAAyC;EACzC,WAAW;AACb;;AAEA;EACE,kBAAkB;EAClB,UAAU;EACV,WAAW;EACX,YAAY;EACZ,UAAU;EACV,aAAa;EACb,QAAQ;EACR,uBAAuB;EACvB,gBAAgB;AAClB;;AAEA;EACE,cAAc;EACd,WAAW;EACX,YAAY;EACZ,SAAS;EACT,UAAU;EACV,6BAA6B;EAC7B,kBAAkB;EAClB,gBAAgB;EAChB,gBAAgB;EAChB,eAAe;AACjB;;AAEA;EACE,kBAAkB;AACpB;;AAEA;EACE,cAAc;EACd,WAAW;EACX,YAAY;EACZ,iBAAiB;AACnB","sourcesContent":[".backdrop,\n.backdropDesktop {\n  inset: 0;\n  z-index: 30;\n  background: rgba(0, 0, 0, 0.88);\n  display: flex;\n  flex-direction: column;\n}\n\n.backdrop {\n  position: absolute;\n}\n\n.backdropDesktop {\n  position: fixed;\n  /* Above shell topbar (1020), sidebar (1030–1050) and grid menus (1300). Under toasts. */\n  z-index: 1400;\n}\n\n.stage {\n  position: relative;\n  z-index: 0;\n  flex: 1 1 auto;\n  min-height: 0;\n  overflow: hidden;\n  box-sizing: border-box;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  padding: 64px 16px 132px;\n  touch-action: none;\n}\n\n.frame {\n  position: relative;\n  max-width: 100%;\n  max-height: 100%;\n  flex-shrink: 0;\n  transform-origin: center center;\n  touch-action: none;\n}\n\n.image {\n  display: block;\n  width: auto;\n  height: auto;\n  max-width: 100%;\n  max-height: 100%;\n  touch-action: none;\n  user-select: none;\n}\n\n.box {\n  position: absolute;\n  box-sizing: border-box;\n  border: 2px solid #f03c30;\n  background: rgba(240, 60, 48, 0.22);\n  pointer-events: none;\n}\n\n.boxLabel {\n  position: absolute;\n  left: 0;\n  bottom: 100%;\n  max-width: 100%;\n  padding: 1px 6px;\n  background: #f03c30;\n  color: #fff;\n  font-size: 12px;\n  font-weight: 600;\n  line-height: 1.3;\n  white-space: nowrap;\n  overflow: hidden;\n  text-overflow: ellipsis;\n}\n\n.close {\n  position: absolute;\n  top: 12px;\n  right: 12px;\n  z-index: 3;\n  width: 40px;\n  height: 40px;\n  margin: 0;\n  padding: 0;\n  box-sizing: border-box;\n  border: 0;\n  border-radius: 999px;\n  background: rgba(0, 0, 0, 0.45);\n  color: #fff;\n  display: inline-flex;\n  align-items: center;\n  justify-content: center;\n  cursor: pointer;\n}\n\n.pin {\n  position: absolute;\n  width: 14px;\n  height: 14px;\n  margin: -7px 0 0 -7px;\n  border-radius: 999px;\n  background: #f03c30;\n  border: 2px solid #fff;\n  pointer-events: none;\n  z-index: 1;\n}\n\n.geo {\n  position: absolute;\n  top: 12px;\n  left: 12px;\n  z-index: 3;\n  display: flex;\n  flex-direction: column;\n  gap: 2px;\n  max-width: calc(100% - 72px);\n  padding: 8px 10px;\n  border-radius: 10px;\n  background: rgba(0, 0, 0, 0.62);\n  color: #fff;\n  font-size: 13px;\n  line-height: 1.35;\n  pointer-events: none;\n}\n\n.map {\n  position: absolute;\n  left: 12px;\n  right: 12px;\n  bottom: 64px;\n  z-index: 3;\n  height: 42%;\n  min-height: 140px;\n  border-radius: 12px;\n  overflow: hidden;\n  background: #111;\n}\n\n.bar {\n  position: absolute;\n  left: 12px;\n  bottom: 12px;\n  z-index: 3;\n  display: flex;\n  align-items: center;\n  gap: 8px;\n  padding: 6px;\n  border: 1px dashed rgba(255, 255, 255, 0.7);\n  border-radius: 999px;\n  background: rgba(0, 0, 0, 0.45);\n}\n\n.bar > button,\n.bar > button + button {\n  margin: 0;\n  box-sizing: border-box;\n  width: 40px;\n  height: 40px;\n  padding: 0;\n  border: 0;\n  border-radius: 999px;\n  background: #fff;\n  color: #1c1c1e;\n  display: inline-flex;\n  align-items: center;\n  justify-content: center;\n  cursor: pointer;\n}\n\n.bar > button.toolOn,\n.bar > button.toolOn + button,\n.bar > button + button.toolOn {\n  background: var(--primary-color, #2563eb);\n  color: #fff;\n}\n\n.strip {\n  position: absolute;\n  left: 12px;\n  right: 12px;\n  bottom: 72px;\n  z-index: 3;\n  display: flex;\n  gap: 8px;\n  justify-content: center;\n  overflow-x: auto;\n}\n\n.strip > button {\n  flex: 0 0 auto;\n  width: 56px;\n  height: 42px;\n  margin: 0;\n  padding: 0;\n  border: 2px solid transparent;\n  border-radius: 4px;\n  overflow: hidden;\n  background: #111;\n  cursor: pointer;\n}\n\n.strip > button[aria-current='true'] {\n  border-color: #fff;\n}\n\n.strip img {\n  display: block;\n  width: 100%;\n  height: 100%;\n  object-fit: cover;\n}\n"],"sourceRoot":""}]);
+// Exports
+___CSS_LOADER_EXPORT___.locals = {
+	"backdrop": `backdrop___nT6C4`,
+	"backdropDesktop": `backdropDesktop___U8VSt`,
+	"stage": `stage___cB6Do`,
+	"frame": `frame___vz48_`,
+	"image": `image___Qvpip`,
+	"box": `box___OAQDh`,
+	"boxLabel": `boxLabel___DMB46`,
+	"close": `close___jEnZY`,
+	"pin": `pin___qiBsl`,
+	"geo": `geo___zrqSq`,
+	"map": `map____j77t`,
+	"bar": `bar___bPE0D`,
+	"toolOn": `toolOn___PnENY`,
+	"strip": `strip___bS4Lx`
+};
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
+
+
+/***/ },
+
 /***/ 3211
 (module, __webpack_exports__, __webpack_require__) {
 
@@ -11144,6 +11395,30 @@ ___CSS_LOADER_EXPORT___.push([module.id, `/* ─── SearchInput — generic e
   flex-grow: 0;
 }
 
+/* Opt-in: the row fills the dropdown. The default cluster stays max-content. */
+.resultRowFill___LfJfe {
+  display: flex !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  min-width: 0 !important;
+  align-self: stretch !important;
+}
+
+.resultRowFill___LfJfe .resultCluster___e0bET,
+.resultRowFill___LfJfe .colPrimary___LkHZd {
+  width: 100% !important;
+  max-width: 100% !important;
+  min-width: 0 !important;
+  flex: 1 1 auto !important;
+  box-sizing: border-box;
+}
+
+.resultRowFill___LfJfe .colPrimary___LkHZd {
+  white-space: normal !important;
+  overflow: visible !important;
+  text-overflow: unset !important;
+}
+
 .resultRowStretch___PLa5k {
   align-items: stretch;
 }
@@ -11429,7 +11704,7 @@ ___CSS_LOADER_EXPORT___.push([module.id, `/* ─── SearchInput — generic e
     flex-wrap: nowrap;
   }
 }
-`, "",{"version":3,"sources":["webpack://./node_modules/@linm-soft-org/linm-web-common-components/dist/components/common/SearchInput/SearchInput.module.css"],"names":[],"mappings":"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","sourcesContent":["/* ─── SearchInput — generic entity lookup ─────────────────────────────────── */\n/*\n * Theming: set --si-* on .container (via className) or inherit from :root --ds-*.\n * Example override in consumer module:\n *   .formField { --si-gap-field: 4px; --si-lookup-flex: 0 0 35%; }\n */\n\n.container {\n  /* Layout tokens — override from parent className or :root */\n  --si-gap-field: var(--ds-gap-label-control, 4px);\n  --si-input-row-gap: var(--ds-gap-element, 8px);\n  --si-lookup-flex: 0 1 38%;\n\n  /* Input tokens */\n  --si-height-input: var(--ds-height-input-desktop, 32px);\n  --si-padding-input: var(--ds-padding-input-desktop, 6px 8px);\n  --si-font-size-input: var(--ds-font-size-input-desktop, 14px);\n  --si-border: var(--ds-border, 1px solid #BABCBE);\n  --si-radius: var(--ds-radius-md, 4px);\n  --si-bg-input: var(--ds-color-bg-white, #FFFFFF);\n  --si-bg-secondary: var(--ds-color-bg-info, #F6F6F6);\n  --si-color-text: var(--ds-color-text-primary, #000000);\n  --si-color-text-secondary: var(--ds-color-text-secondary, #4A4A4A);\n  --si-color-placeholder: var(--ds-color-text-placeholder, #B2B2B2);\n  --si-focus-shadow: var(--ds-focus-shadow, 0px 0px 4px #BABCBE);\n  --si-color-border-focus: var(--ds-color-border, #BABCBE);\n\n  /* Label tokens */\n  --si-font-size-label: var(--ds-font-size-field-label, 13px);\n  --si-font-weight-label: var(--ds-font-weight-field-label, 500);\n  --si-color-label: var(--ds-color-text-field-label, var(--ds-color-text-secondary, #4a4a4a));\n  --si-color-error: var(--ds-color-error, #C33A00);\n\n  /* Dropdown tokens */\n  --si-dropdown-max-height: 320px;\n  --si-dropdown-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);\n  --si-dropdown-offset: 4px;\n  --si-z-dropdown: 1000;\n\n  display: flex;\n  flex-direction: column;\n  gap: var(--si-gap-field);\n  position: relative;\n  min-width: 0;\n  max-width: 100%;\n}\n\n.container.disabled {\n  opacity: 0.6;\n  pointer-events: none;\n}\n\n.container.hasError .lookupInput,\n.container.hasError .secondaryInput {\n  border-color: var(--color-danger, var(--si-color-error));\n}\n\n/* ─── Label ─────────────────────────────────────────────────────────────── */\n/*\n * Default .label uses --si-* tokens. For form-grid layouts, either:\n *   showLabel={false} + parent <label className={formStyles.fieldLabel}>\n *   labelClassName={formStyles.fieldLabel}  (replaces .label entirely)\n */\n\n.label {\n  display: block;\n  font-size: var(--si-font-size-label);\n  font-weight: var(--si-font-weight-label);\n  color: var(--si-color-label);\n  line-height: 1.2;\n  margin-bottom: 0;\n}\n\n.required {\n  color: var(--si-color-error);\n}\n\n/* ─── Filters ───────────────────────────────────────────────────────────── */\n\n.filterRow {\n  margin-bottom: 2px;\n}\n\n.filterSelect {\n  width: 100%;\n  height: var(--si-height-input);\n  padding: var(--si-padding-input);\n  border: var(--si-border);\n  border-radius: var(--si-radius);\n  background: var(--si-bg-input);\n  color: var(--si-color-text);\n  font-size: var(--si-font-size-input);\n  cursor: pointer;\n  outline: none;\n  transition: border-color 0.15s;\n  box-sizing: border-box;\n}\n\n.filterSelect:focus {\n  border-color: var(--si-color-border-focus);\n  box-shadow: var(--si-focus-shadow);\n}\n\n/* ─── Input area (relative for dropdown) ────────────────────────────────── */\n\n.inputArea {\n  position: relative;\n  width: 100%;\n  min-width: 0;\n  max-width: 100%;\n}\n\n.inputRow {\n  display: flex;\n  gap: var(--si-input-row-gap);\n  width: 100%;\n  min-width: 0;\n  max-width: 100%;\n}\n\n.lookupWrapper {\n  position: relative;\n  flex: var(--si-lookup-flex);\n  min-width: 0;\n}\n\n.lookupWrapperFull {\n  flex: 1 1 0;\n  min-width: 0;\n}\n\n.lookupInput {\n  width: 100%;\n  min-width: 0;\n  height: var(--si-height-input);\n  padding: var(--si-padding-input);\n  padding-right: 32px;\n  border: var(--si-border);\n  border-radius: var(--si-radius);\n  background: var(--si-bg-input);\n  color: var(--si-color-text);\n  font-size: var(--si-font-size-input);\n  line-height: 1.2;\n  outline: none;\n  transition: border-color 0.15s;\n  box-sizing: border-box;\n}\n\n.lookupInput::placeholder {\n  color: var(--si-color-placeholder);\n}\n\n.lookupInput:focus {\n  border-color: var(--si-color-border-focus);\n  box-shadow: var(--si-focus-shadow);\n}\n\n.lookupInput[readonly] {\n  background: var(--si-bg-input);\n  cursor: pointer;\n  overflow: hidden;\n  text-overflow: ellipsis;\n  white-space: nowrap;\n}\n\n.lookupInputSelected {\n  cursor: pointer;\n}\n\n.lookupInputSelected:hover {\n  border-color: var(--si-color-border-focus);\n}\n\n.clearBtn {\n  position: absolute;\n  right: 6px;\n  top: 50%;\n  transform: translateY(-50%);\n  background: none;\n  border: none;\n  cursor: pointer;\n  color: var(--ds-color-text-placeholder, #B2B2B2);\n  font-size: 12px;\n  padding: 2px 4px;\n  border-radius: 4px;\n  line-height: 1;\n  transition: color 0.15s;\n}\n\n.clearBtn:hover {\n  color: var(--color-danger, var(--si-color-error));\n}\n\n.searchIcon,\n.inputLoadingIcon {\n  position: absolute;\n  right: 10px;\n  top: 50%;\n  transform: translateY(-50%);\n  color: var(--si-color-placeholder);\n  font-size: 12px;\n  pointer-events: none;\n  line-height: 1;\n}\n\n.inputLoadingIcon {\n  color: var(--color-primary, #3182ce);\n}\n\n.lookupInputLoading {\n  padding-right: 32px;\n}\n\n.secondaryInput {\n  flex: 1 1 0;\n  min-width: 0;\n  width: 0;\n  height: var(--si-height-input);\n  padding: var(--si-padding-input);\n  border: var(--si-border);\n  border-radius: var(--si-radius);\n  background: var(--si-bg-secondary);\n  color: var(--si-color-text-secondary);\n  font-size: var(--si-font-size-input);\n  cursor: default;\n  outline: none;\n  box-sizing: border-box;\n  overflow: hidden;\n  text-overflow: ellipsis;\n  white-space: nowrap;\n}\n\n.secondaryInputSelected {\n  cursor: pointer;\n}\n\n.secondaryInputSelected:hover {\n  border-color: var(--si-color-border-focus);\n}\n\n/* ─── Dropdown ──────────────────────────────────────────────────────────── */\n\n.dropdown {\n  position: absolute;\n  top: calc(100% + var(--si-dropdown-offset));\n  left: 0;\n  right: 0;\n  width: 100%;\n  box-sizing: border-box;\n  z-index: var(--si-z-dropdown);\n  background: var(--si-bg-input);\n  border: var(--si-border);\n  border-radius: var(--si-radius);\n  box-shadow: var(--si-dropdown-shadow);\n  max-height: var(--si-dropdown-max-height);\n  overflow-y: auto;\n  overscroll-behavior: contain;\n  overflow-anchor: none;\n  container-type: inline-size;\n  container-name: si-dropdown;\n}\n\n.dropdownAbove {\n  top: auto;\n  bottom: calc(100% + var(--si-dropdown-offset));\n}\n\n.dropdownPortal {\n  background: var(--si-bg-input);\n  border: var(--si-border);\n  border-radius: var(--si-radius);\n  box-shadow: var(--si-dropdown-shadow);\n  max-height: var(--si-dropdown-max-height);\n  overflow-x: hidden;\n  overflow-y: auto;\n  overscroll-behavior: contain;\n  overflow-anchor: none;\n  box-sizing: border-box;\n  container-type: inline-size;\n  container-name: si-dropdown;\n}\n\n.sectionHeader {\n  padding: 6px 10px 4px;\n  font-size: 11px;\n  font-weight: 600;\n  color: var(--ds-color-text-muted, #666);\n  text-transform: uppercase;\n  letter-spacing: 0.5px;\n  border-bottom: 1px solid var(--ds-color-border-light, #eee);\n  background: var(--ds-color-bg-subtle, #f9f9f9);\n}\n\n.tableHeader {\n  display: flex;\n  align-items: center;\n  gap: var(--ds-gap-element, 8px);\n  padding: 8px var(--ds-gap-element, 8px) 8px 14px;\n  background: var(--ds-color-bg-info, #F6F6F6);\n  border-bottom: var(--ds-border, 1px solid #BABCBE);\n  font-size: var(--ds-font-size-small, 12px);\n  font-weight: 600;\n  line-height: 1.25;\n  color: var(--ds-color-text-tertiary, #6D6D6D);\n  text-transform: uppercase;\n  letter-spacing: 0.03em;\n}\n\n.headerCell {\n  min-width: 0;\n}\n\n/* Mirror row column flex — badge footprint matches .colBadge for alignment */\n.headerCellBadge {\n  flex: 0 0 auto;\n  padding: 1px 7px;\n  border: 1px solid transparent;\n  box-sizing: border-box;\n  position: relative;\n}\n\n.headerCellResize {\n  position: absolute;\n  top: 0;\n  right: -4px;\n  width: 8px;\n  height: 100%;\n  cursor: col-resize;\n  z-index: 2;\n}\n\n.headerCellPrimary {\n  flex-shrink: 1;\n  min-width: 0;\n  overflow: hidden;\n  text-overflow: ellipsis;\n  white-space: nowrap;\n}\n\n.headerCellMeta {\n  flex: 0 1 auto;\n  min-width: 0;\n}\n\n.headerCellGutter {\n  flex-shrink: 0;\n}\n\n.headerCellSpacer {\n  min-width: 0;\n}\n\n.headerCellAlignEnd,\n.colAlignEnd {\n  justify-self: end;\n  text-align: right;\n}\n\n.headerCellAlignCenter,\n.colAlignCenter {\n  justify-self: center;\n  text-align: center;\n}\n\n.headerLoading {\n  flex: 0 0 auto;\n  margin-left: auto;\n  color: var(--color-primary, #3182ce);\n  font-size: 14px;\n  line-height: 1;\n}\n\n/* ─── Result rows ─────────────────────────────────────────────────────────── */\n\n.resultList {\n  display: flex;\n  flex-direction: column;\n}\n\n.resultListBusy {\n  pointer-events: none;\n}\n\n.resultRow {\n  display: flex;\n  align-items: center;\n  justify-content: flex-start;\n  gap: var(--ds-gap-element, 8px);\n  padding: 9px var(--ds-gap-element, 8px) 9px 14px;\n  background: var(--ds-color-bg-white, #FFFFFF);\n  background-clip: border-box;\n  border: none;\n  border-radius: 0;\n  cursor: pointer;\n  text-align: left;\n  transition: background 0.12s;\n  width: 100%;\n  max-width: 100%;\n  box-sizing: border-box;\n  margin: 0;\n  appearance: none;\n  -webkit-appearance: none;\n  position: relative;\n}\n\n/* Code + name stay a left cluster — margin-left:auto on a child cannot stretch the row. */\n.resultCluster {\n  display: flex;\n  align-items: center;\n  justify-content: flex-start;\n  gap: var(--ds-gap-element, 8px);\n  width: max-content;\n  max-width: 100%;\n  min-width: 0;\n}\n\n.resultCluster .colPrimary,\n.resultCluster .colMeta,\n.resultCluster .colBadge,\n.resultCluster .colGutter {\n  margin-left: 0;\n  text-align: left;\n  justify-self: start;\n  flex-grow: 0;\n}\n\n.resultRowStretch {\n  align-items: stretch;\n}\n\n.resultRowStretch .colBadge,\n.resultRowStretch .colPrimary {\n  align-self: center;\n}\n\n.resultRow:last-child {\n  border-bottom: none;\n}\n\n.resultRow:hover {\n  background: var(--ds-color-bg-hover, rgba(0, 0, 0, 0.04));\n}\n\n.resultRow.selected {\n  background: var(--ds-color-bg-selected, #EEEEEE);\n}\n\n.resultRowActive {\n  background: var(--ds-color-bg-hover, rgba(0, 0, 0, 0.06));\n  box-shadow: inset 0 0 0 2px var(--color-primary, #3182ce);\n}\n\n.resultRowDisabled {\n  opacity: 0.55;\n  cursor: not-allowed;\n}\n\n.colGutter {\n  display: inline-flex;\n  align-self: stretch;\n  align-items: stretch;\n  flex-shrink: 0;\n}\n\n/* Lookup warning icon — center on row; tree gutter keeps stretch above */\n.colGutter:has(.linm-lookup-warn-icon),\n.resultRow.columnsGrid .colGutter:has(.linm-lookup-warn-icon) {\n  align-self: center;\n  align-items: center;\n  justify-content: center;\n}\n\n.linm-lookup-warn-icon {\n  display: inline-flex;\n  align-items: center;\n  justify-content: center;\n  line-height: 1;\n  color: var(--color-warning, #d97706);\n  font-size: 0.8125rem;\n}\n\n.colBadge {\n  display: block;\n  align-self: center;\n  padding: 1px 7px;\n  font-size: var(--ds-font-size-small, 12px);\n  font-weight: 600;\n  font-family: 'SF Mono', 'Fira Code', monospace;\n  color: var(--color-primary, #3182ce);\n  background: rgba(49, 130, 206, 0.08);\n  border: 1px solid rgba(49, 130, 206, 0.18);\n  border-radius: 4px;\n  white-space: nowrap;\n  overflow: hidden;\n  text-overflow: ellipsis;\n  min-width: 0;\n  max-width: 100%;\n  flex: 0 1 5.5rem;\n  box-sizing: border-box;\n  letter-spacing: 0.02em;\n}\n\n.colPrimary {\n  font-size: var(--ds-font-size-helper, 14px);\n  font-weight: 600;\n  color: var(--ds-color-text-primary, #000000);\n  white-space: nowrap;\n  overflow: hidden;\n  text-overflow: ellipsis;\n  min-width: 0;\n  flex: 0 1 auto;\n}\n\n.colMeta {\n  display: flex;\n  align-items: center;\n  gap: 8px;\n  font-size: var(--ds-font-size-helper, 14px);\n  font-weight: 400;\n  color: var(--ds-color-text-secondary, #4A4A4A);\n  flex: 0 1 auto;\n  min-width: 0;\n  margin-left: 0;\n  overflow: hidden;\n  text-overflow: ellipsis;\n  white-space: nowrap;\n  text-align: left;\n}\n\n.colHidden {\n  visibility: hidden;\n}\n\n.metaItem {\n  display: inline-flex;\n  align-items: center;\n  gap: 3px;\n  min-width: 0;\n  overflow: hidden;\n  text-overflow: ellipsis;\n  white-space: nowrap;\n}\n\n/* Configured column widths — must beat .tableHeader / .resultRow { display: flex } */\n.tableHeader.columnsGrid,\n.resultRow.columnsGrid {\n  display: grid;\n  grid-template-columns: var(--si-columns-template);\n  align-items: center;\n  gap: var(--ds-gap-element, 8px);\n  line-height: 1.25;\n}\n\n.tableHeader.columnsGrid .headerCell,\n.resultRow.columnsGrid .colBadge,\n.resultRow.columnsGrid .colPrimary,\n.resultRow.columnsGrid .colMeta,\n.resultRow.columnsGrid .metaItem {\n  line-height: 1.25;\n}\n\n/* Badge must stay inside its grid track — fixed rem + nowrap used to bleed over Tên */\n.tableHeader.columnsGrid .headerCellBadge,\n.resultRow.columnsGrid .colBadge {\n  min-width: 0;\n  max-width: 100%;\n  overflow: hidden;\n  text-overflow: ellipsis;\n  box-sizing: border-box;\n}\n\n.tableHeader.columnsGrid {\n  position: relative;\n}\n\n.tableHeader.columnsGrid .headerCellMeta,\n.resultRow.columnsGrid .colMeta {\n  margin-left: 0;\n}\n\n/* Primary/meta can shrink; badge also min-width:0 above so track can constrain */\n.tableHeader.columnsGrid > *,\n.resultRow.columnsGrid > * {\n  min-width: 0;\n}\n\n.tableHeader.columnsGrid .headerLoading {\n  position: absolute;\n  right: var(--ds-gap-element, 8px);\n  top: 50%;\n  transform: translateY(-50%);\n  margin-left: 0;\n}\n\n/* ─── Utility rows ───────────────────────────────────────────────────────── */\n\n.statusRow {\n  padding: var(--ds-padding-container-mobile, 16px);\n  text-align: center;\n  color: var(--ds-color-text-tertiary, #6D6D6D);\n  font-size: var(--ds-font-size-helper, 14px);\n}\n\n.statusRowInline {\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  gap: 8px;\n  padding: 8px 14px;\n  color: var(--ds-color-text-tertiary, #6D6D6D);\n  font-size: var(--ds-font-size-small, 12px);\n  border-bottom: var(--ds-border, 1px solid #BABCBE);\n  background: var(--ds-color-bg-info, #F6F6F6);\n}\n\n.sentinel {\n  height: 32px;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n}\n\n.loadMoreHint {\n  font-size: var(--ds-font-size-small, 12px);\n  color: var(--ds-color-text-tertiary, #6D6D6D);\n}\n\n/* messageSlot + gap 4px — use fieldControl.module.css (.controlBlock / .messageSlot) */\n\n/* ─── Mobile — inherit from container tokens where possible ─────────────── */\n\n@media (max-width: 640px) {\n  .container {\n    --si-height-input: var(--ds-height-input-mobile, 40px);\n    --si-padding-input: var(--ds-padding-input-mobile, 9px 8px);\n    --si-font-size-input: var(--ds-font-size-input-mobile, 16px);\n  }\n\n  .lookupInput {\n    padding-right: 32px;\n  }\n\n  .inputRow {\n    flex-direction: column;\n    gap: var(--si-input-row-gap);\n  }\n\n  .lookupWrapper {\n    flex: unset;\n    width: 100%;\n  }\n\n  .secondaryInput {\n    flex: none;\n    width: 100%;\n    height: var(--si-height-input);\n  }\n\n  /* Dropdown anchors to lookupWrapper (code field), not below name field */\n  .lookupWrapper .dropdown {\n    left: 0;\n    right: auto;\n    width: 100%;\n    max-width: 100%;\n    box-sizing: border-box;\n  }\n\n  .resultRow:not(.columnsGrid) {\n    flex-wrap: wrap;\n    gap: 6px;\n    padding: 10px 14px;\n  }\n\n  .resultRow.columnsGrid {\n    flex-wrap: nowrap;\n    padding: 8px 10px;\n    min-height: 36px;\n  }\n\n  .tableHeader.columnsGrid {\n    padding: 7px 10px;\n    line-height: 1.2;\n  }\n\n  .resultRow.columnsGrid .colPrimary {\n    font-size: var(--ds-font-size-helper, 14px);\n    white-space: nowrap;\n    overflow: hidden;\n    text-overflow: ellipsis;\n    word-break: normal;\n  }\n\n  .resultRow:not(.columnsGrid) .colPrimary {\n    font-size: var(--ds-font-size-input-mobile, 16px);\n    white-space: nowrap;\n    flex: 0 1 auto;\n  }\n\n  .resultRow:not(.columnsGrid) .colMeta {\n    width: auto;\n    flex: 0 1 auto;\n    gap: var(--ds-gap-element, 8px);\n    margin-left: 0;\n  }\n\n  .resultRow.columnsGrid .colMeta {\n    width: auto;\n    margin-left: 0;\n    flex-wrap: nowrap;\n  }\n}\n"],"sourceRoot":""}]);
+`, "",{"version":3,"sources":["webpack://./node_modules/@linm-soft-org/linm-web-common-components/dist/components/common/SearchInput/SearchInput.module.css"],"names":[],"mappings":"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","sourcesContent":["/* ─── SearchInput — generic entity lookup ─────────────────────────────────── */\n/*\n * Theming: set --si-* on .container (via className) or inherit from :root --ds-*.\n * Example override in consumer module:\n *   .formField { --si-gap-field: 4px; --si-lookup-flex: 0 0 35%; }\n */\n\n.container {\n  /* Layout tokens — override from parent className or :root */\n  --si-gap-field: var(--ds-gap-label-control, 4px);\n  --si-input-row-gap: var(--ds-gap-element, 8px);\n  --si-lookup-flex: 0 1 38%;\n\n  /* Input tokens */\n  --si-height-input: var(--ds-height-input-desktop, 32px);\n  --si-padding-input: var(--ds-padding-input-desktop, 6px 8px);\n  --si-font-size-input: var(--ds-font-size-input-desktop, 14px);\n  --si-border: var(--ds-border, 1px solid #BABCBE);\n  --si-radius: var(--ds-radius-md, 4px);\n  --si-bg-input: var(--ds-color-bg-white, #FFFFFF);\n  --si-bg-secondary: var(--ds-color-bg-info, #F6F6F6);\n  --si-color-text: var(--ds-color-text-primary, #000000);\n  --si-color-text-secondary: var(--ds-color-text-secondary, #4A4A4A);\n  --si-color-placeholder: var(--ds-color-text-placeholder, #B2B2B2);\n  --si-focus-shadow: var(--ds-focus-shadow, 0px 0px 4px #BABCBE);\n  --si-color-border-focus: var(--ds-color-border, #BABCBE);\n\n  /* Label tokens */\n  --si-font-size-label: var(--ds-font-size-field-label, 13px);\n  --si-font-weight-label: var(--ds-font-weight-field-label, 500);\n  --si-color-label: var(--ds-color-text-field-label, var(--ds-color-text-secondary, #4a4a4a));\n  --si-color-error: var(--ds-color-error, #C33A00);\n\n  /* Dropdown tokens */\n  --si-dropdown-max-height: 320px;\n  --si-dropdown-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);\n  --si-dropdown-offset: 4px;\n  --si-z-dropdown: 1000;\n\n  display: flex;\n  flex-direction: column;\n  gap: var(--si-gap-field);\n  position: relative;\n  min-width: 0;\n  max-width: 100%;\n}\n\n.container.disabled {\n  opacity: 0.6;\n  pointer-events: none;\n}\n\n.container.hasError .lookupInput,\n.container.hasError .secondaryInput {\n  border-color: var(--color-danger, var(--si-color-error));\n}\n\n/* ─── Label ─────────────────────────────────────────────────────────────── */\n/*\n * Default .label uses --si-* tokens. For form-grid layouts, either:\n *   showLabel={false} + parent <label className={formStyles.fieldLabel}>\n *   labelClassName={formStyles.fieldLabel}  (replaces .label entirely)\n */\n\n.label {\n  display: block;\n  font-size: var(--si-font-size-label);\n  font-weight: var(--si-font-weight-label);\n  color: var(--si-color-label);\n  line-height: 1.2;\n  margin-bottom: 0;\n}\n\n.required {\n  color: var(--si-color-error);\n}\n\n/* ─── Filters ───────────────────────────────────────────────────────────── */\n\n.filterRow {\n  margin-bottom: 2px;\n}\n\n.filterSelect {\n  width: 100%;\n  height: var(--si-height-input);\n  padding: var(--si-padding-input);\n  border: var(--si-border);\n  border-radius: var(--si-radius);\n  background: var(--si-bg-input);\n  color: var(--si-color-text);\n  font-size: var(--si-font-size-input);\n  cursor: pointer;\n  outline: none;\n  transition: border-color 0.15s;\n  box-sizing: border-box;\n}\n\n.filterSelect:focus {\n  border-color: var(--si-color-border-focus);\n  box-shadow: var(--si-focus-shadow);\n}\n\n/* ─── Input area (relative for dropdown) ────────────────────────────────── */\n\n.inputArea {\n  position: relative;\n  width: 100%;\n  min-width: 0;\n  max-width: 100%;\n}\n\n.inputRow {\n  display: flex;\n  gap: var(--si-input-row-gap);\n  width: 100%;\n  min-width: 0;\n  max-width: 100%;\n}\n\n.lookupWrapper {\n  position: relative;\n  flex: var(--si-lookup-flex);\n  min-width: 0;\n}\n\n.lookupWrapperFull {\n  flex: 1 1 0;\n  min-width: 0;\n}\n\n.lookupInput {\n  width: 100%;\n  min-width: 0;\n  height: var(--si-height-input);\n  padding: var(--si-padding-input);\n  padding-right: 32px;\n  border: var(--si-border);\n  border-radius: var(--si-radius);\n  background: var(--si-bg-input);\n  color: var(--si-color-text);\n  font-size: var(--si-font-size-input);\n  line-height: 1.2;\n  outline: none;\n  transition: border-color 0.15s;\n  box-sizing: border-box;\n}\n\n.lookupInput::placeholder {\n  color: var(--si-color-placeholder);\n}\n\n.lookupInput:focus {\n  border-color: var(--si-color-border-focus);\n  box-shadow: var(--si-focus-shadow);\n}\n\n.lookupInput[readonly] {\n  background: var(--si-bg-input);\n  cursor: pointer;\n  overflow: hidden;\n  text-overflow: ellipsis;\n  white-space: nowrap;\n}\n\n.lookupInputSelected {\n  cursor: pointer;\n}\n\n.lookupInputSelected:hover {\n  border-color: var(--si-color-border-focus);\n}\n\n.clearBtn {\n  position: absolute;\n  right: 6px;\n  top: 50%;\n  transform: translateY(-50%);\n  background: none;\n  border: none;\n  cursor: pointer;\n  color: var(--ds-color-text-placeholder, #B2B2B2);\n  font-size: 12px;\n  padding: 2px 4px;\n  border-radius: 4px;\n  line-height: 1;\n  transition: color 0.15s;\n}\n\n.clearBtn:hover {\n  color: var(--color-danger, var(--si-color-error));\n}\n\n.searchIcon,\n.inputLoadingIcon {\n  position: absolute;\n  right: 10px;\n  top: 50%;\n  transform: translateY(-50%);\n  color: var(--si-color-placeholder);\n  font-size: 12px;\n  pointer-events: none;\n  line-height: 1;\n}\n\n.inputLoadingIcon {\n  color: var(--color-primary, #3182ce);\n}\n\n.lookupInputLoading {\n  padding-right: 32px;\n}\n\n.secondaryInput {\n  flex: 1 1 0;\n  min-width: 0;\n  width: 0;\n  height: var(--si-height-input);\n  padding: var(--si-padding-input);\n  border: var(--si-border);\n  border-radius: var(--si-radius);\n  background: var(--si-bg-secondary);\n  color: var(--si-color-text-secondary);\n  font-size: var(--si-font-size-input);\n  cursor: default;\n  outline: none;\n  box-sizing: border-box;\n  overflow: hidden;\n  text-overflow: ellipsis;\n  white-space: nowrap;\n}\n\n.secondaryInputSelected {\n  cursor: pointer;\n}\n\n.secondaryInputSelected:hover {\n  border-color: var(--si-color-border-focus);\n}\n\n/* ─── Dropdown ──────────────────────────────────────────────────────────── */\n\n.dropdown {\n  position: absolute;\n  top: calc(100% + var(--si-dropdown-offset));\n  left: 0;\n  right: 0;\n  width: 100%;\n  box-sizing: border-box;\n  z-index: var(--si-z-dropdown);\n  background: var(--si-bg-input);\n  border: var(--si-border);\n  border-radius: var(--si-radius);\n  box-shadow: var(--si-dropdown-shadow);\n  max-height: var(--si-dropdown-max-height);\n  overflow-y: auto;\n  overscroll-behavior: contain;\n  overflow-anchor: none;\n  container-type: inline-size;\n  container-name: si-dropdown;\n}\n\n.dropdownAbove {\n  top: auto;\n  bottom: calc(100% + var(--si-dropdown-offset));\n}\n\n.dropdownPortal {\n  background: var(--si-bg-input);\n  border: var(--si-border);\n  border-radius: var(--si-radius);\n  box-shadow: var(--si-dropdown-shadow);\n  max-height: var(--si-dropdown-max-height);\n  overflow-x: hidden;\n  overflow-y: auto;\n  overscroll-behavior: contain;\n  overflow-anchor: none;\n  box-sizing: border-box;\n  container-type: inline-size;\n  container-name: si-dropdown;\n}\n\n.sectionHeader {\n  padding: 6px 10px 4px;\n  font-size: 11px;\n  font-weight: 600;\n  color: var(--ds-color-text-muted, #666);\n  text-transform: uppercase;\n  letter-spacing: 0.5px;\n  border-bottom: 1px solid var(--ds-color-border-light, #eee);\n  background: var(--ds-color-bg-subtle, #f9f9f9);\n}\n\n.tableHeader {\n  display: flex;\n  align-items: center;\n  gap: var(--ds-gap-element, 8px);\n  padding: 8px var(--ds-gap-element, 8px) 8px 14px;\n  background: var(--ds-color-bg-info, #F6F6F6);\n  border-bottom: var(--ds-border, 1px solid #BABCBE);\n  font-size: var(--ds-font-size-small, 12px);\n  font-weight: 600;\n  line-height: 1.25;\n  color: var(--ds-color-text-tertiary, #6D6D6D);\n  text-transform: uppercase;\n  letter-spacing: 0.03em;\n}\n\n.headerCell {\n  min-width: 0;\n}\n\n/* Mirror row column flex — badge footprint matches .colBadge for alignment */\n.headerCellBadge {\n  flex: 0 0 auto;\n  padding: 1px 7px;\n  border: 1px solid transparent;\n  box-sizing: border-box;\n  position: relative;\n}\n\n.headerCellResize {\n  position: absolute;\n  top: 0;\n  right: -4px;\n  width: 8px;\n  height: 100%;\n  cursor: col-resize;\n  z-index: 2;\n}\n\n.headerCellPrimary {\n  flex-shrink: 1;\n  min-width: 0;\n  overflow: hidden;\n  text-overflow: ellipsis;\n  white-space: nowrap;\n}\n\n.headerCellMeta {\n  flex: 0 1 auto;\n  min-width: 0;\n}\n\n.headerCellGutter {\n  flex-shrink: 0;\n}\n\n.headerCellSpacer {\n  min-width: 0;\n}\n\n.headerCellAlignEnd,\n.colAlignEnd {\n  justify-self: end;\n  text-align: right;\n}\n\n.headerCellAlignCenter,\n.colAlignCenter {\n  justify-self: center;\n  text-align: center;\n}\n\n.headerLoading {\n  flex: 0 0 auto;\n  margin-left: auto;\n  color: var(--color-primary, #3182ce);\n  font-size: 14px;\n  line-height: 1;\n}\n\n/* ─── Result rows ─────────────────────────────────────────────────────────── */\n\n.resultList {\n  display: flex;\n  flex-direction: column;\n}\n\n.resultListBusy {\n  pointer-events: none;\n}\n\n.resultRow {\n  display: flex;\n  align-items: center;\n  justify-content: flex-start;\n  gap: var(--ds-gap-element, 8px);\n  padding: 9px var(--ds-gap-element, 8px) 9px 14px;\n  background: var(--ds-color-bg-white, #FFFFFF);\n  background-clip: border-box;\n  border: none;\n  border-radius: 0;\n  cursor: pointer;\n  text-align: left;\n  transition: background 0.12s;\n  width: 100%;\n  max-width: 100%;\n  box-sizing: border-box;\n  margin: 0;\n  appearance: none;\n  -webkit-appearance: none;\n  position: relative;\n}\n\n/* Code + name stay a left cluster — margin-left:auto on a child cannot stretch the row. */\n.resultCluster {\n  display: flex;\n  align-items: center;\n  justify-content: flex-start;\n  gap: var(--ds-gap-element, 8px);\n  width: max-content;\n  max-width: 100%;\n  min-width: 0;\n}\n\n.resultCluster .colPrimary,\n.resultCluster .colMeta,\n.resultCluster .colBadge,\n.resultCluster .colGutter {\n  margin-left: 0;\n  text-align: left;\n  justify-self: start;\n  flex-grow: 0;\n}\n\n/* Opt-in: the row fills the dropdown. The default cluster stays max-content. */\n.resultRowFill {\n  display: flex !important;\n  width: 100% !important;\n  max-width: 100% !important;\n  min-width: 0 !important;\n  align-self: stretch !important;\n}\n\n.resultRowFill .resultCluster,\n.resultRowFill .colPrimary {\n  width: 100% !important;\n  max-width: 100% !important;\n  min-width: 0 !important;\n  flex: 1 1 auto !important;\n  box-sizing: border-box;\n}\n\n.resultRowFill .colPrimary {\n  white-space: normal !important;\n  overflow: visible !important;\n  text-overflow: unset !important;\n}\n\n.resultRowStretch {\n  align-items: stretch;\n}\n\n.resultRowStretch .colBadge,\n.resultRowStretch .colPrimary {\n  align-self: center;\n}\n\n.resultRow:last-child {\n  border-bottom: none;\n}\n\n.resultRow:hover {\n  background: var(--ds-color-bg-hover, rgba(0, 0, 0, 0.04));\n}\n\n.resultRow.selected {\n  background: var(--ds-color-bg-selected, #EEEEEE);\n}\n\n.resultRowActive {\n  background: var(--ds-color-bg-hover, rgba(0, 0, 0, 0.06));\n  box-shadow: inset 0 0 0 2px var(--color-primary, #3182ce);\n}\n\n.resultRowDisabled {\n  opacity: 0.55;\n  cursor: not-allowed;\n}\n\n.colGutter {\n  display: inline-flex;\n  align-self: stretch;\n  align-items: stretch;\n  flex-shrink: 0;\n}\n\n/* Lookup warning icon — center on row; tree gutter keeps stretch above */\n.colGutter:has(.linm-lookup-warn-icon),\n.resultRow.columnsGrid .colGutter:has(.linm-lookup-warn-icon) {\n  align-self: center;\n  align-items: center;\n  justify-content: center;\n}\n\n.linm-lookup-warn-icon {\n  display: inline-flex;\n  align-items: center;\n  justify-content: center;\n  line-height: 1;\n  color: var(--color-warning, #d97706);\n  font-size: 0.8125rem;\n}\n\n.colBadge {\n  display: block;\n  align-self: center;\n  padding: 1px 7px;\n  font-size: var(--ds-font-size-small, 12px);\n  font-weight: 600;\n  font-family: 'SF Mono', 'Fira Code', monospace;\n  color: var(--color-primary, #3182ce);\n  background: rgba(49, 130, 206, 0.08);\n  border: 1px solid rgba(49, 130, 206, 0.18);\n  border-radius: 4px;\n  white-space: nowrap;\n  overflow: hidden;\n  text-overflow: ellipsis;\n  min-width: 0;\n  max-width: 100%;\n  flex: 0 1 5.5rem;\n  box-sizing: border-box;\n  letter-spacing: 0.02em;\n}\n\n.colPrimary {\n  font-size: var(--ds-font-size-helper, 14px);\n  font-weight: 600;\n  color: var(--ds-color-text-primary, #000000);\n  white-space: nowrap;\n  overflow: hidden;\n  text-overflow: ellipsis;\n  min-width: 0;\n  flex: 0 1 auto;\n}\n\n.colMeta {\n  display: flex;\n  align-items: center;\n  gap: 8px;\n  font-size: var(--ds-font-size-helper, 14px);\n  font-weight: 400;\n  color: var(--ds-color-text-secondary, #4A4A4A);\n  flex: 0 1 auto;\n  min-width: 0;\n  margin-left: 0;\n  overflow: hidden;\n  text-overflow: ellipsis;\n  white-space: nowrap;\n  text-align: left;\n}\n\n.colHidden {\n  visibility: hidden;\n}\n\n.metaItem {\n  display: inline-flex;\n  align-items: center;\n  gap: 3px;\n  min-width: 0;\n  overflow: hidden;\n  text-overflow: ellipsis;\n  white-space: nowrap;\n}\n\n/* Configured column widths — must beat .tableHeader / .resultRow { display: flex } */\n.tableHeader.columnsGrid,\n.resultRow.columnsGrid {\n  display: grid;\n  grid-template-columns: var(--si-columns-template);\n  align-items: center;\n  gap: var(--ds-gap-element, 8px);\n  line-height: 1.25;\n}\n\n.tableHeader.columnsGrid .headerCell,\n.resultRow.columnsGrid .colBadge,\n.resultRow.columnsGrid .colPrimary,\n.resultRow.columnsGrid .colMeta,\n.resultRow.columnsGrid .metaItem {\n  line-height: 1.25;\n}\n\n/* Badge must stay inside its grid track — fixed rem + nowrap used to bleed over Tên */\n.tableHeader.columnsGrid .headerCellBadge,\n.resultRow.columnsGrid .colBadge {\n  min-width: 0;\n  max-width: 100%;\n  overflow: hidden;\n  text-overflow: ellipsis;\n  box-sizing: border-box;\n}\n\n.tableHeader.columnsGrid {\n  position: relative;\n}\n\n.tableHeader.columnsGrid .headerCellMeta,\n.resultRow.columnsGrid .colMeta {\n  margin-left: 0;\n}\n\n/* Primary/meta can shrink; badge also min-width:0 above so track can constrain */\n.tableHeader.columnsGrid > *,\n.resultRow.columnsGrid > * {\n  min-width: 0;\n}\n\n.tableHeader.columnsGrid .headerLoading {\n  position: absolute;\n  right: var(--ds-gap-element, 8px);\n  top: 50%;\n  transform: translateY(-50%);\n  margin-left: 0;\n}\n\n/* ─── Utility rows ───────────────────────────────────────────────────────── */\n\n.statusRow {\n  padding: var(--ds-padding-container-mobile, 16px);\n  text-align: center;\n  color: var(--ds-color-text-tertiary, #6D6D6D);\n  font-size: var(--ds-font-size-helper, 14px);\n}\n\n.statusRowInline {\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  gap: 8px;\n  padding: 8px 14px;\n  color: var(--ds-color-text-tertiary, #6D6D6D);\n  font-size: var(--ds-font-size-small, 12px);\n  border-bottom: var(--ds-border, 1px solid #BABCBE);\n  background: var(--ds-color-bg-info, #F6F6F6);\n}\n\n.sentinel {\n  height: 32px;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n}\n\n.loadMoreHint {\n  font-size: var(--ds-font-size-small, 12px);\n  color: var(--ds-color-text-tertiary, #6D6D6D);\n}\n\n/* messageSlot + gap 4px — use fieldControl.module.css (.controlBlock / .messageSlot) */\n\n/* ─── Mobile — inherit from container tokens where possible ─────────────── */\n\n@media (max-width: 640px) {\n  .container {\n    --si-height-input: var(--ds-height-input-mobile, 40px);\n    --si-padding-input: var(--ds-padding-input-mobile, 9px 8px);\n    --si-font-size-input: var(--ds-font-size-input-mobile, 16px);\n  }\n\n  .lookupInput {\n    padding-right: 32px;\n  }\n\n  .inputRow {\n    flex-direction: column;\n    gap: var(--si-input-row-gap);\n  }\n\n  .lookupWrapper {\n    flex: unset;\n    width: 100%;\n  }\n\n  .secondaryInput {\n    flex: none;\n    width: 100%;\n    height: var(--si-height-input);\n  }\n\n  /* Dropdown anchors to lookupWrapper (code field), not below name field */\n  .lookupWrapper .dropdown {\n    left: 0;\n    right: auto;\n    width: 100%;\n    max-width: 100%;\n    box-sizing: border-box;\n  }\n\n  .resultRow:not(.columnsGrid) {\n    flex-wrap: wrap;\n    gap: 6px;\n    padding: 10px 14px;\n  }\n\n  .resultRow.columnsGrid {\n    flex-wrap: nowrap;\n    padding: 8px 10px;\n    min-height: 36px;\n  }\n\n  .tableHeader.columnsGrid {\n    padding: 7px 10px;\n    line-height: 1.2;\n  }\n\n  .resultRow.columnsGrid .colPrimary {\n    font-size: var(--ds-font-size-helper, 14px);\n    white-space: nowrap;\n    overflow: hidden;\n    text-overflow: ellipsis;\n    word-break: normal;\n  }\n\n  .resultRow:not(.columnsGrid) .colPrimary {\n    font-size: var(--ds-font-size-input-mobile, 16px);\n    white-space: nowrap;\n    flex: 0 1 auto;\n  }\n\n  .resultRow:not(.columnsGrid) .colMeta {\n    width: auto;\n    flex: 0 1 auto;\n    gap: var(--ds-gap-element, 8px);\n    margin-left: 0;\n  }\n\n  .resultRow.columnsGrid .colMeta {\n    width: auto;\n    margin-left: 0;\n    flex-wrap: nowrap;\n  }\n}\n"],"sourceRoot":""}]);
 // Exports
 ___CSS_LOADER_EXPORT___.locals = {
 	"container": `container___HXmhd`,
@@ -11476,6 +11751,7 @@ ___CSS_LOADER_EXPORT___.locals = {
 	"colMeta": `colMeta___biq63`,
 	"colBadge": `colBadge___I_BKC`,
 	"colGutter": `colGutter___dLyoU`,
+	"resultRowFill": `resultRowFill___LfJfe`,
 	"resultRowStretch": `resultRowStretch___PLa5k`,
 	"selected": `selected___JTmX4`,
 	"resultRowActive": `resultRowActive___Ngbcp`,
@@ -15498,6 +15774,14 @@ ___CSS_LOADER_EXPORT___.push([module.id, `.sidebar___WmA3x {
   text-overflow: ellipsis;
 }
 
+.userDepartment___ujc8e {
+  font-size: var(--ds-font-size-small, 12px);
+  color: var(--ds-color-text-secondary, #4A4A4A);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
 .userRole___Okuby {
   font-size: var(--ds-font-size-small, 12px);
   color: var(--ds-color-text-tertiary, #6D6D6D);
@@ -15548,7 +15832,7 @@ ___CSS_LOADER_EXPORT___.push([module.id, `.sidebar___WmA3x {
   border-radius: 50%;
   border: 2px solid var(--ds-color-bg-white, #FFFFFF);
 }
-`, "",{"version":3,"sources":["webpack://./node_modules/@linm-soft-org/linm-web-common-components/dist/components/layout/Sidebar/Sidebar.module.css"],"names":[],"mappings":"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","sourcesContent":[".sidebar {\n  width: 280px;\n  height: var(--app-height, 100vh);\n  background: var(--ds-color-bg-white, #FFFFFF);\n  border-right: 1px solid var(--ds-color-bg-muted, #EEEEEE);\n  display: flex;\n  flex-direction: column;\n  position: fixed;\n  left: 0;\n  top: 0;\n  z-index: var(--z-fixed);\n  overflow: hidden;\n  transition: width 0.3s ease;\n}\n\n/* Collapsed state — icon rail */\n.sidebar.collapsed {\n  width: 64px;\n}\n\n.sidebar.collapsedRail {\n  background: var(--ds-color-bg-subtle, #F6F6F6);\n  border-right: 1px solid var(--ds-color-border, #BABCBE);\n  overflow: visible;\n}\n\n.sidebar.collapsedRail .header {\n  border-bottom-color: var(--ds-color-border, #BABCBE);\n}\n\n.sidebar.collapsedRail .footer {\n  border-top-color: var(--ds-color-border, #BABCBE);\n}\n\n/* Collapsed rail — hide labels (L0/L1/L2 text only) */\n.sidebar.collapsed:not(.hoverExpanded):not(.tempExpanded) .logoText,\n.sidebar.collapsed:not(.hoverExpanded):not(.tempExpanded) .navL0Title,\n.sidebar.collapsed:not(.hoverExpanded):not(.tempExpanded) .navL1Text,\n.sidebar.collapsed:not(.hoverExpanded):not(.tempExpanded) .navL2Text,\n.sidebar.collapsed:not(.hoverExpanded):not(.tempExpanded) .navL1Chevron,\n.sidebar.collapsed:not(.hoverExpanded):not(.tempExpanded) .navL0Chevron,\n.sidebar.collapsed:not(.hoverExpanded):not(.tempExpanded) .navItemBadge,\n.sidebar.collapsed:not(.hoverExpanded):not(.tempExpanded) .userInfo {\n  display: none;\n}\n\n.sidebar.collapsed:not(.hoverExpanded):not(.tempExpanded) .navL0Master {\n  display: none;\n}\n\n.sidebar.collapsed .badgeDot {\n  display: block;\n}\n\n/* Collapsed rail — L1/L2 icon-only */\n.sidebar.collapsed .navL1,\n.sidebar.collapsed .navL2 {\n  justify-content: center;\n  gap: unset;\n  padding: 10px 0;\n  min-height: 40px;\n}\n\n.sidebar.collapsed .navL1Icon,\n.sidebar.collapsed .navL2Icon {\n  width: 20px;\n  font-size: 16px;\n  margin: 0;\n}\n\n.sidebar.collapsedRail .navL1Active,\n.sidebar.collapsedRail .navL1GroupActive {\n  background: var(--ds-color-primary-bg, rgba(37, 99, 235, 0.14));\n}\n\n.sidebar.collapsedRail .navL1Active::before,\n.sidebar.collapsedRail .navL1GroupActive::before,\n.sidebar.collapsedRail .navL2Active::before {\n  content: '';\n  position: absolute;\n  left: 0;\n  top: 6px;\n  bottom: 6px;\n  width: 3px;\n  border-radius: 0 3px 3px 0;\n  background: var(--ds-color-primary, #2563eb);\n}\n\n.sidebar.collapsedRail .navL0 + .navL0 {\n  border-top: 1px solid var(--ds-color-border, #BABCBE);\n  padding-top: 8px;\n  margin-top: 4px;\n}\n\n/* Collapsed peek expansion */\n.sidebar.collapsed.hoverExpanded,\n.sidebar.collapsed.tempExpanded {\n  width: 280px;\n  z-index: calc(var(--z-fixed) + 2);\n  box-shadow: var(--ds-shadow-lg, 0 10px 15px -3px rgba(0, 0, 0, 0.1));\n  background: var(--ds-color-bg-white, #FFFFFF);\n  border-right-color: var(--ds-color-bg-muted, #EEEEEE);\n}\n\n.sidebar.collapsed.hoverExpanded .navL1Active::before,\n.sidebar.collapsed.hoverExpanded .navL1GroupActive::before,\n.sidebar.collapsed.hoverExpanded .navL2Active::before,\n.sidebar.collapsed.tempExpanded .navL1Active::before,\n.sidebar.collapsed.tempExpanded .navL1GroupActive::before,\n.sidebar.collapsed.tempExpanded .navL2Active::before {\n  display: none;\n}\n\n.sidebar.collapsed.hoverExpanded .logoText,\n.sidebar.collapsed.tempExpanded .logoText,\n.sidebar.collapsed.hoverExpanded .navL0Title,\n.sidebar.collapsed.tempExpanded .navL0Title,\n.sidebar.collapsed.hoverExpanded .navL1Text,\n.sidebar.collapsed.tempExpanded .navL1Text,\n.sidebar.collapsed.hoverExpanded .navL2Text,\n.sidebar.collapsed.tempExpanded .navL2Text,\n.sidebar.collapsed.hoverExpanded .navL1Chevron,\n.sidebar.collapsed.tempExpanded .navL1Chevron,\n.sidebar.collapsed.hoverExpanded .navL0Chevron,\n.sidebar.collapsed.tempExpanded .navL0Chevron,\n.sidebar.collapsed.hoverExpanded .navItemBadge,\n.sidebar.collapsed.tempExpanded .navItemBadge,\n.sidebar.collapsed.hoverExpanded .userInfo,\n.sidebar.collapsed.tempExpanded .userInfo {\n  display: flex;\n}\n\n.sidebar.collapsed.hoverExpanded .logoText,\n.sidebar.collapsed.tempExpanded .logoText {\n  display: inline;\n}\n\n.sidebar.collapsed.hoverExpanded .navL0Master,\n.sidebar.collapsed.tempExpanded .navL0Master {\n  display: flex;\n  width: 100%;\n  height: auto;\n  min-height: 36px;\n  padding: 0 12px;\n}\n\n.sidebar.collapsed.hoverExpanded .badgeDot,\n.sidebar.collapsed.tempExpanded .badgeDot {\n  display: none;\n}\n\n.sidebar.collapsed.hoverExpanded .navL1,\n.sidebar.collapsed.tempExpanded .navL1,\n.sidebar.collapsed.hoverExpanded .navL2,\n.sidebar.collapsed.tempExpanded .navL2 {\n  justify-content: flex-start;\n  gap: 8px;\n  padding: 8px 16px;\n}\n\n.sidebar.collapsed.hoverExpanded .navL1Icon,\n.sidebar.collapsed.tempExpanded .navL1Icon,\n.sidebar.collapsed.hoverExpanded .navL2Icon,\n.sidebar.collapsed.tempExpanded .navL2Icon {\n  width: 20px;\n  margin-right: 0;\n}\n\n.mobileHoverZone {\n  position: fixed;\n  top: 0;\n  left: 0;\n  width: 12px;\n  height: var(--app-height, 100vh);\n  z-index: calc(var(--z-fixed) + 1);\n}\n\n.mobileBackdrop {\n  position: fixed;\n  inset: 0;\n  z-index: calc(var(--z-fixed) - 1);\n  border: none;\n  padding: 0;\n  margin: 0;\n  background: rgba(0, 0, 0, 0.45);\n  cursor: pointer;\n  animation: fadeInBackdrop 0.2s ease;\n}\n\n@keyframes fadeInBackdrop {\n  from { opacity: 0; }\n  to { opacity: 1; }\n}\n\n@media (hover: none) {\n  .mobileHoverZone {\n    display: none;\n  }\n}\n\n@media (max-width: 640px) {\n  .sidebar {\n    width: 280px;\n    transform: translateX(-100%);\n    transition: transform 0.3s ease, width 0.3s ease;\n    box-shadow: var(--ds-shadow-lg, 0 10px 15px -3px rgba(0, 0, 0, 0.1));\n  }\n\n  .sidebar.open {\n    transform: translateX(0);\n    z-index: calc(var(--z-fixed, 1030) + 15);\n    overflow: visible;\n  }\n\n  /* Drawer open — parity desktop expanded: icon + label + << */\n  .sidebar.open .headerRow {\n    padding: 0 16px;\n    justify-content: space-between;\n    height: var(--topbar-height, 64px);\n    min-height: var(--topbar-height, 64px);\n  }\n\n  .sidebar.open .logo {\n    justify-content: flex-start;\n    flex: 1;\n    min-width: 0;\n  }\n\n  .sidebar.open .logoText {\n    display: inline;\n    opacity: 1;\n    max-width: 200px;\n  }\n\n  .sidebar.open .logoIcon {\n    width: 32px;\n    height: 32px;\n    border-radius: 6px;\n    box-shadow: none;\n  }\n\n  .sidebar.open .logoIconImg {\n    object-fit: cover;\n  }\n}\n\n.header {\n  border-bottom: 1px solid var(--ds-color-bg-muted, #EEEEEE);\n  flex-shrink: 0;\n}\n\n.headerRow {\n  display: flex;\n  align-items: center;\n  justify-content: space-between;\n  gap: 8px;\n  height: 64px;\n  padding: 0 16px;\n  overflow: hidden;\n}\n\n.logo {\n  display: flex;\n  align-items: center;\n  gap: 12px;\n  font-size: var(--ds-font-size-label-mobile, 18px);\n  font-weight: 700;\n  color: var(--ds-color-primary, #2563eb);\n  min-width: 0;\n  flex: 1;\n}\n\n.logoButton {\n  border: none;\n  background: transparent;\n  margin: 0;\n  padding: 0;\n  cursor: pointer;\n  text-align: inherit;\n  font: inherit;\n}\n\n.logoButton:focus-visible {\n  outline: 2px solid var(--ds-color-primary, #2563eb);\n  outline-offset: 2px;\n  border-radius: 4px;\n}\n\n.logoIcon {\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  flex-shrink: 0;\n  background: var(--ds-color-bg-white, #FFFFFF);\n}\n\n.logoIcon i {\n  font-size: 22px;\n  line-height: 1;\n}\n\n.logoIconImg {\n  width: 100%;\n  height: 100%;\n  object-fit: contain;\n  display: block;\n}\n\n.logoText {\n  flex: 1 1 auto;\n  min-width: 0;\n  white-space: nowrap;\n  overflow: hidden;\n  text-overflow: ellipsis;\n  font-weight: 700;\n  line-height: 32px;\n  align-self: center;\n  transition: opacity 0.25s ease, max-width 0.3s ease;\n  max-width: 200px;\n}\n\n.toggleButtonWrap {\n  flex-shrink: 0;\n  display: flex;\n}\n\n/* Collapsed rail — >> tab overlaps slideout 1px; border top/right/bottom only */\n.railExpandButtonWrap {\n  --rail-expand-width: 24px;\n  --rail-expand-tip: 9px;\n  position: fixed;\n  left: calc(var(--sidebar-width, 64px) - 1px);\n  top: calc(var(--topbar-height, 72px) / 2);\n  transform: translateY(-50%);\n  z-index: calc(var(--z-fixed, 1030) + 20);\n  width: var(--rail-expand-width);\n  height: 32px;\n  box-sizing: border-box;\n  padding: 0;\n  background: transparent;\n  filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.06));\n  pointer-events: none;\n}\n\n.railExpandButton {\n  display: inline-flex;\n  align-items: center;\n  justify-content: center;\n  width: 100%;\n  height: 100%;\n  padding: 0 6px 0 3px;\n  margin: 0;\n  box-sizing: border-box;\n  border: 1px solid var(--ds-color-border, #BABCBE);\n  border-left: none;\n  background: var(--ds-color-bg-white, #FFFFFF);\n  color: var(--ds-color-text-secondary, #4A4A4A);\n  clip-path: polygon(\n    0 0,\n    calc(100% - var(--rail-expand-tip)) 0,\n    100% 50%,\n    calc(100% - var(--rail-expand-tip)) 100%,\n    0 100%\n  );\n  cursor: pointer;\n  pointer-events: auto;\n}\n\n.railExpandButton:hover {\n  background: var(--ds-color-bg-white, #FFFFFF);\n  color: var(--ds-color-primary, #2563eb);\n}\n\n.railExpandButton:focus {\n  outline: 2px solid var(--ds-color-primary, #2563eb);\n  outline-offset: 2px;\n}\n\n.railExpandIcon {\n  display: block;\n  flex-shrink: 0;\n  font-size: 14px;\n  line-height: 1;\n  transform: translateX(-2px);\n}\n\n.toggleButton {\n  box-shadow: var(--ds-shadow-sm, 0 1px 2px rgba(0, 0, 0, 0.06));\n}\n\n.toggleButton:focus {\n  outline: 2px solid var(--ds-color-primary, #2563eb);\n  outline-offset: 2px;\n}\n\n/* Collapsed rail — logo icon left; expand control floats outside rail */\n.sidebar.collapsedRail:not(.hoverExpanded):not(.tempExpanded) .header {\n  overflow: visible;\n}\n\n.sidebar.collapsedRail:not(.hoverExpanded):not(.tempExpanded) .header {\n  position: relative;\n}\n\n.sidebar.collapsedRail:not(.hoverExpanded):not(.tempExpanded) .headerRow {\n  flex-direction: row;\n  align-items: center;\n  justify-content: center;\n  gap: 0;\n  padding: 0;\n  height: var(--topbar-height, 72px);\n  min-height: var(--topbar-height, 72px);\n  overflow: visible;\n}\n\n.sidebar.collapsedRail:not(.hoverExpanded):not(.tempExpanded) .logo {\n  justify-content: center;\n  flex: 0 0 auto;\n  width: 100%;\n  min-width: 0;\n}\n\n/* Linm logo tile — collapsed rail, PNG fills tile */\n.sidebar.collapsedRail:not(.hoverExpanded):not(.tempExpanded) .logoIcon {\n  width: 44px;\n  height: 44px;\n  border-radius: 10px;\n  overflow: hidden;\n  background: var(--ds-color-bg-white, #FFFFFF);\n  box-shadow: 0 4px 12px rgba(0, 119, 204, 0.25);\n}\n\n.sidebar.collapsedRail:not(.hoverExpanded):not(.tempExpanded) .logoIconImg {\n  width: 100%;\n  height: 100%;\n  object-fit: cover;\n  display: block;\n}\n\n.sidebar:not(.collapsedRail) .logoIcon,\n.sidebar.collapsed.hoverExpanded .logoIcon,\n.sidebar.collapsed.tempExpanded .logoIcon {\n  height: var(--linm-sidebar-logo-size, 32px);\n  width: auto;\n  min-width: var(--linm-sidebar-logo-size, 32px);\n  max-width: 180px;\n  border-radius: 6px;\n  overflow: hidden;\n  background: var(--ds-color-bg-white, #FFFFFF);\n}\n\n.sidebar:not(.collapsedRail) .logoIconImg,\n.sidebar.collapsed.hoverExpanded .logoIconImg,\n.sidebar.collapsed.tempExpanded .logoIconImg {\n  width: auto;\n  height: 100%;\n  object-fit: contain;\n}\n\n.sidebar.collapsedRail .logoText {\n  opacity: 0;\n  max-width: 0;\n}\n\n.sidebar.collapsedRail:not(.hoverExpanded):not(.tempExpanded) .appSwitcherSlot {\n  display: none;\n}\n\n.sidebar.collapsed:not(.hoverExpanded):not(.tempExpanded) .headerRow {\n  padding: 0 8px;\n  justify-content: space-between;\n}\n\n.sidebar.collapsed:not(.hoverExpanded):not(.tempExpanded) .logoText {\n  opacity: 0;\n  max-width: 0;\n}\n\n.appSwitcherSlot {\n  padding: 0 16px 12px;\n}\n\n.nav {\n  flex: 1;\n  overflow-y: auto;\n  padding: 16px;\n}\n\n.sidebar.collapsed:not(.hoverExpanded):not(.tempExpanded) .nav {\n  padding: 8px 0;\n  scrollbar-width: none;\n  -ms-overflow-style: none;\n}\n\n.sidebar.collapsed:not(.hoverExpanded):not(.tempExpanded) .nav::-webkit-scrollbar {\n  display: none;\n}\n\n.sidebar.collapsedRail:not(.hoverExpanded):not(.tempExpanded) .navL1,\n.sidebar.collapsedRail:not(.hoverExpanded):not(.tempExpanded) .navL2 {\n  width: 100%;\n  margin-left: 0;\n  margin-right: 0;\n}\n\n/* Peek overlay — restore full layout while keeping .collapsed (rail mode) */\n.sidebar.collapsed.hoverExpanded .headerRow,\n.sidebar.collapsed.tempExpanded .headerRow {\n  flex-direction: row;\n  justify-content: space-between;\n  align-items: center;\n  gap: 8px;\n  height: 64px;\n  min-height: 64px;\n  padding: 0 16px;\n}\n\n.sidebar.collapsed.hoverExpanded .logo,\n.sidebar.collapsed.tempExpanded .logo {\n  justify-content: flex-start;\n  flex: 1;\n}\n\n.sidebar.collapsed.hoverExpanded .logoText,\n.sidebar.collapsed.tempExpanded .logoText {\n  opacity: 1;\n  max-width: 200px;\n}\n\n.sidebar.collapsed.hoverExpanded .nav,\n.sidebar.collapsed.tempExpanded .nav {\n  padding: 16px;\n}\n\n.sidebar.collapsed.hoverExpanded .footer,\n.sidebar.collapsed.tempExpanded .footer {\n  padding: 16px;\n}\n\n/* ═══════════════════════════════════════════════════════════════════════════\n   L0 — Master module (AppRegistry sectionTitle)\n   ═══════════════════════════════════════════════════════════════════════════ */\n\n.navL0 {\n  margin-bottom: 16px;\n  padding-bottom: 0;\n}\n\n.navL0:last-child {\n  margin-bottom: 0;\n}\n\n.sidebar.collapsed .navL0 {\n  margin-bottom: 16px;\n  padding-bottom: 0;\n  border-bottom: none;\n}\n\n.navL0Body {\n  display: flex;\n  flex-direction: column;\n  gap: var(--ds-gap-element, 8px);\n  margin-top: 8px;\n}\n\n.navSectionLoading {\n  display: flex;\n  justify-content: center;\n  padding: 8px 0;\n  color: var(--ds-color-text-muted, #6B7280);\n}\n\n@keyframes navSkeletonPulse {\n  0% { opacity: 0.45; }\n  50% { opacity: 0.9; }\n  100% { opacity: 0.45; }\n}\n\n.navSkeletonMaster {\n  height: 14px;\n  width: 72%;\n  margin: 10px 16px 8px;\n  border-radius: 6px;\n  background: var(--ds-color-bg-subtle, #e8e8e8);\n  animation: navSkeletonPulse 1.2s ease-in-out infinite;\n}\n\n.navSkeletonBlock {\n  display: flex;\n  flex-direction: column;\n  gap: 8px;\n  padding: 0 12px 12px 28px;\n}\n\n.navSkeletonRow {\n  height: 32px;\n  border-radius: 8px;\n  background: linear-gradient(\n    90deg,\n    var(--ds-color-bg-subtle, #ececec) 0%,\n    var(--ds-color-bg-white, #f8f8f8) 50%,\n    var(--ds-color-bg-subtle, #ececec) 100%\n  );\n  background-size: 200% 100%;\n  animation: navSkeletonPulse 1.2s ease-in-out infinite;\n}\n\n.navSkeletonRow:nth-child(2) { animation-delay: 0.15s; }\n.navSkeletonRow:nth-child(3) { animation-delay: 0.3s; }\n.navSkeletonRow:nth-child(4) { animation-delay: 0.45s; }\n\n.navSectionLoadMore {\n  margin: 4px 12px 8px;\n  padding: 6px 10px;\n  font-size: 12px;\n  color: var(--ds-color-primary, #2563EB);\n  background: transparent;\n  border: 1px dashed var(--ds-color-border, #BABCBE);\n  border-radius: 6px;\n  cursor: pointer;\n}\n\n.navSectionLoadMore:hover {\n  background: var(--ds-color-bg-subtle, #F6F6F6);\n}\n\n.navL0Master {\n  display: flex;\n  align-items: center;\n  justify-content: space-between;\n  gap: 8px;\n  width: 100%;\n  min-height: 36px;\n  margin: 0;\n  padding: 0 12px;\n  border: none;\n  border-left: 3px solid transparent;\n  background: transparent;\n  border-radius: 6px;\n  cursor: pointer;\n  text-align: left;\n  box-sizing: border-box;\n  transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease;\n}\n\n.navL0Master:hover {\n  background: var(--ds-color-bg-subtle, #F6F6F6);\n}\n\n.navL0MasterActive {\n  border-left-color: var(--ds-color-primary, #2563eb);\n  background: var(--ds-color-primary-bg, rgba(37, 99, 235, 0.08));\n}\n\n.navL0MasterActive:hover {\n  background: var(--ds-color-primary-bg, rgba(37, 99, 235, 0.12));\n}\n\n.navL0Title {\n  flex: 1;\n  min-width: 0;\n  display: flex;\n  align-items: center;\n  margin: 0;\n  font-family: inherit;\n  font-size: var(--ds-font-size-label-desktop, 16px);\n  font-weight: 600;\n  color: var(--ds-color-text-heading, #1A1A1A);\n  line-height: 1.25;\n  white-space: nowrap;\n  overflow: hidden;\n  text-overflow: ellipsis;\n}\n\n.navL0MasterActive .navL0Title {\n  color: var(--ds-color-primary, #2563eb);\n}\n\n.navL0Chevron {\n  flex-shrink: 0;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  width: 16px;\n  height: 16px;\n  font-size: 10px;\n  line-height: 1;\n  color: var(--ds-color-text-tertiary, #6D6D6D);\n}\n\n.navL0MasterActive .navL0Chevron {\n  color: var(--ds-color-primary, #2563eb);\n}\n\n.sidebar.collapsedRail:not(.hoverExpanded):not(.tempExpanded) .navL0Master {\n  height: 0;\n  margin: 0;\n  padding: 0;\n  overflow: hidden;\n  border: none;\n}\n\n/* ═══════════════════════════════════════════════════════════════════════════\n   L1 — Group header / orphan leaf (Chứng từ, Danh mục, …)\n   ═══════════════════════════════════════════════════════════════════════════ */\n\n.navL1Group {\n  display: flex;\n  flex-direction: column;\n  gap: var(--ds-gap-element, 8px);\n}\n\n.navL1 {\n  display: flex;\n  align-items: center;\n  gap: 8px;\n  width: 100%;\n  padding: 8px 16px;\n  margin: 0;\n  border: none;\n  background: transparent;\n  border-radius: 8px;\n  color: var(--ds-color-text-secondary, #4A4A4A);\n  font-size: var(--ds-font-size-label-desktop, 16px);\n  font-weight: 500;\n  cursor: pointer;\n  transition: background 0.2s ease, color 0.2s ease;\n  text-align: left;\n  position: relative;\n}\n\n.navL1Icon {\n  width: 20px;\n  height: 20px;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  text-align: center;\n  line-height: 1;\n  color: var(--ds-color-text-tertiary, #6D6D6D);\n  flex-shrink: 0;\n}\n\n.navL1Text {\n  flex: 1;\n  min-width: 0;\n  display: flex;\n  align-items: center;\n  font-size: var(--ds-font-size-nav-l2, 14px);\n  line-height: 1.25;\n  white-space: nowrap;\n  overflow: hidden;\n  text-overflow: ellipsis;\n  transition: opacity 0.2s ease, width 0.2s ease;\n}\n\n.navL1Chevron {\n  margin-left: auto;\n  font-size: 10px;\n  color: var(--ds-color-text-tertiary, #6D6D6D);\n  flex-shrink: 0;\n  transition: transform 0.2s ease;\n}\n\n.navL1:hover {\n  background: var(--ds-color-bg-subtle, #F6F6F6);\n  color: var(--ds-color-primary, #2563eb);\n}\n\n.navL1:hover .navL1Icon {\n  color: var(--ds-color-primary, #2563eb);\n}\n\n.navL1Active {\n  background: transparent;\n  color: var(--ds-color-primary, #2563eb);\n  font-weight: 600;\n}\n\n.navL1Active .navL1Icon {\n  color: var(--ds-color-primary, #2563eb);\n}\n\n.navL1Active:hover {\n  background: var(--ds-color-bg-subtle, #F6F6F6);\n}\n\n.navL1GroupActive {\n  background: transparent;\n  color: var(--ds-color-primary, #2563eb);\n  font-weight: 600;\n}\n\n.navL1GroupActive .navL1Icon {\n  color: var(--ds-color-primary, #2563eb);\n}\n\n.navL1GroupActive:hover {\n  background: var(--ds-color-bg-subtle, #F6F6F6);\n}\n\n/* ═══════════════════════════════════════════════════════════════════════════\n   L2 — Sub-items under L1 group\n   ═══════════════════════════════════════════════════════════════════════════ */\n\n.navL2List {\n  display: flex;\n  flex-direction: column;\n  gap: var(--ds-gap-icon, 4px);\n  padding-left: 8px;\n  margin: 0 0 0 12px;\n  border-left: 2px solid var(--ds-color-bg-muted, #EEEEEE);\n  overflow: hidden;\n}\n\n.navL2ListAnimate {\n  animation: navL2SlideDown 0.18s ease;\n}\n\n@keyframes navL2SlideDown {\n  from { opacity: 0; transform: translateY(-6px); }\n  to { opacity: 1; transform: translateY(0); }\n}\n\n.navL2 {\n  display: flex;\n  align-items: center;\n  gap: 8px;\n  width: 100%;\n  padding: 6px 12px 6px 16px;\n  margin: 0;\n  border: none;\n  background: transparent;\n  border-radius: 8px;\n  color: var(--ds-color-text-secondary, #4A4A4A);\n  font-size: 13px;\n  font-weight: 500;\n  cursor: pointer;\n  transition: background 0.2s ease, color 0.2s ease;\n  text-align: left;\n  position: relative;\n}\n\n.navL2Icon {\n  width: 20px;\n  height: 20px;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  text-align: center;\n  line-height: 1;\n  font-size: 11px;\n  color: var(--ds-color-text-tertiary, #6D6D6D);\n  flex-shrink: 0;\n}\n\n.navL2Text {\n  flex: 1;\n  min-width: 0;\n  display: flex;\n  align-items: center;\n  font-size: var(--ds-font-size-nav-l2, 14px);\n  line-height: 1.25;\n  white-space: nowrap;\n  overflow: hidden;\n  text-overflow: ellipsis;\n  transition: opacity 0.2s ease, width 0.2s ease;\n}\n\n.navL2:hover {\n  background: var(--ds-color-bg-subtle, #F6F6F6);\n  color: var(--ds-color-primary, #2563eb);\n}\n\n.navL2:hover .navL2Icon {\n  color: var(--ds-color-primary, #2563eb);\n}\n\n.navL2Active {\n  background: transparent;\n  color: var(--ds-color-primary, #2563eb);\n  font-weight: 600;\n}\n\n.navL2Active .navL2Icon {\n  color: var(--ds-color-primary, #2563eb);\n}\n\n.navL2Active:hover {\n  background: var(--ds-color-bg-subtle, #F6F6F6);\n}\n\n/* ═══════════════════════════════════════════════════════════════════════════\n   Footer / misc\n   ═══════════════════════════════════════════════════════════════════════════ */\n\n.navItemBadge {\n  transition: opacity 0.2s ease, width 0.2s ease;\n}\n\n.footer {\n  padding: 16px;\n  border-top: 1px solid var(--ds-color-bg-muted, #EEEEEE);\n}\n\n.sidebar.collapsed:not(.hoverExpanded):not(.tempExpanded) .footer {\n  padding: 8px 4px;\n}\n\n.userProfile {\n  display: flex;\n  align-items: center;\n  gap: 16px;\n}\n\n.sidebar.collapsedRail .userProfile {\n  flex-direction: column;\n  align-items: center;\n  gap: 6px;\n}\n\n.sidebar.collapsedRail .userInfo {\n  display: none;\n}\n\n.sidebar.collapsedRail .logoutButton {\n  width: 36px;\n  height: 36px;\n  border: 1px solid var(--ds-color-border, #BABCBE);\n  background: var(--ds-color-bg-white, #FFFFFF);\n}\n\n.sidebar.smallDesktop.collapsed:not(.hoverExpanded):not(.tempExpanded) .userInfo {\n  display: none;\n}\n\n.userInfo {\n  flex: 1;\n  min-width: 0;\n  transition: opacity 0.2s ease, width 0.2s ease;\n}\n\n.userName {\n  font-size: var(--ds-font-size-input-desktop, 14px);\n  font-weight: 600;\n  color: var(--ds-color-text-heading, #1A1A1A);\n  white-space: nowrap;\n  overflow: hidden;\n  text-overflow: ellipsis;\n}\n\n.userRole {\n  font-size: var(--ds-font-size-small, 12px);\n  color: var(--ds-color-text-tertiary, #6D6D6D);\n}\n\n.logoutButton {\n  background: transparent;\n  border: none;\n  color: var(--ds-color-text-tertiary, #6D6D6D);\n  cursor: pointer;\n  padding: 4px;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  border-radius: 8px;\n  transition: all 0.2s ease;\n}\n\n.logoutButton:hover {\n  background: var(--ds-color-bg-subtle, #F6F6F6);\n  color: var(--ds-color-error, #C33A00);\n}\n\n.menuLoading {\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  justify-content: center;\n  gap: 12px;\n  padding: 32px 16px;\n  color: var(--ds-color-text-tertiary, #6D6D6D);\n  font-size: 13px;\n  text-align: center;\n}\n\n.menuLoading i {\n  font-size: 18px;\n  color: var(--ds-color-primary, #2563eb);\n}\n\n.badgeDot {\n  position: absolute;\n  top: 8px;\n  right: 8px;\n  width: 8px;\n  height: 8px;\n  background: var(--ds-color-error, #C33A00);\n  border-radius: 50%;\n  border: 2px solid var(--ds-color-bg-white, #FFFFFF);\n}\n"],"sourceRoot":""}]);
+`, "",{"version":3,"sources":["webpack://./node_modules/@linm-soft-org/linm-web-common-components/dist/components/layout/Sidebar/Sidebar.module.css"],"names":[],"mappings":"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","sourcesContent":[".sidebar {\n  width: 280px;\n  height: var(--app-height, 100vh);\n  background: var(--ds-color-bg-white, #FFFFFF);\n  border-right: 1px solid var(--ds-color-bg-muted, #EEEEEE);\n  display: flex;\n  flex-direction: column;\n  position: fixed;\n  left: 0;\n  top: 0;\n  z-index: var(--z-fixed);\n  overflow: hidden;\n  transition: width 0.3s ease;\n}\n\n/* Collapsed state — icon rail */\n.sidebar.collapsed {\n  width: 64px;\n}\n\n.sidebar.collapsedRail {\n  background: var(--ds-color-bg-subtle, #F6F6F6);\n  border-right: 1px solid var(--ds-color-border, #BABCBE);\n  overflow: visible;\n}\n\n.sidebar.collapsedRail .header {\n  border-bottom-color: var(--ds-color-border, #BABCBE);\n}\n\n.sidebar.collapsedRail .footer {\n  border-top-color: var(--ds-color-border, #BABCBE);\n}\n\n/* Collapsed rail — hide labels (L0/L1/L2 text only) */\n.sidebar.collapsed:not(.hoverExpanded):not(.tempExpanded) .logoText,\n.sidebar.collapsed:not(.hoverExpanded):not(.tempExpanded) .navL0Title,\n.sidebar.collapsed:not(.hoverExpanded):not(.tempExpanded) .navL1Text,\n.sidebar.collapsed:not(.hoverExpanded):not(.tempExpanded) .navL2Text,\n.sidebar.collapsed:not(.hoverExpanded):not(.tempExpanded) .navL1Chevron,\n.sidebar.collapsed:not(.hoverExpanded):not(.tempExpanded) .navL0Chevron,\n.sidebar.collapsed:not(.hoverExpanded):not(.tempExpanded) .navItemBadge,\n.sidebar.collapsed:not(.hoverExpanded):not(.tempExpanded) .userInfo {\n  display: none;\n}\n\n.sidebar.collapsed:not(.hoverExpanded):not(.tempExpanded) .navL0Master {\n  display: none;\n}\n\n.sidebar.collapsed .badgeDot {\n  display: block;\n}\n\n/* Collapsed rail — L1/L2 icon-only */\n.sidebar.collapsed .navL1,\n.sidebar.collapsed .navL2 {\n  justify-content: center;\n  gap: unset;\n  padding: 10px 0;\n  min-height: 40px;\n}\n\n.sidebar.collapsed .navL1Icon,\n.sidebar.collapsed .navL2Icon {\n  width: 20px;\n  font-size: 16px;\n  margin: 0;\n}\n\n.sidebar.collapsedRail .navL1Active,\n.sidebar.collapsedRail .navL1GroupActive {\n  background: var(--ds-color-primary-bg, rgba(37, 99, 235, 0.14));\n}\n\n.sidebar.collapsedRail .navL1Active::before,\n.sidebar.collapsedRail .navL1GroupActive::before,\n.sidebar.collapsedRail .navL2Active::before {\n  content: '';\n  position: absolute;\n  left: 0;\n  top: 6px;\n  bottom: 6px;\n  width: 3px;\n  border-radius: 0 3px 3px 0;\n  background: var(--ds-color-primary, #2563eb);\n}\n\n.sidebar.collapsedRail .navL0 + .navL0 {\n  border-top: 1px solid var(--ds-color-border, #BABCBE);\n  padding-top: 8px;\n  margin-top: 4px;\n}\n\n/* Collapsed peek expansion */\n.sidebar.collapsed.hoverExpanded,\n.sidebar.collapsed.tempExpanded {\n  width: 280px;\n  z-index: calc(var(--z-fixed) + 2);\n  box-shadow: var(--ds-shadow-lg, 0 10px 15px -3px rgba(0, 0, 0, 0.1));\n  background: var(--ds-color-bg-white, #FFFFFF);\n  border-right-color: var(--ds-color-bg-muted, #EEEEEE);\n}\n\n.sidebar.collapsed.hoverExpanded .navL1Active::before,\n.sidebar.collapsed.hoverExpanded .navL1GroupActive::before,\n.sidebar.collapsed.hoverExpanded .navL2Active::before,\n.sidebar.collapsed.tempExpanded .navL1Active::before,\n.sidebar.collapsed.tempExpanded .navL1GroupActive::before,\n.sidebar.collapsed.tempExpanded .navL2Active::before {\n  display: none;\n}\n\n.sidebar.collapsed.hoverExpanded .logoText,\n.sidebar.collapsed.tempExpanded .logoText,\n.sidebar.collapsed.hoverExpanded .navL0Title,\n.sidebar.collapsed.tempExpanded .navL0Title,\n.sidebar.collapsed.hoverExpanded .navL1Text,\n.sidebar.collapsed.tempExpanded .navL1Text,\n.sidebar.collapsed.hoverExpanded .navL2Text,\n.sidebar.collapsed.tempExpanded .navL2Text,\n.sidebar.collapsed.hoverExpanded .navL1Chevron,\n.sidebar.collapsed.tempExpanded .navL1Chevron,\n.sidebar.collapsed.hoverExpanded .navL0Chevron,\n.sidebar.collapsed.tempExpanded .navL0Chevron,\n.sidebar.collapsed.hoverExpanded .navItemBadge,\n.sidebar.collapsed.tempExpanded .navItemBadge,\n.sidebar.collapsed.hoverExpanded .userInfo,\n.sidebar.collapsed.tempExpanded .userInfo {\n  display: flex;\n}\n\n.sidebar.collapsed.hoverExpanded .logoText,\n.sidebar.collapsed.tempExpanded .logoText {\n  display: inline;\n}\n\n.sidebar.collapsed.hoverExpanded .navL0Master,\n.sidebar.collapsed.tempExpanded .navL0Master {\n  display: flex;\n  width: 100%;\n  height: auto;\n  min-height: 36px;\n  padding: 0 12px;\n}\n\n.sidebar.collapsed.hoverExpanded .badgeDot,\n.sidebar.collapsed.tempExpanded .badgeDot {\n  display: none;\n}\n\n.sidebar.collapsed.hoverExpanded .navL1,\n.sidebar.collapsed.tempExpanded .navL1,\n.sidebar.collapsed.hoverExpanded .navL2,\n.sidebar.collapsed.tempExpanded .navL2 {\n  justify-content: flex-start;\n  gap: 8px;\n  padding: 8px 16px;\n}\n\n.sidebar.collapsed.hoverExpanded .navL1Icon,\n.sidebar.collapsed.tempExpanded .navL1Icon,\n.sidebar.collapsed.hoverExpanded .navL2Icon,\n.sidebar.collapsed.tempExpanded .navL2Icon {\n  width: 20px;\n  margin-right: 0;\n}\n\n.mobileHoverZone {\n  position: fixed;\n  top: 0;\n  left: 0;\n  width: 12px;\n  height: var(--app-height, 100vh);\n  z-index: calc(var(--z-fixed) + 1);\n}\n\n.mobileBackdrop {\n  position: fixed;\n  inset: 0;\n  z-index: calc(var(--z-fixed) - 1);\n  border: none;\n  padding: 0;\n  margin: 0;\n  background: rgba(0, 0, 0, 0.45);\n  cursor: pointer;\n  animation: fadeInBackdrop 0.2s ease;\n}\n\n@keyframes fadeInBackdrop {\n  from { opacity: 0; }\n  to { opacity: 1; }\n}\n\n@media (hover: none) {\n  .mobileHoverZone {\n    display: none;\n  }\n}\n\n@media (max-width: 640px) {\n  .sidebar {\n    width: 280px;\n    transform: translateX(-100%);\n    transition: transform 0.3s ease, width 0.3s ease;\n    box-shadow: var(--ds-shadow-lg, 0 10px 15px -3px rgba(0, 0, 0, 0.1));\n  }\n\n  .sidebar.open {\n    transform: translateX(0);\n    z-index: calc(var(--z-fixed, 1030) + 15);\n    overflow: visible;\n  }\n\n  /* Drawer open — parity desktop expanded: icon + label + << */\n  .sidebar.open .headerRow {\n    padding: 0 16px;\n    justify-content: space-between;\n    height: var(--topbar-height, 64px);\n    min-height: var(--topbar-height, 64px);\n  }\n\n  .sidebar.open .logo {\n    justify-content: flex-start;\n    flex: 1;\n    min-width: 0;\n  }\n\n  .sidebar.open .logoText {\n    display: inline;\n    opacity: 1;\n    max-width: 200px;\n  }\n\n  .sidebar.open .logoIcon {\n    width: 32px;\n    height: 32px;\n    border-radius: 6px;\n    box-shadow: none;\n  }\n\n  .sidebar.open .logoIconImg {\n    object-fit: cover;\n  }\n}\n\n.header {\n  border-bottom: 1px solid var(--ds-color-bg-muted, #EEEEEE);\n  flex-shrink: 0;\n}\n\n.headerRow {\n  display: flex;\n  align-items: center;\n  justify-content: space-between;\n  gap: 8px;\n  height: 64px;\n  padding: 0 16px;\n  overflow: hidden;\n}\n\n.logo {\n  display: flex;\n  align-items: center;\n  gap: 12px;\n  font-size: var(--ds-font-size-label-mobile, 18px);\n  font-weight: 700;\n  color: var(--ds-color-primary, #2563eb);\n  min-width: 0;\n  flex: 1;\n}\n\n.logoButton {\n  border: none;\n  background: transparent;\n  margin: 0;\n  padding: 0;\n  cursor: pointer;\n  text-align: inherit;\n  font: inherit;\n}\n\n.logoButton:focus-visible {\n  outline: 2px solid var(--ds-color-primary, #2563eb);\n  outline-offset: 2px;\n  border-radius: 4px;\n}\n\n.logoIcon {\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  flex-shrink: 0;\n  background: var(--ds-color-bg-white, #FFFFFF);\n}\n\n.logoIcon i {\n  font-size: 22px;\n  line-height: 1;\n}\n\n.logoIconImg {\n  width: 100%;\n  height: 100%;\n  object-fit: contain;\n  display: block;\n}\n\n.logoText {\n  flex: 1 1 auto;\n  min-width: 0;\n  white-space: nowrap;\n  overflow: hidden;\n  text-overflow: ellipsis;\n  font-weight: 700;\n  line-height: 32px;\n  align-self: center;\n  transition: opacity 0.25s ease, max-width 0.3s ease;\n  max-width: 200px;\n}\n\n.toggleButtonWrap {\n  flex-shrink: 0;\n  display: flex;\n}\n\n/* Collapsed rail — >> tab overlaps slideout 1px; border top/right/bottom only */\n.railExpandButtonWrap {\n  --rail-expand-width: 24px;\n  --rail-expand-tip: 9px;\n  position: fixed;\n  left: calc(var(--sidebar-width, 64px) - 1px);\n  top: calc(var(--topbar-height, 72px) / 2);\n  transform: translateY(-50%);\n  z-index: calc(var(--z-fixed, 1030) + 20);\n  width: var(--rail-expand-width);\n  height: 32px;\n  box-sizing: border-box;\n  padding: 0;\n  background: transparent;\n  filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.06));\n  pointer-events: none;\n}\n\n.railExpandButton {\n  display: inline-flex;\n  align-items: center;\n  justify-content: center;\n  width: 100%;\n  height: 100%;\n  padding: 0 6px 0 3px;\n  margin: 0;\n  box-sizing: border-box;\n  border: 1px solid var(--ds-color-border, #BABCBE);\n  border-left: none;\n  background: var(--ds-color-bg-white, #FFFFFF);\n  color: var(--ds-color-text-secondary, #4A4A4A);\n  clip-path: polygon(\n    0 0,\n    calc(100% - var(--rail-expand-tip)) 0,\n    100% 50%,\n    calc(100% - var(--rail-expand-tip)) 100%,\n    0 100%\n  );\n  cursor: pointer;\n  pointer-events: auto;\n}\n\n.railExpandButton:hover {\n  background: var(--ds-color-bg-white, #FFFFFF);\n  color: var(--ds-color-primary, #2563eb);\n}\n\n.railExpandButton:focus {\n  outline: 2px solid var(--ds-color-primary, #2563eb);\n  outline-offset: 2px;\n}\n\n.railExpandIcon {\n  display: block;\n  flex-shrink: 0;\n  font-size: 14px;\n  line-height: 1;\n  transform: translateX(-2px);\n}\n\n.toggleButton {\n  box-shadow: var(--ds-shadow-sm, 0 1px 2px rgba(0, 0, 0, 0.06));\n}\n\n.toggleButton:focus {\n  outline: 2px solid var(--ds-color-primary, #2563eb);\n  outline-offset: 2px;\n}\n\n/* Collapsed rail — logo icon left; expand control floats outside rail */\n.sidebar.collapsedRail:not(.hoverExpanded):not(.tempExpanded) .header {\n  overflow: visible;\n}\n\n.sidebar.collapsedRail:not(.hoverExpanded):not(.tempExpanded) .header {\n  position: relative;\n}\n\n.sidebar.collapsedRail:not(.hoverExpanded):not(.tempExpanded) .headerRow {\n  flex-direction: row;\n  align-items: center;\n  justify-content: center;\n  gap: 0;\n  padding: 0;\n  height: var(--topbar-height, 72px);\n  min-height: var(--topbar-height, 72px);\n  overflow: visible;\n}\n\n.sidebar.collapsedRail:not(.hoverExpanded):not(.tempExpanded) .logo {\n  justify-content: center;\n  flex: 0 0 auto;\n  width: 100%;\n  min-width: 0;\n}\n\n/* Linm logo tile — collapsed rail, PNG fills tile */\n.sidebar.collapsedRail:not(.hoverExpanded):not(.tempExpanded) .logoIcon {\n  width: 44px;\n  height: 44px;\n  border-radius: 10px;\n  overflow: hidden;\n  background: var(--ds-color-bg-white, #FFFFFF);\n  box-shadow: 0 4px 12px rgba(0, 119, 204, 0.25);\n}\n\n.sidebar.collapsedRail:not(.hoverExpanded):not(.tempExpanded) .logoIconImg {\n  width: 100%;\n  height: 100%;\n  object-fit: cover;\n  display: block;\n}\n\n.sidebar:not(.collapsedRail) .logoIcon,\n.sidebar.collapsed.hoverExpanded .logoIcon,\n.sidebar.collapsed.tempExpanded .logoIcon {\n  height: var(--linm-sidebar-logo-size, 32px);\n  width: auto;\n  min-width: var(--linm-sidebar-logo-size, 32px);\n  max-width: 180px;\n  border-radius: 6px;\n  overflow: hidden;\n  background: var(--ds-color-bg-white, #FFFFFF);\n}\n\n.sidebar:not(.collapsedRail) .logoIconImg,\n.sidebar.collapsed.hoverExpanded .logoIconImg,\n.sidebar.collapsed.tempExpanded .logoIconImg {\n  width: auto;\n  height: 100%;\n  object-fit: contain;\n}\n\n.sidebar.collapsedRail .logoText {\n  opacity: 0;\n  max-width: 0;\n}\n\n.sidebar.collapsedRail:not(.hoverExpanded):not(.tempExpanded) .appSwitcherSlot {\n  display: none;\n}\n\n.sidebar.collapsed:not(.hoverExpanded):not(.tempExpanded) .headerRow {\n  padding: 0 8px;\n  justify-content: space-between;\n}\n\n.sidebar.collapsed:not(.hoverExpanded):not(.tempExpanded) .logoText {\n  opacity: 0;\n  max-width: 0;\n}\n\n.appSwitcherSlot {\n  padding: 0 16px 12px;\n}\n\n.nav {\n  flex: 1;\n  overflow-y: auto;\n  padding: 16px;\n}\n\n.sidebar.collapsed:not(.hoverExpanded):not(.tempExpanded) .nav {\n  padding: 8px 0;\n  scrollbar-width: none;\n  -ms-overflow-style: none;\n}\n\n.sidebar.collapsed:not(.hoverExpanded):not(.tempExpanded) .nav::-webkit-scrollbar {\n  display: none;\n}\n\n.sidebar.collapsedRail:not(.hoverExpanded):not(.tempExpanded) .navL1,\n.sidebar.collapsedRail:not(.hoverExpanded):not(.tempExpanded) .navL2 {\n  width: 100%;\n  margin-left: 0;\n  margin-right: 0;\n}\n\n/* Peek overlay — restore full layout while keeping .collapsed (rail mode) */\n.sidebar.collapsed.hoverExpanded .headerRow,\n.sidebar.collapsed.tempExpanded .headerRow {\n  flex-direction: row;\n  justify-content: space-between;\n  align-items: center;\n  gap: 8px;\n  height: 64px;\n  min-height: 64px;\n  padding: 0 16px;\n}\n\n.sidebar.collapsed.hoverExpanded .logo,\n.sidebar.collapsed.tempExpanded .logo {\n  justify-content: flex-start;\n  flex: 1;\n}\n\n.sidebar.collapsed.hoverExpanded .logoText,\n.sidebar.collapsed.tempExpanded .logoText {\n  opacity: 1;\n  max-width: 200px;\n}\n\n.sidebar.collapsed.hoverExpanded .nav,\n.sidebar.collapsed.tempExpanded .nav {\n  padding: 16px;\n}\n\n.sidebar.collapsed.hoverExpanded .footer,\n.sidebar.collapsed.tempExpanded .footer {\n  padding: 16px;\n}\n\n/* ═══════════════════════════════════════════════════════════════════════════\n   L0 — Master module (AppRegistry sectionTitle)\n   ═══════════════════════════════════════════════════════════════════════════ */\n\n.navL0 {\n  margin-bottom: 16px;\n  padding-bottom: 0;\n}\n\n.navL0:last-child {\n  margin-bottom: 0;\n}\n\n.sidebar.collapsed .navL0 {\n  margin-bottom: 16px;\n  padding-bottom: 0;\n  border-bottom: none;\n}\n\n.navL0Body {\n  display: flex;\n  flex-direction: column;\n  gap: var(--ds-gap-element, 8px);\n  margin-top: 8px;\n}\n\n.navSectionLoading {\n  display: flex;\n  justify-content: center;\n  padding: 8px 0;\n  color: var(--ds-color-text-muted, #6B7280);\n}\n\n@keyframes navSkeletonPulse {\n  0% { opacity: 0.45; }\n  50% { opacity: 0.9; }\n  100% { opacity: 0.45; }\n}\n\n.navSkeletonMaster {\n  height: 14px;\n  width: 72%;\n  margin: 10px 16px 8px;\n  border-radius: 6px;\n  background: var(--ds-color-bg-subtle, #e8e8e8);\n  animation: navSkeletonPulse 1.2s ease-in-out infinite;\n}\n\n.navSkeletonBlock {\n  display: flex;\n  flex-direction: column;\n  gap: 8px;\n  padding: 0 12px 12px 28px;\n}\n\n.navSkeletonRow {\n  height: 32px;\n  border-radius: 8px;\n  background: linear-gradient(\n    90deg,\n    var(--ds-color-bg-subtle, #ececec) 0%,\n    var(--ds-color-bg-white, #f8f8f8) 50%,\n    var(--ds-color-bg-subtle, #ececec) 100%\n  );\n  background-size: 200% 100%;\n  animation: navSkeletonPulse 1.2s ease-in-out infinite;\n}\n\n.navSkeletonRow:nth-child(2) { animation-delay: 0.15s; }\n.navSkeletonRow:nth-child(3) { animation-delay: 0.3s; }\n.navSkeletonRow:nth-child(4) { animation-delay: 0.45s; }\n\n.navSectionLoadMore {\n  margin: 4px 12px 8px;\n  padding: 6px 10px;\n  font-size: 12px;\n  color: var(--ds-color-primary, #2563EB);\n  background: transparent;\n  border: 1px dashed var(--ds-color-border, #BABCBE);\n  border-radius: 6px;\n  cursor: pointer;\n}\n\n.navSectionLoadMore:hover {\n  background: var(--ds-color-bg-subtle, #F6F6F6);\n}\n\n.navL0Master {\n  display: flex;\n  align-items: center;\n  justify-content: space-between;\n  gap: 8px;\n  width: 100%;\n  min-height: 36px;\n  margin: 0;\n  padding: 0 12px;\n  border: none;\n  border-left: 3px solid transparent;\n  background: transparent;\n  border-radius: 6px;\n  cursor: pointer;\n  text-align: left;\n  box-sizing: border-box;\n  transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease;\n}\n\n.navL0Master:hover {\n  background: var(--ds-color-bg-subtle, #F6F6F6);\n}\n\n.navL0MasterActive {\n  border-left-color: var(--ds-color-primary, #2563eb);\n  background: var(--ds-color-primary-bg, rgba(37, 99, 235, 0.08));\n}\n\n.navL0MasterActive:hover {\n  background: var(--ds-color-primary-bg, rgba(37, 99, 235, 0.12));\n}\n\n.navL0Title {\n  flex: 1;\n  min-width: 0;\n  display: flex;\n  align-items: center;\n  margin: 0;\n  font-family: inherit;\n  font-size: var(--ds-font-size-label-desktop, 16px);\n  font-weight: 600;\n  color: var(--ds-color-text-heading, #1A1A1A);\n  line-height: 1.25;\n  white-space: nowrap;\n  overflow: hidden;\n  text-overflow: ellipsis;\n}\n\n.navL0MasterActive .navL0Title {\n  color: var(--ds-color-primary, #2563eb);\n}\n\n.navL0Chevron {\n  flex-shrink: 0;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  width: 16px;\n  height: 16px;\n  font-size: 10px;\n  line-height: 1;\n  color: var(--ds-color-text-tertiary, #6D6D6D);\n}\n\n.navL0MasterActive .navL0Chevron {\n  color: var(--ds-color-primary, #2563eb);\n}\n\n.sidebar.collapsedRail:not(.hoverExpanded):not(.tempExpanded) .navL0Master {\n  height: 0;\n  margin: 0;\n  padding: 0;\n  overflow: hidden;\n  border: none;\n}\n\n/* ═══════════════════════════════════════════════════════════════════════════\n   L1 — Group header / orphan leaf (Chứng từ, Danh mục, …)\n   ═══════════════════════════════════════════════════════════════════════════ */\n\n.navL1Group {\n  display: flex;\n  flex-direction: column;\n  gap: var(--ds-gap-element, 8px);\n}\n\n.navL1 {\n  display: flex;\n  align-items: center;\n  gap: 8px;\n  width: 100%;\n  padding: 8px 16px;\n  margin: 0;\n  border: none;\n  background: transparent;\n  border-radius: 8px;\n  color: var(--ds-color-text-secondary, #4A4A4A);\n  font-size: var(--ds-font-size-label-desktop, 16px);\n  font-weight: 500;\n  cursor: pointer;\n  transition: background 0.2s ease, color 0.2s ease;\n  text-align: left;\n  position: relative;\n}\n\n.navL1Icon {\n  width: 20px;\n  height: 20px;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  text-align: center;\n  line-height: 1;\n  color: var(--ds-color-text-tertiary, #6D6D6D);\n  flex-shrink: 0;\n}\n\n.navL1Text {\n  flex: 1;\n  min-width: 0;\n  display: flex;\n  align-items: center;\n  font-size: var(--ds-font-size-nav-l2, 14px);\n  line-height: 1.25;\n  white-space: nowrap;\n  overflow: hidden;\n  text-overflow: ellipsis;\n  transition: opacity 0.2s ease, width 0.2s ease;\n}\n\n.navL1Chevron {\n  margin-left: auto;\n  font-size: 10px;\n  color: var(--ds-color-text-tertiary, #6D6D6D);\n  flex-shrink: 0;\n  transition: transform 0.2s ease;\n}\n\n.navL1:hover {\n  background: var(--ds-color-bg-subtle, #F6F6F6);\n  color: var(--ds-color-primary, #2563eb);\n}\n\n.navL1:hover .navL1Icon {\n  color: var(--ds-color-primary, #2563eb);\n}\n\n.navL1Active {\n  background: transparent;\n  color: var(--ds-color-primary, #2563eb);\n  font-weight: 600;\n}\n\n.navL1Active .navL1Icon {\n  color: var(--ds-color-primary, #2563eb);\n}\n\n.navL1Active:hover {\n  background: var(--ds-color-bg-subtle, #F6F6F6);\n}\n\n.navL1GroupActive {\n  background: transparent;\n  color: var(--ds-color-primary, #2563eb);\n  font-weight: 600;\n}\n\n.navL1GroupActive .navL1Icon {\n  color: var(--ds-color-primary, #2563eb);\n}\n\n.navL1GroupActive:hover {\n  background: var(--ds-color-bg-subtle, #F6F6F6);\n}\n\n/* ═══════════════════════════════════════════════════════════════════════════\n   L2 — Sub-items under L1 group\n   ═══════════════════════════════════════════════════════════════════════════ */\n\n.navL2List {\n  display: flex;\n  flex-direction: column;\n  gap: var(--ds-gap-icon, 4px);\n  padding-left: 8px;\n  margin: 0 0 0 12px;\n  border-left: 2px solid var(--ds-color-bg-muted, #EEEEEE);\n  overflow: hidden;\n}\n\n.navL2ListAnimate {\n  animation: navL2SlideDown 0.18s ease;\n}\n\n@keyframes navL2SlideDown {\n  from { opacity: 0; transform: translateY(-6px); }\n  to { opacity: 1; transform: translateY(0); }\n}\n\n.navL2 {\n  display: flex;\n  align-items: center;\n  gap: 8px;\n  width: 100%;\n  padding: 6px 12px 6px 16px;\n  margin: 0;\n  border: none;\n  background: transparent;\n  border-radius: 8px;\n  color: var(--ds-color-text-secondary, #4A4A4A);\n  font-size: 13px;\n  font-weight: 500;\n  cursor: pointer;\n  transition: background 0.2s ease, color 0.2s ease;\n  text-align: left;\n  position: relative;\n}\n\n.navL2Icon {\n  width: 20px;\n  height: 20px;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  text-align: center;\n  line-height: 1;\n  font-size: 11px;\n  color: var(--ds-color-text-tertiary, #6D6D6D);\n  flex-shrink: 0;\n}\n\n.navL2Text {\n  flex: 1;\n  min-width: 0;\n  display: flex;\n  align-items: center;\n  font-size: var(--ds-font-size-nav-l2, 14px);\n  line-height: 1.25;\n  white-space: nowrap;\n  overflow: hidden;\n  text-overflow: ellipsis;\n  transition: opacity 0.2s ease, width 0.2s ease;\n}\n\n.navL2:hover {\n  background: var(--ds-color-bg-subtle, #F6F6F6);\n  color: var(--ds-color-primary, #2563eb);\n}\n\n.navL2:hover .navL2Icon {\n  color: var(--ds-color-primary, #2563eb);\n}\n\n.navL2Active {\n  background: transparent;\n  color: var(--ds-color-primary, #2563eb);\n  font-weight: 600;\n}\n\n.navL2Active .navL2Icon {\n  color: var(--ds-color-primary, #2563eb);\n}\n\n.navL2Active:hover {\n  background: var(--ds-color-bg-subtle, #F6F6F6);\n}\n\n/* ═══════════════════════════════════════════════════════════════════════════\n   Footer / misc\n   ═══════════════════════════════════════════════════════════════════════════ */\n\n.navItemBadge {\n  transition: opacity 0.2s ease, width 0.2s ease;\n}\n\n.footer {\n  padding: 16px;\n  border-top: 1px solid var(--ds-color-bg-muted, #EEEEEE);\n}\n\n.sidebar.collapsed:not(.hoverExpanded):not(.tempExpanded) .footer {\n  padding: 8px 4px;\n}\n\n.userProfile {\n  display: flex;\n  align-items: center;\n  gap: 16px;\n}\n\n.sidebar.collapsedRail .userProfile {\n  flex-direction: column;\n  align-items: center;\n  gap: 6px;\n}\n\n.sidebar.collapsedRail .userInfo {\n  display: none;\n}\n\n.sidebar.collapsedRail .logoutButton {\n  width: 36px;\n  height: 36px;\n  border: 1px solid var(--ds-color-border, #BABCBE);\n  background: var(--ds-color-bg-white, #FFFFFF);\n}\n\n.sidebar.smallDesktop.collapsed:not(.hoverExpanded):not(.tempExpanded) .userInfo {\n  display: none;\n}\n\n.userInfo {\n  flex: 1;\n  min-width: 0;\n  transition: opacity 0.2s ease, width 0.2s ease;\n}\n\n.userName {\n  font-size: var(--ds-font-size-input-desktop, 14px);\n  font-weight: 600;\n  color: var(--ds-color-text-heading, #1A1A1A);\n  white-space: nowrap;\n  overflow: hidden;\n  text-overflow: ellipsis;\n}\n\n.userDepartment {\n  font-size: var(--ds-font-size-small, 12px);\n  color: var(--ds-color-text-secondary, #4A4A4A);\n  white-space: nowrap;\n  overflow: hidden;\n  text-overflow: ellipsis;\n}\n\n.userRole {\n  font-size: var(--ds-font-size-small, 12px);\n  color: var(--ds-color-text-tertiary, #6D6D6D);\n}\n\n.logoutButton {\n  background: transparent;\n  border: none;\n  color: var(--ds-color-text-tertiary, #6D6D6D);\n  cursor: pointer;\n  padding: 4px;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  border-radius: 8px;\n  transition: all 0.2s ease;\n}\n\n.logoutButton:hover {\n  background: var(--ds-color-bg-subtle, #F6F6F6);\n  color: var(--ds-color-error, #C33A00);\n}\n\n.menuLoading {\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  justify-content: center;\n  gap: 12px;\n  padding: 32px 16px;\n  color: var(--ds-color-text-tertiary, #6D6D6D);\n  font-size: 13px;\n  text-align: center;\n}\n\n.menuLoading i {\n  font-size: 18px;\n  color: var(--ds-color-primary, #2563eb);\n}\n\n.badgeDot {\n  position: absolute;\n  top: 8px;\n  right: 8px;\n  width: 8px;\n  height: 8px;\n  background: var(--ds-color-error, #C33A00);\n  border-radius: 50%;\n  border: 2px solid var(--ds-color-bg-white, #FFFFFF);\n}\n"],"sourceRoot":""}]);
 // Exports
 ___CSS_LOADER_EXPORT___.locals = {
 	"sidebar": `sidebar___WmA3x`,
@@ -15608,6 +15892,7 @@ ___CSS_LOADER_EXPORT___.locals = {
 	"logoutButton": `logoutButton___da6cI`,
 	"smallDesktop": `smallDesktop___CI_Qt`,
 	"userName": `userName___VNERd`,
+	"userDepartment": `userDepartment___ujc8e`,
 	"userRole": `userRole___Okuby`,
 	"menuLoading": `menuLoading___HPtb9`
 };
@@ -31450,6 +31735,308 @@ const LinImageUpload = ({ purpose, product, entityType, entityId, items, onChang
 
 
 //# sourceMappingURL=index.js.map
+// EXTERNAL MODULE: ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[5].use[1]!./node_modules/@linm-soft-org/linm-web-common-components/dist/components/common/LinImageView/LinImageView.module.css
+var LinImageView_module = __webpack_require__(7139);
+;// ./node_modules/@linm-soft-org/linm-web-common-components/dist/components/common/LinImageView/LinImageView.module.css
+
+      
+      
+      
+      
+      
+      
+      
+      
+      
+
+var LinImageView_module_options = {};
+
+LinImageView_module_options.styleTagTransform = (styleTagTransform_default());
+LinImageView_module_options.setAttributes = (setAttributesWithoutAttributes_default());
+LinImageView_module_options.insert = insertBySelector_default().bind(null, "head");
+LinImageView_module_options.domAPI = (styleDomAPI_default());
+LinImageView_module_options.insertStyleElement = (insertStyleElement_default());
+
+var LinImageView_module_update = injectStylesIntoStyleTag_default()(LinImageView_module/* default */.A, LinImageView_module_options);
+
+
+
+
+       /* harmony default export */ const LinImageView_LinImageView_module = (LinImageView_module/* default */.A && LinImageView_module/* default */.A.locals ? LinImageView_module/* default */.A.locals : undefined);
+
+;// ./node_modules/@linm-soft-org/linm-web-common-components/dist/components/common/LinImageView/LinImageView.js
+/* unused harmony import specifier */ var LinImageView_useState;
+/* unused harmony import specifier */ var LinImageView_useRef;
+/* unused harmony import specifier */ var LinImageView_useEffect;
+/* unused harmony import specifier */ var LinImageView_useLayoutEffect;
+/* unused harmony import specifier */ var LinImageView_React;
+/* unused harmony import specifier */ var LinImageView_createPortal;
+/* unused harmony import specifier */ var LinImageView_styles;
+/* unused harmony import specifier */ var swappedAxes;
+/* unused harmony import specifier */ var clampPan;
+/* unused harmony import specifier */ var fitMax;
+/* unused harmony import specifier */ var nextQuarter;
+/* unused harmony import specifier */ var frameTransform;
+/* unused harmony import specifier */ var fractionBox;
+/* unused harmony import specifier */ var pinPosition;
+
+
+
+
+const MIN_ZOOM = 1;
+const MAX_ZOOM = 4;
+function clampView(x, y, scale, quarter, img, stage) {
+    if (!img || !stage)
+        return { x: 0, y: 0 };
+    const visual = swappedAxes(img.clientWidth, img.clientHeight, quarter);
+    return clampPan(x, y, scale, visual.width, visual.height, stage.clientWidth, stage.clientHeight);
+}
+/** Full-screen photo. Each screen passes only the tools it needs. */
+const LinImageView = ({ src, alt = '', mode = 'mobile', shots, initialIndex = 0, onShotChange, onClose, closeLabel, zoomInLabel, zoomOutLabel, mark, boxes, boxToggle, pin, geo, map, rotateLabel, }) => {
+    const frames = shots && shots.length > 0 ? shots : null;
+    const frameKey = frames?.map((shot) => shot.src).join('|') ?? '';
+    const [index, setIndex] = LinImageView_useState(() => frames ? Math.min(Math.max(initialIndex, 0), frames.length - 1) : 0);
+    const active = frames ? frames[Math.min(index, frames.length - 1)] : undefined;
+    const viewSrc = active?.src ?? src;
+    const viewAlt = active?.alt ?? alt;
+    const viewPin = active?.pin ?? pin;
+    const viewGeo = active?.geo ?? geo;
+    const stageRef = LinImageView_useRef(null);
+    const imgRef = LinImageView_useRef(null);
+    const zoomRef = LinImageView_useRef(1);
+    const panRef = LinImageView_useRef({ x: 0, y: 0 });
+    const quarterRef = LinImageView_useRef(0);
+    const [zoom, setZoom] = LinImageView_useState(1);
+    const [pan, setPan] = LinImageView_useState({ x: 0, y: 0 });
+    const [quarter, setQuarter] = LinImageView_useState(0);
+    const [marksOn, setMarksOn] = LinImageView_useState(true);
+    const [pinOn, setPinOn] = LinImageView_useState(true);
+    const [mapOn, setMapOn] = LinImageView_useState(false);
+    const [imageMax, setImageMax] = LinImageView_useState(null);
+    const [layoutTick, setLayoutTick] = LinImageView_useState(0);
+    zoomRef.current = zoom;
+    panRef.current = pan;
+    quarterRef.current = quarter;
+    LinImageView_useEffect(() => {
+        setZoom(1);
+        setPan({ x: 0, y: 0 });
+        setQuarter(0);
+        setMarksOn(true);
+        setPinOn(true);
+        setMapOn(false);
+    }, [viewSrc]);
+    LinImageView_useLayoutEffect(() => {
+        const stage = stageRef.current;
+        if (!stage) {
+            setImageMax(null);
+            return undefined;
+        }
+        const measure = () => {
+            const box = stageRef.current;
+            if (!box) {
+                setImageMax(null);
+                return;
+            }
+            const style = getComputedStyle(box);
+            const pad = (value) => {
+                const n = parseFloat(value);
+                return Number.isFinite(n) ? n : 0;
+            };
+            const contentW = box.clientWidth - pad(style.paddingLeft) - pad(style.paddingRight);
+            const contentH = box.clientHeight - pad(style.paddingTop) - pad(style.paddingBottom);
+            setImageMax(Number.isFinite(contentW) && Number.isFinite(contentH) ? fitMax(contentW, contentH, quarter) : null);
+        };
+        measure();
+        window.addEventListener('resize', measure);
+        return () => window.removeEventListener('resize', measure);
+    }, [quarter, viewSrc, layoutTick]);
+    LinImageView_useLayoutEffect(() => {
+        setPan((current) => {
+            const next = clampView(current.x, current.y, zoomRef.current, quarter, imgRef.current, stageRef.current);
+            if (next.x === current.x && next.y === current.y)
+                return current;
+            return next;
+        });
+    }, [imageMax, quarter]);
+    LinImageView_useEffect(() => {
+        const onKey = (event) => {
+            if (event.key !== 'Escape')
+                return;
+            event.preventDefault();
+            event.stopPropagation();
+            onClose();
+        };
+        window.addEventListener('keydown', onKey, true);
+        return () => window.removeEventListener('keydown', onKey, true);
+    }, [onClose]);
+    LinImageView_useEffect(() => {
+        const node = stageRef.current;
+        if (!node)
+            return undefined;
+        const points = new Map();
+        let pinch = 0;
+        let origin = null;
+        const down = (event) => {
+            if (event.target?.closest('button'))
+                return;
+            node.setPointerCapture(event.pointerId);
+            points.set(event.pointerId, { x: event.clientX, y: event.clientY });
+            if (points.size === 2) {
+                const [a, b] = [...points.values()];
+                pinch = Math.hypot(a.x - b.x, a.y - b.y);
+                origin = null;
+                return;
+            }
+            origin = {
+                x: event.clientX,
+                y: event.clientY,
+                panX: panRef.current.x,
+                panY: panRef.current.y,
+            };
+        };
+        const move = (event) => {
+            if (!points.has(event.pointerId))
+                return;
+            points.set(event.pointerId, { x: event.clientX, y: event.clientY });
+            if (points.size >= 2) {
+                event.preventDefault();
+                const [a, b] = [...points.values()];
+                const dist = Math.hypot(a.x - b.x, a.y - b.y);
+                if (pinch > 0 && dist > 0) {
+                    const ratio = dist / pinch;
+                    pinch = dist;
+                    setZoom((current) => {
+                        const next = Math.min(MAX_ZOOM, Math.max(MIN_ZOOM, current * ratio));
+                        setPan(clampView(panRef.current.x, panRef.current.y, next, quarterRef.current, imgRef.current, node));
+                        return next;
+                    });
+                }
+                return;
+            }
+            if (!origin || zoomRef.current <= 1)
+                return;
+            event.preventDefault();
+            setPan(clampView(origin.panX + event.clientX - origin.x, origin.panY + event.clientY - origin.y, zoomRef.current, quarterRef.current, imgRef.current, node));
+        };
+        const up = (event) => {
+            points.delete(event.pointerId);
+            pinch = 0;
+            if (points.size === 1) {
+                const left = [...points.values()][0];
+                origin = {
+                    x: left.x,
+                    y: left.y,
+                    panX: panRef.current.x,
+                    panY: panRef.current.y,
+                };
+                return;
+            }
+            origin = null;
+        };
+        node.addEventListener('pointerdown', down);
+        node.addEventListener('pointermove', move, { passive: false });
+        node.addEventListener('pointerup', up);
+        node.addEventListener('pointercancel', up);
+        return () => {
+            node.removeEventListener('pointerdown', down);
+            node.removeEventListener('pointermove', move);
+            node.removeEventListener('pointerup', up);
+            node.removeEventListener('pointercancel', up);
+        };
+    }, [viewSrc]);
+    const nudge = (delta) => {
+        const next = Math.min(MAX_ZOOM, Math.max(MIN_ZOOM, zoom + delta));
+        setZoom(next);
+        setPan(clampView(pan.x, pan.y, next, quarter, imgRef.current, stageRef.current));
+    };
+    const turn = () => {
+        const next = nextQuarter(quarter);
+        setQuarter(next);
+        setPan(clampView(pan.x, pan.y, zoom, next, imgRef.current, stageRef.current));
+    };
+    const shown = mark && !marksOn ? mark.plainSrc : viewSrc;
+    const showBoxes = Boolean(boxes && boxes.length > 0 && marksOn);
+    const showMarkButton = Boolean(mark || (boxes && boxes.length > 0));
+    const latText = viewGeo ? viewGeo.latitude.toFixed(6) : '';
+    const lngText = viewGeo ? viewGeo.longitude.toFixed(6) : '';
+    const desktop = mode === 'desktop';
+    const choose = (next) => {
+        setIndex(next);
+        onShotChange?.(next);
+    };
+    LinImageView_useEffect(() => {
+        if (!frameKey)
+            return;
+        const count = frameKey.split('|').length;
+        const start = Math.min(Math.max(initialIndex, 0), count - 1);
+        setIndex(start);
+    }, [frameKey, initialIndex]);
+    const dialog = (LinImageView_React.createElement("div", { className: desktop ? LinImageView_styles.backdropDesktop : LinImageView_styles.backdrop, role: "dialog", "aria-modal": "true", onClick: (event) => event.stopPropagation(), onPointerDown: (event) => event.stopPropagation() },
+        LinImageView_React.createElement("button", { type: "button", className: LinImageView_styles.close, "aria-label": closeLabel, onClick: onClose },
+            LinImageView_React.createElement("svg", { width: "18", height: "18", viewBox: "0 0 18 18", "aria-hidden": "true" },
+                LinImageView_React.createElement("path", { d: "M4.5 4.5 13.5 13.5M13.5 4.5 4.5 13.5", stroke: "currentColor", strokeWidth: "2", strokeLinecap: "round" }))),
+        LinImageView_React.createElement("div", { className: LinImageView_styles.stage, ref: stageRef },
+            LinImageView_React.createElement("div", { className: LinImageView_styles.frame, style: {
+                    transform: frameTransform(pan.x, pan.y, quarter, zoom),
+                    cursor: zoom > 1 ? 'grab' : 'default',
+                    ...(imageMax ? { maxWidth: imageMax.maxWidth, maxHeight: imageMax.maxHeight } : {}),
+                } },
+                LinImageView_React.createElement("img", { ref: imgRef, className: LinImageView_styles.image, src: shown, alt: viewAlt, draggable: false, style: imageMax ? { maxWidth: imageMax.maxWidth, maxHeight: imageMax.maxHeight } : undefined, onLoad: () => setLayoutTick((tick) => tick + 1) }),
+                showBoxes
+                    ? boxes.map((box, index) => (LinImageView_React.createElement("span", { key: `${box.x}-${box.y}-${box.w}-${box.h}-${index}`, className: LinImageView_styles.box, style: fractionBox(box.x, box.y, box.w, box.h) }, box.label ? LinImageView_React.createElement("span", { className: LinImageView_styles.boxLabel }, box.label) : null)))
+                    : null,
+                viewPin && pinOn ? (LinImageView_React.createElement("span", { className: LinImageView_styles.pin, style: pinPosition(viewPin.x, viewPin.y), "aria-hidden": "true" })) : null),
+            viewGeo ? (LinImageView_React.createElement("div", { className: LinImageView_styles.geo },
+                LinImageView_React.createElement("span", null,
+                    "Lat: ",
+                    latText),
+                LinImageView_React.createElement("span", null,
+                    "Lng: ",
+                    lngText))) : null,
+            mapOn && map?.preview ? LinImageView_React.createElement("div", { className: LinImageView_styles.map }, map.preview) : null),
+        LinImageView_React.createElement("div", { className: LinImageView_styles.bar },
+            LinImageView_React.createElement("button", { type: "button", "aria-label": zoomOutLabel, onClick: () => nudge(-0.25) },
+                LinImageView_React.createElement("svg", { width: "18", height: "18", viewBox: "0 0 18 18", "aria-hidden": "true" },
+                    LinImageView_React.createElement("path", { d: "M4 9h10", stroke: "currentColor", strokeWidth: "2", strokeLinecap: "round" }))),
+            LinImageView_React.createElement("button", { type: "button", "aria-label": zoomInLabel, onClick: () => nudge(0.25) },
+                LinImageView_React.createElement("svg", { width: "18", height: "18", viewBox: "0 0 18 18", "aria-hidden": "true" },
+                    LinImageView_React.createElement("path", { d: "M9 4v10M4 9h10", stroke: "currentColor", strokeWidth: "2", strokeLinecap: "round" }))),
+            LinImageView_React.createElement("button", { type: "button", "aria-label": rotateLabel ?? 'Rotate', onClick: turn },
+                LinImageView_React.createElement("svg", { width: "18", height: "18", viewBox: "0 0 24 24", "aria-hidden": "true" },
+                    LinImageView_React.createElement("path", { d: "M5.37 7.18A8.2 8.2 0 0 1 19.31 15.72", fill: "none", stroke: "currentColor", strokeWidth: "1.8", strokeLinecap: "round" }),
+                    LinImageView_React.createElement("path", { d: "M19.15 12.83 19.31 15.72 21.74 14.15", fill: "none", stroke: "currentColor", strokeWidth: "1.8", strokeLinecap: "round", strokeLinejoin: "round" }),
+                    LinImageView_React.createElement("path", { d: "M15.72 19.31A8.2 8.2 0 0 1 4.08 14.12", fill: "none", stroke: "currentColor", strokeWidth: "1.8", strokeLinecap: "round" }),
+                    LinImageView_React.createElement("path", { d: "M6.13 16.16 4.08 14.12 3.33 16.91", fill: "none", stroke: "currentColor", strokeWidth: "1.8", strokeLinecap: "round", strokeLinejoin: "round" }),
+                    LinImageView_React.createElement("path", { fill: "currentColor", fillRule: "evenodd", d: "M9.15 8.7h5.7a1.2 1.2 0 0 1 1.2 1.2v4.9a1.2 1.2 0 0 1-1.2 1.2h-5.7a1.2 1.2 0 0 1-1.2-1.2V9.9a1.2 1.2 0 0 1 1.2-1.2zm1.05 1.7a.75.75 0 1 0 1.5 0 .75.75 0 0 0-1.5 0zM9.4 14.6l1.9-2.1 1 1 1.6-1.65 1.15 2.75H9.4z" }))),
+            showMarkButton ? (LinImageView_React.createElement("button", { type: "button", "aria-pressed": !marksOn, "aria-label": marksOn
+                    ? mark?.hideLabel ?? boxToggle?.hideLabel ?? ''
+                    : mark?.showLabel ?? boxToggle?.showLabel ?? '', onClick: () => setMarksOn((on) => !on) },
+                LinImageView_React.createElement("svg", { width: "18", height: "18", viewBox: "0 0 18 18", "aria-hidden": "true" },
+                    LinImageView_React.createElement("rect", { x: "3", y: "4", width: "12", height: "10", rx: "1.5", fill: "none", stroke: "currentColor", strokeWidth: "1.6" }),
+                    marksOn ? LinImageView_React.createElement("path", { d: "M4 14 14 4", stroke: "currentColor", strokeWidth: "1.6", strokeLinecap: "round" }) : null))) : null,
+            viewPin ? (LinImageView_React.createElement("button", { type: "button", "aria-pressed": !pinOn, "aria-label": pinOn ? viewPin.hideLabel : viewPin.showLabel, onClick: () => setPinOn((on) => !on) },
+                LinImageView_React.createElement("svg", { width: "18", height: "18", viewBox: "0 0 18 18", "aria-hidden": "true" },
+                    LinImageView_React.createElement("path", { d: "M9 2.5a4 4 0 0 0-4 4c0 3 4 8.5 4 8.5s4-5.5 4-8.5a4 4 0 0 0-4-4z", fill: "none", stroke: "currentColor", strokeWidth: "1.6" }),
+                    LinImageView_React.createElement("circle", { cx: "9", cy: "6.5", r: "1.4", fill: "currentColor" }),
+                    pinOn ? LinImageView_React.createElement("path", { d: "M3.5 15.5 14.5 3.5", stroke: "currentColor", strokeWidth: "1.6", strokeLinecap: "round" }) : null))) : null,
+            map ? (LinImageView_React.createElement("button", { type: "button", className: mapOn ? LinImageView_styles.toolOn : undefined, "aria-pressed": mapOn, "aria-label": map.label, onClick: () => {
+                    setMapOn((on) => !on);
+                    map.onOpen?.();
+                } },
+                LinImageView_React.createElement("svg", { width: "18", height: "18", viewBox: "0 0 18 18", "aria-hidden": "true" },
+                    LinImageView_React.createElement("path", { d: "M9 2.5a4 4 0 0 0-4 4c0 3 4 8.5 4 8.5s4-5.5 4-8.5a4 4 0 0 0-4-4z", fill: "none", stroke: "currentColor", strokeWidth: "1.6" }),
+                    LinImageView_React.createElement("circle", { cx: "9", cy: "6.5", r: "1.4", fill: "currentColor" })))) : null),
+        frames && frames.length > 1 ? (LinImageView_React.createElement("div", { className: LinImageView_styles.strip }, frames.map((shot, shotIndex) => (LinImageView_React.createElement("button", { key: shot.src, type: "button", "aria-current": shotIndex === index, "aria-label": shot.alt || String(shotIndex + 1), onClick: () => choose(shotIndex) },
+            LinImageView_React.createElement("img", { src: shot.src, alt: "" })))))) : null));
+    if (desktop && typeof document !== 'undefined')
+        return LinImageView_createPortal(dialog, document.body);
+    return dialog;
+};
+/* harmony default export */ const LinImageView_LinImageView = ((/* unused pure expression or super */ null && (LinImageView)));
+//# sourceMappingURL=LinImageView.js.map
+;// ./node_modules/@linm-soft-org/linm-web-common-components/dist/components/common/LinImageView/index.js
+
+//# sourceMappingURL=index.js.map
 // EXTERNAL MODULE: ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[5].use[1]!./node_modules/@linm-soft-org/linm-web-common-components/dist/components/common/FormActions/FormActions.module.css
 var FormActions_module = __webpack_require__(4343);
 ;// ./node_modules/@linm-soft-org/linm-web-common-components/dist/components/common/FormActions/FormActions.module.css
@@ -32613,7 +33200,7 @@ const DropdownPortal = ({ lookupRef, widthRef, dropdownRef, themeSourceRef, port
     return SearchInput_createPortal(SearchInput_React.createElement("div", { ref: dropdownRef, className: cx(SearchInput_styles.dropdownPortal, portalClassName), style: style, "data-placement": portalPlacement, [SEARCH_INPUT_DROPDOWN_ATTR]: '' }, children), document.body);
 };
 function SearchInput({ config, value, primaryDisplay, secondaryDisplay, onChange, onClear, label, placeholder, required = false, disabled = false, error, showSecondaryInput = true, clearOnType = false, draftResetToken, renderDropdownFooter, className, classNames, style, showLabel = true, labelClassName, }) {
-    const { api, display, filters, columns, header, groupItems, dropdownPortal = false, dropdownMatch = 'row', dropdownMinWidth: dropdownMinWidthConfig, dropdownMaxWidth: dropdownMaxWidthConfig, stretchResultRows = false, pageSize = SearchInput_DEFAULT_PAGE_SIZE, debounceMs = DEFAULT_DEBOUNCE_MS, texts: textOverrides, isItemSelectable: isItemSelectableProp, getItemDisabledReason, getItemWarningReason, } = config;
+    const { api, display, filters, columns, header, groupItems, dropdownPortal = false, dropdownMatch = 'row', dropdownMinWidth: dropdownMinWidthConfig, dropdownMaxWidth: dropdownMaxWidthConfig, stretchResultRows = false, fillResultRows = false, pageSize = SearchInput_DEFAULT_PAGE_SIZE, debounceMs = DEFAULT_DEBOUNCE_MS, texts: textOverrides, isItemSelectable: isItemSelectableProp, getItemDisabledReason, getItemWarningReason, } = config;
     const isItemSelectable = isItemSelectableProp ?? (() => true);
     const filterConfigs = filters?.length ? filters : NO_FILTERS;
     const textOverridesStable = textOverrides ?? NO_TEXT_OVERRIDES;
@@ -33128,7 +33715,7 @@ function SearchInput({ config, value, primaryDisplay, secondaryDisplay, onChange
                     ? columnAlignClass(col, 'row')
                     : undefined, !visible && SearchInput_styles.colHidden), title: cellTitle, "aria-hidden": !visible || undefined }, visible ? cellContent : null));
         });
-        return (SearchInput_React.createElement("button", { key: itemKey, type: "button", id: `search-input-option-${index}`, "data-search-index": index, className: cx(SearchInput_styles.resultRow, stretchResultRows && SearchInput_styles.resultRowStretch, useColumnsGrid && SearchInput_styles.columnsGrid, classNames?.resultRow, isSelected && SearchInput_styles.selected, isKeyboardActive && SearchInput_styles.resultRowActive, !selectable && SearchInput_styles.resultRowDisabled), title: !selectable ? disabledReason : getItemWarningReason?.(item), disabled: !selectable, onMouseDown: (e) => e.preventDefault(), onClick: () => handleSelect(item) }, useColumnsGrid ? cells : SearchInput_React.createElement("span", { className: SearchInput_styles.resultCluster }, cells)));
+        return (SearchInput_React.createElement("button", { key: itemKey, type: "button", id: `search-input-option-${index}`, "data-search-index": index, className: cx(SearchInput_styles.resultRow, stretchResultRows && SearchInput_styles.resultRowStretch, fillResultRows && SearchInput_styles.resultRowFill, useColumnsGrid && SearchInput_styles.columnsGrid, classNames?.resultRow, isSelected && SearchInput_styles.selected, isKeyboardActive && SearchInput_styles.resultRowActive, !selectable && SearchInput_styles.resultRowDisabled), title: !selectable ? disabledReason : getItemWarningReason?.(item), disabled: !selectable, onMouseDown: (e) => e.preventDefault(), onClick: () => handleSelect(item) }, useColumnsGrid ? cells : SearchInput_React.createElement("span", { className: SearchInput_styles.resultCluster }, cells)));
     };
     const renderGroupedRows = () => {
         let index = 0;
@@ -41106,6 +41693,7 @@ const DEFAULT_PARCEL_DEV_SHARED_IMPORTS = {};
 
 
 
+
 //# sourceMappingURL=index.js.map
 ;// ./node_modules/@linm-soft-org/linm-web-common-components/dist/services/auth/mapper.js
 
@@ -41145,7 +41733,7 @@ const mapAuthUser = (authUser) => {
         fullName: authUser.fullName,
         role,
         departmentId: (authUser.departmentId ?? ''),
-        departmentName: '',
+        departmentName: authUser.departmentName?.trim() ?? '',
         skills: [],
         avatar: undefined,
         isActive: authUser.isActive,
@@ -42590,7 +43178,7 @@ function sectionHasActivePath(section, activePath) {
 function isNavL1Group(item) {
     return (item.children?.length ?? 0) > 0 || item.path === '#' || !item.path?.trim();
 }
-const NavGroupItem = ({ item, activePath, onNavigate, showContent, childrenLoading = false, }) => {
+const NavGroupItem = ({ item, activePath, onNavigate, showContent, childrenLoading = false, onRequestChildren, onRequestPeek, }) => {
     const isAnyChildActive = item.children?.some(child => activePath === child.path || activePath.startsWith(child.path + '/')) ?? false;
     const [isOpen, setIsOpen] = (0,external_react_.useState)(isAnyChildActive);
     const [subItemsAnimate, setSubItemsAnimate] = (0,external_react_.useState)(false);
@@ -42604,13 +43192,25 @@ const NavGroupItem = ({ item, activePath, onNavigate, showContent, childrenLoadi
         if (!showContent)
             setIsOpen(false);
     }, [showContent]);
+    const hasChildren = (item.children?.length ?? 0) > 0;
     const handleParentClick = (e) => {
         e.stopPropagation();
+        // Collapsed rail: L2 list is hidden — open the peek with this group expanded instead of a no-op toggle.
+        if (!showContent && onRequestPeek?.()) {
+            setSubItemsAnimate(true);
+            setIsOpen(true);
+            if (!hasChildren)
+                onRequestChildren?.();
+            return;
+        }
         if (item.path && item.path !== '#') {
             onNavigate(item.path);
         }
         setSubItemsAnimate(true);
-        setIsOpen(prev => !prev);
+        const next = !isOpen;
+        setIsOpen(next);
+        if (next && !hasChildren)
+            onRequestChildren?.();
     };
     return (external_react_["default"].createElement("div", { className: Sidebar_Sidebar_module.navL1Group },
         external_react_["default"].createElement("button", { type: "button", className: `${Sidebar_Sidebar_module.navL1} ${isAnyChildActive ? Sidebar_Sidebar_module.navL1GroupActive : ''}`, onClick: handleParentClick, "aria-label": item.label, title: item.label, "aria-expanded": isOpen },
@@ -42624,7 +43224,7 @@ const NavGroupItem = ({ item, activePath, onNavigate, showContent, childrenLoadi
                 external_react_["default"].createElement("span", { className: Sidebar_Sidebar_module.navL2Text }, child.label)));
         }))))));
 };
-const NavSectionBlock = ({ section, activePath, bestMatchPath, showContent, onNavigate, onPeekClear, sectionLoading = false, sectionHasMore = false, onSectionExpand, onSectionLoadMore, isSectionLazy, }) => {
+const NavSectionBlock = ({ section, activePath, bestMatchPath, showContent, onNavigate, onPeekClear, sectionLoading = false, sectionHasMore = false, onSectionExpand, onSectionLoadMore, isSectionLazy, onRequestPeek, }) => {
     const isActive = sectionHasActivePath(section, activePath);
     const singleLeaf = section.items.length === 1 && !section.items[0].children?.length
         ? section.items[0]
@@ -42637,6 +43237,16 @@ const NavSectionBlock = ({ section, activePath, bestMatchPath, showContent, onNa
     const showSectionBody = !singleLeaf && (!showContent || isOpen);
     const sectionHasLoadedLeaves = section.items.some((i) => !isNavL1Group(i) || (i.children?.length ?? 0) > 0);
     const showSectionPagingSkeleton = sectionLoading && sectionHasLoadedLeaves;
+    const requestSectionLoad = (0,external_react_.useCallback)(() => {
+        if (isSectionLazy?.(section.title) ?? true)
+            onSectionExpand?.(section.title);
+    }, [isSectionLazy, onSectionExpand, section.title]);
+    // Load whenever the section is open — user click, auto-open on active path, or lazy meta
+    // changing after a path refetch. Host dedupes (already loaded / in flight).
+    (0,external_react_.useEffect)(() => {
+        if (isOpen && !singleLeaf)
+            requestSectionLoad();
+    }, [isOpen, singleLeaf, requestSectionLoad]);
     const handleMasterClick = (e) => {
         e.stopPropagation();
         if (singleLeaf) {
@@ -42644,13 +43254,15 @@ const NavSectionBlock = ({ section, activePath, bestMatchPath, showContent, onNa
             onPeekClear();
             return;
         }
-        setIsOpen((prev) => {
-            const next = !prev;
-            if (next && (isSectionLazy?.(section.title) ?? true))
-                onSectionExpand?.(section.title);
-            return next;
-        });
+        setIsOpen((prev) => !prev);
     };
+    const handleRequestPeek = (0,external_react_.useCallback)(() => {
+        const ok = onRequestPeek?.() ?? false;
+        // Peek shows the L0 body only when open — open it so the clicked L1 is visible.
+        if (ok)
+            setIsOpen(true);
+        return ok;
+    }, [onRequestPeek]);
     return (external_react_["default"].createElement("div", { className: Sidebar_Sidebar_module.navL0 },
         showContent && (external_react_["default"].createElement("button", { type: "button", className: `${Sidebar_Sidebar_module.navL0Master} ${isOpen ? Sidebar_Sidebar_module.navL0MasterOpen : ''} ${isActive ? Sidebar_Sidebar_module.navL0MasterActive : ''}`, onClick: handleMasterClick, onMouseEnter: (e) => e.stopPropagation(), "aria-expanded": singleLeaf ? undefined : isOpen, "aria-label": section.title, title: section.title },
             external_react_["default"].createElement("span", { className: Sidebar_Sidebar_module.navL0Title }, section.title),
@@ -42659,9 +43271,7 @@ const NavSectionBlock = ({ section, activePath, bestMatchPath, showContent, onNa
             section.items.map((item) => isNavL1Group(item) ? (external_react_["default"].createElement(NavGroupItem, { key: item.id, item: item, activePath: activePath, onNavigate: (path) => {
                     onNavigate(path);
                     onPeekClear();
-                }, showContent: showContent, childrenLoading: sectionLoading
-                    && !sectionHasLoadedLeaves
-                    && !(item.children?.length) })) : (external_react_["default"].createElement("button", { key: item.id, type: "button", className: `${Sidebar_Sidebar_module.navL1} ${bestMatchPath === item.path ? Sidebar_Sidebar_module.navL1Active : ''}`, onClick: (e) => {
+                }, showContent: showContent, childrenLoading: sectionLoading && !(item.children?.length), onRequestChildren: requestSectionLoad, onRequestPeek: handleRequestPeek })) : (external_react_["default"].createElement("button", { key: item.id, type: "button", className: `${Sidebar_Sidebar_module.navL1} ${bestMatchPath === item.path ? Sidebar_Sidebar_module.navL1Active : ''}`, onClick: (e) => {
                     e.stopPropagation();
                     onNavigate(item.path);
                     onPeekClear();
@@ -42675,7 +43285,8 @@ const NavSectionBlock = ({ section, activePath, bestMatchPath, showContent, onNa
                 } }, "T\u1EA3i th\u00EAm\u2026"))))));
 };
 // ─── Sidebar ─────────────────────────────────────────────────────────────────
-const Sidebar = ({ sections, activePath, userName, userRole, userInitials, onNavigate, onLogout, logoutLoading = false, isCollapsed = false, onToggleCollapse, isMobile = false, isSmallDesktop = false, isOpen = false, onRequestOpen, onRequestClose, logoLabel = 'QLCV & SC Y Khoa', logoHomePath = '/', appSwitcher, menuLoading = false, menuSkeleton = false, sectionLoadingTitles, onSectionExpand, onSectionLoadMore, sectionHasMore, isSectionLazy, iconOnly = false, }) => {
+const Sidebar = ({ sections, activePath, userName, userRole, userInitials, userDepartment, onNavigate, onLogout, logoutLoading = false, isCollapsed = false, onToggleCollapse, isMobile = false, isSmallDesktop = false, isOpen = false, onRequestOpen, onRequestClose, logoLabel = 'QLCV & SC Y Khoa', logoHomePath = '/', appSwitcher, menuLoading = false, menuSkeleton = false, sectionLoadingTitles, onSectionExpand, onSectionLoadMore, sectionHasMore, isSectionLazy, iconOnly = false, }) => {
+    const departmentLabel = userDepartment?.trim() ?? '';
     const systemLogoSrc = useSystemLogoSrc();
     // Hover / touch peek when sidebar is collapsed (tablet + desktop)
     const [isHoverExpanded, setIsHoverExpanded] = (0,external_react_.useState)(false);
@@ -42726,6 +43337,13 @@ const Sidebar = ({ sections, activePath, userName, userRole, userInitials, onNav
         if (isCollapsed && !isHoverExpanded && !isTemporarilyExpanded && !isPinnedExpanded) {
             setIsTemporarilyExpanded(true);
         }
+    };
+    /** L1 click inside the collapsed rail (child stops propagation, so the aside click never fires). */
+    const requestPeek = () => {
+        if (isMobile || forceIconRail || !isCollapsed)
+            return false;
+        setIsTemporarilyExpanded(true);
+        return true;
     };
     const handleLogoClick = (e) => {
         e.stopPropagation();
@@ -42806,12 +43424,13 @@ const Sidebar = ({ sections, activePath, userName, userRole, userInitials, onNav
                         return;
                     setIsHoverExpanded(false);
                     setIsTemporarilyExpanded(false);
-                }, sectionLoading: sectionLoadingTitles?.has(section.title), sectionHasMore: sectionHasMore?.has(section.title), isSectionLazy: isSectionLazy, onSectionExpand: onSectionExpand, onSectionLoadMore: onSectionLoadMore }))))),
+                }, sectionLoading: sectionLoadingTitles?.has(section.title), sectionHasMore: sectionHasMore?.has(section.title), isSectionLazy: isSectionLazy, onSectionExpand: onSectionExpand, onSectionLoadMore: onSectionLoadMore, onRequestPeek: requestPeek }))))),
             external_react_["default"].createElement("div", { className: Sidebar_Sidebar_module.footer },
                 external_react_["default"].createElement("div", { className: Sidebar_Sidebar_module.userProfile },
                     external_react_["default"].createElement(Avatar, { initials: userInitials, size: "md" }),
                     external_react_["default"].createElement("div", { className: Sidebar_Sidebar_module.userInfo },
                         external_react_["default"].createElement("div", { className: Sidebar_Sidebar_module.userName }, userName),
+                        departmentLabel ? (external_react_["default"].createElement("div", { className: Sidebar_Sidebar_module.userDepartment, title: departmentLabel }, departmentLabel)) : null,
                         external_react_["default"].createElement("div", { className: Sidebar_Sidebar_module.userRole }, userRole)),
                     external_react_["default"].createElement("button", { className: Sidebar_Sidebar_module.logoutButton, onClick: (e) => {
                             e.stopPropagation();
@@ -54350,6 +54969,58 @@ function resolveRequestUrl(input) {
         return input.href;
     return input.url;
 }
+function hostOf(raw) {
+    if (typeof raw !== 'string' || !raw.trim())
+        return '';
+    try {
+        return new URL(raw.trim(), window.location.href).hostname.toLowerCase();
+    }
+    catch {
+        return '';
+    }
+}
+/** Hosts from the manifest / BFF base for this deployment. No product domain list. */
+function configuredApiHosts() {
+    const hosts = new Set();
+    const add = (raw) => {
+        const host = hostOf(raw);
+        if (host)
+            hosts.add(host);
+    };
+    const w = window;
+    add(w.__LINM_AUTH_BFF_BASE__);
+    add(w.__LINM_AUTH_BFF_BUILD__);
+    add(w.__LINM_RUNTIME_ENV__?.VITE_API_URL);
+    add(w.__LINM_MF_MANIFEST__?.env?.VITE_API_URL);
+    const apps = w.__LINM_MF_MANIFEST__?.microfrontends;
+    if (apps) {
+        for (const entry of Object.values(apps)) {
+            add(entry?.env?.VITE_API_URL);
+            add(entry?.env?.VITE_MOBILE_API_URL);
+        }
+    }
+    return hosts;
+}
+/** Device id stays on this site's API. A custom header on another host forces OPTIONS. */
+function shouldAttachDeviceHeader(url) {
+    if (!url || url.startsWith('data:') || url.startsWith('blob:'))
+        return false;
+    let parsed;
+    try {
+        parsed = new URL(url, window.location.href);
+    }
+    catch {
+        return false;
+    }
+    if (parsed.protocol !== 'http:' && parsed.protocol !== 'https:')
+        return false;
+    if (parsed.origin === window.location.origin)
+        return true;
+    const host = parsed.hostname.toLowerCase();
+    if (host === 'localhost' || host === '127.0.0.1')
+        return true;
+    return configuredApiHosts().has(host);
+}
 /**
  * Patch window.fetch once to silently refresh JWT on 401 and retry.
  * Idempotent — safe to call from Root bootstrap and Nav mount.
@@ -54364,14 +55035,16 @@ function installAuthFetchInterceptor() {
     window.__LINM_AUTH_FETCH_PATCHED__ = true;
     window.fetch = async (input, init) => {
         const url = resolveRequestUrl(input);
-        const deviceHeaders = new Headers(init?.headers ?? (input instanceof Request ? input.headers : undefined));
-        const deviceId = getOrCreateBrowserDeviceId();
-        if (deviceId)
-            deviceHeaders.set('X-Device-Id', deviceId);
-        if (input instanceof Request) {
-            input = new Request(input, { headers: deviceHeaders });
+        if (shouldAttachDeviceHeader(url)) {
+            const deviceHeaders = new Headers(init?.headers ?? (input instanceof Request ? input.headers : undefined));
+            const deviceId = getOrCreateBrowserDeviceId();
+            if (deviceId)
+                deviceHeaders.set('X-Device-Id', deviceId);
+            if (input instanceof Request) {
+                input = new Request(input, { headers: deviceHeaders });
+            }
+            init = { ...init, headers: deviceHeaders };
         }
-        init = { ...init, headers: deviceHeaders };
         const skipHeaders = new Headers(init?.headers ?? (input instanceof Request ? input.headers : undefined));
         if (skipHeaders.get(AUTH_FETCH_SKIP_REFRESH_HEADER) === '1') {
             skipHeaders.delete(AUTH_FETCH_SKIP_REFRESH_HEADER);
@@ -62802,6 +63475,53 @@ function mergeNavItems(base, extra) {
   }
   return _toConsumableArray(map.values());
 }
+
+/**
+ * Path-change refetch only returns leaves for eager sections (active / small / home).
+ * Keep leaves already loaded for sections the new payload still marks lazy, so an
+ * open L0/L1 does not render empty after navigation.
+ */
+function preserveLazySectionLeaves(prevNavItems, nextNavItems, nextMeta) {
+  var base = nextNavItems !== null && nextNavItems !== void 0 ? nextNavItems : [];
+  var preservedSections = new Set();
+  if (!(prevNavItems !== null && prevNavItems !== void 0 && prevNavItems.length) || !(nextMeta !== null && nextMeta !== void 0 && nextMeta.length)) return {
+    navItems: base,
+    preservedSections: preservedSections
+  };
+  var lazyTitles = new Set(nextMeta.filter(function (m) {
+    return m.requiresLazyLoad;
+  }).map(function (m) {
+    return m.sectionTitle;
+  }));
+  if (!lazyTitles.size) return {
+    navItems: base,
+    preservedSections: preservedSections
+  };
+  var kept = prevNavItems.filter(function (i) {
+    return !i.isGroup && i.sectionTitle != null && lazyTitles.has(i.sectionTitle);
+  });
+  if (!kept.length) return {
+    navItems: base,
+    preservedSections: preservedSections
+  };
+  var _iterator3 = _createForOfIteratorHelper(kept),
+    _step3;
+  try {
+    for (_iterator3.s(); !(_step3 = _iterator3.n()).done;) {
+      var i = _step3.value;
+      preservedSections.add(i.sectionTitle);
+    }
+    // Server rows win on conflict (fresh labels / paths).
+  } catch (err) {
+    _iterator3.e(err);
+  } finally {
+    _iterator3.f();
+  }
+  return {
+    navItems: mergeNavItems(kept, base),
+    preservedSections: preservedSections
+  };
+}
 ;// ./src/utils/sectionRequiresLazyLoad.ts
 /**
  * Lazy only when Auth explicitly says so.
@@ -62894,7 +63614,7 @@ function applySectionMetaToLoadedSet(meta, target) {
 
 // ─── Cache helpers ─────────────────────────────────────────────────────────────
 
-var BUILD_HASH =  true ? "1.16.0" : 0;
+var BUILD_HASH =  true ? "1.18.0" : 0;
 var CACHE_ENABLED = "false" === 'true';
 function getTtlMs() {
   var ttl = window.__LINM_PERM_TTL_MIN__;
@@ -62970,7 +63690,7 @@ function fetchPermissions(_x) {
 }
 function _fetchPermissions() {
   _fetchPermissions = _asyncToGenerator(/*#__PURE__*/regenerator_default().mark(function _callee3(currentPath) {
-    var ready, pathParam, res, _t;
+    var ready, pathParam, res, _t2;
     return regenerator_default().wrap(function (_context3) {
       while (1) switch (_context3.prev = _context3.next) {
         case 0:
@@ -62999,7 +63719,7 @@ function _fetchPermissions() {
           return _context3.abrupt("return", bffEnvelope_unwrap(res));
         case 6:
           _context3.prev = 6;
-          _t = _context3["catch"](4);
+          _t2 = _context3["catch"](4);
           return _context3.abrupt("return", null);
         case 7:
         case "end":
@@ -63014,7 +63734,7 @@ function fetchNavItemsPage(_x2, _x3, _x4, _x5) {
 } // ─── Hook ──────────────────────────────────────────────────────────────────────
 function _fetchNavItemsPage() {
   _fetchNavItemsPage = _asyncToGenerator(/*#__PURE__*/regenerator_default().mark(function _callee4(sectionTitle, skip, limit, currentPath) {
-    var qs, res, _t2;
+    var qs, res, _t3;
     return regenerator_default().wrap(function (_context4) {
       while (1) switch (_context4.prev = _context4.next) {
         case 0:
@@ -63038,7 +63758,7 @@ function _fetchNavItemsPage() {
           return _context4.abrupt("return", bffEnvelope_unwrap(res));
         case 4:
           _context4.prev = 4;
-          _t2 = _context4["catch"](2);
+          _t3 = _context4["catch"](2);
           return _context4.abrupt("return", null);
         case 5:
         case "end":
@@ -63077,6 +63797,10 @@ function useUserPermissions(currentPath) {
     setSectionHasMore = _useState0[1];
   var sectionSkipRef = (0,external_react_.useRef)(new Map());
   var loadedSectionsRef = (0,external_react_.useRef)(new Set());
+  /** Sections with a page request in flight — dedupe without marking "loaded" before success. */
+  var inFlightSectionsRef = (0,external_react_.useRef)(new Set());
+  /** Lazy sections the user expanded — re-fetched after a path reload if they come back empty. */
+  var requestedSectionsRef = (0,external_react_.useRef)(new Set());
   var permissionsRef = (0,external_react_.useRef)(permissions);
   permissionsRef.current = permissions;
   var hubRef = (0,external_react_.useRef)(null);
@@ -63088,24 +63812,41 @@ function useUserPermissions(currentPath) {
   var prevPathRef = (0,external_react_.useRef)(null);
   var applyPayload = (0,external_react_.useCallback)(function (payload) {
     applySectionMetaToLoadedSet(payload.sectionNavMeta, loadedSectionsRef.current);
+    // Sync ref now — post-load logic must not wait for the next render.
+    permissionsRef.current = payload;
     setPermissions(payload);
     persistPermissions(payload);
   }, []);
   var load = (0,external_react_.useCallback)(/*#__PURE__*/_asyncToGenerator(/*#__PURE__*/regenerator_default().mark(function _callee() {
     var force,
       path,
+      preserveLazy,
       _permissionsRef$curre,
       _readCache,
+      _permissionsRef$curre2,
       cached,
       menuReady,
       coldBootstrap,
+      prevNavItems,
+      prevSkip,
+      prevLoaded,
       payload,
-      _args = arguments;
+      next,
+      _preserveLazySectionL,
+      navItems,
+      preservedSections,
+      _iterator2,
+      _step2,
+      title,
+      skip,
+      _args = arguments,
+      _t;
     return regenerator_default().wrap(function (_context) {
       while (1) switch (_context.prev = _context.next) {
         case 0:
           force = _args.length > 0 && _args[0] !== undefined ? _args[0] : false;
           path = _args.length > 1 && _args[1] !== undefined ? _args[1] : currentPath;
+          preserveLazy = _args.length > 2 && _args[2] !== undefined ? _args[2] : false;
           if (!(!hasValidAuthToken() && isPublicShellPath(path))) {
             _context.next = 1;
             break;
@@ -63149,9 +63890,15 @@ function useUserPermissions(currentPath) {
             setLoading(true);
             dispatchPermissionLoading();
           }
+          prevNavItems = (_permissionsRef$curre2 = permissionsRef.current) === null || _permissionsRef$curre2 === void 0 ? void 0 : _permissionsRef$curre2.navItems;
+          prevSkip = sectionSkipRef.current;
+          prevLoaded = loadedSectionsRef.current;
           loadedSectionsRef.current = new Set();
           sectionSkipRef.current = new Map();
-          setSectionHasMore(new Set());
+          if (!preserveLazy) {
+            requestedSectionsRef.current = new Set();
+            setSectionHasMore(new Set());
+          }
           _context.next = 5;
           return fetchPermissions(path);
         case 5:
@@ -63162,23 +63909,91 @@ function useUserPermissions(currentPath) {
           }
           return _context.abrupt("return");
         case 6:
-          if (payload) {
-            applySectionMetaToLoadedSet(payload.sectionNavMeta, loadedSectionsRef.current);
-            applyPayload(payload);
-          } else {
-            // API failed (503, offline, …) — unblock overlay; keep cache when refetching.
-            markPermissionsResolved(permissionsRef.current);
+          if (!payload) {
+            _context.next = 16;
+            break;
           }
-          setLoading(false);
-        case 7:
+          next = payload;
+          if (!preserveLazy) {
+            _context.next = 15;
+            break;
+          }
+          _preserveLazySectionL = preserveLazySectionLeaves(prevNavItems, payload.navItems, payload.sectionNavMeta), navItems = _preserveLazySectionL.navItems, preservedSections = _preserveLazySectionL.preservedSections;
+          next = _objectSpread(_objectSpread({}, payload), {}, {
+            navItems: navItems
+          });
+          _iterator2 = useUserPermissions_createForOfIteratorHelper(preservedSections);
           _context.prev = 7;
-          loadInFlightRef.current = false;
-          return _context.finish(7);
+          _iterator2.s();
         case 8:
+          if ((_step2 = _iterator2.n()).done) {
+            _context.next = 11;
+            break;
+          }
+          title = _step2.value;
+          if (prevLoaded.has(title)) {
+            _context.next = 9;
+            break;
+          }
+          return _context.abrupt("continue", 10);
+        case 9:
+          loadedSectionsRef.current.add(title);
+          skip = prevSkip.get(title);
+          if (skip != null) sectionSkipRef.current.set(title, skip);
+        case 10:
+          _context.next = 8;
+          break;
+        case 11:
+          _context.next = 13;
+          break;
+        case 12:
+          _context.prev = 12;
+          _t = _context["catch"](7);
+          _iterator2.e(_t);
+        case 13:
+          _context.prev = 13;
+          _iterator2.f();
+          return _context.finish(13);
+        case 14:
+          // Drop "Tải thêm" for sections that became eager (full list in payload).
+          setSectionHasMore(function (prev) {
+            var kept = new Set();
+            var _iterator3 = useUserPermissions_createForOfIteratorHelper(prev),
+              _step3;
+            try {
+              for (_iterator3.s(); !(_step3 = _iterator3.n()).done;) {
+                var title = _step3.value;
+                if (preservedSections.has(title)) kept.add(title);
+              }
+            } catch (err) {
+              _iterator3.e(err);
+            } finally {
+              _iterator3.f();
+            }
+            return kept;
+          });
+        case 15:
+          applySectionMetaToLoadedSet(next.sectionNavMeta, loadedSectionsRef.current);
+          applyPayload(next);
+          _context.next = 17;
+          break;
+        case 16:
+          // API failed (503, offline, …) — unblock overlay; keep cache when refetching.
+          // Menu stays as-is, so keep the loaded/skip state that matches it.
+          loadedSectionsRef.current = prevLoaded;
+          sectionSkipRef.current = prevSkip;
+          markPermissionsResolved(permissionsRef.current);
+        case 17:
+          setLoading(false);
+        case 18:
+          _context.prev = 18;
+          loadInFlightRef.current = false;
+          return _context.finish(18);
+        case 19:
         case "end":
           return _context.stop();
       }
-    }, _callee, null, [[3,, 7, 8]]);
+    }, _callee, null, [[3,, 18, 19], [7, 12, 13, 14]]);
   })), [applyPayload, currentPath]);
   var fetchSectionPage = (0,external_react_.useCallback)(/*#__PURE__*/function () {
     var _ref2 = _asyncToGenerator(/*#__PURE__*/regenerator_default().mark(function _callee2(sectionTitle, skip) {
@@ -63187,30 +64002,57 @@ function useUserPermissions(currentPath) {
       return regenerator_default().wrap(function (_context2) {
         while (1) switch (_context2.prev = _context2.next) {
           case 0:
+            if (!inFlightSectionsRef.current.has(sectionTitle)) {
+              _context2.next = 1;
+              break;
+            }
+            return _context2.abrupt("return", false);
+          case 1:
+            inFlightSectionsRef.current.add(sectionTitle);
             setSectionLoadingTitles(function (prev) {
               return new Set(prev).add(sectionTitle);
             });
-            _context2.next = 1;
+            _context2.prev = 2;
+            _context2.next = 3;
             return fetchNavItemsPage(sectionTitle, skip, NAV_SECTION_PAGE_SIZE, currentPath);
-          case 1:
+          case 3:
             page = _context2.sent;
+          case 4:
+            _context2.prev = 4;
+            inFlightSectionsRef.current.delete(sectionTitle);
+            return _context2.finish(4);
+          case 5:
             if (mountedRef.current) {
-              _context2.next = 2;
+              _context2.next = 6;
               break;
             }
-            return _context2.abrupt("return");
-          case 2:
+            return _context2.abrupt("return", false);
+          case 6:
             setSectionLoadingTitles(function (prev) {
               var next = new Set(prev);
               next.delete(sectionTitle);
               return next;
             });
-            if (page !== null && page !== void 0 && (_page$items = page.items) !== null && _page$items !== void 0 && _page$items.length) {
-              _context2.next = 3;
+
+            // null = request failed → caller may retry on next expand.
+            if (page) {
+              _context2.next = 7;
               break;
             }
-            return _context2.abrupt("return");
-          case 3:
+            return _context2.abrupt("return", false);
+          case 7:
+            if ((_page$items = page.items) !== null && _page$items !== void 0 && _page$items.length) {
+              _context2.next = 8;
+              break;
+            }
+            setSectionHasMore(function (prev) {
+              if (!prev.has(sectionTitle)) return prev;
+              var next = new Set(prev);
+              next.delete(sectionTitle);
+              return next;
+            });
+            return _context2.abrupt("return", true);
+          case 8:
             setPermissions(function (prev) {
               if (!prev) return prev;
               var merged = _objectSpread(_objectSpread({}, prev), {}, {
@@ -63228,11 +64070,12 @@ function useUserPermissions(currentPath) {
               if (page.hasMore) next.add(sectionTitle);else next.delete(sectionTitle);
               return next;
             });
-          case 4:
+            return _context2.abrupt("return", true);
+          case 9:
           case "end":
             return _context2.stop();
         }
-      }, _callee2);
+      }, _callee2, null, [[2,, 4, 5]]);
     }));
     return function (_x6, _x7) {
       return _ref2.apply(this, arguments);
@@ -63242,18 +64085,26 @@ function useUserPermissions(currentPath) {
     return sectionRequiresLazyLoad(sectionTitle, permissions === null || permissions === void 0 ? void 0 : permissions.sectionNavMeta);
   }, [permissions === null || permissions === void 0 ? void 0 : permissions.sectionNavMeta]);
   var loadSectionNavItems = (0,external_react_.useCallback)(function (sectionTitle) {
-    var _permissions$navItems;
+    var _current$navItems;
+    var current = permissionsRef.current;
+    var lazy = sectionRequiresLazyLoad(sectionTitle, current === null || current === void 0 ? void 0 : current.sectionNavMeta);
+    if (lazy) requestedSectionsRef.current.add(sectionTitle);
     if (loadedSectionsRef.current.has(sectionTitle)) return;
-    loadedSectionsRef.current.add(sectionTitle);
-    var lazy = sectionRequiresLazyLoad(sectionTitle, permissions === null || permissions === void 0 ? void 0 : permissions.sectionNavMeta);
-    var hasSectionLeaves = ((_permissions$navItems = permissions === null || permissions === void 0 ? void 0 : permissions.navItems) !== null && _permissions$navItems !== void 0 ? _permissions$navItems : []).some(function (i) {
+    if (inFlightSectionsRef.current.has(sectionTitle)) return;
+    var hasSectionLeaves = ((_current$navItems = current === null || current === void 0 ? void 0 : current.navItems) !== null && _current$navItems !== void 0 ? _current$navItems : []).some(function (i) {
       return !i.isGroup && i.sectionTitle === sectionTitle;
     });
     // Eager section but payload missing leaves (e.g. stale cache) — still fetch once.
-    if (!lazy && hasSectionLeaves) return;
+    if (!lazy && hasSectionLeaves) {
+      loadedSectionsRef.current.add(sectionTitle);
+      return;
+    }
     sectionSkipRef.current.set(sectionTitle, 0);
-    void fetchSectionPage(sectionTitle, 0);
-  }, [fetchSectionPage, permissions === null || permissions === void 0 ? void 0 : permissions.sectionNavMeta]);
+    void fetchSectionPage(sectionTitle, 0).then(function (ok) {
+      // Mark loaded only after success — a failed request retries on next expand.
+      if (ok) loadedSectionsRef.current.add(sectionTitle);
+    });
+  }, [fetchSectionPage]);
   var loadMoreSectionNavItems = (0,external_react_.useCallback)(function (sectionTitle) {
     var _sectionSkipRef$curre;
     if (!sectionRequiresLazyLoad(sectionTitle, permissions === null || permissions === void 0 ? void 0 : permissions.sectionNavMeta)) return;
@@ -63313,7 +64164,31 @@ function useUserPermissions(currentPath) {
     if (cancelRef.current) clearTimeout(cancelRef.current);
     setPathRefreshing(true);
     cancelRef.current = setTimeout(function () {
-      void load(true, currentPath).finally(function () {
+      void load(true, currentPath, true).then(function () {
+        if (!mountedRef.current) return;
+        // Expanded lazy sections that came back without leaves (never loaded / failed) → fetch again.
+        var latest = permissionsRef.current;
+        var _iterator4 = useUserPermissions_createForOfIteratorHelper(requestedSectionsRef.current),
+          _step4;
+        try {
+          var _loop = function _loop() {
+            var _latest$navItems;
+            var title = _step4.value;
+            if (!sectionRequiresLazyLoad(title, latest === null || latest === void 0 ? void 0 : latest.sectionNavMeta)) return 1; // continue
+            var hasLeaves = ((_latest$navItems = latest === null || latest === void 0 ? void 0 : latest.navItems) !== null && _latest$navItems !== void 0 ? _latest$navItems : []).some(function (i) {
+              return !i.isGroup && i.sectionTitle === title;
+            });
+            if (!hasLeaves) loadSectionNavItems(title);
+          };
+          for (_iterator4.s(); !(_step4 = _iterator4.n()).done;) {
+            if (_loop()) continue;
+          }
+        } catch (err) {
+          _iterator4.e(err);
+        } finally {
+          _iterator4.f();
+        }
+      }).finally(function () {
         if (mountedRef.current) setPathRefreshing(false);
       });
     }, 0);
@@ -64443,6 +65318,77 @@ var navStore = configureStore({
   },
   devTools: "production" !== 'production'
 });
+;// ./src/unsignedPhoneRedirect.ts
+function unsignedPhoneRedirect_createForOfIteratorHelper(r, e) { var t = "undefined" != typeof Symbol && r[Symbol.iterator] || r["@@iterator"]; if (!t) { if (Array.isArray(r) || (t = unsignedPhoneRedirect_unsupportedIterableToArray(r)) || e && r && "number" == typeof r.length) { t && (r = t); var _n = 0, F = function F() {}; return { s: F, n: function n() { return _n >= r.length ? { done: !0 } : { done: !1, value: r[_n++] }; }, e: function e(r) { throw r; }, f: F }; } throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); } var o, a = !0, u = !1; return { s: function s() { t = t.call(r); }, n: function n() { var r = t.next(); return a = r.done, r; }, e: function e(r) { u = !0, o = r; }, f: function f() { try { a || null == t.return || t.return(); } finally { if (u) throw o; } } }; }
+function unsignedPhoneRedirect_unsupportedIterableToArray(r, a) { if (r) { if ("string" == typeof r) return unsignedPhoneRedirect_arrayLikeToArray(r, a); var t = {}.toString.call(r).slice(8, -1); return "Object" === t && r.constructor && (t = r.constructor.name), "Map" === t || "Set" === t ? Array.from(r) : "Arguments" === t || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(t) ? unsignedPhoneRedirect_arrayLikeToArray(r, a) : void 0; } }
+function unsignedPhoneRedirect_arrayLikeToArray(r, a) { (null == a || a > r.length) && (a = r.length); for (var e = 0, n = Array(a); e < a; e++) n[e] = r[e]; return n; }
+var MOBILE_LOGIN_PATH = '/m/dang-nhap';
+var PUBLIC_PATHS = new Set(['/login', '/logout', '/session-expired', '/oidc-callback', '/oidc-silent-renew', '/forbidden', '/not-found']);
+function barePath(pathname) {
+  var path = pathname.split('?')[0].split('#')[0].trim();
+  if (!path || path === '/') return '/';
+  return path.endsWith('/') ? path.slice(0, -1) : path;
+}
+function parsePathList(raw) {
+  if (!raw) return [];
+  var seen = new Set();
+  var paths = [];
+  var _iterator = unsignedPhoneRedirect_createForOfIteratorHelper(raw.split(',')),
+    _step;
+  try {
+    for (_iterator.s(); !(_step = _iterator.n()).done;) {
+      var part = _step.value;
+      var path = barePath(part);
+      if (!path || path === '/' || path.includes('..') || seen.has(path)) continue;
+      seen.add(path);
+      paths.push(path);
+    }
+  } catch (err) {
+    _iterator.e(err);
+  } finally {
+    _iterator.f();
+  }
+  return paths;
+}
+function baked(read, key) {
+  var _process$env$key;
+  try {
+    var value = read();
+    if (value) return value;
+  } catch (_unused) {
+    /* node:test has no import.meta.env */
+  }
+  if (typeof process !== 'undefined' && "MISSING_ENV_VAR"[key]) return (_process$env$key = "MISSING_ENV_VAR"[key]) !== null && _process$env$key !== void 0 ? _process$env$key : '';
+  return '';
+}
+
+/** Domain lists baked at deploy: `VITE_{PREFIX}_MOBILE_GUEST_PATHS` and `VITE_{PREFIX}_PUBLIC_PREFIXES`. */
+function readPublicPathConfig() {
+  return {
+    guestPaths: parsePathList(baked(function () {
+      return "";
+    }, 'VITE_MOBILE_GUEST_PATHS')),
+    publicPrefixes: parsePathList(baked(function () {
+      return "";
+    }, 'VITE_PUBLIC_PREFIXES'))
+  };
+}
+function unsignedPhoneRedirect(pathname, hasToken) {
+  var config = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : readPublicPathConfig();
+  if (hasToken) return null;
+  var path = barePath(pathname);
+  var guests = new Set(config.guestPaths);
+  if (path === MOBILE_LOGIN_PATH || guests.has(path) || PUBLIC_PATHS.has(path)) {
+    return null;
+  }
+  if (config.publicPrefixes.some(function (prefix) {
+    return path === prefix || path.startsWith("".concat(prefix, "/"));
+  })) {
+    return null;
+  }
+  if (path === '/m' || path.startsWith('/m/')) return '/m/dang-nhap';
+  return '/login';
+}
 // EXTERNAL MODULE: ./node_modules/css-loader/dist/cjs.js!./src/styles/global.css
 var cjs_js_src_styles_global = __webpack_require__(5171);
 ;// ./src/styles/global.css
@@ -64525,12 +65471,10 @@ var NavRoot_module_update = injectStylesIntoStyleTag_default()(NavRoot_module/* 
 
 
 
+
 var TOPBAR_HEIGHT = 72;
 var AUTH_RETURN_URL_KEY = 'linm:auth:return-url';
-var PUBLIC_PATHS = new Set(['/login', '/logout', '/session-expired', '/oidc-callback', '/oidc-silent-renew', '/forbidden', '/not-found']);
-
-/** Guest SCYK report — no login (QR poster). Prefix match. */
-var PUBLIC_PATH_PREFIXES = ['/scyk/bao-su-co', '/integration/users/register'];
+var NavRoot_PUBLIC_PATHS = new Set(['/login', '/logout', '/session-expired', '/oidc-callback', '/oidc-silent-renew', '/forbidden', '/not-found']);
 
 /**
  * Phone web (`/m`, `/m/login`, `/m/web-rmms-*`).
@@ -64562,23 +65506,23 @@ function NavRoot_normalizePath(path) {
   if (path === '/') return '/';
   return path.endsWith('/') ? path.slice(0, -1) : path;
 }
-var MOBILE_LOGIN_PATH = '/m/dang-nhap';
+var NavRoot_MOBILE_LOGIN_PATH = '/m/dang-nhap';
 function isMobileLoginPath(pathname) {
   var path = pathname.split('?')[0].split('#')[0];
-  return NavRoot_normalizePath(path) === MOBILE_LOGIN_PATH;
+  return NavRoot_normalizePath(path) === NavRoot_MOBILE_LOGIN_PATH;
 }
 
 /** Hide shell chrome (topbar/sidebar) — guest QR form + register canvas. */
 function isGuestShellHiddenPath(pathname) {
   var n = NavRoot_normalizePath(pathname);
-  return PUBLIC_PATH_PREFIXES.some(function (p) {
+  return readPublicPathConfig().publicPrefixes.some(function (p) {
     return n === p || n.startsWith("".concat(p, "/"));
   });
 }
 function isPublicPath(pathname) {
   var n = NavRoot_normalizePath(pathname);
-  if (PUBLIC_PATHS.has(n) || isMobileLoginPath(n)) return true;
-  return PUBLIC_PATH_PREFIXES.some(function (p) {
+  if (NavRoot_PUBLIC_PATHS.has(n) || isMobileLoginPath(n)) return true;
+  return readPublicPathConfig().publicPrefixes.some(function (p) {
     return n === p || n.startsWith("".concat(p, "/"));
   });
 }
@@ -64619,7 +65563,7 @@ function getActiveLogoLabel(pathname, apps) {
   return resolveShellNavMain();
 }
 var NavInner = function NavInner() {
-  var _permissions$navItems3, _permissions$navItems4, _permissions$navItems5;
+  var _user$departmentName$, _user$departmentName, _permissions$navItems3, _permissions$navItems4, _permissions$navItems5;
   var location = dist_useLocation();
   /** Shell URL (single-spa) — used for menu shell + permissions API currentPath. */
   var shellPathname = useShellPathname();
@@ -64644,6 +65588,7 @@ var NavInner = function NavInner() {
       fullName: user.fullName,
       role: user.role,
       package: user.package,
+      departmentName: user.departmentName,
       allowedCompanyCodes: user.allowedCompanyCodes,
       canViewAllCompanies: user.canViewAllCompanies
     };
@@ -64779,16 +65724,10 @@ var NavInner = function NavInner() {
     var tokenExists = hasValidAuthToken();
     var currentPath = NavRoot_normalizePath(pathname);
     var fullCurrentUrl = "".concat(window.location.pathname).concat(window.location.search).concat(window.location.hash);
-
-    // Block all private URLs when unauthenticated and remember where to return after login.
-    if (!tokenExists && isMobilePhonePath(currentPath) && !isMobileLoginPath(currentPath)) {
+    var dest = unsignedPhoneRedirect(currentPath, tokenExists);
+    if (dest) {
       sessionStorage.setItem(AUTH_RETURN_URL_KEY, fullCurrentUrl);
-      (0,external_single_spa_.navigateToUrl)(MOBILE_LOGIN_PATH);
-      return;
-    }
-    if (!tokenExists && !isPublicPath(currentPath)) {
-      sessionStorage.setItem(AUTH_RETURN_URL_KEY, fullCurrentUrl);
-      (0,external_single_spa_.navigateToUrl)('/login');
+      (0,external_single_spa_.navigateToUrl)(dest);
       return;
     }
 
@@ -64868,6 +65807,7 @@ var NavInner = function NavInner() {
     return resolveLogoHomePath(pathname, permissions === null || permissions === void 0 ? void 0 : permissions.navItems, permissions === null || permissions === void 0 ? void 0 : permissions.packageDefaultUrl);
   }, [pathname, permissions === null || permissions === void 0 ? void 0 : permissions.navItems, permissions === null || permissions === void 0 ? void 0 : permissions.packageDefaultUrl]);
   var fullName = (user === null || user === void 0 ? void 0 : user.fullName) || 'Người dùng';
+  var departmentLabel = (_user$departmentName$ = user === null || user === void 0 || (_user$departmentName = user.departmentName) === null || _user$departmentName === void 0 ? void 0 : _user$departmentName.trim()) !== null && _user$departmentName$ !== void 0 ? _user$departmentName$ : '';
   var parts = fullName.trim().split(' ');
   var userInitials = parts.length >= 2 ? (parts[parts.length - 2].charAt(0) + parts[parts.length - 1].charAt(0)).toUpperCase() : fullName.charAt(0).toUpperCase();
   var roleLabel = (user === null || user === void 0 ? void 0 : user.role) === 'admin' ? 'Quản trị viên' : (user === null || user === void 0 ? void 0 : user.role) === 'manager' ? 'Quản lý' : (user === null || user === void 0 ? void 0 : user.role) === 'staff' ? 'Nhân viên' : 'Người dùng';
@@ -64916,6 +65856,7 @@ var NavInner = function NavInner() {
           userName: fullName,
           userRole: roleLabel,
           userInitials: userInitials,
+          userDepartment: departmentLabel,
           onNavigate: handleNavigate,
           onLogout: handleLogout,
           isCollapsed: isMobile ? false : desktopIconRail,
@@ -65046,4 +65987,4 @@ var bootstrap = lifecycles.bootstrap,
 		}
 	};
 });
-//# sourceMappingURL=linm-nav.ebad8208.js.map
+//# sourceMappingURL=linm-nav.576c5aae.js.map
