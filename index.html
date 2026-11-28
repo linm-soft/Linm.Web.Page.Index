@@ -13,39 +13,136 @@
     location.replace('https://' + location.host + location.pathname + location.search + location.hash);
   })();
   </script>
+  <script>
+  /* Offline scopes (path prefixes) + the reload guard shared with root-config (src/libs/offline/reloadGuard.ts is its tested twin). */
+  (function () {
+    var scopes = [];
+    window.__LINM_OFFLINE_SCOPES__ = scopes;
+    function scopeOf(path) {
+      for (var i = 0; i < scopes.length; i++) {
+        var s = scopes[i];
+        if (typeof s === 'string' && s && path.indexOf(s) === 0) return s;
+      }
+      return null;
+    }
+    /* The scope this document was loaded under ('' when none): later history navigation does not change it. */
+    var docScope = scopeOf(location.pathname || '/');
+    window.__LINM_DOC_OFFLINE_SCOPE__ = docScope || '';
+    /* Warm-up list comes from resource timing: room for more than the default 250 entries. */
+    if (docScope) {
+      try {
+        if (window.performance && typeof performance.setResourceTimingBufferSize === 'function') {
+          performance.setResourceTimingBufferSize(1000);
+        }
+      } catch (e) { /* keep the default buffer */ }
+    }
+    if (typeof Promise === 'undefined') return;
+    function probe() {
+      return new Promise(function (resolve) {
+        var settled = false;
+        var timer = null;
+        function finish(v) {
+          if (settled) return;
+          settled = true;
+          if (timer) clearTimeout(timer);
+          resolve(v);
+        }
+        timer = setTimeout(function () { finish(false); }, 4000);
+        try {
+          fetch('/_manifest.json?linm-probe=1&_=' + Date.now(), { cache: 'no-store' })
+            .then(function () { finish(true); }, function () { finish(false); });
+        } catch (e) { finish(false); }
+      });
+    }
+    /* 'go' | 'defer' | 'skip' — never rejects. */
+    window.__LINM_MAY_RELOAD__ = function () {
+      try {
+        if (window.__LINM_DEFER_RELOAD__ === true) return Promise.resolve('defer');
+        /* Load-time scope: a reload fetches the document from where it was loaded, wherever the app navigated since. */
+        if (!docScope) return Promise.resolve('go');
+        if (navigator.onLine === false) return Promise.resolve('skip');
+        return probe().then(function (ok) {
+          /* The user may have entered a form while the probe was in flight. */
+          if (window.__LINM_DEFER_RELOAD__ === true) return 'defer';
+          return ok ? 'go' : 'skip';
+        });
+      } catch (e) {
+        return Promise.resolve('skip');
+      }
+    };
+  })();
+  </script>
   
   
   
   <script>
   (function () {
-    var BUILD = "1.16.0";
+    var BUILD = "1.17.0";
     var KEY = 'linm:root-build';
     var GUARD = 'linm:root-build-reload';
-    try {
-      var prev = localStorage.getItem(KEY);
-      if (prev && prev !== BUILD) {
-        if (sessionStorage.getItem(GUARD) === BUILD) {
-          localStorage.setItem(KEY, BUILD);
-          return;
-        }
+    /* Offline-scope copies (caches 'linm-offline:*', worker /sw-offline.js) belong to the offline app: never wiped here. */
+    var offlineScopes = window.__LINM_OFFLINE_SCOPES__ || [];
+    var inOfflineScope = false;
+    for (var si = 0; si < offlineScopes.length; si++) {
+      var sc = offlineScopes[si];
+      if (typeof sc === 'string' && sc && (location.pathname || '/').indexOf(sc) === 0) inOfflineScope = true;
+    }
+    var isOfflineCache = function (k) { return String(k).indexOf('linm-offline:') === 0; };
+    var isOfflineReg = function (r) {
+      var ws = [r.active, r.waiting, r.installing];
+      for (var wi = 0; wi < ws.length; wi++) {
+        if (ws[wi] && ws[wi].scriptURL && String(ws[wi].scriptURL).indexOf('/sw-offline.js') !== -1) return true;
+      }
+      /* No worker object yet: recognise it by its scope path. */
+      var scopePath = String(r.scope || '').replace(/^[a-z][a-z0-9+.-]*:\/\/[^\/]*/i, '');
+      for (var oi = 0; oi < offlineScopes.length; oi++) {
+        if (scopePath === offlineScopes[oi]) return true;
+      }
+      return false;
+    };
+    var reload = function () {
+      /* A form was opened meanwhile: keep the input; the next load runs this build. */
+      if (window.__LINM_DEFER_RELOAD__ === true) return;
+      location.reload();
+    };
+    var cleanupAndReload = function () {
         sessionStorage.setItem(GUARD, BUILD);
         localStorage.setItem(KEY, BUILD);
-        var reload = function () { location.reload(); };
         var pending = 1;
         var done = function () { pending -= 1; if (pending <= 0) reload(); };
         if (window.caches && caches.keys) {
           pending += 1;
           caches.keys().then(function (keys) {
-            return Promise.all(keys.map(function (k) { return caches.delete(k); }));
+            return Promise.all(keys.filter(function (k) { return !isOfflineCache(k); }).map(function (k) { return caches.delete(k); }));
           }).then(done).catch(done);
         }
         if (navigator.serviceWorker && navigator.serviceWorker.getRegistrations) {
           pending += 1;
           navigator.serviceWorker.getRegistrations().then(function (regs) {
-            return Promise.all(regs.map(function (r) { return r.unregister(); }));
+            return Promise.all(regs.filter(function (r) { return !isOfflineReg(r); }).map(function (r) { return r.unregister(); }));
           }).then(done).catch(done);
         }
         setTimeout(reload, 400);
+    };
+    try {
+      var prev = localStorage.getItem(KEY);
+      if (prev && prev !== BUILD) {
+        /* Offline inside an offline scope: this document is a stored copy — leave everything for the next online load. */
+        if (inOfflineScope && navigator.onLine === false) return;
+        if (sessionStorage.getItem(GUARD) === BUILD) {
+          localStorage.setItem(KEY, BUILD);
+          return;
+        }
+        /* Inside an offline scope the network may be dead though reported online: wipe and reload only on 'go'
+           ('skip' / 'defer': touch nothing, store no key — the next load tries again). */
+        if (inOfflineScope && typeof window.__LINM_MAY_RELOAD__ === 'function') {
+          window.__LINM_MAY_RELOAD__().then(function (decision) {
+            if (decision !== 'go') return;
+            try { cleanupAndReload(); } catch (e) { /* private mode */ }
+          });
+          return;
+        }
+        cleanupAndReload();
         return;
       }
       localStorage.setItem(KEY, BUILD);
@@ -61,19 +158,19 @@
 
   <!-- Favicon & PWA — allowChange overlays domain files onto /icons/* (same names) -->
   
-  <link rel="icon" type="image/svg+xml" href="/icons/logo.svg?v=1.16.0" />
-  <link rel="icon" type="image/png" sizes="32x32" href="/icons/logo.png?v=1.16.0" />
-  <link rel="icon" type="image/png" sizes="128x128" href="/icons/logo-128.png?v=1.16.0" />
-  <link rel="apple-touch-icon" sizes="192x192" href="/icons/icon-192.png?v=1.16.0" />
-  <link rel="apple-touch-icon" sizes="512x512" href="/icons/icon-512.png?v=1.16.0" />
+  <link rel="icon" type="image/svg+xml" href="/icons/logo.svg?v=1.17.0" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/icons/logo.png?v=1.17.0" />
+  <link rel="icon" type="image/png" sizes="128x128" href="/icons/logo-128.png?v=1.17.0" />
+  <link rel="apple-touch-icon" sizes="192x192" href="/icons/icon-192.png?v=1.17.0" />
+  <link rel="apple-touch-icon" sizes="512x512" href="/icons/icon-512.png?v=1.17.0" />
   
 
   <!-- PWA. Phone paths must emit /m.webmanifest on first parse — swapping later makes Chrome reject install. -->
   <meta name="theme-color" content="#4facfe" />
   <script>
   (function () {
-    var desktop = "/manifest.webmanifest?v=1.16.0";
-    var phoneManifest = "/m.webmanifest?v=1.16.0";
+    var desktop = "/manifest.webmanifest?v=1.17.0";
+    var phoneManifest = "/m.webmanifest?v=1.17.0";
     var path = location.pathname || '/';
     var phone = path === '/m' || path.indexOf('/m/') === 0;
     document.write('<link rel="manifest" href="' + (phone ? phoneManifest : desktop) + '" />');
@@ -97,13 +194,18 @@
       margin: 0;
       overflow-x: hidden;
     }
+    /* Desktop site: no double-tap page zoom. The phone frame zoom covers the layout. */
+    html.rmms-phone.web-app-desktop-site,
+    html.rmms-phone.web-app-desktop-site body {
+      touch-action: manipulation;
+    }
   </style>
   <script>
   (function () {
     var path = location.pathname || '/';
     var phone = path === '/m' || path.indexOf('/m/') === 0;
     if (!phone) return;
-    var installTouch = "/icons/icon-install-512.png?v=1.16.0";
+    var installTouch = "/icons/icon-install-512.png?v=1.17.0";
     var touches = document.querySelectorAll('link[rel="apple-touch-icon"]');
     for (var i = 0; i < touches.length; i++) {
       touches[i].setAttribute('href', installTouch);
@@ -171,7 +273,7 @@
         subTitle: "Quản lý sự cố y khoa",
         icon: "/icons/logo-128.png",
         iconFolder: "ubna",
-        assetQuery: "?v=1.16.0",
+        assetQuery: "?v=1.17.0",
         navMain: "UB Nghệ An",
         homeScreenTitle: "UB Nghệ An",
         phoneHomeScreenTitle: "UB Nghệ An(m)",
@@ -469,24 +571,107 @@
       var RELOAD_WINDOW_MS = 30 * 60 * 1000;  // 30 minutes
       var MAX_RELOADS = 3;
 
-      function scheduleDeployReload(reason, delayMs) {
-        delayMs = delayMs || 1500;
-        if (window.__LINM_DEPLOY_RELOAD_PENDING__) return true;
+      // count === false: only test the cap. Returns false when the cap is reached.
+      function deployReloadAllowed(count) {
         var now = Date.now();
         try {
           var raw = sessionStorage.getItem(RELOAD_KEY);
           var timestamps = raw ? JSON.parse(raw) : [];
           var recent = timestamps.filter(function(t) { return now - t < RELOAD_WINDOW_MS; });
           if (recent.length >= MAX_RELOADS) return false;
-          window.__LINM_DEPLOY_RELOAD_PENDING__ = true;
-          recent.push(now);
-          sessionStorage.setItem(RELOAD_KEY, JSON.stringify(recent));
+          if (count) {
+            recent.push(now);
+            sessionStorage.setItem(RELOAD_KEY, JSON.stringify(recent));
+          }
         } catch(e) {
           if (Number(sessionStorage.getItem('_mf_deploy_reload') || 0) >= 2) return false;
-          window.__LINM_DEPLOY_RELOAD_PENDING__ = true;
         }
-        console.warn('[DeployRecovery] ' + reason + ' — reloading in ' + delayMs + 'ms');
-        setTimeout(function() { window.location.reload(); }, delayMs);
+        return true;
+      }
+
+      // Ask the reload guard until it stops saying 'defer', then done('go' | 'skip').
+      // While deferred: re-ask when the page is hidden, on pagehide (navigation), and on a slow 60 s fallback tick.
+      function awaitReloadDecision(guard, done) {
+        var busy = false;
+        var finished = false;
+        var timer = null;
+        function onVisibility() {
+          if (document.visibilityState === 'hidden') evaluate();
+        }
+        function onPageHide() {
+          evaluate();
+        }
+        function evaluate() {
+          if (busy || finished) return;
+          busy = true;
+          var p;
+          try { p = Promise.resolve(guard()); } catch (e) { p = Promise.resolve('skip'); }
+          p.then(function(d) { return d; }, function() { return 'skip'; }).then(function(d) {
+            busy = false;
+            if (finished) return;
+            if (d === 'defer') {
+              if (timer === null) {
+                timer = setInterval(evaluate, 60 * 1000);
+                document.addEventListener('visibilitychange', onVisibility);
+                window.addEventListener('pagehide', onPageHide);
+              }
+              return;
+            }
+            finished = true;
+            if (timer !== null) clearInterval(timer);
+            document.removeEventListener('visibilitychange', onVisibility);
+            window.removeEventListener('pagehide', onPageHide);
+            done(d === 'go' ? 'go' : 'skip');
+          });
+        }
+        evaluate();
+      }
+
+      function scheduleDeployReload(reason, delayMs) {
+        delayMs = delayMs || 1500;
+        if (window.__LINM_DEPLOY_RELOAD_PENDING__) return true;
+        var guard = window.__LINM_MAY_RELOAD__;
+        if (typeof guard !== 'function') {
+          // No guard (no Promise support): unchanged behaviour.
+          if (!deployReloadAllowed(true)) return false;
+          window.__LINM_DEPLOY_RELOAD_PENDING__ = true;
+          console.warn('[DeployRecovery] ' + reason + ' — reloading in ' + delayMs + 'ms');
+          setTimeout(function() {
+            // No defer loop without Promise: a form in progress drops this reload.
+            if (window.__LINM_DEFER_RELOAD__ === true) { window.__LINM_DEPLOY_RELOAD_PENDING__ = false; return; }
+            window.location.reload();
+          }, delayMs);
+          return true;
+        }
+        if (!deployReloadAllowed(false)) return false;
+        window.__LINM_DEPLOY_RELOAD_PENDING__ = true;
+        var counted = false;
+        var start = function() {
+          awaitReloadDecision(guard, function(decision) {
+            if (decision !== 'go') {
+              window.__LINM_DEPLOY_RELOAD_PENDING__ = false;
+              console.warn('[DeployRecovery] ' + reason + ' — reload skipped (offline)');
+              return;
+            }
+            if (!counted) {
+              // A deferred reload may fire much later: count it (and re-check the cap) now.
+              var ok = false;
+              try { ok = deployReloadAllowed(true); } catch (e) { ok = false; }
+              if (!ok) {
+                window.__LINM_DEPLOY_RELOAD_PENDING__ = false;
+                return;
+              }
+              counted = true;
+              console.warn('[DeployRecovery] ' + reason + ' — reloading in ' + delayMs + 'ms');
+            }
+            setTimeout(function() {
+              // A form was opened during the delay: back into the defer loop.
+              if (window.__LINM_DEFER_RELOAD__ === true) { start(); return; }
+              window.location.reload();
+            }, delayMs);
+          });
+        };
+        start();
         return true;
       }
 
@@ -524,7 +709,7 @@
         }, true);
       }
 
-      var swUrl = '/sw.js?v=1.16.0';
+      var swUrl = '/sw.js?v=1.17.0';
 
       navigator.serviceWorker.register(swUrl, { updateViaCache: 'none' }).then(function(reg) {
         // Hourly update check — catches deploy when user is tabbed away for hours
@@ -536,7 +721,9 @@
             var go = function () { scheduleDeployReload('service worker activated', 400); };
             if (window.caches && caches.keys) {
               caches.keys().then(function (keys) {
-                return Promise.all(keys.map(function (k) { return caches.delete(k); }));
+                return Promise.all(keys.filter(function (k) {
+                  return String(k).indexOf('linm-offline:') !== 0;
+                }).map(function (k) { return caches.delete(k); }));
               }).then(go).catch(go);
             } else {
               go();
@@ -547,11 +734,110 @@
         console.warn('[PWA] Service worker registration failed:', err);
       });
 
+      // Offline worker: only for pages inside an offline scope (window.__LINM_OFFLINE_SCOPES__).
+      var offlineScope = null;
+      var offlineScopeList = window.__LINM_OFFLINE_SCOPES__ || [];
+      for (var osi = 0; osi < offlineScopeList.length; osi++) {
+        var osc = offlineScopeList[osi];
+        if (typeof osc === 'string' && osc && (location.pathname || '/').indexOf(osc) === 0) {
+          offlineScope = osc;
+          break;
+        }
+      }
+      if (offlineScope) {
+        var offlineSwUrl = '/sw-offline.js?v=1.17.0';
+        /* The document's URL as loaded (captured while this script is parsed; later history navigation does not change it). */
+        var docHref = location.href;
+        /* At most two sends: the first when the worker is active, one more about 10 s later or when the page is first hidden
+           (bundles requested before the worker controlled the page may still be downloading at the first snapshot;
+           the worker skips what it already stored). */
+        var warmSends = 0;
+        var sendWarm = function(worker) {
+          if (warmSends >= 2 || !worker) return;
+          warmSends += 1;
+          var urls = [docHref];
+          try {
+            if (window.performance && typeof performance.getEntriesByType === 'function') {
+              var origin = location.origin || (location.protocol + '//' + location.host);
+              var entries = performance.getEntriesByType('resource') || [];
+              for (var ei = 0; ei < entries.length; ei++) {
+                var name = entries[ei] && entries[ei].name;
+                if (typeof name === 'string' && name.indexOf(origin + '/') === 0) urls.push(name);
+              }
+            }
+          } catch (e) { /* keep the page URL only */ }
+          try {
+            worker.postMessage({ type: 'LINM_OFFLINE_WARM', urls: urls });
+          } catch (e) {
+            console.warn('[PWA] Offline warm-up message failed:', e);
+          }
+        };
+        var whenActive = function(reg, fn) {
+          if (reg.active) { fn(reg.active); return; }
+          var watch = function(w) {
+            if (!w) return false;
+            var onState = function() {
+              if (w.state === 'activated') {
+                w.removeEventListener('statechange', onState);
+                fn(reg.active || w);
+              }
+            };
+            w.addEventListener('statechange', onState);
+            return true;
+          };
+          if (watch(reg.installing || reg.waiting)) return;
+          var onUpdate = function() {
+            reg.removeEventListener('updatefound', onUpdate);
+            watch(reg.installing);
+          };
+          reg.addEventListener('updatefound', onUpdate);
+        };
+        var whenLoaded = function(fn) {
+          if (document.readyState === 'complete') { fn(); return; }
+          window.addEventListener('load', function onLoad() {
+            window.removeEventListener('load', onLoad);
+            fn();
+          });
+        };
+        try {
+          navigator.serviceWorker.register(offlineSwUrl, { scope: offlineScope, updateViaCache: 'none' }).then(function(reg) {
+            setInterval(function() {
+              var u = reg.update();
+              if (u && u.catch) u.catch(function() {});
+            }, 60 * 60 * 1000);
+            whenLoaded(function() {
+              whenActive(reg, function(worker) {
+                if (warmSends !== 0) return;
+                sendWarm(worker);
+                var againTimer = null;
+                var again = function() {
+                  if (againTimer !== null) clearTimeout(againTimer);
+                  document.removeEventListener('visibilitychange', onHidden);
+                  if (warmSends !== 1) return;
+                  sendWarm(reg.active || worker);
+                };
+                var onHidden = function() {
+                  if (document.visibilityState === 'hidden') again();
+                };
+                againTimer = setTimeout(again, 10000);
+                document.addEventListener('visibilitychange', onHidden);
+              });
+            });
+          }).catch(function(err) {
+            console.warn('[PWA] Offline service worker registration failed:', err);
+          });
+        } catch (err) {
+          console.warn('[PWA] Offline service worker registration failed:', err);
+        }
+      }
+
       // Long-lived tab: refetch manifest when user returns — reload if a new deploy landed.
       document.addEventListener('visibilitychange', function() {
         if (document.visibilityState !== 'visible') return;
         var base = window.__LINM_MANIFEST_FILE__ || '/_manifest.json';
-        fetch(base + '?_=' + Date.now(), { cache: 'no-store', headers: { Pragma: 'no-cache' } })
+        // Inside an offline scope: probe marker = network only (the offline worker must not answer with its older stored copy).
+        var query = offlineScope ? '?linm-probe=1&_=' : '?_=';
+        fetch(base + query + Date.now(), { cache: 'no-store', headers: { Pragma: 'no-cache' } })
           .then(function(r) { return r.ok ? r.json() : null; })
           .then(function(m) {
             if (!m || !m.timestamp) return;

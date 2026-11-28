@@ -5359,12 +5359,277 @@ function setupPermissionsBootstrap() {
   }
   sync();
 }
+;// ./src/libs/offline/reloadGuard.ts
+
+
+function reloadGuard_createForOfIteratorHelper(r, e) { var t = "undefined" != typeof Symbol && r[Symbol.iterator] || r["@@iterator"]; if (!t) { if (Array.isArray(r) || (t = reloadGuard_unsupportedIterableToArray(r)) || e && r && "number" == typeof r.length) { t && (r = t); var _n = 0, F = function F() {}; return { s: F, n: function n() { return _n >= r.length ? { done: !0 } : { done: !1, value: r[_n++] }; }, e: function e(r) { throw r; }, f: F }; } throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); } var o, a = !0, u = !1; return { s: function s() { t = t.call(r); }, n: function n() { var r = t.next(); return a = r.done, r; }, e: function e(r) { u = !0, o = r; }, f: function f() { try { a || null == t.return || t.return(); } finally { if (u) throw o; } } }; }
+function reloadGuard_unsupportedIterableToArray(r, a) { if (r) { if ("string" == typeof r) return reloadGuard_arrayLikeToArray(r, a); var t = {}.toString.call(r).slice(8, -1); return "Object" === t && r.constructor && (t = r.constructor.name), "Map" === t || "Set" === t ? Array.from(r) : "Arguments" === t || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(t) ? reloadGuard_arrayLikeToArray(r, a) : void 0; } }
+function reloadGuard_arrayLikeToArray(r, a) { (null == a || a > r.length) && (a = r.length); for (var e = 0, n = Array(a); e < a; e++) n[e] = r[e]; return n; }
+/**
+ * "May the shell reload now?" — the single decision table shared by every
+ * clean-up-and-reload path (plan decision 7).
+ *
+ * The inline `window.__LINM_MAY_RELOAD__` in `src/index.ejs` implements the same
+ * table in plain ES5; keep both in step. This file is the tested twin used by
+ * `deployRecovery.ts` when the inline function is absent (local builds, tests).
+ */
+
+var PROBE_TIMEOUT_MS = 4000;
+/** The offline scope `pathname` falls under, or null. `/m/` contains `/m/` and `/m/x`, not `/m` or `/mas`. */
+function offlineScopeOf(pathname, scopes) {
+  if (!pathname || !scopes) return null;
+  var _iterator = reloadGuard_createForOfIteratorHelper(scopes),
+    _step;
+  try {
+    for (_iterator.s(); !(_step = _iterator.n()).done;) {
+      var scope = _step.value;
+      if (typeof scope === 'string' && scope && pathname.indexOf(scope) === 0) return scope;
+    }
+  } catch (err) {
+    _iterator.e(err);
+  } finally {
+    _iterator.f();
+  }
+  return null;
+}
+
+/**
+ * The offline scope the document was LOADED under, or null. `declared` is
+ * `window.__LINM_DOC_OFFLINE_SCOPE__` (set once by the HTML document: the scope, or '' for none);
+ * when it is absent (older HTML, local builds, tests) the live path decides, as before.
+ */
+function loadedOfflineScope(declared, pathname, scopes) {
+  if (typeof declared === 'string') return declared || null;
+  return offlineScopeOf(pathname, scopes);
+}
+/** 'go' | 'defer' | 'skip'. Outside offline scopes: 'go' unless deferred ('defer'). Inside: deferred → 'defer'; !onLine → 'skip'; probe false → 'skip'; else 'go'. Never rejects. */
+function mayReload(_x) {
+  return _mayReload.apply(this, arguments);
+}
+
+/** Slow fallback tick while deferred (a page left visible forever still reloads eventually). */
+function _mayReload() {
+  _mayReload = _asyncToGenerator(/*#__PURE__*/regenerator_default().mark(function _callee(deps) {
+    var reachable, _t;
+    return regenerator_default().wrap(function (_context) {
+      while (1) switch (_context.prev = _context.next) {
+        case 0:
+          _context.prev = 0;
+          if (!deps.deferred()) {
+            _context.next = 1;
+            break;
+          }
+          return _context.abrupt("return", 'defer');
+        case 1:
+          if (offlineScopeOf(deps.pathname(), deps.scopes())) {
+            _context.next = 2;
+            break;
+          }
+          return _context.abrupt("return", 'go');
+        case 2:
+          if (deps.onLine()) {
+            _context.next = 3;
+            break;
+          }
+          return _context.abrupt("return", 'skip');
+        case 3:
+          _context.next = 4;
+          return deps.probe();
+        case 4:
+          reachable = _context.sent;
+          if (!deps.deferred()) {
+            _context.next = 5;
+            break;
+          }
+          return _context.abrupt("return", 'defer');
+        case 5:
+          return _context.abrupt("return", reachable ? 'go' : 'skip');
+        case 6:
+          _context.prev = 6;
+          _t = _context["catch"](0);
+          return _context.abrupt("return", 'skip');
+        case 7:
+        case "end":
+          return _context.stop();
+      }
+    }, _callee, null, [[0, 6]]);
+  }));
+  return _mayReload.apply(this, arguments);
+}
+var DEFER_RECHECK_MS = 60000;
+/**
+ * Ask `decide` until it stops saying 'defer', then call `done` once with 'go' or 'skip'.
+ * While deferred (plan decision 7): re-ask when the document becomes hidden, on `pagehide`
+ * (navigation), and on a slow DEFER_RECHECK_MS fallback tick; never two questions in flight.
+ */
+function awaitReloadDecision(decide, done) {
+  var doc = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : document;
+  var win = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : window;
+  var recheckMs = arguments.length > 4 && arguments[4] !== undefined ? arguments[4] : DEFER_RECHECK_MS;
+  var onPageHide = function onPageHide() {
+    return evaluate();
+  };
+  var busy = false;
+  var finished = false;
+  var timer = null;
+  var onVisibility = function onVisibility() {
+    if (doc.visibilityState === 'hidden') evaluate();
+  };
+  var stop = function stop() {
+    if (timer !== null) clearInterval(timer);
+    timer = null;
+    doc.removeEventListener('visibilitychange', onVisibility);
+    win.removeEventListener('pagehide', onPageHide);
+  };
+  function evaluate() {
+    if (busy || finished) return;
+    busy = true;
+    var p;
+    try {
+      p = Promise.resolve(decide());
+    } catch (_unused) {
+      p = Promise.resolve('skip');
+    }
+    p.then(function (d) {
+      return d;
+    }, function () {
+      return 'skip';
+    }).then(function (d) {
+      busy = false;
+      if (finished) return;
+      if (d === 'defer') {
+        if (timer === null) {
+          timer = setInterval(evaluate, recheckMs);
+          doc.addEventListener('visibilitychange', onVisibility);
+          win.addEventListener('pagehide', onPageHide);
+        }
+        return;
+      }
+      finished = true;
+      stop();
+      done(d);
+    });
+  }
+  evaluate();
+}
+/**
+ * Guarded reload: wait for the decision, count it once, reload after `delayMs` — unless the
+ * defer flag became true during the delay, in which case go back into the defer loop.
+ */
+function runGuardedReload(opts) {
+  var counted = false;
+  var _start = function start() {
+    awaitReloadDecision(opts.decide, function (decision) {
+      if (decision === 'skip') {
+        opts.onSkip();
+        return;
+      }
+      if (!counted) {
+        if (!opts.onGo()) return;
+        counted = true;
+      }
+      setTimeout(function () {
+        if (opts.deferred()) {
+          _start();
+          return;
+        }
+        opts.reload();
+      }, opts.delayMs);
+    }, opts.doc, opts.win);
+  };
+  _start();
+}
+/** True when the probe request got any response within PROBE_TIMEOUT_MS. Never rejects. */
+function probeManifest(fetchFn) {
+  var now = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : Date.now;
+  var timeoutMs = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : PROBE_TIMEOUT_MS;
+  return new Promise(function (resolve) {
+    var settled = false;
+    var finish = function finish(value) {
+      if (settled) return;
+      settled = true;
+      clearTimeout(timer);
+      resolve(value);
+    };
+    var timer = setTimeout(function () {
+      return finish(false);
+    }, timeoutMs);
+    try {
+      fetchFn("/_manifest.json?linm-probe=1&_=".concat(now()), {
+        cache: 'no-store'
+      }).then(function () {
+        return finish(true);
+      }, function () {
+        return finish(false);
+      });
+    } catch (_unused2) {
+      finish(false);
+    }
+  });
+}
 ;// ./src/libs/startup/deployRecovery.ts
+
 var RELOAD_KEY = '_mf_deploy_reload_ts';
 var RELOAD_WINDOW_MS = 30 * 60 * 1000; // 30 minutes
 var MAX_RELOADS_IN_WINDOW = 3;
 var HANDLER_FLAG = '__LINM_DEPLOY_CHUNK_RECOVERY__';
 var PENDING_FLAG = '__LINM_DEPLOY_RELOAD_PENDING__';
+/** GuardDeps read from the live window (used when the inline guard is absent: local builds, tests). */
+function windowGuardDeps() {
+  var w = window;
+  // Decided from the URL the document was loaded at (a later history navigation does not
+  // change what a reload would fetch from); without the load-time fact, the live path.
+  var loaded = function loaded() {
+    return w.__LINM_DOC_OFFLINE_SCOPE__;
+  };
+  var liveScopes = function liveScopes() {
+    return Array.isArray(w.__LINM_OFFLINE_SCOPES__) ? w.__LINM_OFFLINE_SCOPES__ : [];
+  };
+  return {
+    pathname: function pathname() {
+      var d = loaded();
+      return typeof d === 'string' ? d : window.location.pathname || '/';
+    },
+    scopes: function scopes() {
+      var d = loaded();
+      if (typeof d === 'string') return d ? [d] : [];
+      return liveScopes();
+    },
+    deferred: function deferred() {
+      return w.__LINM_DEFER_RELOAD__ === true;
+    },
+    onLine: function onLine() {
+      return navigator.onLine !== false;
+    },
+    probe: function probe() {
+      return probeManifest(function (url, init) {
+        return fetch(url, init);
+      });
+    }
+  };
+}
+
+/** Prefer the inline `window.__LINM_MAY_RELOAD__` (one implementation at runtime); else the tested twin. Never rejects. */
+function mayReloadNow() {
+  var w = window;
+  if (typeof w.__LINM_MAY_RELOAD__ === 'function') {
+    try {
+      return Promise.resolve(w.__LINM_MAY_RELOAD__()).catch(function () {
+        return mayReload(windowGuardDeps());
+      });
+    } catch (_unused) {
+      /* fall through */
+    }
+  }
+  return mayReload(windowGuardDeps());
+}
+function recentReloads(now) {
+  var raw = sessionStorage.getItem(RELOAD_KEY);
+  var timestamps = raw ? JSON.parse(raw) : [];
+  return timestamps.filter(function (t) {
+    return now - t < RELOAD_WINDOW_MS;
+  });
+}
 
 /** Errors typical when static assets 404 or HTML is served during a deploy window. */
 function isDeployRelatedLoadError(error) {
@@ -5380,29 +5645,63 @@ function isDeployRelatedLoadError(error) {
  * reload loop when entry loads but lazy chunks still return SPA HTML.
  *
  * Window flag dedupes ejs + root-config handlers firing on the same error.
+ *
+ * The reload itself waits for the reload guard (`mayReloadNow`): 'go' reloads as
+ * before; 'skip' (offline inside an offline scope) drops the request without counting
+ * it and clears the pending flag; 'defer' (form in progress) keeps it pending until the
+ * flag is false and the page is hidden / navigates (or the 60 s fallback tick). The defer
+ * flag is re-checked right before reloading. Returns true when a reload is requested
+ * (subject to the guard) or already pending, false when the cap is reached (unchanged).
  */
 function scheduleDeployReload(reason) {
   var delayMs = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 3000;
   var w = window;
   if (w[PENDING_FLAG]) return true;
-  var now = Date.now();
-  var raw = sessionStorage.getItem(RELOAD_KEY);
-  var timestamps = raw ? JSON.parse(raw) : [];
-  var recent = timestamps.filter(function (t) {
-    return now - t < RELOAD_WINDOW_MS;
-  });
-  if (recent.length >= MAX_RELOADS_IN_WINDOW) {
-    console.warn("[DeployRecovery] Reload cap (".concat(MAX_RELOADS_IN_WINDOW, " within ").concat(RELOAD_WINDOW_MS / 60000, "min) \u2014 waiting for window to expire"));
+  if (recentReloads(Date.now()).length >= MAX_RELOADS_IN_WINDOW) {
+    warnReloadCap();
     return false;
   }
   w[PENDING_FLAG] = true;
-  recent.push(now);
-  sessionStorage.setItem(RELOAD_KEY, JSON.stringify(recent));
-  console.warn("[DeployRecovery] ".concat(reason, " \u2014 reloading in ").concat(delayMs, "ms (").concat(recent.length, "/").concat(MAX_RELOADS_IN_WINDOW, " within 30min window)"));
-  setTimeout(function () {
-    return window.location.reload();
-  }, delayMs);
+  console.warn("[DeployRecovery] ".concat(reason, " \u2014 reload requested (subject to guard)"));
+  runGuardedReload({
+    decide: mayReloadNow,
+    deferred: function deferred() {
+      return w.__LINM_DEFER_RELOAD__ === true;
+    },
+    delayMs: delayMs,
+    onSkip: function onSkip() {
+      w[PENDING_FLAG] = false;
+      console.warn("[DeployRecovery] ".concat(reason, " \u2014 reload skipped (offline)"));
+    },
+    onGo: function onGo() {
+      // A deferred reload may fire much later: re-check the cap at that moment.
+      var now = Date.now();
+      try {
+        var recent = recentReloads(now);
+        if (recent.length >= MAX_RELOADS_IN_WINDOW) {
+          w[PENDING_FLAG] = false;
+          warnReloadCap();
+          return false;
+        }
+        recent.push(now);
+        sessionStorage.setItem(RELOAD_KEY, JSON.stringify(recent));
+        console.warn("[DeployRecovery] ".concat(reason, " \u2014 reloading in ").concat(delayMs, "ms (").concat(recent.length, "/").concat(MAX_RELOADS_IN_WINDOW, " within 30min window)"));
+        return true;
+      } catch (e) {
+        // Unusable storage means no counted reload.
+        w[PENDING_FLAG] = false;
+        console.warn('[DeployRecovery] reload counter unavailable — not reloading', e);
+        return false;
+      }
+    },
+    reload: function reload() {
+      return window.location.reload();
+    }
+  });
   return true;
+}
+function warnReloadCap() {
+  console.warn("[DeployRecovery] Reload cap (".concat(MAX_RELOADS_IN_WINDOW, " within ").concat(RELOAD_WINDOW_MS / 60000, "min) \u2014 waiting for window to expire"));
 }
 
 /**
@@ -6705,6 +7004,21 @@ function getOrCreateBrowserDeviceId() {
   localStorage.setItem(DEVICE_ID_KEY, created);
   return created;
 }
+;// ./src/libs/auth/refreshOutcome.ts
+/** Pure decisions for the token-refresh path (no I/O). */
+
+/** thrown fetch → 'network'; response.ok → 'ok'; any other response → 'rejected'. */
+function classifyRefresh(r) {
+  if (r.thrown) return 'network';
+  return r.ok ? 'ok' : 'rejected';
+}
+
+/** What the 401 handler does next. Outside offline scopes 'network' behaves like 'rejected' (today's behaviour). */
+function afterRefresh(result, inOfflineScope) {
+  if (result === 'ok') return 'retry';
+  if (result === 'network' && inOfflineScope) return 'keep-session';
+  return 'end-session';
+}
 ;// ./src/libs/auth/authTokenRefresh.ts
 
 
@@ -6717,7 +7031,9 @@ function authTokenRefresh_arrayLikeToArray(r, a) { (null == a || a > r.length) &
 /**
  * SSOT: @linm-soft-org/linm-web-common-components/src/services/authTokenRefresh.ts
  * Root bundles this copy — keep in sync on common-components publish.
+ * Root-only: network-failed refresh keeps the session inside offline scopes (2026-11-28) — carry to common-components at the next sync.
  */
+
 
 
 
@@ -6727,6 +7043,7 @@ function authTokenRefresh_arrayLikeToArray(r, a) { (null == a || a > r.length) &
 
 var AUTH_FETCH_SKIP_REFRESH_HEADER = 'X-Linm-Skip-Auth-Refresh';
 var refreshPromise = null;
+var lastResult = null;
 var nativeFetch = null;
 var preemptiveTimerId = null;
 function setAuthRefreshNativeFetch(fetchFn) {
@@ -6843,23 +7160,30 @@ var _preRefreshVersion = 0;
 
 // ── Silent refresh core ────────────────────────────────────────────────────
 
+/** Outcome of the most recent refresh attempt (set before the shared promise resolves). */
+function lastRefreshResult() {
+  return lastResult;
+}
 function tryRefreshToken() {
   if (refreshPromise) return refreshPromise;
   refreshPromise = _asyncToGenerator(/*#__PURE__*/regenerator_default().mark(function _callee() {
-    var rt, _parseRefreshTokenFro, res, data, accessToken, newRefreshToken, prev, nextUser, _t;
+    var outcome, rt, _parseRefreshTokenFro, res, data, accessToken, newRefreshToken, prev, nextUser, _t, _t2;
     return regenerator_default().wrap(function (_context) {
       while (1) switch (_context.prev = _context.next) {
         case 0:
+          outcome = 'rejected';
           rt = getAuthRefreshToken();
           if (rt) {
             _context.next = 1;
             break;
           }
+          lastResult = outcome;
           return _context.abrupt("return", false);
         case 1:
           _preRefreshVersion = getCrossTabTokenVersion();
           _context.prev = 2;
-          _context.next = 3;
+          _context.prev = 3;
+          _context.next = 4;
           return getFetch()(resolveAuthRefreshUrl(), {
             method: 'POST',
             headers: _defineProperty(_defineProperty({
@@ -6869,33 +7193,49 @@ function tryRefreshToken() {
               refreshToken: rt
             })
           });
-        case 3:
-          res = _context.sent;
-          if (res.ok) {
-            _context.next = 4;
-            break;
-          }
-          return _context.abrupt("return", false);
         case 4:
-          _context.next = 5;
-          return res.json();
+          res = _context.sent;
+          _context.next = 6;
+          break;
         case 5:
-          data = _context.sent;
-          accessToken = parseAccessTokenFromAuthResponse(data);
-          if (accessToken) {
-            _context.next = 6;
-            break;
-          }
-          console.error('[auth] Refresh response missing access token');
-          return _context.abrupt("return", false);
+          _context.prev = 5;
+          _t = _context["catch"](3);
+          outcome = classifyRefresh({
+            thrown: true
+          });
+          throw _t;
         case 6:
-          if (!(getCrossTabTokenVersion() !== _preRefreshVersion)) {
+          outcome = classifyRefresh({
+            thrown: false,
+            ok: res.ok
+          });
+          if (res.ok) {
             _context.next = 7;
             break;
           }
-          console.info('[auth] Cross-tab token update detected during refresh — using peer tokens');
-          return _context.abrupt("return", getAuthToken() !== null);
+          return _context.abrupt("return", false);
         case 7:
+          _context.next = 8;
+          return res.json();
+        case 8:
+          data = _context.sent;
+          accessToken = parseAccessTokenFromAuthResponse(data);
+          if (accessToken) {
+            _context.next = 9;
+            break;
+          }
+          console.error('[auth] Refresh response missing access token');
+          outcome = 'rejected';
+          return _context.abrupt("return", false);
+        case 9:
+          if (!(getCrossTabTokenVersion() !== _preRefreshVersion)) {
+            _context.next = 10;
+            break;
+          }
+          console.info('[auth] Cross-tab token update detected during refresh — using peer tokens');
+          outcome = getAuthToken() !== null ? 'ok' : 'rejected';
+          return _context.abrupt("return", getAuthToken() !== null);
+        case 10:
           setAuthTokens({
             accessToken: accessToken,
             refreshToken: (_parseRefreshTokenFro = parseRefreshTokenFromAuthResponse(data)) !== null && _parseRefreshTokenFro !== void 0 ? _parseRefreshTokenFro : undefined
@@ -6915,20 +7255,24 @@ function tryRefreshToken() {
           }
 
           // Same access string is still a success — a false return hard-reloads /m/dang-nhap.
+          outcome = getAuthToken() !== null ? 'ok' : 'rejected';
           return _context.abrupt("return", getAuthToken() !== null);
-        case 8:
-          _context.prev = 8;
-          _t = _context["catch"](2);
+        case 11:
+          _context.prev = 11;
+          _t2 = _context["catch"](2);
+          // A body-read/parse failure after the server answered stays 'rejected'; only a thrown fetch is 'network'.
+          if (outcome === 'ok') outcome = 'rejected';
           return _context.abrupt("return", false);
-        case 9:
-          _context.prev = 9;
+        case 12:
+          _context.prev = 12;
+          lastResult = outcome;
           refreshPromise = null;
-          return _context.finish(9);
-        case 10:
+          return _context.finish(12);
+        case 13:
         case "end":
           return _context.stop();
       }
-    }, _callee, null, [[2, 8, 9, 10]]);
+    }, _callee, null, [[2, 11, 12, 13], [3, 5]]);
   }))();
   return refreshPromise;
 }
@@ -6992,7 +7336,10 @@ function authFetchInterceptor_ownKeys(e, r) { var t = Object.keys(e); if (Object
 function authFetchInterceptor_objectSpread(e) { for (var r = 1; r < arguments.length; r++) { var t = null != arguments[r] ? arguments[r] : {}; r % 2 ? authFetchInterceptor_ownKeys(Object(t), !0).forEach(function (r) { _defineProperty(e, r, t[r]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(t)) : authFetchInterceptor_ownKeys(Object(t)).forEach(function (r) { Object.defineProperty(e, r, Object.getOwnPropertyDescriptor(t, r)); }); } return e; }
 /**
  * SSOT: @linm-soft-org/linm-web-common-components/src/services/authFetchInterceptor.ts
+ * Root-only: network-failed refresh keeps the session inside offline scopes (2026-11-28) — carry to common-components at the next sync.
  */
+
+
 
 
 
@@ -7060,7 +7407,7 @@ function installAuthFetchInterceptor() {
   window.fetch = /*#__PURE__*/function () {
     var _ref = _asyncToGenerator(/*#__PURE__*/regenerator_default().mark(function _callee(input, init) {
       var _init$headers2, _init2;
-      var rawUrl, url, _init$headers, _init, deviceHeaders, deviceId, skipHeaders, response, refreshed, newToken, retryResponse, _init3, headers, activeCompanyCode;
+      var rawUrl, url, _init$headers, _init, deviceHeaders, deviceId, skipHeaders, response, refreshed, _window$__LINM_OFFLIN, _lastRefreshResult, inOfflineScope, newToken, retryResponse, _init3, headers, activeCompanyCode;
       return regenerator_default().wrap(function (_context) {
         while (1) switch (_context.prev = _context.next) {
           case 0:
@@ -7123,22 +7470,30 @@ function installAuthFetchInterceptor() {
           case 6:
             refreshed = _context.sent;
             if (refreshed) {
-              _context.next = 7;
-              break;
-            }
-            redirectToLoginAfterAuthFailure();
-            return _context.abrupt("return", response);
-          case 7:
-            newToken = getAuthTokenForRetry();
-            if (newToken) {
               _context.next = 8;
               break;
             }
+            // Applies to a document LOADED inside an offline scope (wherever it navigated since).
+            inOfflineScope = loadedOfflineScope(window.__LINM_DOC_OFFLINE_SCOPE__, window.location.pathname, (_window$__LINM_OFFLIN = window.__LINM_OFFLINE_SCOPES__) !== null && _window$__LINM_OFFLIN !== void 0 ? _window$__LINM_OFFLIN : []) !== null;
+            if (!(afterRefresh((_lastRefreshResult = lastRefreshResult()) !== null && _lastRefreshResult !== void 0 ? _lastRefreshResult : 'rejected', inOfflineScope) === 'keep-session')) {
+              _context.next = 7;
+              break;
+            }
+            return _context.abrupt("return", response);
+          case 7:
             redirectToLoginAfterAuthFailure();
             return _context.abrupt("return", response);
           case 8:
+            newToken = getAuthTokenForRetry();
+            if (newToken) {
+              _context.next = 9;
+              break;
+            }
+            redirectToLoginAfterAuthFailure();
+            return _context.abrupt("return", response);
+          case 9:
             if (!(input instanceof Request)) {
-              _context.next = 10;
+              _context.next = 11;
               break;
             }
             headers = new Headers(input.headers);
@@ -7150,25 +7505,25 @@ function installAuthFetchInterceptor() {
             headers.set('Authorization', "Bearer ".concat(newToken));
             activeCompanyCode = getActiveCompanyCode();
             if (activeCompanyCode) headers.set(X_COMPANY_ID_HEADER, activeCompanyCode);
-            _context.next = 9;
+            _context.next = 10;
             return nativeFetch(new Request(input, {
               headers: headers
             }));
-          case 9:
-            retryResponse = _context.sent;
-            _context.next = 12;
-            break;
           case 10:
-            _context.next = 11;
-            return nativeFetch(input, buildRetryRequestInit(input, init, newToken));
-          case 11:
             retryResponse = _context.sent;
+            _context.next = 13;
+            break;
+          case 11:
+            _context.next = 12;
+            return nativeFetch(input, buildRetryRequestInit(input, init, newToken));
           case 12:
+            retryResponse = _context.sent;
+          case 13:
             if (retryResponse.status === 401) {
               redirectToLoginAfterAuthFailure();
             }
             return _context.abrupt("return", retryResponse);
-          case 13:
+          case 14:
           case "end":
             return _context.stop();
         }
